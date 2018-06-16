@@ -19,3 +19,7 @@ function Player(name, room) {
 function createNewPlayer(name) {
   player = new Player(name, roomMap.room1);
 }
+
+function loadPlayer() {
+  player = playerFromStorage();
+}

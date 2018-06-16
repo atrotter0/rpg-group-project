@@ -30,4 +30,8 @@ $(document).ready(function() {
     var playerName = $("#player-name").val();
     runNewGame(playerName);
   });
+
+  $("#load-game").click(function() {
+    loadPlayer();
+  });
 });

@@ -1,3 +1,7 @@
+.btn:focus {
+  outline: none;
+}
+
 #new-game-box {
   display: none;
 }

@@ -11,12 +11,34 @@ function runExample() {
   var room1 = new Room("room1", "Dark Cavern", [snake1], [potion1, armor1]);
   var player = new Player("Test");
   player.spells.push(firebolt1);
-  //console.log(player);
+  console.log(player);
+}
+
+function playerFromStorage() {
+  if (checkStorage()) {
+    return getPlayer();
+  } else {
+    aler("No player data found.");
+  }
+}
+
+function checkStorage() {
+  if (localStorage.getItem("rpg-game")) return true;
+}
+
+function getPlayer() {
+  var player = JSON.parse(localStorage.getItem("rpg-game"));
+  return player;
+}
+
+function addToStorage(playerObject) {
+  var key = "rpg-game";
+  var object = JSON.stringify(playerObject);
+  localStorage.setItem(key, object);
 }
 
 $(document).ready(function() {
   console.log("init.js loaded!");
-  runExample();
 
   // run builds here after page loads
   buildRooms();
