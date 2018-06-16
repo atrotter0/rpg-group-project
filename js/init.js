@@ -18,7 +18,7 @@ function playerFromStorage() {
   if (checkStorage()) {
     return getPlayer();
   } else {
-    aler("No player data found.");
+    alert("No player data found.");
   }
 }
 
@@ -35,6 +35,10 @@ function addToStorage(playerObject) {
   var key = "rpg-game";
   var object = JSON.stringify(playerObject);
   localStorage.setItem(key, object);
+}
+
+function clearStorage() {
+  localStorage.removeItem("rpg-game");
 }
 
 $(document).ready(function() {
