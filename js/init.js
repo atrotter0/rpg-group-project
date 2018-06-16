@@ -1,6 +1,7 @@
 // Game init
 
-//object instantiation examples:
+// object instantiation examples:
+// remove this example before prod push
 function runExample() {
   var firebolt1 = new Spell("firebolt1", "Firebolt", "Fire");
   var armor1 = new Item("armor1", "Mythril Plate", "Armor", 1, 0, 0, 0);
@@ -10,10 +11,13 @@ function runExample() {
   var room1 = new Room("room1", "Dark Cavern", [snake1], [potion1, armor1]);
   var player = new Player("Test");
   player.spells.push(firebolt1);
-  console.log(player);
+  //console.log(player);
 }
 
 $(document).ready(function() {
   console.log("init.js loaded!");
   runExample();
+
+  // run builds here after page loads
+  buildRooms();
 });

@@ -1,4 +1,5 @@
 // Item
+console.log("item.js loaded!");
 
 function Item(id, name, type, hp, ap, sp, mp) {
   this.id = id;
@@ -9,7 +10,3 @@ function Item(id, name, type, hp, ap, sp, mp) {
   this.addSp = sp;
   this.addMp = mp;
 }
-
-$(document).ready(function() {
-  console.log("item.js loaded!");
-});
