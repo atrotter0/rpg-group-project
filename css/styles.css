@@ -2,6 +2,10 @@
   outline: none;
 }
 
+.fancy-shadow {
+  text-shadow: ;
+}
+
 /*************/
 /* ALERT MSG */
 /*************/
@@ -19,7 +23,6 @@
 /*************/
 
 #main-menu {
-  outline: 1px solid red;
   font-family: 'Press Start 2P', cursive;
 }
 
@@ -43,11 +46,34 @@
   width: 70%;
   margin: 10px auto;
   text-align: center;
-  ppadding: 10px;
 }
 
 #new-game-box {
   display: none;
+}
+
+.btn-main-menu {
+  background-color: #333;
+  color: #fff;
+  transition: 0.5s;
+}
+
+.btn-main-menu:hover {
+  border-color: #66b6e6;
+  box-shadow: 2px 2px 10px #4e4e4e;
+  background-color: #5ba3ce;
+  color: #fff;
+  transition: 0.5s;
+}
+
+.btn-main-menu:focus {
+  background-color: #333;
+  color: #fff;
+  transition: 0.5s;
+}
+
+.btn-icon {
+  width: 50px;
 }
 
 
