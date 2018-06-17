@@ -1,6 +1,9 @@
 // Player
+console.log("player.js loaded!");
 
-function Player(name) {
+var player = {};
+
+function Player(name, room) {
   this.name = name;
   this.level = 1;
   this.hp = 10;
@@ -10,8 +13,14 @@ function Player(name) {
   this.spells = [];
   this.items = [];
   this.xp = 0;
+  this.room = room;
 }
 
-$(document).ready(function() {
-  console.log("player.js loaded!");
-});
+function createNewPlayer(name) {
+  player = new Player(name, roomMap.room1);
+  saveGame(player);
+}
+
+function loadPlayer() {
+  player = playerFromStorage();
+}

@@ -1,5 +1,7 @@
-// Item Dictionary
+// Item
+console.log("item.js loaded!");
 
+// Item Dictionary
 function ItemDictionary() {
   this.populateItems();
 }
@@ -54,7 +56,6 @@ ItemDictionary.prototype.populateItems = function() {
 }
 
 // Item Constructor
-
 function Item(id, name, type, hp, ap, sp, mp) {
   this.id = id; // Unique single digit number (e.g, 3)
   this.name = name; // String (e.g, "Sword of Woe")
@@ -64,7 +65,3 @@ function Item(id, name, type, hp, ap, sp, mp) {
   this.spellBonus = sp;
   this.manaBonus = mp;
 }
-
-$(document).ready(function() {
-  console.log("item.js loaded!");
-});

@@ -1,4 +1,5 @@
 // Enemy
+console.log("enemy.js loaded!");
 
 function Enemy(id, name, hp, dmg, xp, loot) {
   this.id = id;
@@ -9,7 +10,3 @@ function Enemy(id, name, hp, dmg, xp, loot) {
   this.loot = [];
   this.gp = 1;
 }
-
-$(document).ready(function() {
-  console.log("enemy.js loaded!");
-});
