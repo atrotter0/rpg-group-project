@@ -2,6 +2,58 @@
   outline: none;
 }
 
+/*************/
+/* ALERT MSG */
+/*************/
+
+.alert {
+  font-weight: bold;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  text-align: center;
+}
+
+/*************/
+/* MAIN MENU */
+/*************/
+
+#main-menu {
+  outline: 1px solid red;
+  font-family: 'Press Start 2P', cursive;
+}
+
+#main-menu-header h1 {
+  text-align: center;
+}
+
+#main-menu-header img {
+  display: block;
+  margin: 20px auto;
+  width: 70%;
+  max-width: 800px;
+}
+
+#main-menu-options {
+  text-align: center;
+}
+
+#main-menu-player-name {
+  height: 50px;
+  width: 70%;
+  margin: 10px auto;
+  text-align: center;
+  ppadding: 10px;
+}
+
 #new-game-box {
   display: none;
+}
+
+
+/* Responsive Styles */
+@media screen and (max-width: 715px) {
+  #main-menu-header img {
+    width: 90%;
+  }
 }

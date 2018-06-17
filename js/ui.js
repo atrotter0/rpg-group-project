@@ -1,6 +1,6 @@
 // UI
 
-function hideMainMenu() {
+function hideMenuOptions() {
   $("#new-game").hide();
   $("#load-game").hide();
 }
@@ -10,8 +10,17 @@ function displayNewGameBox() {
 }
 
 function runNewGame(playerName) {
+  if (!validate(playerName)) alertError("You need to enter a valid name.");
   createNewPlayer(playerName, roomMap.room1);
   //showRoom(player);
+}
+
+function validate(value) {
+  if (value !== "") return true;
+}
+
+function alertError(msg) {
+  $("#alert-field").text(msg).removeClass("alert-success").addClass("alert-danger").fadeIn(800).delay(3000).fadeOut(1000);
 }
 
 function showRoom(player) {
@@ -22,12 +31,12 @@ $(document).ready(function() {
   console.log("ui.js loaded!");
 
   $("#new-game").click(function() {
-    hideMainMenu();
+    hideMenuOptions();
     displayNewGameBox();
   });
 
   $("#confirm-name").click(function() {
-    var playerName = $("#player-name").val();
+    var playerName = $("#main-menu-player-name").val();
     runNewGame(playerName);
   });
 

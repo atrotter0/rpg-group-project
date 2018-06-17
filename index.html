@@ -7,6 +7,7 @@
   <!--   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link href="css/styles.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="js/spell.js"></script>
   <script src="js/item.js"></script>
@@ -20,15 +21,22 @@
   <script src="js/init.js"></script>
 </head>
 <body>
+  <div class="alert" id="alert-field"></div>
   <div class="container">
-    <div class="start-screen">
-      <button type="button" class="btn btn-default" id="new-game">New Game</button>
-      <div id="new-game-box">
-        <label for="player-name">Enter your character's name:</label>
-        <input type="text" class="form-control" id="player-name" maxLength="20">
-        <button type="button" class="btn btn-default" id="confirm-name">Confirm</button>
+    <div id="main-menu">
+      <div id="main-menu-header">
+        <h1>Game Title Here</h1>
+        <img src="img/title-image.jpg" alt="{Game Title} Main Menu">
       </div>
-      <button type="button" class="btn btn-default" id="load-game">Load Game</button>
+      <div id="main-menu-options">
+        <button type="button" class="btn btn-default btn-main-menu" id="new-game">New Game</button>
+        <div id="new-game-box">
+          <label for="player-name">Enter your character's name:</label>
+          <input type="text" class="form-control" id="main-menu-player-name" maxLength="20">
+          <button type="button" class="btn btn-default btn-main-menu" id="confirm-name">Confirm</button>
+        </div>
+        <button type="button" class="btn btn-default btn-main-menu" id="load-game">Load Game</button>
+      </div>
     </div>
   </div>
 </body>
