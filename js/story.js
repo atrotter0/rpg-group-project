@@ -1,9 +1,6 @@
 // Story
+console.log("story.js loaded!");
 
 function Story() {
   this.chapters = [];
 }
-
-$(document).ready(function() {
-  console.log("story.js loaded!");
-});
