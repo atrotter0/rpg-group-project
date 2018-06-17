@@ -11,9 +11,11 @@ function displayNewGameBox() {
 
 function runNewGame(playerName) {
   if (!validate(playerName)) return alertError("You need to enter a valid name.");
+  
   createNewPlayer(playerName, roomMap.room1);
-  alertSuccess(player.name + "'s game created!");
-  //showRoom(player); <-- load starting room
+  alertSuccess("Game data for [ " + player.name + " ] created!");
+  //fadeOut();
+  //startStory();
 }
 
 function validate(value) {
