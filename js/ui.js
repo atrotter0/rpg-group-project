@@ -10,9 +10,10 @@ function displayNewGameBox() {
 }
 
 function runNewGame(playerName) {
-  if (!validate(playerName)) alertError("You need to enter a valid name.");
+  if (!validate(playerName)) return alertError("You need to enter a valid name.");
   createNewPlayer(playerName, roomMap.room1);
-  //showRoom(player);
+  alertSuccess(player.name + "'s game created!");
+  //showRoom(player); <-- load starting room
 }
 
 function validate(value) {
@@ -20,7 +21,13 @@ function validate(value) {
 }
 
 function alertError(msg) {
-  $("#alert-field").text(msg).removeClass("alert-success").addClass("alert-danger").fadeIn(800).delay(3000).fadeOut(1000);
+  $("#alert-field").hide().text(msg).removeClass("alert-success")
+    .addClass("alert-danger").fadeIn(800).delay(3000).fadeOut(1000);
+}
+
+function alertSuccess(msg) {
+  $("#alert-field").hide().text(msg).removeClass("alert-danger")
+    .addClass("alert-success").fadeIn(800).delay(3000).fadeOut(1000);
 }
 
 function showRoom(player) {

@@ -18,10 +18,9 @@ function Player(name, room) {
 
 function createNewPlayer(name) {
   player = new Player(name, roomMap.room1);
-  addToStorage(player);
+  saveGame(player);
 }
 
 function loadPlayer() {
   player = playerFromStorage();
-  alert(player.name + "'s game loaded!");
 }
