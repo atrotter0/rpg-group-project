@@ -3,13 +3,13 @@ console.log("story.js loaded!");
 
 storyMap = {};
 
-function Chapter(title) {
+function Chapter(title, textEntries) {
   this.title = title;
-  this.text = [];
+  this.text = textEntries;
 }
 
-// text should be limited to 1 - 2 sentences.
-// Each section of display text is separated by continue button until the end of the array.
+// Each text var should be limited to 1 - 2 sentences.
+// Each text var is separated by continue button until the end of the array.
 // Once at the end of the array, a new button replaces continue and will load the next room of the game.
 function buildStory() {
   var textArray = [];
