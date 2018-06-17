@@ -14,7 +14,7 @@
   font-weight: bold;
   width: 100%;
   position: absolute;
-  top: 50%;
+  top: 30%;
   text-align: center;
 }
 
@@ -75,6 +75,7 @@
 }
 
 .btn-main-menu:focus {
+  border: 1px solid transparent;
   background-color: #333;
   color: #fff;
   transition: 0.5s;
