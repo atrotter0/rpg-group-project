@@ -31,6 +31,8 @@
 }
 
 #main-menu-header img {
+  border-radius: 3px;
+  box-shadow: 0px 2px 20px rgba(78,78,78,0.63);
   display: block;
   margin: 20px auto;
   width: 70%;
@@ -59,7 +61,7 @@
 }
 
 .btn-main-menu:hover {
-  border-color: #66b6e6;
+  border-color: #5ba3ce;
   box-shadow: 2px 2px 10px #4e4e4e;
   background-color: #5ba3ce;
   color: #fff;
