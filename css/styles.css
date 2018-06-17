@@ -80,8 +80,20 @@
 
 
 /* Responsive Styles */
-@media screen and (max-width: 715px) {
+@media screen and (max-width: 995px) {
   #main-menu-header img {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  #main-menu-header h1 {
+    font-size: 1.5em;
+  }
+
+  .btn-main-menu {
+    margin: 10px auto;
+    display: block;
     width: 90%;
   }
 }
