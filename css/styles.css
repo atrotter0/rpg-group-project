@@ -44,9 +44,14 @@
 }
 
 #main-menu-player-name {
+  border: none;
+  box-shadow: none;
+  border-radius: 0px;
+  border-bottom: 2px solid #333;
   height: 50px;
-  width: 70%;
-  margin: 10px auto;
+  width: 50%;
+  max-width: 300px;
+  margin: 20px auto;
   text-align: center;
 }
 
@@ -58,6 +63,7 @@
   background-color: #333;
   color: #fff;
   transition: 0.5s;
+  width: 250px;
 }
 
 .btn-main-menu:hover {
