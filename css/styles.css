@@ -14,7 +14,7 @@
   font-weight: bold;
   width: 100%;
   position: absolute;
-  top: 50%;
+  top: 30%;
   text-align: center;
 }
 
@@ -31,23 +31,19 @@
   text-align: center;
 }
 
-#main-menu-header img {
-  border-radius: 3px;
-  box-shadow: 0px 2px 20px rgba(78,78,78,0.63);
-  display: block;
-  margin: 20px auto;
-  width: 70%;
-  max-width: 800px;
-}
-
 #main-menu-options {
   text-align: center;
 }
 
 #main-menu-player-name {
+  border: none;
+  box-shadow: none;
+  border-radius: 0px;
+  border-bottom: 2px solid #333;
   height: 50px;
-  width: 70%;
-  margin: 10px auto;
+  width: 50%;
+  max-width: 300px;
+  margin: 20px auto;
   text-align: center;
 }
 
@@ -59,6 +55,7 @@
   background-color: #333;
   color: #fff;
   transition: 0.5s;
+  width: 250px;
 }
 
 .btn-main-menu:hover {
@@ -70,6 +67,7 @@
 }
 
 .btn-main-menu:focus {
+  border: 1px solid transparent;
   background-color: #333;
   color: #fff;
   transition: 0.5s;
@@ -144,15 +142,53 @@
 
 #attack-icon:hover {
   background-image: url("../img/attack-icon-hover.png");
+
+#main-menu-image-box {
+  border-radius: 3px;
+  box-shadow: 0px 2px 20px rgba(78,78,78,0.63);
+  margin: 20px auto;
+  height: 400px;
+  width: 800px;
+  background-image: url('../img/title-image.jpg');
+  background-size: 150%;
+  background-position: 0% -127%;
+  -webkit-animation-name: scrolling-image; /* Safari 4.0 - 8.0 */
+  -webkit-animation: scrolling-image 20s linear 0.2s infinite; /* Safari 4.0 - 8.0 */
+  animation: scrolling-image 20s linear 0.2s infinite;
 }
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes scrolling-image {
+  0%   {background-position: 0% -130%;}
+  10%  {background-position: 10% -140%;}
+  20%  {background-position: 20% -150%;}
+  30%  {background-position: 30% -160%;}
+  40%  {background-position: 40% -170%; background-image: url('../img/title-image2.jpg');}
+  50%  {background-position: 50% -175%; background-image: url('../img/title-image2.jpg');}
+  60%  {background-position: 60% -180%; background-image: url('../img/title-image2.jpg');}
+  70%  {background-position: 60% -180%; background-image: url('../img/title-image3.jpg');}
+  80%  {background-position: 60% -170%; background-image: url('../img/title-image3.jpg');}
+  90%  {background-position: 60% -160%; background-image: url('../img/title-image3.jpg');}
+  100% {background-position: 60% -150%; background-image: url('../img/title-image3.jpg');}
+}
+
+/* Standard syntax */
+@keyframes scrolling-image {
+  0%   {background-position: 0% -130%;}
+  10%  {background-position: 10% -140%;}
+  20%  {background-position: 20% -150%;}
+  30%  {background-position: 30% -160%; background-image: url('../img/title-image2.jpg');}
+  40%  {background-position: 40% -170%; background-image: url('../img/title-image2.jpg');}
+  50%  {background-position: 50% -180%; background-image: url('../img/title-image2.jpg');}
+  60%  {background-position: 60% -190%; background-image: url('../img/title-image2.jpg');}
+  70%  {background-position: 60% -180%; background-image: url('../img/title-image3.jpg');}
+  80%  {background-position: 60% -170%; background-image: url('../img/title-image3.jpg');}
+  90%  {background-position: 60% -160%; background-image: url('../img/title-image3.jpg');}
+  100% {background-position: 60% -150%; background-image: url('../img/title-image3.jpg');}
+}
+
 
 /* Responsive Styles */
-@media screen and (max-width: 995px) {
-  #main-menu-header img {
-    width: 90%;
-  }
-}
-
 @media screen and (max-width: 550px) {
   #main-menu-header h1 {
     font-size: 1.5em;
