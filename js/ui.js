@@ -7,6 +7,16 @@ function hideMenuOptions() {
 
 function displayNewGameBox() {
   $("#new-game-box").show();
+  $("#main-menu-player-name").focus();
+}
+
+function hideNewGameBox() {
+  $("#new-game-box").hide();
+}
+
+function displayMenuOptions() {
+  $("#new-game").show();
+  $("#load-game").show();
 }
 
 function runNewGame(playerName) {
@@ -55,6 +65,11 @@ $(document).ready(function() {
   $("#confirm-name").click(function() {
     var playerName = $("#main-menu-player-name").val();
     runNewGame(playerName);
+  });
+
+  $("#main-menu-back").click(function() {
+    hideNewGameBox();
+    displayMenuOptions();
   });
 
   $("#load-game").click(function() {
