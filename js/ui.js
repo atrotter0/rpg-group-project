@@ -65,4 +65,20 @@ $(document).ready(function() {
     var enemy = new Enemy("Franz");
     startBattle(enemy);
   });
+
+  $("#attack").click(fucntion(){
+    playerAttacks();
+  });
+
+  $("#spell").click(fucntion(){
+    playerCastSpell();
+  });
+
+  $("#item").click(fucntion(){
+
+  });
+
+  $("#run").click(fucntion(){
+
+  });
 });

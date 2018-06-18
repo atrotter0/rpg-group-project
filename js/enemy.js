@@ -12,6 +12,12 @@ function Enemy(id, name, hp, dmg, xp, loot) {
   this.goesFirst = true;
 }
 
+Enemy.prototype.enemyAttack = function() {
+  if (hits) player.hp -= this.damage;
+  alertError(enemy + " hits you for " + this.dmg + "!");
+}
+
+
 function startBattle(enemy) {
   hideCurrentScreen();
   showBattleScreen();
@@ -27,12 +33,23 @@ function rollInitiative(enemy) {
 
 function firstTurn(enemy) {
   if (enemy.goesFirst) {
-    runTurn(enemy);
+    runEnemyTurn(enemy);
+    runPlayerTurn(player);
   } else {
-    runTurn(player);
+    runPlayerTurn(player);
+    runEnemyTurn(enemy);
   }
 }
 
-function runTurn(object) {
-  alertSuccess(object.name + " goes first!");
+function runEnemyTurn(enemy) {
+  alertError(enemy.name + "'s turn!");
+  enemy.enemyAttack();
+}
+
+function runPlayerTurn() {
+  alertSuccess(player.name + "'s turn!");
+}
+
+function playerAttacks() {
+  
 }
