@@ -81,12 +81,14 @@ $(document).ready(function() {
   });
 
   $(".enemy").click(function() {
-    var enemy = new Enemy("Franz");
-    startBattle(enemy);
+    //var enemyId = $(this).attr(id);
+    var enemyId = "enemy1";
+    player.currentEnemy = enemyMap[enemyId];
+    startBattle(enemyMap[enemyId]);
   });
 
   $("#attack").click(function() {
-    playerAttacks();
+    player.playerAttacks(player.currentEnemy);
   });
 
   $("#spell").click(function() {

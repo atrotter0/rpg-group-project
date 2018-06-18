@@ -14,6 +14,12 @@ function Player(name, room) {
   this.items = [];
   this.xp = 0;
   this.room = room;
+  this.currentEnemy = {};
+}
+
+Player.prototype.playerAttacks = function(enemy) {
+  enemy.hp -= player.ap;
+  battleAlert(player.name + " hits " + enemy.name + " for " + player.ap + " damage!");
 }
 
 function createNewPlayer(name) {

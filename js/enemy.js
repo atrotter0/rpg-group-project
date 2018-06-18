@@ -1,6 +1,8 @@
 // Enemy
 console.log("enemy.js loaded!");
 
+enemyMap = {};
+
 function Enemy(id, name, hp, dmg, xp, loot) {
   this.id = id;
   this.name = name;
@@ -14,7 +16,13 @@ function Enemy(id, name, hp, dmg, xp, loot) {
 
 Enemy.prototype.enemyAttack = function() {
   player.hp -= this.dmg;
-  battleAlert(enemy.name + " hits you for " + this.dmg + " damage!");
+  battleAlert(this.name + " hits you for " + this.dmg + " damage!");
+}
+
+function buildEnemies() {
+  var enemy1 = new Enemy("enemy1", "Franz", 5, 1);
+
+  enemyMap.enemy1 = enemy1;
 }
 
 
@@ -52,11 +60,5 @@ function runEnemyTurn(enemy) {
 
 function runPlayerTurn() {
   battleAlert(player.name + "'s turn!");
-
-
   //runEnemyTurn(enemy);
-}
-
-function playerAttacks() {
-
 }
