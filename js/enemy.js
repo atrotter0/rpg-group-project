@@ -13,7 +13,7 @@ function Enemy(id, name, hp, dmg, xp, loot) {
 }
 
 Enemy.prototype.enemyAttack = function() {
-  player.hp -= this.damage;
+  player.hp -= this.dmg;
   battleAlert(enemy.name + " hits you for " + this.dmg + " damage!");
 }
 
@@ -29,13 +29,17 @@ function rollInitiative(enemy) {
   var outcome = Math.floor((Math.random() * 2) + 1);
   console.log(outcome);
   // 1 = player, 2 = enemy
-  if (outcome === 1) enemy.goesFirst = false;
+  if (outcome === 1) {
+    enemy.goesFirst = false;
+  } else {
+    enemy.goesFirst = true;
+  }
 }
 
 function firstTurn(enemy) {
   if (enemy.goesFirst) {
     runEnemyTurn(enemy);
-    runPlayerTurn();
+    setTimeout(function() { runPlayerTurn(); }, 4000);
   } else {
     runPlayerTurn();
   }
@@ -43,13 +47,11 @@ function firstTurn(enemy) {
 
 function runEnemyTurn(enemy) {
   battleAlert(enemy.name + "'s turn!");
-  setTimeout(function() {
-    enemy.enemyAttack();
-  }, 2000);
+  setTimeout(function() { enemy.enemyAttack(); }, 2000);
 }
 
 function runPlayerTurn() {
-  // alertSuccess(player.name + "'s turn!");
+  battleAlert(player.name + "'s turn!");
 
 
   //runEnemyTurn(enemy);
