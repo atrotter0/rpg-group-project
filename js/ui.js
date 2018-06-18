@@ -11,7 +11,7 @@ function displayNewGameBox() {
 
 function runNewGame(playerName) {
   if (!validate(playerName)) return alertError("You need to enter a valid name.");
-  
+
   createNewPlayer(playerName, roomMap.room1);
   alertSuccess("Game data for [ " + player.name + " ] created!");
   //fadeOut();
@@ -36,6 +36,14 @@ function showRoom(player) {
   var roomId = player.room;
 }
 
+function hideCurrentScreen() {
+  $(".current-screen").hide();
+}
+
+function showBattleScreen() {
+  $("#battle-screen").show();
+}
+
 $(document).ready(function() {
   console.log("ui.js loaded!");
 
@@ -51,5 +59,10 @@ $(document).ready(function() {
 
   $("#load-game").click(function() {
     loadPlayer();
+  });
+
+  $(".enemy").click(function() {
+    var enemy = new Enemy("Franz");
+    startBattle(enemy);
   });
 });

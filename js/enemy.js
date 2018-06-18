@@ -9,4 +9,30 @@ function Enemy(id, name, hp, dmg, xp, loot) {
   this.xp = xp;
   this.loot = [];
   this.gp = 1;
+  this.goesFirst = true;
+}
+
+function startBattle(enemy) {
+  hideCurrentScreen();
+  showBattleScreen();
+  rollInitiative(enemy);
+  firstTurn(enemy);
+}
+
+function rollInitiative(enemy) {
+  var outcome = Math.floor((Math.random() * 2) + 1);
+  console.log(outcome);
+  if (outcome === 1) enemy.goesFirst = false;
+}
+
+function firstTurn(enemy) {
+  if (enemy.goesFirst) {
+    runTurn(enemy);
+  } else {
+    runTurn(player);
+  }
+}
+
+function runTurn() {
+  
 }
