@@ -88,7 +88,8 @@ $(document).ready(function() {
   });
 
   $("#attack").click(function() {
-    player.playerAttacks(player.currentEnemy);
+    runPlayerAttack(player.currentEnemy);
+    checkEnemyDead(player.currentEnemy);
   });
 
   $("#spell").click(function() {

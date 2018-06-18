@@ -17,9 +17,13 @@ function Player(name, room) {
   this.currentEnemy = {};
 }
 
-Player.prototype.playerAttacks = function(enemy) {
+Player.prototype.playerAttack = function(enemy) {
   enemy.hp -= player.ap;
   battleAlert(player.name + " hits " + enemy.name + " for " + player.ap + " damage!");
+}
+
+Player.prototype.isDead = function() {
+  if (this.hp <= 0) return true;
 }
 
 function createNewPlayer(name) {
