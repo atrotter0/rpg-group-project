@@ -66,19 +66,19 @@ $(document).ready(function() {
     startBattle(enemy);
   });
 
-  $("#attack").click(fucntion(){
+  $("#attack").click(function() {
     playerAttacks();
   });
 
-  $("#spell").click(fucntion(){
+  $("#spell").click(function() {
     playerCastSpell();
   });
 
-  $("#item").click(fucntion(){
+  $("#item").click(function() {
 
   });
 
-  $("#run").click(fucntion(){
-
+  $("#run").click(function() {
+    
   });
 });
