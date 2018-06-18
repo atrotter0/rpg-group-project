@@ -24,3 +24,11 @@ function createNewPlayer(name) {
 function loadPlayer() {
   player = playerFromStorage();
 }
+
+Player.prototype.upgradeStats = function(item) {
+  this.hitPoints += item.hpAward;
+  this.manaPoint += item.mpAward;
+  this.armor += item.armorAward;
+  this.attackPower += item.apAward;
+  this.spellPower += item.spAward;
+}
