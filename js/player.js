@@ -16,6 +16,26 @@ function Player(name, room) {
   this.room = room;
 }
 
+Player.prototype.checkLoot = function(enemy) {
+  var isDuplicate = true;
+  var loot;
+
+
+  while(isDuplicate) {
+    var roll = Math.floor((Math.random() * enemy.loot.length) + 1);
+    loot = enemy.loot[roll];
+
+    if(this.items.includes(loot)) {
+      continue;
+    } else {
+      isDuplicate = false;
+      break;
+    }
+  }
+
+  return loot;
+}
+
 function createNewPlayer(name) {
   player = new Player(name, roomMap.room1);
   saveGame(player);
