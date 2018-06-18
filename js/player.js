@@ -20,14 +20,14 @@ function Player(name, room) {
 Player.prototype.levelUp = function(level) {
   this.level += 1;
   this.xp = 0;
-  this.hitPoints = 15 * level;
-  this.manaPoints = 3 * level;
-  this.attackPower = 1 * level;
-  this.spellPower = 1 * level;
+  this.hp = 15 * level;
+  this.mp = 3 * level;
+  this.ap = 1 * level;
+  this.sp = 1 * level;
 }
 
 Player.prototype.checkDead = function() {
-  if(this.hitPoints === 0) {
+  if(this.hp === 0) {
     return true;
   } else {
     return false;
@@ -46,10 +46,10 @@ Player.prototype.hitSomething = function(mob) {
 }
 
 Player.prototype.upgradeStats = function(item) {
-  this.hitPoints += item.healthBonus;
-  this.manaPoint += item.manaBonus;
-  this.attackPower += item.attackBonus;
-  this.spellPower += item.spellBonus;
+  this.hp += item.healthBonus;
+  this.mp += item.manaBonus;
+  this.ap += item.attackBonus;
+  this.sp += item.spellBonus;
 }
 
 function displayCharacterScreen(player) {
