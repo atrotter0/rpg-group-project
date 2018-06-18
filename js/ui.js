@@ -29,7 +29,11 @@ function alertError(msg) {
 
 function alertSuccess(msg) {
   $("#alert-field").hide().text(msg).removeClass("alert-danger")
-    .addClass("alert-success").fadeIn(800).delay(3000).fadeOut(1000);
+    .addClass("alert-success").fadeIn(800).delay(1000).fadeOut(1000);
+}
+
+function battleAlert(msg) {
+  $("#battle-alert").text(msg);
 }
 
 function showRoom(player) {

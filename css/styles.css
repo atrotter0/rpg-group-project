@@ -23,6 +23,7 @@
 /*************/
 
 #main-menu {
+  display: none;
   font-family: 'Press Start 2P', cursive;
 }
 
@@ -83,7 +84,41 @@
 /***************/
 
 #battle-screen {
+  display: block;
+  margin-top: 20px;
   font-family: 'Press Start 2P', cursive;
+}
+
+.battle-screen-character-box {
+  display: inline-block;
+  width: 49%;
+  height: 230px;
+  outline: 1px solid green;
+  margin: 0 auto;
+}
+
+#battlefield {
+  outline: 1px solid blue;
+  height: 300px;
+}
+
+#battle-alert {
+  padding: 5px;
+  width: 80%;
+  height: 50px;
+  outline: 1px solid purple;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#battle-menu {
+  outline: 1px solid red;
+  height: 200px;
+  padding: 10px;
+}
+
+.battle-menu-row {
+  text-align: center;
 }
 
 .btn-battle {

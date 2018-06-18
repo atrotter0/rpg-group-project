@@ -23,7 +23,7 @@
 <body>
   <div class="alert" id="alert-field"></div>
   <div class="container">
-    <div id="main-menu current-screen">
+    <div class="current-screen" id="main-menu">
       <div id="main-menu-header">
         <h1 class="fancy-shadow">Game Title Here</h1>
         <img src="img/title-image.jpg" alt="{Game Title} Main Menu">
@@ -49,9 +49,23 @@
     </div>
     <div id="battle-screen">
       <div id="battlefield">
+        <div class="battle-screen-character-box" id="player-box">
+          <div id="player-stats">
+          </div>
+          <div class="battle-screen-sprite" id="player-sprite">
+          </div>
+        </div>
+        <div class="battle-screen-character-box" id="enemy-box">
+          <div id="enemy-stats">
+          </div>
+          <div class="battle-screen-sprite" id="enemy-sprite">
+          </div>
+        </div>
+      </div>
+      <div id="battle-alert">
       </div>
       <div id="battle-menu">
-        <div class="row" id="top-row">
+        <div class="battle-menu-row">
           <button type="button" class="btn btn-default btn-battle" id="attack">
             <img src="img/attack-icon.png" alt="Attack icon" class="btn-icon">
             Attack
@@ -60,8 +74,6 @@
             <img src="img/spell-icon.png" alt="Spell icon" class="btn-icon">
             Spell
           </button>
-        </div>
-        <div class="row" id="bottom-row">
           <button type="button" class="btn btn-default btn-battle" id="item">
             <img src="img/item-icon.png" alt="Item icon" class="btn-icon">
             Item
