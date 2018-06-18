@@ -90,6 +90,7 @@
   background-color: #333;
   color: #fff;
   transition: 0.5s;
+  width: 200px;
 }
 
 .btn-battle:hover {
