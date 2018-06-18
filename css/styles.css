@@ -82,7 +82,7 @@
 /***************/
 
 #battle-screen {
-  display: block;
+  display: none;
   margin-top: 20px;
   font-family: 'Press Start 2P', cursive;
 }
@@ -113,6 +113,20 @@
   outline: 1px solid red;
   height: 200px;
   padding: 10px;
+}
+
+#death-screen {
+  display: block;
+  position: absolute; top: 0; right: 0; bottom: 0; left: 0;
+  background-color: black;
+  height: 100%;
+  width: 100%;
+}
+
+#death-message {
+  margin: 300px auto;
+  text-align: center;
+  color: white;
 }
 
 .battle-menu-row {

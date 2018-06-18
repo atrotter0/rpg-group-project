@@ -15,6 +15,7 @@ function Player(name, room) {
   this.xp = 0;
   this.room = room;
   this.currentEnemy = {};
+  this.lastRoom = "";
 }
 
 Player.prototype.playerAttack = function(enemy) {
@@ -43,4 +44,9 @@ function createNewPlayer(name) {
 
 function loadPlayer() {
   player = playerFromStorage();
+}
+
+function playerDied() {
+  showDeathScreen();
+  //Wire up method to reset player and rooms
 }

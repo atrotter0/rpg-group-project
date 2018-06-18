@@ -52,6 +52,7 @@ function runPlayerSpell(enemy) {
 
 function checkPlayerDead(enemy) {
   if (player.isDead()) {
+    playerDied();
     console.log("You lost!");
   } else {
     console.log("Still fightin!");

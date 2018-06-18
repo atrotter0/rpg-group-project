@@ -59,7 +59,13 @@ function hideCurrentScreen() {
 }
 
 function showBattleScreen() {
+  hideCurrentScreen();
   $("#battle-screen").addClass("current-screen").show();
+}
+
+function showDeathScreen() {
+  hideCurrentScreen();
+  $("#death-screen").addClass("current-screen").show();
 }
 
 $(document).ready(function() {
