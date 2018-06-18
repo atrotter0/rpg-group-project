@@ -37,11 +37,11 @@ function showRoom(player) {
 }
 
 function hideCurrentScreen() {
-  $(".current-screen").hide();
+  $(".current-screen").hide().removeClass("current-screen");
 }
 
 function showBattleScreen() {
-  $("#battle-screen").show();
+  $("#battle-screen").addClass("current-screen").show();
 }
 
 $(document).ready(function() {
@@ -79,6 +79,6 @@ $(document).ready(function() {
   });
 
   $("#run").click(function() {
-    
+
   });
 });
