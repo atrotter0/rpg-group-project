@@ -78,6 +78,37 @@
   width: 50px;
 }
 
+/***************/
+/* BATTLE MENU */
+/***************/
+
+#battle-screen {
+  font-family: 'Press Start 2P', cursive;
+}
+
+.btn-battle {
+  background-color: #333;
+  color: #fff;
+  transition: 0.5s;
+}
+
+.btn-battle:hover {
+  border-color: #5ba3ce;
+  box-shadow: 2px 2px 10px #4e4e4e;
+  background-color: #5ba3ce;
+  color: #fff;
+  transition: 0.5s;
+}
+
+#attack-icon {
+  background-image: url("../img/attack-icon.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+#attack-icon:hover {
+  background-image: url("../img/attack-icon-hover.png");
+}
 
 /* Responsive Styles */
 @media screen and (max-width: 995px) {

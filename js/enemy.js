@@ -33,6 +33,6 @@ function firstTurn(enemy) {
   }
 }
 
-function runTurn() {
-  
+function runTurn(object) {
+  alertSuccess(object.name + " goes first!");
 }
