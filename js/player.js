@@ -9,8 +9,8 @@ function Player(name, room) {
   this.hp = 10;
   this.mp = 20;
   this.ap = 1;
-  this.sp = 1;
-  this.spells = [];
+  this.sp = 3;
+  this.spells = ["Firebolt"];
   this.items = [];
   this.xp = 0;
   this.room = room;
@@ -18,8 +18,18 @@ function Player(name, room) {
 }
 
 Player.prototype.playerAttack = function(enemy) {
-  enemy.hp -= player.ap;
-  battleAlert(player.name + " hits " + enemy.name + " for " + player.ap + " damage!");
+  enemy.hp -= this.ap;
+  battleAlert(this.name + " hits " + enemy.name + " for " + this.ap + " damage!");
+}
+
+Player.prototype.noMp = function() {
+  if (this.mp <= 0) return true;
+}
+
+Player.prototype.playerCastSpell = function(enemy) {
+  enemy.hp -= this.sp;
+  this.mp -= 5;
+  battleAlert(this.name + " casts " + this.spells[0] + " on " + enemy.name + " for " + this.sp + " damage!");
 }
 
 Player.prototype.isDead = function() {

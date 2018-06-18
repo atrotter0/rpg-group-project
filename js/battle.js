@@ -32,11 +32,22 @@ function runEnemyTurn(enemy) {
 }
 
 function runPlayerTurn() {
+  runMpCheck();
   battleAlert(player.name + "'s turn!");
 }
 
 function runPlayerAttack(enemy) {
   setTimeout(function() { player.playerAttack(enemy); }, 0);
+}
+
+function runMpCheck() {
+  if (player.noMp()) {
+    disableButton("#spell");
+  }
+}
+
+function runPlayerSpell(enemy) {
+  setTimeout(function() { player.playerCastSpell(enemy); }, 0);
 }
 
 function checkPlayerDead(enemy) {

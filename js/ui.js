@@ -42,6 +42,10 @@ function alertSuccess(msg) {
     .addClass("alert-success").fadeIn(800).delay(1000).fadeOut(1000);
 }
 
+function disableButton(id) {
+  $(id).attr("disabled", true);
+}
+
 function battleAlert(msg) {
   $("#battle-alert").text(msg);
 }
@@ -93,7 +97,8 @@ $(document).ready(function() {
   });
 
   $("#spell").click(function() {
-    playerCastSpell();
+    runPlayerSpell(player.currentEnemy);
+    checkEnemyDead(player.currentEnemy);
   });
 
   $("#item").click(function() {
