@@ -45,8 +45,3 @@ function createNewPlayer(name) {
 function loadPlayer() {
   player = playerFromStorage();
 }
-
-function playerDied() {
-  showDeathScreen();
-  //Wire up method to reset player and rooms
-}

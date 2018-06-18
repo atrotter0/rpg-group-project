@@ -68,6 +68,14 @@ function showDeathScreen() {
   $("#death-screen").addClass("current-screen").show();
 }
 
+function hideBattleMenu() {
+  $("#battle-menu").hide();
+}
+
+function showItemMenu() {
+  $("#item-menu").show();
+}
+
 $(document).ready(function() {
   console.log("ui.js loaded!");
 
@@ -108,7 +116,8 @@ $(document).ready(function() {
   });
 
   $("#item").click(function() {
-
+    hideBattleMenu();
+    showItemMenu();
   });
 
   $("#run").click(function() {

@@ -163,6 +163,18 @@
 
 #attack-icon:hover {
   background-image: url("../img/attack-icon-hover.png");
+}
+
+#item-menu {
+  display: none;
+  outline: 1px solid red;
+  height: 200px;
+  padding: 10px;
+}
+
+.btn-item {
+  width: 300px;
+}
 
 #main-menu-image-box {
   border-radius: 3px;
