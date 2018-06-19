@@ -193,6 +193,14 @@ $(document).ready(function() {
     showBattleMenu();
   });
 
+  $("#battle-health-potion").click(function() {
+    player.useHealthPotion();
+  });
+
+  $("#battle-mana-potion").click(function() {
+
+  });
+
   $("#run").click(function() {
 
   });

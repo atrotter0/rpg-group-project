@@ -63,6 +63,32 @@ Player.prototype.hasManaPotion = function(item) {
   }
 }
 
+Player.prototype.useHealthPotion = function() {
+  this.removeItem("Health Potion");
+  this.hp += itemMap.healPotion1.addHp;
+
+  if (this.hp > this.hpMax) {
+    this.hp = this.hpMax;
+  }
+}
+
+Player.prototype.useManaPotion = function() {
+  this.removeItem("Mana Potion");
+  this.mp += itemMap.manaPotion1.addHp;
+
+  if (this.mp > this.mpMax) {
+    this.mp = this.mpMax;
+  }
+}
+
+Player.prototype.removeItem = function(itemName) {
+  for(var i = 0; i < this.items.length; i++) {
+    if (this.items[i] === itemName) {
+      this.items.splice(i, 1);
+    }
+  }
+}
+
 function createNewPlayer(name) {
   player = new Player(name, roomMap.room1);
   saveGame(player);

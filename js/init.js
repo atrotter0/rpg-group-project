@@ -35,4 +35,5 @@ $(document).ready(function() {
   // run object builds here
   buildRooms();
   buildEnemies();
+  buildItems();
 });
