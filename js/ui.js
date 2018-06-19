@@ -53,12 +53,12 @@ function battleAlert(msg) {
 function battleAnimationPlayer() {
   shakeElement("#player-sprite");
   adjustHp("player");
-  adjustMp("player");
 }
 
 function battleAnimationEnemy() {
   shakeElement("#enemy-sprite");
   adjustHp("enemy");
+  adjustMp("player");
 }
 
 function shakeElement(id) {
