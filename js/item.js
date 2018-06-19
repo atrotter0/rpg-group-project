@@ -1,6 +1,5 @@
 // Item Dictionary
 function ItemDictionary() {
-  this.items = [];
   this.populateItems();
 }
 
@@ -35,9 +34,9 @@ ItemDictionary.prototype.fetchItemById = function(itemId) {
 ItemDictionary.prototype.fetchLevelSpecificItems = function(level) {
   var itemArray = [];
 
-  for(i = 0; i < this.items.length; i++) {
-    if(this.items[i].level === level) {
-      itemArray.push(this.items[i]);
+  for(var item in this) {
+    if(this[item].level === level) {
+      itemArray.push(this[item]);
     }
   }
 
@@ -59,7 +58,18 @@ ItemDictionary.prototype.populateItems = function() {
   var epicArmor1 = new Item(11, "Cuirass of The Colossus", "Armor", 3, 8, 4, 0, 0);
   var epicArmor2 = new Item(12, "Robe of Seething Power", "Armor", 3, 0, 0, 4, 8);
 
-  this.items.push(sword1, staff1, midSword1, midStaff1, epicSword1, epicStaff1, armor1, armor2, midArmor1, midArmor2, epicArmor1, epicArmor2);
+  this.sword1 = sword1;
+  this.staff1 = staff1;
+  this.midSword1 = midSword1;
+  this.midStaff1 = midStaff1;
+  this.epicSword1 = epicSword1;
+  this.epicStaff1 = epicStaff1;
+  this.armor1 = armor1;
+  this.armor2 = armor2;
+  this.midArmor1 = midArmor1;
+  this.midArmor2 = midArmor2;
+  this.epicArmor1 = epicArmor1;
+  this.epicArmor2 = epicArmor2;
 
 }
 
