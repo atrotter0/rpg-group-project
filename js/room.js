@@ -34,7 +34,7 @@ function createRoomItemClicks(room) {
   room.items.forEach(function(item) {
     $("#" + item.id).click(function() {
       alertError("You found a " + item.name + ".");
-      //run
+      equipBestItem();
     });
   });
 }
