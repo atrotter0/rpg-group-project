@@ -50,6 +50,41 @@ function battleAlert(msg) {
   $("#battle-alert").text(msg);
 }
 
+function battleAnimationPlayer() {
+  shakeElement("#player-sprite");
+  adjustHp("player");
+  adjustMp("player");
+}
+
+function battleAnimationEnemy() {
+  shakeElement("#enemy-sprite");
+  adjustHp("enemy");
+  adjustMp("enemy");
+}
+
+function shakeElement(id) {
+  $(id).effect("shake", { direction: "right", times: 2, distance: 2}, 300);
+}
+
+function adjustHp(target) {
+  var percent = 0;
+  if (target === "player") {
+    percent = player.hp / 100;
+    $("battle-stats-hp-player").css("width", percent);
+  } else if (target === "enemy") {
+    percent = player.currentEnemy.hp / 100;
+    $("battle-stats-hp-enemy").css("width", percent);
+  }
+}
+
+function adjustMp(target) {
+  var percent = 0;
+  if (target === "player") {
+    percent = player.mp / 100;
+    $("battle-stats-hp-player").css("width", percent);
+  }
+}
+
 function showRoom(player) {
   var roomId = player.room;
 }

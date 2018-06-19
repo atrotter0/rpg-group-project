@@ -27,7 +27,10 @@ function firstTurn(enemy) {
 
 function runEnemyTurn(enemy) {
   setTimeout(function() { battleAlert(enemy.name + "'s turn!"); }, 1000);
-  setTimeout(function() { enemy.enemyAttack(); }, 2000);
+  setTimeout(function() { 
+    enemy.enemyAttack();
+    battleAnimationPlayer();
+  }, 2000);
   setTimeout(function() { checkPlayerDead(enemy); }, 4000);
 }
 
@@ -38,6 +41,7 @@ function runPlayerTurn() {
 
 function runPlayerAttack(enemy) {
   setTimeout(function() { player.playerAttack(enemy); }, 0);
+  battleAnimationEnemy();
 }
 
 function runMpCheck() {
