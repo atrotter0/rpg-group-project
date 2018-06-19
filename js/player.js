@@ -9,7 +9,7 @@ function Player(name, room) {
   this.hpMax = 10;
   this.hp = this.hpMax;
   this.mpMax = 20;
-  this.currentMp = 20;
+  this.mp = 20;
   this.ap = 1;
   this.sp = 3;
   this.spells = ["Firebolt"];
