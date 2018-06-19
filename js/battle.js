@@ -44,7 +44,7 @@ function runPlayerAttack(enemy) {
     player.playerAttack(enemy); 
     battleAnimationEnemy();
   }, 0);
-  checkEnemyDead(player.currentEnemy);
+  setTimeout(function() { checkEnemyDead(player.currentEnemy); }, 1000);
 }
 
 function runMpCheck() {
@@ -54,8 +54,11 @@ function runMpCheck() {
 }
 
 function runPlayerSpell(enemy) {
-  setTimeout(function() { player.playerCastSpell(enemy); }, 0);
-  checkEnemyDead(player.currentEnemy);
+  setTimeout(function() {
+    player.playerCastSpell(enemy);
+    battleAnimationEnemy();
+  }, 0);
+  setTimeout(function() { checkEnemyDead(player.currentEnemy); }, 1000);
 }
 
 function checkPlayerDead() {
