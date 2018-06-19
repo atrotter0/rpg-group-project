@@ -34,4 +34,5 @@ $(document).ready(function() {
 
   // run object builds here
   buildRooms();
+  items = new ItemDictionary();
 });

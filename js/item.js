@@ -1,3 +1,5 @@
+var items = {};
+
 // Item Dictionary
 function ItemDictionary() {
   this.populateItems();
