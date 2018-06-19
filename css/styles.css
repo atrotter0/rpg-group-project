@@ -23,8 +23,8 @@
 /*************/
 
 #main-menu {
-  font-family: 'Press Start 2P', cursive;
   display: none;
+  font-family: 'Press Start 2P', cursive;
 }
 
 #main-menu-header h1 {
@@ -147,65 +147,65 @@
   margin: 0 auto;
 }
 
-#enemy-1 {
+#enemy1 {
   width: 40px;
   height: 65px;
-  outline: 1px solid red;
-  position: absolute;
-  top: 148px;
-  left: 223px;
+  position: relative;
+  outline: 1px solid lightgreen;
+  top: 145px;
+  left: 155px;
 }
 
-#enemy-1:hover {
+#enemy1:hover {
   cursor: pointer;
 }
 
-#enemy-2 {
+#enemy2 {
   width: 40px;
   height: 65px;
-  outline: 1px solid red;
-  position: absolute;
-  top: 362px;
-  left: 426px;
+  position: relative;
+  outline: 1px solid lightgreen;
+  top: 298px;
+  left: 359px;
 }
 
-#enemy-2:hover {
+#enemy2:hover {
   cursor: pointer;
 }
 
-#item-1 {
+#item1 {
   width: 60px;
   height: 40px;
+  position: relative;
   outline: 1px solid lightgreen;
-  position: absolute;
-  top: 442px;
-  left: 417px;
+  top: 310px;
+  left: 350px;
 }
 
-#item-1:hover {
+#item1:hover {
   cursor: pointer;
 }
 
-#item-2 {
+#item2 {
   width: 70px;
   height: 40px;
+  position: relative;
   outline: 1px solid lightgreen;
-  position: absolute;
-  top: 90px;
-  left: 566px;
+  top: -80px;
+  left: 500px;
 }
 
-#item-2:hover {
+#item2:hover {
   cursor: pointer;
 }
 
 #door {
   width: 20px;
   height: 60px;
-  outline: 1px solid lightblue;
-  position: absolute;
-  top: 172px;
-  left: 745px;
+  position: relative;
+  outline: 1px solid lightgreen;
+  top: -38px;
+  left: 678px;
 }
 
 #door:hover {

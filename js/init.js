@@ -33,5 +33,9 @@ $(document).ready(function() {
   console.log("init.js loaded!");
 
   // run object builds here
+  buildItems();
+  buildEnemies();
   buildRooms();
+  createRoomEnemyClicks(roomMap.room1);
+  createRoomItemClicks(roomMap.room1);
 });

@@ -3,27 +3,46 @@ console.log("room.js loaded!");
 
 var roomMap = {};
 
-function Room(id, name) {
+function Room(id, name, enemies, items, doors) {
   this.id = id;
   this.name = name;
-  this.enemies = [];
-  this.items = [];
+  this.enemies = enemies;
+  this.items = items;
+  this.doors = doors;
 }
 
 function buildRooms() {
-  var room1 = new Room("room1", "A Dark Cavern");
+  var room1 = new Room("room1", "Dungeon", [enemyMap.enemy1, enemyMap.enemy2], [itemMap.item1, itemMap.item2], [roomMap.room2]);
   var room2 = new Room("room2", "A Dark Tunnel");
 
   roomMap.room1 = room1;
   roomMap.room2 = room2;
+
 }
 
 
-function createClickEventsRoom1() {
-  roomMap.enemies.forEach(function(enemy) {
+function createRoomEnemyClicks(room) {
+  room.enemies.forEach(function(enemy) {
     $("#" + enemy.id).click(function() {
-      alertError(enemy.name " begins attacking you!!!")
+      alertError(enemy.name + " begins attacking you!!!");
       //runbattle function
+    });
+  });
+}
+
+function createRoomItemClicks(room) {
+  room.items.forEach(function(item) {
+    $("#" + item.id).click(function() {
+      alertError("You found a " + item.name + ".");
+      //run
+    });
+  });
+}
+
+function createRoomDoorClicks(room) {
+  room.doors.forEach(function(door, index) {
+    $("#door" + index).click(function(){
+      //load next room (door.id)
     });
   });
 }
