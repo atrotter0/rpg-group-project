@@ -18,8 +18,8 @@ function Player(name, room) {
   this.room = room;
   this.currentEnemy = {};
   this.lastRoom = "";
-  this.hasHealingPotion = false;
-  this.hasManaPotion = false;
+  this.hasHealingConsumable = false;
+  this.hasManaConsumable = false;
 }
 
 Player.prototype.playerAttack = function(enemy) {
@@ -44,9 +44,9 @@ Player.prototype.isDead = function() {
 Player.prototype.checkForConsumables = function() {
   for(var i = 0; i < player.items.length; i++) {
     if (this.hasHealingPotion(player.items[i])) {
-      this.hasHealingPotion = true;
+      this.hasHealingConsumable = true;
     } else if (this.hasManaPotion(player.items[i])) {
-      this.hasManaPotion = true;
+      this.hasManaConsumable = true;
     }
   }
 }
