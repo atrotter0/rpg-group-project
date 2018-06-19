@@ -118,8 +118,16 @@ function hideBattleMenu() {
   $("#battle-menu").hide();
 }
 
-function showItemMenu() {
+function showBattleMenu() {
+  $("#battle-menu").show();
+}
+
+function showBattleItemMenu() {
   $("#item-menu").show();
+}
+
+function hideBattleItemMenu() {
+  $("#item-menu").hide();
 }
 
 function setDisabledConsumables() {
@@ -177,7 +185,12 @@ $(document).ready(function() {
     player.checkForConsumables();
     setDisabledConsumables();
     hideBattleMenu();
-    showItemMenu();
+    showBattleItemMenu();
+  });
+
+  $("#battle-item-close").click(function() {
+    hideBattleItemMenu();
+    showBattleMenu();
   });
 
   $("#run").click(function() {
