@@ -42,10 +42,10 @@ Player.prototype.isDead = function() {
 }
 
 Player.prototype.checkForConsumables = function() {
-  for(var i = 0; i < player.inventory.length; i++) {
-    if (this.hasHealingPotion(player.inventory[i])) {
+  for(var i = 0; i < player.items.length; i++) {
+    if (this.hasHealingPotion(player.items[i])) {
       this.hasHealingPotion = true;
-    } else if (this.hasManaPotion(player.inventory[i])) {
+    } else if (this.hasManaPotion(player.items[i])) {
       this.hasManaPotion = true;
     }
   }
