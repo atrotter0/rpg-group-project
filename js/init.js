@@ -36,4 +36,73 @@ $(document).ready(function() {
   buildRooms();
   items = new ItemDictionary();
   enemy = new EnemyDictionary();
+
+  $("#hp-added").text(0);
+  $("#mp-added").text(0);
+  $("#ap-added").text(0);
+  $("#sp-added").text(0);
+
+  $("#hp-add-button").click(function(){
+    var currentNumber = parseInt($("#hp-added").text());
+    console.log(currentNumber);
+    var newNumber = currentNumber + 1;
+    console.log(newNumber);
+    $("#hp-added").text(newNumber);
+  })
+
+  $("#hp-subtract-button").click(function(){
+    var currentNumber = parseInt($("#hp-added").text());
+    console.log(currentNumber);
+    var newNumber = currentNumber - 1;
+    console.log(newNumber);
+    $("#hp-added").text(newNumber);
+  })
+
+  $("#mp-add-button").click(function(){
+    var currentNumber = parseInt($("#mp-added").text());
+    console.log(currentNumber);
+    var newNumber = currentNumber + 1;
+    console.log(newNumber);
+    $("#mp-added").text(newNumber);
+  })
+
+  $("#mp-subtract-button").click(function(){
+    var currentNumber = parseInt($("#mp-added").text());
+    console.log(currentNumber);
+    var newNumber = currentNumber - 1;
+    console.log(newNumber);
+    $("#mp-added").text(newNumber);
+  })
+
+  $("#ap-add-button").click(function(){
+    var currentNumber = parseInt($("#ap-added").text());
+    console.log(currentNumber);
+    var newNumber = currentNumber + 1;
+    console.log(newNumber);
+    $("#ap-added").text(newNumber);
+  })
+
+  $("#ap-subtract-button").click(function(){
+    var currentNumber = parseInt($("#ap-added").text());
+    console.log(currentNumber);
+    var newNumber = currentNumber - 1;
+    console.log(newNumber);
+    $("#ap-added").text(newNumber);
+  })
+
+  $("#sp-add-button").click(function(){
+    var currentNumber = parseInt($("#sp-added").text());
+    console.log(currentNumber);
+    var newNumber = currentNumber + 1;
+    console.log(newNumber);
+    $("#sp-added").text(newNumber);
+  })
+
+  $("#sp-subtract-button").click(function(){
+    var currentNumber = parseInt($("#sp-added").text());
+    console.log(currentNumber);
+    var newNumber = currentNumber - 1;
+    console.log(newNumber);
+    $("#sp-added").text(newNumber);
+  })
 });

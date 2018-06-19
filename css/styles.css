@@ -97,3 +97,30 @@
     width: 90%;
   }
 }
+
+/* KELLI STYLES */
+
+  .stat-added {
+    border:2px black solid;
+    padding:6px 10px;
+    margin:5px;
+    border-radius: 5px;
+    width:100px;
+  }
+
+  #level-up-table {
+    max-width: 400px;
+    border-radius:5px;
+    background-color: black;
+    color: white;
+    padding:20px 10px;
+    font-family: 'Press Start 2P', cursive;
+  }
+
+  #level-up-table .row {
+    padding:2px;
+  }
+
+  #level-up-table .col-sm-7 {
+    text-align:right;
+  }
