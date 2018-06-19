@@ -17,3 +17,13 @@ function buildRooms() {
   roomMap.room1 = room1;
   roomMap.room2 = room2;
 }
+
+
+function createClickEventsRoom1() {
+  roomMap.enemies.forEach(function(enemy) {
+    $("#" + enemy.id).click(function() {
+      alertError(enemy.name " begins attacking you!!!")
+      //runbattle function
+    });
+  });
+}

@@ -24,6 +24,7 @@
 
 #main-menu {
   font-family: 'Press Start 2P', cursive;
+  display: none;
 }
 
 #main-menu-header h1 {
@@ -132,4 +133,81 @@
     display: block;
     width: 90%;
   }
+}
+
+
+/*********/
+/* Rooms */
+/*********/
+
+#room-box {
+  background-image: url("../img/maps/room_1.png");
+  width: 768px;
+  height: 576px;
+  margin: 0 auto;
+}
+
+#enemy-1 {
+  width: 40px;
+  height: 65px;
+  outline: 1px solid red;
+  position: absolute;
+  top: 148px;
+  left: 223px;
+}
+
+#enemy-1:hover {
+  cursor: pointer;
+}
+
+#enemy-2 {
+  width: 40px;
+  height: 65px;
+  outline: 1px solid red;
+  position: absolute;
+  top: 362px;
+  left: 426px;
+}
+
+#enemy-2:hover {
+  cursor: pointer;
+}
+
+#item-1 {
+  width: 60px;
+  height: 40px;
+  outline: 1px solid lightgreen;
+  position: absolute;
+  top: 442px;
+  left: 417px;
+}
+
+#item-1:hover {
+  cursor: pointer;
+}
+
+#item-2 {
+  width: 70px;
+  height: 40px;
+  outline: 1px solid lightgreen;
+  position: absolute;
+  top: 90px;
+  left: 566px;
+}
+
+#item-2:hover {
+  cursor: pointer;
+}
+
+#door {
+  width: 20px;
+  height: 60px;
+  outline: 1px solid lightblue;
+  position: absolute;
+  top: 172px;
+  left: 745px;
+}
+
+#door:hover {
+  cursor: pointer;
 }
