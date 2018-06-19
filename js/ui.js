@@ -123,13 +123,15 @@ function showItemMenu() {
 }
 
 function setDisabledConsumables() {
-  if (!player.hasHealingConsumable) {
-    console.log("made it to healpot");
+  if (player.hasHealingConsumable) {
+    enableButton("#battle-health-potion");
+  } else {
     disableButton("#battle-health-potion");
   }
 
-  if (!player.hasManaConsumable) {
-    console.log("made it to manapot");
+  if (player.hasManaConsumable) {
+    enableButton("#battle-mana-potion");
+  } else {
     disableButton("#battle-mana-potion");
   }
 }
