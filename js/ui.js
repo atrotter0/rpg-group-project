@@ -156,7 +156,7 @@ $(document).ready(function() {
   });
 
   $("#item").click(function() {
-    checkForConsumables();
+    player.checkForConsumables();
     hideBattleMenu();
     showItemMenu();
   });

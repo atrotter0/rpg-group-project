@@ -41,7 +41,7 @@ Player.prototype.isDead = function() {
   if (this.hp <= 0) return true;
 }
 
-Player.prototype.checkConsumables = function() {
+Player.prototype.checkForConsumables = function() {
   for(var i = 0; i < player.inventory.length; i++) {
     if (this.hasHealingPotion(player.inventory[i])) {
       this.hasHealingPotion = true;
@@ -53,13 +53,13 @@ Player.prototype.checkConsumables = function() {
 
 Player.prototype.hasHealingPotion = function(item) {
   if (item.type === "Consumable" && item.addHp !== undefined && item.addHp > 0) {
-    return = true;
+    return true;
   }
 }
 
 Player.prototype.hasManaPotion = function(item) {
   if (item.type === "Consumable" && item.addHp !== undefined && item.addHp > 0) {
-    return = true;
+    return true;
   }
 }
 
