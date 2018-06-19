@@ -6,7 +6,8 @@ enemyMap = {};
 function Enemy(id, name, hp, dmg, xp, loot) {
   this.id = id;
   this.name = name;
-  this.hp = hp;
+  this.hpMax = hp;
+  this.hp = this.hpMax;
   this.dmg = dmg;
   this.xp = xp;
   this.loot = [];

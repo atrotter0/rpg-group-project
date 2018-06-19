@@ -59,7 +59,6 @@ function battleAnimationPlayer() {
 function battleAnimationEnemy() {
   shakeElement("#enemy-sprite");
   adjustHp("enemy");
-  adjustMp("enemy");
 }
 
 function shakeElement(id) {
@@ -69,19 +68,19 @@ function shakeElement(id) {
 function adjustHp(target) {
   var percent = 0;
   if (target === "player") {
-    percent = player.hp / 100;
-    $("battle-stats-hp-player").css("width", percent);
+    percent = (player.hp * 100) / player.hpMax;
+    $("#battle-stats-hp-player").css("width", percent + "%");
   } else if (target === "enemy") {
-    percent = player.currentEnemy.hp / 100;
-    $("battle-stats-hp-enemy").css("width", percent);
+    percent = (player.currentEnemy.hp * 100) / player.currentEnemy.hpMax;
+    $("#battle-stats-hp-enemy").css("width", percent + "%");
   }
 }
 
 function adjustMp(target) {
   var percent = 0;
   if (target === "player") {
-    percent = player.mp / 100;
-    $("battle-stats-hp-player").css("width", percent);
+    percent = (player.mp * 100) / player.mpMax;
+    $("#battle-stats-hp-player").css("width", percent+ "%");
   }
 }
 
@@ -94,6 +93,9 @@ function hideCurrentScreen() {
 }
 
 function showBattleScreen() {
+  adjustHp("player");
+  adjustMp("player");
+  adjustHp("enemy");
   hideCurrentScreen();
   $("#battle-screen").addClass("current-screen").show();
 }
