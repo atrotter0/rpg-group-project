@@ -124,3 +124,12 @@
   #level-up-table .col-sm-7 {
     text-align:right;
   }
+
+  #available-points-div{
+    margin-top:30px;
+    font-size:12px;
+    background-color:red;
+    padding: 7px;
+    border-radius: 5px;
+    border: yellow 3px solid;
+  }

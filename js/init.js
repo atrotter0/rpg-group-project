@@ -34,75 +34,116 @@ $(document).ready(function() {
 
   // run object builds here
   buildRooms();
-  items = new ItemDictionary();
-  enemy = new EnemyDictionary();
+  // items = new ItemDictionary();
+  // enemy = new EnemyDictionary();
 
   $("#hp-added").text(0);
   $("#mp-added").text(0);
   $("#ap-added").text(0);
   $("#sp-added").text(0);
 
+  var availablePoints = 3;
+  $("#available-points").text(availablePoints);
+
   $("#hp-add-button").click(function(){
     var currentNumber = parseInt($("#hp-added").text());
-    console.log(currentNumber);
-    var newNumber = currentNumber + 1;
-    console.log(newNumber);
-    $("#hp-added").text(newNumber);
+    if (currentNumber >= 3 || availablePoints <= 0) {
+      alertError("You don't have any points left to spend!");
+    } else {
+    var newHpNumber = currentNumber + 1;
+    availablePoints--;
+    console.log(availablePoints);
+    $("#hp-added").text(newHpNumber);
+    $("#available-points").text(availablePoints);
+    }
   })
 
   $("#hp-subtract-button").click(function(){
     var currentNumber = parseInt($("#hp-added").text());
-    console.log(currentNumber);
-    var newNumber = currentNumber - 1;
-    console.log(newNumber);
-    $("#hp-added").text(newNumber);
+    if (currentNumber <= 0) {
+      alertError("You cannot add a negative number of points!");
+    } else {
+      var newHpNumber = currentNumber - 1;
+      availablePoints++;
+      $("#hp-added").text(newHpNumber);
+      $("#available-points").text(availablePoints);
+    }
+
   })
 
   $("#mp-add-button").click(function(){
+    console.log(availablePoints);
     var currentNumber = parseInt($("#mp-added").text());
-    console.log(currentNumber);
-    var newNumber = currentNumber + 1;
-    console.log(newNumber);
-    $("#mp-added").text(newNumber);
+    if (currentNumber >= 3 || availablePoints <= 0) {
+      alertError("You don't have any points left to spend!");
+    } else {
+    var newMpNumber = currentNumber + 1;
+    availablePoints--;
+    console.log(availablePoints);
+    $("#mp-added").text(newMpNumber);
+    $("#available-points").text(availablePoints);
+    }
+
   })
 
   $("#mp-subtract-button").click(function(){
+    console.log(availablePoints);
     var currentNumber = parseInt($("#mp-added").text());
-    console.log(currentNumber);
-    var newNumber = currentNumber - 1;
-    console.log(newNumber);
-    $("#mp-added").text(newNumber);
+    if (currentNumber <= 0) {
+      alertError("You cannot add a negative number of points!");
+    } else {
+      var newMpNumber = currentNumber - 1;
+      availablePoints++;
+      $("#mp-added").text(newMpNumber);
+      $("#available-points").text(availablePoints);
+    }
   })
 
   $("#ap-add-button").click(function(){
     var currentNumber = parseInt($("#ap-added").text());
-    console.log(currentNumber);
-    var newNumber = currentNumber + 1;
-    console.log(newNumber);
-    $("#ap-added").text(newNumber);
+    if (currentNumber >= 3 || availablePoints <= 0) {
+      alertError("You don't have any points left to spend!");
+    } else {
+    var newApNumber = currentNumber + 1;
+    availablePoints--;
+    $("#ap-added").text(newApNumber);
+    $("#available-points").text(availablePoints);
+    }
   })
 
   $("#ap-subtract-button").click(function(){
     var currentNumber = parseInt($("#ap-added").text());
-    console.log(currentNumber);
-    var newNumber = currentNumber - 1;
-    console.log(newNumber);
-    $("#ap-added").text(newNumber);
+    if (currentNumber <= 0) {
+      alertError("You cannot add a negative number of points!");
+    } else {
+      var newApNumber = currentNumber - 1;
+      availablePoints++;
+      $("#ap-added").text(newApNumber);
+      $("#available-points").text(availablePoints);
+    }
   })
 
   $("#sp-add-button").click(function(){
     var currentNumber = parseInt($("#sp-added").text());
-    console.log(currentNumber);
-    var newNumber = currentNumber + 1;
-    console.log(newNumber);
-    $("#sp-added").text(newNumber);
+    if (currentNumber >= 3 || availablePoints <= 0) {
+      alertError("You don't have any points left to spend!");
+    } else {
+    var newSpNumber = currentNumber + 1;
+    availablePoints--;
+    $("#sp-added").text(newSpNumber);
+    $("#available-points").text(availablePoints);
+    }
   })
 
   $("#sp-subtract-button").click(function(){
     var currentNumber = parseInt($("#sp-added").text());
-    console.log(currentNumber);
-    var newNumber = currentNumber - 1;
-    console.log(newNumber);
-    $("#sp-added").text(newNumber);
+    if (currentNumber <= 0) {
+      alertError("You cannot add a negative number of points!");
+    } else {
+      var newHpNumber = currentNumber - 1;
+      availablePoints++;
+      $("#sp-added").text(newHpNumber);
+      $("#available-points").text(availablePoints);
+    }
   })
 });
