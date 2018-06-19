@@ -1,5 +1,6 @@
 // Enemy
 console.log("enemy.js loaded!");
+var enemy = {};
 
 function EnemyDictionary() {
   this.populateEnemies();

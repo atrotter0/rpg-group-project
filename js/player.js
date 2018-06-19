@@ -17,23 +17,28 @@ function Player(name, room) {
 }
 
 Player.prototype.checkLoot = function(enemy) {
-  var isDuplicate = true;
-  var loot;
+  const LOOTABLE_ITEMS = enemy.loot.length;
+  var uniqueItem = false;
 
+  while(!uniqueItem) {
+    var randomNumber = rollDice(LOOTABLE_ITEMS);
 
-  while(isDuplicate) {
-    var roll = Math.floor((Math.random() * enemy.loot.length) + 1);
-    loot = enemy.loot[roll];
-
-    if(this.items.includes(loot)) {
+    if(this.items.includes(enemy.loot[randomNumber])) {
+      console.log("skip");
+      console.log(enemy.loot[randomNumber]);
       continue;
     } else {
-      isDuplicate = false;
-      break;
+      this.items.push(enemy.loot[randomNumber]);
+      console.log(enemy.loot[randomNumber]);
+      uniqueItem = true;
     }
   }
+}
 
-  return loot;
+function rollDice(maxNumber) {
+  var roll = Math.floor(Math.random() * maxNumber);
+
+  return roll;
 }
 
 function createNewPlayer(name) {
