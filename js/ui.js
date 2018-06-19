@@ -156,6 +156,7 @@ $(document).ready(function() {
   });
 
   $("#item").click(function() {
+    checkForConsumables();
     hideBattleMenu();
     showItemMenu();
   });

@@ -18,6 +18,8 @@ function Player(name, room) {
   this.room = room;
   this.currentEnemy = {};
   this.lastRoom = "";
+  this.hasHealingPotion = false;
+  this.hasManaPotion = false;
 }
 
 Player.prototype.playerAttack = function(enemy) {
@@ -37,6 +39,28 @@ Player.prototype.playerCastSpell = function(enemy) {
 
 Player.prototype.isDead = function() {
   if (this.hp <= 0) return true;
+}
+
+Player.prototype.checkConsumables = function() {
+  for(var i = 0; i < player.inventory.length; i++) {
+    if (this.hasHealingPotion(player.inventory[i])) {
+      this.hasHealingPotion = true;
+    } else if (this.hasManaPotion(player.inventory[i])) {
+      this.hasManaPotion = true;
+    }
+  }
+}
+
+Player.prototype.hasHealingPotion = function(item) {
+  if (item.type === "Consumable" && item.addHp !== undefined && item.addHp > 0) {
+    return = true;
+  }
+}
+
+Player.prototype.hasManaPotion = function(item) {
+  if (item.type === "Consumable" && item.addHp !== undefined && item.addHp > 0) {
+    return = true;
+  }
 }
 
 function createNewPlayer(name) {
