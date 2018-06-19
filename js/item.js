@@ -110,5 +110,4 @@ function Item(id, name, type, level, hp, ap, sp, mp) {
   this.attackBonus = ap;
   this.spellBonus = sp;
   this.manaBonus = mp;
-
 }

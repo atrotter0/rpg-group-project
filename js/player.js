@@ -59,6 +59,13 @@ Player.prototype.checkDead = function() {
   }
 }
 
+Player.prototype.checkXP = function() {
+  if(this.xp === 100) {
+    this.levelUp();
+    alertSuccess("Level Up! You are now level " + this.level);
+  }
+}
+
 Player.prototype.hitSomething = function(mob) {
   const minAttack = (this.ap * .5);
   const maxAttack = this.ap;
