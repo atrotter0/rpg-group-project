@@ -46,6 +46,10 @@ function disableButton(id) {
   $(id).attr("disabled", true);
 }
 
+function enableButton(id) {
+  $(id).prop("disabled", false)
+}
+
 function battleAlert(msg) {
   $("#battle-alert").text(msg);
 }
@@ -120,12 +124,13 @@ function showItemMenu() {
 
 function setDisabledConsumables() {
   if (!player.hasHealingConsumable) {
+    console.log("made it to healpot");
     disableButton("#battle-health-potion");
-  } else if (!player.hasManaConsumable) {
+  }
+
+  if (!player.hasManaConsumable) {
+    console.log("made it to manapot");
     disableButton("#battle-mana-potion");
-  } else {
-    enableButton("#battle-health-potion");
-    enableButton("#battle-mana-potion");
   }
 }
 
