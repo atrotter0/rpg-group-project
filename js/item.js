@@ -76,7 +76,7 @@ ItemDictionary.prototype.populateItems = function() {
   this.midArmor2 = midArmor2;
   this.epicArmor1 = epicArmor1;
   this.epicArmor2 = epicArmor2;
-
+}
 // Populate dictionary with a predefined list of items
 ItemDictionary.prototype.populateItems = function() {
   var sword1 = new Item(1, "Sword of Woe", "Weapon", 1, 3, 0, 0);
@@ -94,9 +94,6 @@ ItemDictionary.prototype.populateItems = function() {
 
   this.sword1 = sword1;
   this.staff1 = staff1;
-
-
-
 }
 
 // Item Constructor
