@@ -83,7 +83,7 @@ Player.prototype.useManaPotion = function() {
 
 Player.prototype.removeItem = function(itemName) {
   for(var i = 0; i < this.items.length; i++) {
-    if (this.items[i] === itemName) {
+    if (this.items[i].name === itemName) {
       this.items.splice(i, 1);
     }
   }
