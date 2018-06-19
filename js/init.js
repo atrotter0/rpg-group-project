@@ -133,14 +133,14 @@ $(document).ready(function() {
 
   $("#sp-add-button").click(function(){
     var currentNumber = parseInt($("#sp-added").text());
-    if (currentNumber >= 3 || availablePoints <= 0) {
+    if (currentNumber >= 3 || newStats.availablePoints <= 0) {
       alertError("You don't have any points left to spend!");
     } else {
     var newSpNumber = currentNumber + 1;
-    availablePoints--;
+    newStats.availablePoints--;
     newStats.newSp = newSpNumber;
     $("#sp-added").text(newSpNumber);
-    $("#available-points").text(availablePoints);
+    $("#available-points").text(newStats.availablePoints);
     }
     console.log(newStats.newSp);
   })
@@ -151,10 +151,10 @@ $(document).ready(function() {
       alertError("You cannot add a negative number of points!");
     } else {
       var newSpNumber = currentNumber - 1;
-      availablePoints++;
+      newStats.availablePoints++;
       newStats.newSp = newSpNumber;
       $("#sp-added").text(newSpNumber);
-      $("#available-points").text(availablePoints);
+      $("#available-points").text(newStats.availablePoints);
     }
     console.log(newStats.newSp);
   })
