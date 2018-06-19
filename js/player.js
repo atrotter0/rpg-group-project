@@ -16,6 +16,15 @@ function Player(name, room) {
   this.room = room;
 }
 
+Player.prototype.levelUp = function(level) {
+  this.level += 1;
+  this.xp = 0;
+  this.hp = 20 * level;
+  this.mp = 3 * level;
+  this.ap = 1 * level;
+  this.sp = 1 * level;
+}
+
 Player.prototype.checkLoot = function(enemy) {
   const LOOTABLE_ITEMS = enemy.loot.length;
   var uniqueItem = false;
