@@ -80,7 +80,7 @@ function adjustMp(target) {
   var percent = 0;
   if (target === "player") {
     percent = (player.mp * 100) / player.mpMax;
-    $("#battle-stats-hp-player").css("width", percent+ "%");
+    $("#battle-stats-mp-player").css("width", percent+ "%");
   }
 }
 
