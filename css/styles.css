@@ -100,11 +100,46 @@
 }
 
 .grid-container {
+  margin-right: 25%;
+  margin-left: 25%;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  text-align: center;
   display: grid;
-  grid-gap: 50px;
   grid-template-columns: auto auto auto auto;
   background-color: #eee;
-  padding: 10px;
+  font-family: Aclonica;
+}
+
+#inventory-screen {
+  margin-right: 25%;
+  margin-left: 25%;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  text-align: center;
+  display: grid;
+  grid-template-columns: auto;
+  font-family: Aclonica;
+  background: url("../img/inventory-bg.jpg");
+  background: contain;
+  color: white;
+  font-size: 24px;
+  padding: 20px;
+}
+
+#character-details {
+  background: url("../img/inventory-bg.jpg");
+  background: contain;
+  color: white;
+  font-size: 24px;
+  padding: 20px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+#char-name {
+  margin-bottom: 0px;
+  margin-top: 0px;
 }
 
 .grid-item {
@@ -112,14 +147,20 @@
   padding: 20px;
   font-size: 30px;
   text-align: center;
+  background-color: #434951;
+  color: white;
 }
 
 .character-screen {
-  margin: 25%;
+  margin-right: 25%;
+  margin-left: 25%;
+  margin-bottom: 0px;
+  margin-top: 0px;
   text-align: center;
   background-color: darkgrey;
   border: 1px solid black;
   font-family: Aclonica;
+  box-shadow: 0px 2px 20px black;
 }
 
 #char-name {
