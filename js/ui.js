@@ -118,6 +118,17 @@ function showItemMenu() {
   $("#item-menu").show();
 }
 
+function setDisabledConsumables() {
+  if (!player.hasHealingConsumable) {
+    disableButton("#battle-health-potion");
+  } else if (!player.hasManaConsumable) {
+    disableButton("#battle-mana-potion");
+  } else {
+    enableButton("#battle-health-potion");
+    enableButton("#battle-mana-potion");
+  }
+}
+
 $(document).ready(function() {
   console.log("ui.js loaded!");
 
@@ -157,6 +168,7 @@ $(document).ready(function() {
 
   $("#item").click(function() {
     player.checkForConsumables();
+    setDisabledConsumables();
     hideBattleMenu();
     showItemMenu();
   });
