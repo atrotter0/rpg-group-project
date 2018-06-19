@@ -124,12 +124,14 @@
   height: 18px;
   background: #79d852;
   width: 90%;
+  transition: width 2s;
 }
 
 #battle-stats-mp-player {
   height: 18px;
   background: #5452d8;
   width: 90%;
+  transition: width 1s;
 }
 
 #player-sprite {
@@ -141,12 +143,7 @@
   height: 18px;
   background: #79d852;
   width: 90%;
-}
-
-#battle-stats-mp-enemy {
-  height: 18px;
-  background: #5452d8;
-  width: 90%;
+  transition: width 2s;
 }
 
 #enemy-sprite {
