@@ -96,9 +96,6 @@ function adjustHp(target) {
 }
 
 function adjustMp(target) {
-  console.log("adjusting mp...");
-  console.log("mp:" + player.hp);
-  console.log("hp:" + player.mp);
   var percent = 0;
   if (target === "player") {
     percent = (player.mp * 100) / player.mpMax;
@@ -188,10 +185,12 @@ $(document).ready(function() {
 
   $("#attack").click(function() {
     runPlayerAttack(player.currentEnemy);
+    hideBattleMenu();
   });
 
   $("#spell").click(function() {
     runPlayerSpell(player.currentEnemy);
+    hideBattleMenu();
   });
 
   $("#item").click(function() {
@@ -210,15 +209,13 @@ $(document).ready(function() {
     runPlayerHealthPotion();
     player.checkForConsumables();
     setDisabledConsumables();
+    hideBattleItemMenu();
   });
 
   $("#battle-mana-potion").click(function() {
     runPlayerManaPotion();
     player.checkForConsumables();
     setDisabledConsumables();
-  });
-
-  $("#run").click(function() {
-
+    hideBattleItemMenu();
   });
 });

@@ -35,6 +35,7 @@ function runEnemyTurn(enemy) {
 }
 
 function runPlayerTurn() {
+  showBattleMenu();
   runMpCheck();
   battleAlert(player.name + "'s turn!");
 }
@@ -66,6 +67,7 @@ function runPlayerHealthPotion() {
     player.useHealthPotion();
     battleAnimationStatRestore();
   }, 0);
+  setTimeout(function() { checkEnemyDead(player.currentEnemy); }, 1000);
 }
 
 function runPlayerManaPotion() {
@@ -73,6 +75,7 @@ function runPlayerManaPotion() {
     player.useManaPotion();
     battleAnimationStatRestore();
   }, 0);
+  setTimeout(function() { checkEnemyDead(player.currentEnemy); }, 1000);
 }
 
 function checkPlayerDead() {
