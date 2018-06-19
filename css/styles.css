@@ -240,8 +240,13 @@
   padding: 10px;
 }
 
-.btn-item {
+.btn-battle-item {
   width: 300px;
+}
+
+.btn-close {
+  width: 80px;
+  float: right;
 }
 
 #main-menu-image-box {
