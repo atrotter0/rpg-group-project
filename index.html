@@ -5,9 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- remove styles link for Bootstrap 3.3.7 and uncomment below if you want to use Bootstrap 4.0.0 -->
   <!--   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link href="css/styles.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Aclonica" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="js/spell.js"></script>
   <script src="js/item.js"></script>
@@ -45,6 +47,73 @@
           <img src="img/load-game.png" alt="New Game icon" class="btn-icon">
           Load Game
         </button>
+      </div>
+    </div>
+    <div class="character-screen">
+      <h1>Character Details</h1>
+      <div id="char-name-div">
+        <h3 id="char-name">Name</h3>
+      </div>
+      <div id="portrait-view">
+        <img id="character-portrait" src="img/character-portrait.png" alt="character">
+      </div>
+      <div class="equipped-items-div">
+        <div id="equipped-weapon">
+          <img id="weapon-icon" src="img/pointy-sword.png" alt="weapon">
+        </div>
+        <div id="equipped-armor">
+          <img id="armor-icon" src="img/breastplate.png" alt="armor">
+        </div>
+        <div id="equipped-weapon-text-div">
+          <p id="equipped-weapon-text">Sword of Woe</p>
+        </div>
+        <div id="equipped-armor-text-div">
+          <p id="equipped-armor-text">Sturdy Halberk</p>
+        </div>
+      </div>
+      <div class="attributes-display">
+        <div id="health-points">
+          <h4>Health:</h4>
+        </div>
+        <div id="health-points-indicator-div">
+          <h4 id="health-points-indicator">75</h4>
+        </div>
+        <div id="mana-points">
+          <h4>Mana:</h4>
+        </div>
+        <div id="mana-points-indicator-div">
+          <h4 id="mana-points-indicator">30</h4>
+        </div>
+        <div id="attack-power">
+          <h4>Attack Power:</h4>
+        </div>
+        <div id="attack-power-indicator-div">
+          <h4 id="attack-power-indicator">11</h4>
+        </div>
+        <div id="spell-power">
+          <h4>Spell Power:</h4>
+        </div>
+        <div id="spell-power-indicator-div">
+          <h4 id="spell-power-indicator">5</h4>
+        </div>
+        <div id="spell-power">
+          <h4>Experience:</h4>
+        </div>
+        <div id="spell-power-indicator-div">
+          <h4 id="spell-power-indicator">20</h4>
+        </div>
+      </div>
+    </div>
+    <div id="inventory-menu">
+      <h1 class="fancy-shadow">Inventory</h1>
+      <div id="inventory-slots">
+        <h2 class="fancy-shadow">Items</h2>
+        <div class="grid-container">
+          <div class="grid-item">1</div>
+          <div class="grid-item">2</div>
+          <div class="grid-item">3</div>
+          <div class="grid-item">4</div>
+        </div>
       </div>
     </div>
   </div>

@@ -96,4 +96,195 @@
     display: block;
     width: 90%;
   }
+
+}
+
+.grid-container {
+  display: grid;
+  grid-gap: 50px;
+  grid-template-columns: auto auto auto auto;
+  background-color: #eee;
+  padding: 10px;
+}
+
+.grid-item {
+  border: 1px solid black;
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.character-screen {
+  margin: 25%;
+  text-align: center;
+  background-color: darkgrey;
+  border: 1px solid black;
+  font-family: Aclonica;
+}
+
+#char-name {
+  display: grid;
+  grid-template-columns: auto;
+  background-color: #434951;
+  padding: 10px;
+  border: 1px solid black;
+  margin-bottom: 0px;
+  color: white;
+}
+
+#character-portrait {
+  height: 300px;
+  position: relative;
+  padding-left: 25%;
+}
+
+#portrait-view {
+  display: grid;
+  grid-template-columns: auto;
+  background-color: #eee;
+  padding: 10px;
+  border: 1px solid black;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  background: url("../img/dark-background.jpg");
+  background-size: contain;
+}
+
+.attributes-display {
+  display: grid;
+  grid-template-columns: auto auto;
+  background-color: #434951;
+  color: white;
+}
+
+#health-points h4 {
+  border: 1px solid black;
+  color: yellow;
+  font-size: 20px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+#health-points-indicator {
+  border: 1px solid black;
+  color: lightgreen;
+  font-size: 20px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+#mana-points h4 {
+  border: 1px solid black;
+  color: yellow;
+  font-size: 20px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+#mana-points-indicator {
+  border: 1px solid black;
+  color: lightgreen;
+  font-size: 20px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+#attack-power h4 {
+  border: 1px solid black;
+  color: yellow;
+  font-size: 20px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+#spell-power h4 {
+  border: 1px solid black;
+  color: yellow;
+  font-size: 20px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+#attack-power-indicator {
+  border: 1px solid black;
+  color: lightgreen;
+  font-size: 20px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+#spell-power-indicator {
+  border: 1px solid black;
+  color: lightgreen;
+  font-size: 20px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+.experience-indicator-div {
+  display: grid;
+  grid-template-columns: auto;
+  border: 1px solid black;
+}
+
+#experience-indicator {
+  background-color: #0e5fcc;
+  text-align: center;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  color: white;
+}
+
+.equipped-items-div {
+  display: grid;
+  grid-template-columns: auto auto;
+  background-color: black;
+}
+
+#equipped-weapon {
+  border: 1px solid grey;
+}
+
+#equipped-armor {
+  border: 1px solid grey;
+}
+
+#weapon-icon {
+  height: 50px;
+  position: relative;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+#armor-icon {
+  height: 50px;
+  position: relative;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+#equipped-weapon-text-div {
+  background-color: black;
+}
+
+#equipped-armor-text-div {
+  background-color: black;
+}
+
+#equipped-weapon-text {
+  color: rebeccapurple;
+  font-weight: bold;
+  font-size: 16px;
+  border: 1px solid grey;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+#equipped-armor-text {
+  color: rebeccapurple;
+  font-weight: bold;
+  font-size: 16px;
+  border: 1px solid grey;
+  margin-bottom: 0px;
+  margin-top: 0px;
 }
