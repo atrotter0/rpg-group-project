@@ -6,7 +6,9 @@ var player = {};
 function Player(name, room) {
   this.name = name;
   this.level = 1;
-  this.hp = 10;
+  this.hpMax = 10;
+  this.hp = this.hpMax;
+  this.mpMax = 20;
   this.mp = 20;
   this.ap = 1;
   this.sp = 3;

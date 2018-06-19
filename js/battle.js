@@ -27,8 +27,11 @@ function firstTurn(enemy) {
 
 function runEnemyTurn(enemy) {
   setTimeout(function() { battleAlert(enemy.name + "'s turn!"); }, 1000);
-  setTimeout(function() { enemy.enemyAttack(); }, 2000);
-  setTimeout(function() { checkPlayerDead(enemy); }, 4000);
+  setTimeout(function() {
+    enemy.enemyAttack();
+    battleAnimationPlayer();
+  }, 2000);
+  setTimeout(function() { checkPlayerDead(); }, 4000);
 }
 
 function runPlayerTurn() {
@@ -37,7 +40,11 @@ function runPlayerTurn() {
 }
 
 function runPlayerAttack(enemy) {
-  setTimeout(function() { player.playerAttack(enemy); }, 0);
+  setTimeout(function() { 
+    player.playerAttack(enemy); 
+    battleAnimationEnemy();
+  }, 0);
+  setTimeout(function() { checkEnemyDead(player.currentEnemy); }, 1000);
 }
 
 function runMpCheck() {
@@ -47,10 +54,14 @@ function runMpCheck() {
 }
 
 function runPlayerSpell(enemy) {
-  setTimeout(function() { player.playerCastSpell(enemy); }, 0);
+  setTimeout(function() {
+    player.playerCastSpell(enemy);
+    battleAnimationEnemy();
+  }, 0);
+  setTimeout(function() { checkEnemyDead(player.currentEnemy); }, 1000);
 }
 
-function checkPlayerDead(enemy) {
+function checkPlayerDead() {
   if (player.isDead()) {
     showDeathScreen();
     console.log("You lost!");
@@ -62,6 +73,7 @@ function checkPlayerDead(enemy) {
 
 function checkEnemyDead(enemy) {
   if (enemy.isDead()) {
+    animationEnemyDefeated();
     console.log("You won!");
   } else {
     console.log("Still fightin!");

@@ -50,6 +50,45 @@ function battleAlert(msg) {
   $("#battle-alert").text(msg);
 }
 
+function battleAnimationPlayer() {
+  shakeElement("#player-sprite");
+  adjustHp("player");
+}
+
+function battleAnimationEnemy() {
+  shakeElement("#enemy-sprite");
+  adjustHp("enemy");
+  adjustMp("player");
+}
+
+function animationEnemyDefeated() {
+  $("#enemy-stats").addClass("invisible");
+  $("#enemy-sprite-img").effect("pulsate", { times: 4 }).toggle("explode", { pieces: 48 });
+}
+
+function shakeElement(id) {
+  $(id).effect("shake", { direction: "right", times: 2, distance: 4 }, 300);
+}
+
+function adjustHp(target) {
+  var percent = 0;
+  if (target === "player") {
+    percent = (player.hp * 100) / player.hpMax;
+    $("#battle-stats-hp-player").css("width", percent + "%");
+  } else if (target === "enemy") {
+    percent = (player.currentEnemy.hp * 100) / player.currentEnemy.hpMax;
+    $("#battle-stats-hp-enemy").css("width", percent + "%");
+  }
+}
+
+function adjustMp(target) {
+  var percent = 0;
+  if (target === "player") {
+    percent = (player.mp * 100) / player.mpMax;
+    $("#battle-stats-mp-player").css("width", percent+ "%");
+  }
+}
+
 function showRoom(player) {
   var roomId = player.room;
 }
@@ -59,6 +98,9 @@ function hideCurrentScreen() {
 }
 
 function showBattleScreen() {
+  adjustHp("player");
+  adjustMp("player");
+  adjustHp("enemy");
   hideCurrentScreen();
   $("#battle-screen").addClass("current-screen").show();
 }
@@ -107,12 +149,10 @@ $(document).ready(function() {
 
   $("#attack").click(function() {
     runPlayerAttack(player.currentEnemy);
-    checkEnemyDead(player.currentEnemy);
   });
 
   $("#spell").click(function() {
     runPlayerSpell(player.currentEnemy);
-    checkEnemyDead(player.currentEnemy);
   });
 
   $("#item").click(function() {
