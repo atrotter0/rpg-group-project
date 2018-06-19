@@ -144,12 +144,10 @@ $(document).ready(function() {
 
   $("#attack").click(function() {
     runPlayerAttack(player.currentEnemy);
-    checkEnemyDead(player.currentEnemy);
   });
 
   $("#spell").click(function() {
     runPlayerSpell(player.currentEnemy);
-    checkEnemyDead(player.currentEnemy);
   });
 
   $("#item").click(function() {
