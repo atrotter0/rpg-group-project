@@ -160,7 +160,9 @@ $(document).ready(function() {
   })
 
   $("#add-stats-button").click(function(){
-    // if ()
+    if (newStats.availablePoints !== 0) {
+    alertError("You haven't spent all your points yet!")
+  } else {
     player.hp += newStats.newHp;
     player.mp += newStats.newMp;
     player.ap += newStats.newAp;
@@ -172,5 +174,7 @@ $(document).ready(function() {
     newStats.newSp = 0;
     console.log(newStats);
     console.log(player);
+  }
+
   })
 });
