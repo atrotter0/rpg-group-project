@@ -42,24 +42,23 @@ Player.prototype.isDead = function() {
 }
 
 Player.prototype.checkForConsumables = function() {
-  for(var i = 0; i < player.items.length; i++) {
-    if (this.hasHealingPotion(player.items[i])) {
-      this.hasHealingConsumable = true;
-    } else if (this.hasManaPotion(player.items[i])) {
-      this.hasManaConsumable = true;
-    }
+  this.checkHealingPotion();
+  this.checkManaPotion();
+}
+
+Player.prototype.checkHealingPotion = function() {
+  if (this.items.includes(itemMap.healthPotion)) {
+   this.hasHealingConsumable = true;
+  } else {
+    this.hasHealingConsumable = false;
   }
 }
 
-Player.prototype.hasHealingPotion = function(item) {
-  if (item.type === "Consumable" && item.addHp !== undefined && item.addHp > 0) {
-    return true;
-  }
-}
-
-Player.prototype.hasManaPotion = function(item) {
-  if (item.type === "Consumable" && item.addMp !== undefined && item.addMp > 0) {
-    return true;
+Player.prototype.checkManaPotion = function() {
+  if (this.items.includes(itemMap.manaPotion)) {
+   this.hasManaConsumable = true;
+  } else {
+    this.hasManaConsumable = false;
   }
 }
 
