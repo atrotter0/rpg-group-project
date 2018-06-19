@@ -61,8 +61,13 @@ function battleAnimationEnemy() {
   adjustMp("player");
 }
 
+function animationEnemyDefeated() {
+  $("#enemy-stats").addClass("invisible");
+  $("#enemy-sprite-img").effect("pulsate", { times: 4 }).toggle("explode", { pieces: 48 });
+}
+
 function shakeElement(id) {
-  $(id).effect("shake", { direction: "right", times: 2, distance: 2}, 300);
+  $(id).effect("shake", { direction: "right", times: 2, distance: 4 }, 300);
 }
 
 function adjustHp(target) {

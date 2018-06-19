@@ -6,6 +6,10 @@
   text-shadow: 1px 1px #ada4a4;
 }
 
+.invisible() {
+  visibility: hidden;
+}
+
 /*************/
 /* ALERT MSG */
 /*************/
