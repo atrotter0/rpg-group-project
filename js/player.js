@@ -18,6 +18,8 @@ function Player(name, room) {
   this.room = room;
   this.currentEnemy = {};
   this.lastRoom = "";
+  this.hasHealingConsumable = false;
+  this.hasManaConsumable = false;
 }
 
 Player.prototype.playerAttack = function(enemy) {
@@ -37,6 +39,55 @@ Player.prototype.playerCastSpell = function(enemy) {
 
 Player.prototype.isDead = function() {
   if (this.hp <= 0) return true;
+}
+
+Player.prototype.checkForConsumables = function() {
+  this.checkHealingPotion();
+  this.checkManaPotion();
+}
+
+Player.prototype.checkHealingPotion = function() {
+  if (this.items.includes(itemMap.healthPotion)) {
+   this.hasHealingConsumable = true;
+  } else {
+    this.hasHealingConsumable = false;
+  }
+}
+
+Player.prototype.checkManaPotion = function() {
+  if (this.items.includes(itemMap.manaPotion)) {
+   this.hasManaConsumable = true;
+  } else {
+    this.hasManaConsumable = false;
+  }
+}
+
+Player.prototype.useHealthPotion = function() {
+  this.removeItem("Health Potion");
+  this.hp += itemMap.healthPotion.addHp;
+
+  if (this.hp > this.hpMax) {
+    this.hp = this.hpMax;
+  }
+  battleAlert(this.name + " uses a " + itemMap.healthPotion.name + " and recovers " + itemMap.healthPotion.addHp + " health!");
+}
+
+Player.prototype.useManaPotion = function() {
+  this.removeItem("Mana Potion");
+  this.mp += itemMap.manaPotion.addMp;
+
+  if (this.mp > this.mpMax) {
+    this.mp = this.mpMax;
+    battleAlert(this.name + " uses a " + itemMap.manaPotion.name + " and recovers " + itemMap.manaPotion.addMp + " mana!");
+  }
+}
+
+Player.prototype.removeItem = function(itemName) {
+  for(var i = 0; i < this.items.length; i++) {
+    if (this.items[i].name === itemName) {
+      this.items.splice(i, 1);
+    }
+  }
 }
 
 function createNewPlayer(name) {

@@ -46,6 +46,10 @@ function disableButton(id) {
   $(id).attr("disabled", true);
 }
 
+function enableButton(id) {
+  $(id).prop("disabled", false)
+}
+
 function battleAlert(msg) {
   $("#battle-alert").text(msg);
 }
@@ -61,6 +65,12 @@ function battleAnimationEnemy() {
   adjustMp("player");
 }
 
+function battleAnimationStatRestore() {
+  bounceElement("#player-sprite");
+  adjustHp("player");
+  adjustMp("player");
+}
+
 function animationEnemyDefeated() {
   $("#enemy-stats").addClass("invisible");
   $("#enemy-sprite-img").effect("pulsate", { times: 4 }).toggle("explode", { pieces: 48 });
@@ -68,6 +78,10 @@ function animationEnemyDefeated() {
 
 function shakeElement(id) {
   $(id).effect("shake", { direction: "right", times: 2, distance: 4 }, 300);
+}
+
+function bounceElement(id) {
+  $(id).effect("pulsate").effect("bounce");
 }
 
 function adjustHp(target) {
@@ -114,8 +128,30 @@ function hideBattleMenu() {
   $("#battle-menu").hide();
 }
 
-function showItemMenu() {
+function showBattleMenu() {
+  $("#battle-menu").show();
+}
+
+function showBattleItemMenu() {
   $("#item-menu").show();
+}
+
+function hideBattleItemMenu() {
+  $("#item-menu").hide();
+}
+
+function setDisabledConsumables() {
+  if (player.hasHealingConsumable) {
+    enableButton("#battle-health-potion");
+  } else {
+    disableButton("#battle-health-potion");
+  }
+
+  if (player.hasManaConsumable) {
+    enableButton("#battle-mana-potion");
+  } else {
+    disableButton("#battle-mana-potion");
+  }
 }
 
 $(document).ready(function() {
@@ -149,18 +185,37 @@ $(document).ready(function() {
 
   $("#attack").click(function() {
     runPlayerAttack(player.currentEnemy);
+    hideBattleMenu();
   });
 
   $("#spell").click(function() {
     runPlayerSpell(player.currentEnemy);
+    hideBattleMenu();
   });
 
   $("#item").click(function() {
+    player.checkForConsumables();
+    setDisabledConsumables();
     hideBattleMenu();
-    showItemMenu();
+    showBattleItemMenu();
   });
 
-  $("#run").click(function() {
+  $("#battle-item-close").click(function() {
+    hideBattleItemMenu();
+    showBattleMenu();
+  });
 
+  $("#battle-health-potion").click(function() {
+    runPlayerHealthPotion();
+    player.checkForConsumables();
+    setDisabledConsumables();
+    hideBattleItemMenu();
+  });
+
+  $("#battle-mana-potion").click(function() {
+    runPlayerManaPotion();
+    player.checkForConsumables();
+    setDisabledConsumables();
+    hideBattleItemMenu();
   });
 });

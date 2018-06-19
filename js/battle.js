@@ -35,6 +35,7 @@ function runEnemyTurn(enemy) {
 }
 
 function runPlayerTurn() {
+  showBattleMenu();
   runMpCheck();
   battleAlert(player.name + "'s turn!");
 }
@@ -57,6 +58,22 @@ function runPlayerSpell(enemy) {
   setTimeout(function() {
     player.playerCastSpell(enemy);
     battleAnimationEnemy();
+  }, 0);
+  setTimeout(function() { checkEnemyDead(player.currentEnemy); }, 1000);
+}
+
+function runPlayerHealthPotion() {
+  setTimeout(function() {
+    player.useHealthPotion();
+    battleAnimationStatRestore();
+  }, 0);
+  setTimeout(function() { checkEnemyDead(player.currentEnemy); }, 1000);
+}
+
+function runPlayerManaPotion() {
+  setTimeout(function() {
+    player.useManaPotion();
+    battleAnimationStatRestore();
   }, 0);
   setTimeout(function() { checkEnemyDead(player.currentEnemy); }, 1000);
 }

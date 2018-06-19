@@ -240,8 +240,19 @@
   padding: 10px;
 }
 
-.btn-item {
-  width: 300px;
+.btn-battle-item {
+  width: 220px;
+}
+
+.btn-close {
+  width: 60px;
+  float: right;
+}
+
+.btn-close img {
+  display: block;
+  margin: 0 auto;
+  width: 30px;
 }
 
 #main-menu-image-box {
