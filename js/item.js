@@ -3,7 +3,7 @@ console.log("item.js loaded!");
 
 var itemMap = {};
 
-function Item(id, name, type, hp, ap, sp, mp) {
+function Item(id, name, type, hp, mp, ap, sp) {
   this.id = id;
   this.name = name;
   this.type = type;
@@ -14,7 +14,9 @@ function Item(id, name, type, hp, ap, sp, mp) {
 }
 
 function buildItems() {
-  var healPotion1 = new Item("healPotion1", "Health Potion", "Consumable", 5);
+  var healthPotion = new Item("healthPotion", "Health Potion", "Consumable", 5);
+  var manaPotion = new Item("manaPotion", "Mana Potion", "Consumable", 0, 5);
 
-  itemMap.healPotion1 = healPotion1;
+  itemMap.healthPotion = healthPotion;
+  itemMap.manaPotion = manaPotion;
 }

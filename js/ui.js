@@ -65,6 +65,12 @@ function battleAnimationEnemy() {
   adjustMp("player");
 }
 
+function battleAnimationStatRestore() {
+  bounceElement("#player-sprite");
+  adjustHp("player");
+  adjustMp("player");
+}
+
 function animationEnemyDefeated() {
   $("#enemy-stats").addClass("invisible");
   $("#enemy-sprite-img").effect("pulsate", { times: 4 }).toggle("explode", { pieces: 48 });
@@ -72,6 +78,10 @@ function animationEnemyDefeated() {
 
 function shakeElement(id) {
   $(id).effect("shake", { direction: "right", times: 2, distance: 4 }, 300);
+}
+
+function bounceElement(id) {
+  $(id).effect("pulsate").effect("bounce");
 }
 
 function adjustHp(target) {
@@ -86,6 +96,9 @@ function adjustHp(target) {
 }
 
 function adjustMp(target) {
+  console.log("adjusting mp...");
+  console.log("mp:" + player.hp);
+  console.log("hp:" + player.mp);
   var percent = 0;
   if (target === "player") {
     percent = (player.mp * 100) / player.mpMax;
@@ -194,11 +207,15 @@ $(document).ready(function() {
   });
 
   $("#battle-health-potion").click(function() {
-    player.useHealthPotion();
+    runPlayerHealthPotion();
+    player.checkForConsumables();
+    setDisabledConsumables();
   });
 
   $("#battle-mana-potion").click(function() {
-
+    runPlayerManaPotion();
+    player.checkForConsumables();
+    setDisabledConsumables();
   });
 
   $("#run").click(function() {

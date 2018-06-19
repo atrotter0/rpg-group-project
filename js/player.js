@@ -58,26 +58,28 @@ Player.prototype.hasHealingPotion = function(item) {
 }
 
 Player.prototype.hasManaPotion = function(item) {
-  if (item.type === "Consumable" && item.addHp !== undefined && item.addHp > 0) {
+  if (item.type === "Consumable" && item.addMp !== undefined && item.addMp > 0) {
     return true;
   }
 }
 
 Player.prototype.useHealthPotion = function() {
   this.removeItem("Health Potion");
-  this.hp += itemMap.healPotion1.addHp;
+  this.hp += itemMap.healthPotion.addHp;
 
   if (this.hp > this.hpMax) {
     this.hp = this.hpMax;
   }
+  battleAlert(this.name + " uses a " + itemMap.healthPotion.name + " and recovers " + itemMap.healthPotion.addHp + " health!");
 }
 
 Player.prototype.useManaPotion = function() {
   this.removeItem("Mana Potion");
-  this.mp += itemMap.manaPotion1.addHp;
+  this.mp += itemMap.manaPotion.addMp;
 
   if (this.mp > this.mpMax) {
     this.mp = this.mpMax;
+    battleAlert(this.name + " uses a " + itemMap.manaPotion.name + " and recovers " + itemMap.manaPotion.addMp + " mana!");
   }
 }
 

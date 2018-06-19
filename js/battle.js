@@ -61,6 +61,20 @@ function runPlayerSpell(enemy) {
   setTimeout(function() { checkEnemyDead(player.currentEnemy); }, 1000);
 }
 
+function runPlayerHealthPotion() {
+  setTimeout(function() {
+    player.useHealthPotion();
+    battleAnimationStatRestore();
+  }, 0);
+}
+
+function runPlayerManaPotion() {
+  setTimeout(function() {
+    player.useManaPotion();
+    battleAnimationStatRestore();
+  }, 0);
+}
+
 function checkPlayerDead() {
   if (player.isDead()) {
     showDeathScreen();

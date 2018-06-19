@@ -36,4 +36,12 @@ $(document).ready(function() {
   buildRooms();
   buildEnemies();
   buildItems();
+  
+
+  //test code
+  player = new Player("Abe");
+  player.hp = 5;
+  player.mp = 5;
+  player.items.push(itemMap.healthPotion);
+  player.items.push(itemMap.manaPotion);
 });
