@@ -88,11 +88,78 @@
 }
 
 .battle-screen-character-box {
+  vertical-align: top;
   display: inline-block;
-  width: 49%;
+  width: 49.2%;
   height: 230px;
   outline: 1px solid green;
   margin: 0 auto;
+}
+
+.battle-stats {
+  height: 40px;
+  width: 100px;
+  margin-left: 225px;
+  margin-top: 50px;
+}
+
+.battle-stats-hp-box {
+  background-color: #dcfbdc;
+  border-radius: 3px;
+  box-shadow: 1px 1px 5px rgba(57,70,61,0.72);
+  border: 1px solid #dcfbdc;
+  height: 20px;
+}
+
+.battle-stats-mp-box {
+  background-color: #ceecfdfa;
+  margin-top: 10px;
+  box-shadow: 1px 1px 5px rgba(88,87,177,0.72);
+  border-radius: 3px;
+  border: 1px solid #ceecfdfa;
+  height: 20px;
+}
+
+#battle-stats-hp-player {
+  height: 18px;
+  background: #79d852;
+  width: 90%;
+}
+
+#battle-stats-mp-player {
+  height: 18px;
+  background: #5452d8;
+  width: 90%;
+}
+
+#player-sprite {
+  margin-top: 20px;
+  margin-left: 250px;
+}
+
+#battle-stats-hp-enemy {
+  height: 18px;
+  background: #79d852;
+  width: 90%;
+}
+
+#battle-stats-mp-enemy {
+  height: 18px;
+  background: #5452d8;
+  width: 90%;
+}
+
+#enemy-sprite {
+  margin-top: 20px;
+  margin-left: 250px;
+}
+
+#enemy-sprite img {
+  width: 45px;
+}
+
+.battle-screen-character-box img {
+  display: block;
 }
 
 #battlefield {
