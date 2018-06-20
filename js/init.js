@@ -29,6 +29,12 @@ function deleteGame() {
   localStorage.removeItem("rpg-game");
 }
 
+function runTestCode() {
+  player = new Player("Abe");
+  player.items.push(itemMap.manaPotion1);
+  player.mp = 5;
+}
+
 $(document).ready(function() {
   console.log("init.js loaded!");
 
@@ -36,9 +42,12 @@ $(document).ready(function() {
   buildItems();
   buildEnemies();
   buildRooms();
-  newStats = new NewStats();
+  buildNewStats();
   createRoomEnemyClicks(roomMap.room1);
   createRoomEnemyClicks(roomMap.room2);
   createRoomItemClicks(roomMap.room1);
   createRoomItemClicks(roomMap.room2);
+
+  //
+  runTestCode();
 });
