@@ -28,6 +28,8 @@ function saveGame(playerObject) {
 function deleteGame() {
   localStorage.removeItem("rpg-game");
 }
+// test player
+player = new Player("Kelli");
 
 $(document).ready(function() {
   console.log("init.js loaded!");

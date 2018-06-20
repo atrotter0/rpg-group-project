@@ -428,6 +428,14 @@ function runLevelUp() {
   $("#level-up-window").show().addClass("current-screen");
 }
 
+function resetCharacterPointScreen() {
+  player.hp = 10;
+  player.mp = 20;
+  player.ap = 1;
+  player.sp = 3;
+  $("#level-up-table").show();
+}
+
 $(document).ready(function() {
   console.log("ui.js loaded!");
   //hideCharacterScreen();
@@ -459,6 +467,7 @@ $(document).ready(function() {
   $("#main-menu-back").click(function() {
     hideNewGameBox();
     displayMenuOptions();
+    resetCharacterPointScreen();
   });
 
   $("#load-game").click(function() {
@@ -507,11 +516,17 @@ $(document).ready(function() {
   });
 
   $("#add-stats-button").click(function(){
-    upgradeStats();
-    $("#current-hp-init").text(player.hp);
-    $("#current-mp-init").text(player.mp);
-    $("#current-ap-init").text(player.ap);
-    $("#current-sp-init").text(player.sp);
+    if (newStats.availablePoints !== 0) {
+      alertError("You haven't spent all your points!");
+    } else {
+      upgradeStats();
+      $("#current-hp-init").text(player.hp);
+      $("#current-mp-init").text(player.mp);
+      $("#current-ap-init").text(player.ap);
+      $("#current-sp-init").text(player.sp);
+      $("#level-up-table").hide();
+    }
+
   });
 
   /* IN GAME UPGRADE STATS */
@@ -556,12 +571,24 @@ $(document).ready(function() {
   });
 
   $("#add-stats-button2").click(function(){
-    upgradeStats();
-    $("#current-hp").text(player.hp);
-    $("#current-mp").text(player.mp);
-    $("#current-ap").text(player.ap);
-    $("#current-sp").text(player.sp);
+    if (newStats.availablePoints !== 0) {
+      alertError("You haven't spent all your points!");
+    } else {
+      upgradeStats();
+      $("#current-hp").text(player.hp);
+      $("#current-mp").text(player.mp);
+      $("#current-ap").text(player.ap);
+      $("#current-sp").text(player.sp);
+      $("#add-stats-button2").hide();
+      $("#level-up-table2").hide();
+      $("#finish-allocating-points").show();
+    }
   });
+
+  $("#finish-allocating-points").click(function() {
+    hideCurrentScreen();
+    $("#room-" + player.room.id).show().addClass("current-screen");
+  })
 
   /* Battle System */
   $(".enemy").click(function() {

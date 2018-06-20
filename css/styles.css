@@ -988,3 +988,7 @@
   color: #d9534f;
   margin-right: -8px;
 }
+
+#finish-allocating-points {
+  display:none;
+}
