@@ -223,7 +223,7 @@
 #battlefield {
   width: 768px;
   height: 576px;
-  background-image: url("../img/battle_screen.png");
+  background-image: url("../img/battle-screen.png");
   background-repeat: no-repeat;
   margin: 0 auto;
 }
