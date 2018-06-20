@@ -639,11 +639,13 @@
 }
 
 .stat-added {
-  border:2px #333 solid;
+  border:1px #333 solid;
+  background-color: #333;
   padding:6px 10px;
   margin:5px;
   border-radius: 5px;
   width:100px;
+  box-shadow: 0 0 5px grey;
 }
 
 #level-up-header {
@@ -688,9 +690,11 @@
 /****************************/
 /* IN GAME ADD STATS WINDOW */
 /****************************/
-
 #level-up-div2 {
-  display: none;
+  background-color: #333;
+  margin-top: 2px;
+  padding:5px;
+  border-radius:5px;
 }
 
 #level-up-header2 {
@@ -702,14 +706,14 @@
 
 #level-up-table2 {
   border-radius:5px;
-  background-color: #333;
+  background: rgba(51, 51, 51, 0.7);
   color: white;
   padding:20px 10px 15px 10px;
   font-family: 'Press Start 2P', cursive;
+  font-size: 12px;
   box-shadow:1px 2px 20px black;
   margin:auto;
   margin-bottom:30px;
-  width:50%;
 }
 
 #level-up-table2 .row {
@@ -855,7 +859,6 @@
   left: 478px;
 }
 
-
 #room2-item3 {
   width: 40px;
   height: 40px;
@@ -863,4 +866,78 @@
   outline: 1px solid red;
   top: -150px;
   left: 386px;
+}
+
+/* KELLI'S STYLES */
+
+#level-up-window {
+  width: 768px;
+  height: 576px;
+  background-image: url("../img/battle-screen.png");
+  background-repeat: no-repeat;
+  margin: 0 auto;
+  border-radius: 3px;
+  box-shadow: 0px 2px 20px rgba(78,78,78,0.63);
+  color: white;
+  font-family: 'Press Start 2P', cursive;
+  padding:15px;
+}
+
+#level-up-message {
+  text-align: center;
+}
+
+#level-up-message h1 {
+  margin-top: 14px;
+  margin-bottom: 30px;
+}
+
+#level-up-message p {
+  margin-bottom: 27px;
+  width: 572px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#current-stats {
+  background: rgba(51, 51, 51, 0.7);
+  border-radius: 5px;
+  font-size:10px;
+  text-align: right;
+  margin-left:100px;
+  margin-right: 1px;
+  padding:10px;
+  width: 231px;
+}
+
+#current-stats h1 {
+  font-size: 12px;
+  text-align: center;
+  color: #d9534f;
+  margin-right: -8px;
+}
+
+#add-stats-col {
+  width: 348px;
+  padding-left: 4px;
+}
+
+.stats-add-button {
+  height:25px;
+  width:25px;
+  padding:2px;
+  border-radius: 5px;
+  background-color: green;
+  border: 1px green solid;
+  box-shadow: 0 0 3px chartreuse;
+}
+
+.stats-subtract-button {
+  height:25px;
+  width:25px;
+  padding:2px;
+  border-radius: 5px;
+  background-color: #d43f3a;;
+  border: 1px #d43f3a; solid;
+  box-shadow: 0 0 3px hotpink;
 }

@@ -105,59 +105,102 @@
           Load Game
         </button>
       </div>
-      <div id="level-up-div2">
-        <div id="level-up-header2">
-          Assign your new points:
-        </div>
-        <div id="level-up-table2">
+    </div>
+
+    <div id="level-up-window">
+      <div id="level-up-message">
+        <h1>LEVEL UP!</h1>
+        <p>Congratulations, you've reached level <span id="level-reached"></span>! You have earned 3 points to spend how you like.</p>
+      </div>
+      <div class="row">
+        <div id="current-stats" class="col-sm-4">
+          <h1>CURRENT STATS</h1>
           <div class="row">
-            <div class="col-sm-7">
-              Hit Points
-            </div>
-            <div class="col-sm-5">
-              <button id="hp-add-button2" type="button" class="btn btn-success">+</button><span id="hp-added2" class="stat-added"></span><button id="hp-subtract-button2" type="button" class="btn btn-danger">-</button>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-7">
-              Mana Points
-            </div>
-            <div class="col-sm-5">
-              <button id="mp-add-button2" type="button" class="btn btn-success">+</button><span id="mp-added2" class="stat-added"></span><button id="mp-subtract-button2" type="button" class="btn btn-danger">-</button>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-7">
-              Attack Power
-            </div>
-            <div class="col-sm-5">
-              <button id="ap-add-button2" type="button" class="btn btn-success">+</button><span id="ap-added2" class="stat-added"></span><button id="ap-subtract-button2" type="button" class="btn btn-danger">-</button>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-7">
-              Spell Power
-            </div>
-            <div class="col-sm-5">
-              <button id="sp-add-button2" type="button" class="btn btn-success">+</button><span id="sp-added2" class="stat-added"></span><button id="sp-subtract-button2" type="button" class="btn btn-danger">-</button>
-            </div>
-          </div>
-          <div id="available-points-div2" class="row">
             <div class="col-sm-8">
-              Available Points
+              Hit Points:
             </div>
             <div class="col-sm-4">
-              <span id="available-points2"></span>
+              <span id="current-hp"></span>
             </div>
           </div>
           <div class="row">
-            <div id="add-stats-div2" class="col-sm-12">
-              <button id="add-stats-button2" type="button" class="btn btn-danger btn-sm">Add Stats</button>
+            <div class="col-sm-8">
+              Mana Points:
+            </div>
+            <div class="col-sm-4">
+              <span id="current-mp"></span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-8">
+              Attack Power:
+            </div>
+            <div class="col-sm-4">
+              <span id="current-ap"></span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-8">
+              Spell Power:
+            </div>
+            <div class="col-sm-4">
+              <span id="current-sp"></span>
             </div>
           </div>
         </div>
+        <div id="add-stats-col" class="col-sm-8">
+            <div id="level-up-table2">
+              <div class="row">
+                <div class="col-sm-7">
+                  Hit Points
+                </div>
+                <div class="col-sm-5">
+                  <button id="hp-add-button2" type="button" class="stats-add-button">+</button><span id="hp-added2" class="stat-added"></span><button id="hp-subtract-button2" type="button" class="btn btn-danger stats-subtract-button">-</button>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-7">
+                  Mana Points
+                </div>
+                <div class="col-sm-5">
+                  <button id="mp-add-button2" type="button" class="btn btn-success stats-add-button">+</button><span id="mp-added2" class="stat-added"></span><button id="mp-subtract-button2" type="button" class="btn btn-danger stats-subtract-button">-</button>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-7">
+                  Attack Power
+                </div>
+                <div class="col-sm-5">
+                  <button id="ap-add-button2" type="button" class="btn btn-success stats-add-button">+</button><span id="ap-added2" class="stat-added"></span><button id="ap-subtract-button2" type="button" class="btn btn-danger stats-subtract-button">-</button>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-7">
+                  Spell Power
+                </div>
+                <div class="col-sm-5">
+                  <button id="sp-add-button2" type="button" class="btn btn-success stats-add-button">+</button><span id="sp-added2" class="stat-added"></span><button id="sp-subtract-button2" type="button" class="btn btn-danger stats-subtract-button">-</button>
+                </div>
+              </div>
+              <div id="available-points-div2" class="row">
+                <div class="col-sm-10">
+                  Available Points:
+                </div>
+                <div class="col-sm-2">
+                  <span id="available-points2"></span>
+                </div>
+              </div>
+              <div class="row">
+                <div id="add-stats-div2" class="col-sm-12">
+                  <button id="add-stats-button2" type="button" class="btn btn-danger btn-sm">Add Stats</button>
+                </div>
+              </div>
+            </div>
+        </div>
       </div>
+
     </div>
+
     <div id="room-box">
       <div class="room-elements" id="room-1">
         <div id="room1-enemy1">
