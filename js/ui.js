@@ -108,6 +108,38 @@ function showRoom(player) {
   var roomId = player.room;
 }
 
+/*--------------------------
+INVENTORY SCREEN FUNCTIONS -
+--------------------------*/
+
+function displayEquippedItems(player) {
+  $("#equipped-weapon-text").text(player.equippedWeapon.name);
+  $("#equipped-armor-text").text(player.equippedArmor.name);
+
+  for(i = 0; i < player.items.length; i++) {
+    $("#slot" + (i)).append(player.items[i].icon);
+  }
+}
+
+function fillCharacterValues(player) {
+  $("#char-name").text(player.name);
+  $("#health-points-indicator").text(player.hp);
+  $("#mana-points-indicator").text(player.mp);
+  $("#attack-power-indicator").text(player.ap);
+  $("#spell-power-indicator").text(player.sp);
+  $("#experience-indicator").text(player.xp);
+}
+
+function showCharacterScreen() {
+  $(".character-screen").hide().fadeIn(1000);
+  $(".inventory-menu").hide().fadeIn(1000);
+}
+
+function hideCharacterScreen() {
+  $(".character-screen").hide();
+  $(".inventory-menu").hide();
+}
+
 function initiateNewStats() {
   $("#hp-added").text(0);
   $("#mp-added").text(0);
@@ -238,6 +270,8 @@ function setDisabledConsumables() {
 
 $(document).ready(function() {
   console.log("ui.js loaded!");
+  //hideCharacterScreen();
+
 
   $("#new-game").click(function() {
     hideMenuOptions();

@@ -51,18 +51,18 @@ ItemDictionary.prototype.fetchLevelSpecificItems = function(level) {
 
 // Populate dictionary with a predefined list of items
 ItemDictionary.prototype.populateItems = function() {
-  var sword1 = new Item(1, "Sword of Woe", "Weapon", 1, 1, 3, 0, 0);
-  var staff1 = new Item(2, "Staff of Wizardry", "Weapon", 1, 0, 0, 3, 1);
-  var midSword1 = new Item(3, "Warrior's Blade", "Weapon", 2, 2, 5, 0, 0);
-  var midStaff1 = new Item(4, "Staff of Conjured Dreams", "Weapon", 2, 0, 0, 5, 2);
-  var epicSword1 = new Item(5, "Sword of A Thousand Truths", "Weapon", 3, 3, 5, 0, 0);
-  var epicStaff1 = new Item(6, "Grand Magus Staff", "Weapon", 3, 0, 0, 5, 3);
-  var armor1 = new Item(7, "Sturdy Hauberk", "Armor", 1, 1, 0, 0, 0);
-  var armor2 = new Item(8, "Apprentice Garb", "Armor", 1, 0, 0, 0, 1);
-  var midArmor1 = new Item(9, "Veteran's Breastplate", "Armor", 2, 3, 2, 0, 0);
-  var midArmor2 = new Item(10, "Wizard's Robe", "Armor", 2, 0, 0, 2, 3);
-  var epicArmor1 = new Item(11, "Cuirass of The Colossus", "Armor", 3, 8, 4, 0, 0);
-  var epicArmor2 = new Item(12, "Robe of Seething Power", "Armor", 3, 0, 0, 4, 8);
+  var sword1 = new Item(1, "Sword of Woe", "Weapon", 1, 1, 3, 0, 0, "<img src='img/pointy-sword.png'>");
+  var staff1 = new Item(2, "Staff of Wizardry", "Weapon", 1, 0, 0, 3, 1, "<img src='img/pointy-sword.png'>");
+  var midSword1 = new Item(3, "Warrior's Blade", "Weapon", 2, 2, 5, 0, 0, "<img src='img/pointy-sword.png'>");
+  var midStaff1 = new Item(4, "Staff of Conjured Dreams", "Weapon", 2, 0, 0, 5, 2, "<img src='img/pointy-sword.png'>");
+  var epicSword1 = new Item(5, "Sword of A Thousand Truths", "Weapon", 3, 3, 5, 0, 0, "<img src='img/pointy-sword.png'>");
+  var epicStaff1 = new Item(6, "Grand Magus Staff", "Weapon", 3, 0, 0, 5, 3, "<img src='img/pointy-sword.png'>");
+  var armor1 = new Item(7, "Sturdy Hauberk", "Armor", 1, 1, 0, 0, 0, "<img src='img/breastplate.png'>");
+  var armor2 = new Item(8, "Apprentice Garb", "Armor", 1, 0, 0, 0, 1, "<img src='img/breastplate.png'>");
+  var midArmor1 = new Item(9, "Veteran's Breastplate", "Armor", 2, 3, 2, 0, 0, "<img src='img/breastplate.png'>");
+  var midArmor2 = new Item(10, "Wizard's Robe", "Armor", 2, 0, 0, 2, 3, "<img src='img/breastplate.png'>");
+  var epicArmor1 = new Item(11, "Cuirass of The Colossus", "Armor", 3, 8, 4, 0, 0, "<img src='img/breastplate.png'>");
+  var epicArmor2 = new Item(12, "Robe of Seething Power", "Armor", 3, 0, 0, 4, 8, "<img src='img/breastplate.png'>");
 
   this.sword1 = sword1;
   this.staff1 = staff1;
@@ -77,28 +77,9 @@ ItemDictionary.prototype.populateItems = function() {
   this.epicArmor1 = epicArmor1;
   this.epicArmor2 = epicArmor2;
 }
-// Populate dictionary with a predefined list of items
-ItemDictionary.prototype.populateItems = function() {
-  var sword1 = new Item(1, "Sword of Woe", "Weapon", 1, 3, 0, 0);
-  var staff1 = new Item(2, "Staff of Wizardry", "Weapon", 0, 0, 3, 1);
-  var midSword1 = new Item(3, "Warrior's Blade", "Weapon", 2, 5, 0, 0);
-  var midStaff1 = new Item(4, "Staff of Conjured Dreams", "Weapon", 0, 0, 5, 2);
-  var epicSword1 = new Item(5, "Sword of A Thousand Truths", "Weapon", 3, 5, 0, 0);
-  var epicStaff1 = new Item(6, "Grand Magus Staff", "Weapon", 0, 0, 5, 3);
-  var armor1 = new Item(7, "Sturdy Halberk", "Armor", 1, 0, 0, 0);
-  var armor2 = new Item(8, "Apprentice Garb", "Armor", 0, 0, 0, 1);
-  var midArmor1 = new Item(9, "Veteran's Breastplate", "Armor", 3, 2, 0, 0);
-  var midArmor2 = new Item(10, "Wizard's Robe", "Armor", 0, 0, 2, 3);
-  var epicArmor1 = new Item(11, "Cuirass of The Colossus", "Armor", 8, 4, 0, 0);
-  var epicArmor2 = new Item(12, "Robe of Seething Power", "Armor", 0, 0, 4, 8);
-
-  this.sword1 = sword1;
-  this.staff1 = staff1;
-}
 
 // Item Constructor
-
-function Item(id, name, type, level, hp, ap, sp, mp) {
+function Item(id, name, type, level, hp, ap, sp, mp, icon) {
   this.id = id; // Unique single digit number (e.g, 3)
   this.name = name; // String (e.g, "Sword of Woe")
   this.type = type; // "Weapon" or "Armor"
@@ -107,14 +88,5 @@ function Item(id, name, type, level, hp, ap, sp, mp) {
   this.attackBonus = ap;
   this.spellBonus = sp;
   this.manaBonus = mp;
-}
-
-function buildItems() {
-  var item1 = new Item("item1", "Basic Sword", "Weapon", 0, 2, 0, 0);
-  var item2 = new Item("item2", "Health Potion", "Consumable", 10, 0, 0, 0);
-  var item3 = new Item("item3", "Halberk of Strength", "Armor", 10, 5, 0, 0);
-  
-  itemMap.item1 = item1;
-  itemMap.item2 = item2;
-  itemMap.item3 = item3;
+  this.icon = icon;
 }
