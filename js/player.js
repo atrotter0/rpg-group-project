@@ -122,6 +122,7 @@ Player.prototype.checkLoot = function(enemy) {
       uniqueItem = true;
     }
   }
+  console.log(this.items);
 }
 
 Player.prototype.levelUp = function(level) {
