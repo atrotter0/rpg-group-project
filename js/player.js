@@ -166,7 +166,7 @@ Player.prototype.upgradeStats = function(item) {
 Player.prototype.giveAwardsToPlayer = function(enemy) {
   this.xp = enemy.xp;
   this.gold = enemy.gold;
-  this.checkLoot();
+  this.checkLoot(enemy);
 }
 
 Player.prototype.getLastItem = function() {
