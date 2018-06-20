@@ -177,7 +177,7 @@
 
 #battle-stats-hp-player {
   height: 18px;
-  background: #79d852;
+  background: #5ad358;
   width: 90%;
   transition: width 2s;
 }
@@ -196,7 +196,7 @@
 
 #battle-stats-hp-enemy {
   height: 18px;
-  background: #79d852;
+  background: #5ad358;
   width: 90%;
   transition: width 2s;
 }
@@ -215,7 +215,6 @@
 }
 
 #battlefield {
-  outline: 1px solid pink;
   width: 768px;
   height: 576px;
   background-image: url("../img/battle_screen.png");
@@ -226,12 +225,14 @@
 #battle-alert {
   position: relative;
   padding: 5px;
+  padding-top: 18px;
   width: 768px;
-  height: 80px;
+  height: 59px;
   margin: 0 auto;
   text-align: center;
   top: -576px;
-  background-color: #909798;
+  background-color: #707677;
+  color: #fff;
 }
 
 #battle-menu {
@@ -240,7 +241,7 @@
   top: -120px;
   width: 768px;
   margin: 0 auto;
-  background-color: #909798;
+  background-color: #707677;
 }
 
 #death-screen {
@@ -266,12 +267,13 @@
   color: #fff;
   transition: 0.5s;
   width: 200px;
+  border-color: #eee;
 }
 
 .btn-battle:hover {
-  border-color: #5ba3ce;
+  border-color: #eee;
   box-shadow: 2px 2px 10px #4e4e4e;
-  background-color: #5ba3ce;
+  background-color: #5452d8;
   color: #fff;
   transition: 0.5s;
 }
@@ -294,12 +296,13 @@
 }
 
 #item-menu {
+  display: none;
   position: relative;
   padding: 10px;
   top: -120px;
   width: 768px;
   margin: 0 auto;
-  background-color: #909798;
+  background-color: #707677;
 }
 
 .btn-battle-item {
