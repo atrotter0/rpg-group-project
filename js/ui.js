@@ -26,6 +26,7 @@ function runNewGame(playerName) {
   alertSuccess("Game data for [ " + player.name + " ] created!");
   //fadeOut();
   //startStory();
+
 }
 
 function validate(value) {

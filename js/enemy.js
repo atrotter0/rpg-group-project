@@ -1,7 +1,9 @@
 // Enemy
 console.log("enemy.js loaded!");
 
-enemyMap = {};
+
+var enemyMap = {};
+
 
 function Enemy(id, name, hp, dmg, xp, loot) {
   this.id = id;
@@ -26,7 +28,13 @@ Enemy.prototype.isDead = function() {
 
 
 function buildEnemies() {
-  var enemy1 = new Enemy("enemy1", "Franz", 5, 1);
+  var enemy1 = new Enemy("enemy1", "Zombie", 5, 1);
+  var enemy2 = new Enemy("enemy2", "Zombie", 5, 1);
+  var enemy3 = new Enemy("enemy3", "Zombie", 5, 1);
+  var enemy4 = new Enemy("enemy4", "Troll", 10, 2);
 
   enemyMap.enemy1 = enemy1;
+  enemyMap.enemy2 = enemy2;
+  enemyMap.enemy3 = enemy3;
+  enemyMap.enemy4 = enemy4;
 }

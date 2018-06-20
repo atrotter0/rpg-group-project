@@ -339,3 +339,135 @@
     width: 90%;
   }
 }
+
+
+/*********/
+/* Rooms */
+/*********/
+
+#room-1 {
+  background-image: url("../img/maps/room_1.png");
+  display: none;
+  width: 768px;
+  height: 576px;
+  margin: 0 auto;
+}
+
+#room1-enemy1 {
+  width: 40px;
+  height: 65px;
+  position: relative;
+  outline: 1px solid lightgreen;
+  top: 145px;
+  left: 155px;
+}
+
+#room1-enemy1:hover {
+  cursor: pointer;
+}
+
+#room1-enemy2 {
+  width: 40px;
+  height: 65px;
+  position: relative;
+  outline: 1px solid lightgreen;
+  top: 298px;
+  left: 359px;
+}
+
+#room1-enemy2:hover {
+  cursor: pointer;
+}
+
+#room1-item1 {
+  width: 60px;
+  height: 40px;
+  position: relative;
+  outline: 1px solid lightgreen;
+  top: 310px;
+  left: 350px;
+}
+
+#room1-item1:hover {
+  cursor: pointer;
+}
+
+#room1-item2 {
+  width: 70px;
+  height: 40px;
+  position: relative;
+  outline: 1px solid lightgreen;
+  top: -80px;
+  left: 500px;
+}
+
+#room1-item2:hover {
+  cursor: pointer;
+}
+
+#room1-door1 {
+  width: 20px;
+  height: 60px;
+  position: relative;
+  outline: 1px solid lightgreen;
+  top: -38px;
+  left: 678px;
+}
+
+#room1-door1:hover {
+  cursor: pointer;
+}
+
+#room-2 {
+  background-image: url("../img/maps/room_2.png");
+  width: 768px;
+  height: 576px;
+  margin: 0 auto;
+}
+
+#room2-enemy1 {
+  width: 40px;
+  height: 65px;
+  position: relative;
+  outline: 1px solid lightgreen;
+  top: 308px;
+  left: 205px;
+}
+
+#room2-enemy2 {
+  width: 40px;
+  height: 65px;
+  position: relative;
+  outline: 1px solid lightgreen;
+  top: 100px;
+  left: 310px;
+}
+
+#room2-enemy3 {
+  width: 40px;
+  height: 65px;
+  position: relative;
+  outline: 1px solid lightgreen;
+  top: 74px;
+  left: 373px;
+}
+
+#room2-enemy4 {
+  width: 50px;
+  height: 70px;
+  position: relative;
+  outline: 1px solid lightgreen;
+  top: 238px;
+  left: 478px;
+}
+
+
+#room2-item3 {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  outline: 1px solid red;
+  top: -150px;
+  left: 386px;
+}
+
