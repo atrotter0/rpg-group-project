@@ -4,11 +4,10 @@ console.log("room.js loaded!");
 var roomMap = {};
 
 // Room Constructor
-function Room(id, name, enemies, doors) {
+function Room(id, name, enemies) {
   this.id = id;
   this.name = name;
   this.enemies = enemies;
-  this.doors = doors;
 }
 
 // Room Map Constructor
@@ -18,8 +17,8 @@ function RoomMap() {
 
 // Populates Room Map with predefined rooms (id, name, enemies, doors)
 RoomMap.prototype.populateRooms = function() {
-  var room1 = new Room(1, "Dungeon", [enemyMap.enemy1, enemyMap.enemy2], 1);
-  var room2 = new Room(2, "Dungeon", [enemyMap.enemy3, enemyMap.enemy4, enemyMap.enemy5, enemyMap.enemy6], 2);
+  var room1 = new Room(1, "Dungeon", [enemyMap.enemy1, enemyMap.enemy2]);
+  var room2 = new Room(2, "Dungeon", [enemyMap.enemy3, enemyMap.enemy4, enemyMap.enemy5, enemyMap.enemy6]);
 
   this.room1 = room1;
   this.room2 = room2;
@@ -29,41 +28,12 @@ function buildRooms() {
   roomMap = new RoomMap();
 }
 
-
-// Creates the click events for enemies in a room
-function createEnemyClickEvents() {
-  //First Room
-  $("#room1-enemy1").click(function(){
-    alertError(enemyMap.enemy1.name + " is attacking you!");
-    // runbattle function
-  });
-
-  $("#room1-enemy2").click(function(){
-    alertError(enemyMap.enemy2.name + " is attacking you!");
-    // runbattle function
-  });
-
-  //Second Room
-  $("#room2-enemy3").click(function(){
-    alertError(enemyMap.enemy3.name + " is attacking you!");
-    // runbattle function
-  });
-
-  $("#room2-enemy4").click(function(){
-    alertError(enemyMap.enemy4.name + " is attacking you!");
-    // runbattle function
-  });
-
-  $("#room2-enemy5").click(function(){
-    alertError(enemyMap.enemy5.name + " is attacking you!");
-    // runbattle function
-  });
-
-  $("#room2-enemy6").click(function(){
-    alertError(enemyMap.enemy6.name + " is attacking you!");
-    // runbattle function
-  });
+function grabEnemyId(element) {
+  var enemyId = $(element).attr("id");
+  enemyId = enemyId.split("-")[1];
+  return enemyId;
 }
+
 
 // Creates the click events for enemies in a room
 function createItemClickEvents() {
@@ -85,33 +55,18 @@ function createItemClickEvents() {
   });
 }
 
-
-//1 2 7 8 13 14
-//Create click events for items
-Room.prototype.createClickEvents = function() {
-  $("#room" + this.id + "-item1").click(function() {
-      player.checkClickItem();
-      alertError("You found a " + player.items[player.items.length - 1].name + ".");
+function createDoorClickEvents() {
+  $("#room1-door1").click(function(){
+    player.lastRoom = player.room;
+    player.room = roomMap.room2;
+    hideCurrentScreen();
+    $("#room-2").show().addClass("current-screen");
   });
-}
 
-// Creates the click events for items in a room and puts that item in the user's inventory
-// function createRoomItemClicks(room) {
-//   $("#room" + room.id + "-item1").click(function() {
-//       player.checkClickItem();
-//       alertError("You found a " + player.items[player.items.length - 1].name + ".");
-//   });
-//
-//   $("#room" + room.id + "-item1").click(function() {
-//       player.checkClickItem();
-//       alertError("You found a " + player.items[player.items.length - 1].name + ".");
-//   });
-
-
-function createRoomDoorClicks(room) {
-  room.doors.forEach(function(door) {
-    $("#" + room.id + "-" + doors).click(function(){
-      //load next room (door.id)
-    });
+  $("#room1-door1").click(function(){
+    player.lastRoom = player.room;
+    player.room = roomMap.room2;
+    hideCurrentScreen();
+    $("#room-2").show().addClass("current-screen");
   });
 }

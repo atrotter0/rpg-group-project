@@ -125,31 +125,32 @@ Player.prototype.checkLoot = function(enemy) {
 }
 
 Player.prototype.checkClickItem = function() {
-    var outcome = rollDice(4);
-    if (this.room.id === 1) {
-      if (outcome === 0) {
-        this.items.push(itemMap.sword1);
-      }
-      if (outcome === 1) {
-        this.items.push(itemMap.staff1);
-      }
-      if (outcome === 2) {
-        this.items.push(itemMap.armor1);
-      }
-      if (outcome === 3) {
-        this.items.push(itemMap.armor2);
-      }
-  } else if (this.room.id === 2) {
-    if (outcome === 0) {
-      this.items.push(itemMap.sword2);
-    }
+  var outcome = rollDice(4);
+  if (this.room.id === 1) {
     if (outcome === 1) {
-      this.items.push(itemMap.staff2);
+      this.items.push(itemMap.sword1);
     }
     if (outcome === 2) {
-      this.items.push(itemMap.midArmor1);
+      this.items.push(itemMap.staff1);
     }
     if (outcome === 3) {
+      this.items.push(itemMap.armor1);
+    }
+    if (outcome === 4) {
+      this.items.push(itemMap.armor2);
+    }
+  }
+  else if (this.room.id === 2) {
+    if (outcome === 1) {
+      this.items.push(itemMap.sword2);
+    }
+    if (outcome === 2) {
+      this.items.push(itemMap.staff2);
+    }
+    if (outcome === 3) {
+      this.items.push(itemMap.midArmor1);
+    }
+    if (outcome === 4) {
       this.items.push(itemMap.midArmor2);
     }
   }
@@ -197,6 +198,6 @@ function loadPlayer() {
 }
 
 function rollDice(maxNumber) {
-  var roll = Math.floor(Math.random() * maxNumber);
+  var roll = Math.floor(Math.random() * maxNumber) + 1;
   return roll;
 }

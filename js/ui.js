@@ -389,10 +389,10 @@ $(document).ready(function() {
 
   /* Battle System */
   $(".enemy").click(function() {
-    //var enemyId = $(this).attr(id);
-    var enemyId = "enemy1";
+    var enemyId = grabEnemyId(this);
+    alertError(enemyMap[enemyId].name + " is attacking you!");
     player.currentEnemy = enemyMap[enemyId];
-    startBattle(enemyMap[enemyId]);
+    startBattle(player.currentEnemy)
   });
 
   $("#attack").click(function() {
