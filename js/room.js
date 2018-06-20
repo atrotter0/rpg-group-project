@@ -63,10 +63,10 @@ function createDoorClickEvents() {
     $("#room-2").show().addClass("current-screen");
   });
 
-  $("#room1-door1").click(function(){
-    player.lastRoom = player.room;
-    player.room = roomMap.room2;
-    hideCurrentScreen();
-    $("#room-2").show().addClass("current-screen");
-  });
+  // $("#room1-door1").click(function(){
+  //   player.lastRoom = player.room;
+  //   player.room = roomMap.room2;
+  //   hideCurrentScreen();
+  //   $("#room-2").show().addClass("current-screen");
+  // });
 }

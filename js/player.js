@@ -66,7 +66,7 @@ Player.prototype.checkForConsumables = function() {
 }
 
 Player.prototype.checkHealingPotion = function() {
-  if (this.items.includes(itemMap.healthPotion)) {
+  if (this.items.includes(itemMap.healthPotion1)) {
    this.hasHealingConsumable = true;
   } else {
     this.hasHealingConsumable = false;
@@ -74,7 +74,7 @@ Player.prototype.checkHealingPotion = function() {
 }
 
 Player.prototype.checkManaPotion = function() {
-  if (this.items.includes(itemMap.manaPotion)) {
+  if (this.items.includes(itemMap.manaPotion1)) {
    this.hasManaConsumable = true;
   } else {
     this.hasManaConsumable = false;
@@ -82,19 +82,19 @@ Player.prototype.checkManaPotion = function() {
 }
 
 Player.prototype.useHealthPotion = function() {
-  this.removeItem("Health Potion");
-  this.hp += itemMap.healthPotion.addHp;
+  this.removeItem("Minor Health Potion");
+  this.hp += itemMap.healthPotion1.addHp;
 
   if (this.hp > this.hpMax) this.hp = this.hpMax;
-  battleAlert(this.name + " uses a " + itemMap.healthPotion.name + " and recovers " + itemMap.healthPotion.addHp + " health!");
+  battleAlert(this.name + " uses a " + itemMap.healthPotion1.name + " and recovers " + itemMap.healthPotion1.addHp + " health!");
 }
 
 Player.prototype.useManaPotion = function() {
-  this.removeItem("Mana Potion");
-  this.mp += itemMap.manaPotion.addMp;
+  this.removeItem("Minor Mana Potion");
+  this.mp += itemMap.manaPotion1.addMp;
 
   if (this.mp > this.mpMax) this.mp = this.mpMax;
-  battleAlert(this.name + " uses a " + itemMap.manaPotion.name + " and recovers " + itemMap.manaPotion.addMp + " mana!");
+  battleAlert(this.name + " uses a " + itemMap.manaPotion1.name + " and recovers " + itemMap.manaPotion1.addMp + " mana!");
 }
 
 Player.prototype.removeItem = function(itemName) {
@@ -106,7 +106,7 @@ Player.prototype.removeItem = function(itemName) {
 }
 
 Player.prototype.checkLoot = function(enemy) {
-  const LOOTABLE_ITEMS = enemy.loot.length;
+  const LOOTABLE_ITEMS = enemy.loot.length - 1;
   var uniqueItem = false;
 
   while(!uniqueItem) {
@@ -142,10 +142,10 @@ Player.prototype.checkClickItem = function() {
   }
   else if (this.room.id === 2) {
     if (outcome === 1) {
-      this.items.push(itemMap.sword2);
+      this.items.push(itemMap.midSword1);
     }
     if (outcome === 2) {
-      this.items.push(itemMap.staff2);
+      this.items.push(itemMap.midStaff1);
     }
     if (outcome === 3) {
       this.items.push(itemMap.midArmor1);
@@ -159,10 +159,10 @@ Player.prototype.checkClickItem = function() {
 Player.prototype.checkClickConsumable = function() {
   var outcome = rollDice(2);
   if (this.room.id === 1) {
-    if (outcome === 0) {
+    if (outcome === 1) {
       this.items.push(itemMap.healthPotion1);
     }
-    if (outcome === 1) {
+    if (outcome === 2) {
       this.items.push(itemMap.manaPotion1);
     }
   }

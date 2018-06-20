@@ -26,8 +26,8 @@ function EnemyMap() {
 EnemyMap.prototype.populateEnemies = function() {
 
   //Room 1 Enemies
-  var enemy1 = new Enemy(1, 1, "Skeletal Warrior", 15, 4, 5, itemMap.fetchLevelSpecificItems(this.tier));
-  var enemy2 = new Enemy(2, 1, "Skeletal Warrior", 15, 4, 5, itemMap.fetchLevelSpecificItems(this.tier));
+  var enemy1 = new Enemy(1, 1, "Skeletal Warrior", 15, 1, 5, itemMap.fetchLevelSpecificItems(this.tier));
+  var enemy2 = new Enemy(2, 1, "Skeletal Warrior", 15, 1, 5, itemMap.fetchLevelSpecificItems(this.tier));
 
   //Room 2 Enemies
   var enemy3 = new Enemy(3, 1, "Skeletal Warrior", 20, 10, 10, itemMap.fetchLevelSpecificItems(this.tier));
