@@ -2,8 +2,18 @@
   outline: none;
 }
 
+.btn-default[disabled]:hover {
+  background-color: #333;
+  color: #fff;
+  opacity: 0.65;
+}
+
 .fancy-shadow {
   text-shadow: 1px 1px #ada4a4;
+}
+
+.invisible {
+  visibility: hidden;
 }
 
 /*************/
@@ -14,7 +24,7 @@
   font-weight: bold;
   width: 100%;
   position: absolute;
-  top: 50%;
+  top: 30%;
   text-align: center;
 }
 
@@ -23,6 +33,7 @@
 /*************/
 
 #main-menu {
+  display: none;
   font-family: 'Press Start 2P', cursive;
 }
 
@@ -30,23 +41,19 @@
   text-align: center;
 }
 
-#main-menu-header img {
-  border-radius: 3px;
-  box-shadow: 0px 2px 20px rgba(78,78,78,0.63);
-  display: block;
-  margin: 20px auto;
-  width: 70%;
-  max-width: 800px;
-}
-
 #main-menu-options {
   text-align: center;
 }
 
 #main-menu-player-name {
+  border: none;
+  box-shadow: none;
+  border-radius: 0px;
+  border-bottom: 2px solid #333;
   height: 50px;
-  width: 70%;
-  margin: 10px auto;
+  width: 50%;
+  max-width: 300px;
+  margin: 20px auto;
   text-align: center;
 }
 
@@ -58,6 +65,7 @@
   background-color: #333;
   color: #fff;
   transition: 0.5s;
+  width: 250px;
 }
 
 .btn-main-menu:hover {
@@ -69,6 +77,7 @@
 }
 
 .btn-main-menu:focus {
+  border: 1px solid transparent;
   background-color: #333;
   color: #fff;
   transition: 0.5s;
@@ -78,14 +87,247 @@
   width: 50px;
 }
 
-
-/* Responsive Styles */
-@media screen and (max-width: 995px) {
-  #main-menu-header img {
-    width: 90%;
-  }
+#main-menu-image-box {
+  border-radius: 3px;
+  box-shadow: 0px 2px 20px rgba(78,78,78,0.63);
+  margin: 20px auto;
+  height: 400px;
+  width: 800px;
+  background-image: url('../img/title-image.jpg');
+  background-size: 150%;
+  background-position: 0% -127%;
+  -webkit-animation-name: scrolling-image; /* Safari 4.0 - 8.0 */
+  -webkit-animation: scrolling-image 20s linear 0.2s infinite; /* Safari 4.0 - 8.0 */
+  animation: scrolling-image 20s linear 0.2s infinite;
 }
 
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes scrolling-image {
+  0%   {background-position: 0% -130%;}
+  10%  {background-position: 10% -140%;}
+  20%  {background-position: 20% -150%;}
+  30%  {background-position: 30% -160%;}
+  40%  {background-position: 40% -170%; background-image: url('../img/title-image2.jpg');}
+  50%  {background-position: 50% -175%; background-image: url('../img/title-image2.jpg');}
+  60%  {background-position: 60% -180%; background-image: url('../img/title-image2.jpg');}
+  70%  {background-position: 60% -180%; background-image: url('../img/title-image3.jpg');}
+  80%  {background-position: 60% -170%; background-image: url('../img/title-image3.jpg');}
+  90%  {background-position: 60% -160%; background-image: url('../img/title-image3.jpg');}
+  100% {background-position: 60% -150%; background-image: url('../img/title-image3.jpg');}
+}
+
+/* Standard syntax */
+@keyframes scrolling-image {
+  0%   {background-position: 0% -130%;}
+  10%  {background-position: 10% -140%;}
+  20%  {background-position: 20% -150%;}
+  30%  {background-position: 30% -160%; background-image: url('../img/title-image2.jpg');}
+  40%  {background-position: 40% -170%; background-image: url('../img/title-image2.jpg');}
+  50%  {background-position: 50% -180%; background-image: url('../img/title-image2.jpg');}
+  60%  {background-position: 60% -190%; background-image: url('../img/title-image2.jpg');}
+  70%  {background-position: 60% -180%; background-image: url('../img/title-image3.jpg');}
+  80%  {background-position: 60% -170%; background-image: url('../img/title-image3.jpg');}
+  90%  {background-position: 60% -160%; background-image: url('../img/title-image3.jpg');}
+  100% {background-position: 60% -150%; background-image: url('../img/title-image3.jpg');}
+}
+
+/***************/
+/* BATTLE MENU */
+/***************/
+
+#battle-screen {
+  display: block;
+  margin-top: 20px;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.battle-screen-character-box {
+  position: relative;
+  width: 180px;
+  height: 180px;
+}
+
+#player-box {
+  top: 167px;
+  left: 18px;
+}
+
+#enemy-box {
+  top: -63px;
+  left: 191px;
+}
+
+.battle-stats {
+  height: 40px;
+  width: 100px;
+  margin-left: 225px;
+  margin-top: 50px;
+}
+
+.battle-stats-hp-box {
+  background-color: #dcfbdc;
+  border-radius: 3px;
+  box-shadow: 1px 1px 5px rgba(57,70,61,0.72);
+  border: 1px solid #dcfbdc;
+  height: 20px;
+}
+
+.battle-stats-mp-box {
+  background-color: #ceecfdfa;
+  margin-top: 10px;
+  box-shadow: 1px 1px 5px rgba(88,87,177,0.72);
+  border-radius: 3px;
+  border: 1px solid #ceecfdfa;
+  height: 20px;
+}
+
+#battle-stats-hp-player {
+  height: 18px;
+  background: #5ad358;
+  width: 90%;
+  transition: width 2s;
+}
+
+#battle-stats-mp-player {
+  height: 18px;
+  background: #5452d8;
+  width: 90%;
+  transition: width 1s;
+}
+
+#player-sprite {
+  margin-top: 20px;
+  margin-left: 250px;
+}
+
+#battle-stats-hp-enemy {
+  height: 18px;
+  background: #5ad358;
+  width: 90%;
+  transition: width 2s;
+}
+
+#enemy-sprite {
+  margin-top: 20px;
+  margin-left: 250px;
+}
+
+#enemy-sprite img {
+  width: 45px;
+}
+
+.battle-screen-character-box img {
+  display: block;
+}
+
+#battlefield {
+  width: 768px;
+  height: 576px;
+  background-image: url("../img/battle_screen.png");
+  background-repeat: no-repeat;
+  margin: 0 auto;
+}
+
+#battle-alert {
+  position: relative;
+  padding: 5px;
+  padding-top: 18px;
+  width: 768px;
+  height: 59px;
+  margin: 0 auto;
+  text-align: center;
+  top: -576px;
+  background-color: #707677;
+  color: #fff;
+}
+
+#battle-menu {
+  position: relative;
+  padding: 10px;
+  top: -120px;
+  width: 768px;
+  margin: 0 auto;
+  background-color: #707677;
+}
+
+#death-screen {
+  display: none;
+  position: absolute; top: 0; right: 0; bottom: 0; left: 0;
+  background-color: black;
+  height: 100%;
+  width: 100%;
+}
+
+#death-message {
+  margin: 300px auto;
+  text-align: center;
+  color: white;
+}
+
+.battle-menu-row {
+  text-align: center;
+}
+
+.btn-battle {
+  background-color: #333;
+  color: #fff;
+  transition: 0.5s;
+  width: 200px;
+  border-color: #eee;
+}
+
+.btn-battle:hover {
+  border-color: #eee;
+  box-shadow: 2px 2px 10px #4e4e4e;
+  background-color: #5452d8;
+  color: #fff;
+  transition: 0.5s;
+}
+
+.btn-battle:focus {
+  border: 1px solid transparent;
+  background-color: #333;
+  color: #fff;
+  transition: 0.5s;
+}
+
+#attack-icon {
+  background-image: url("../img/attack-icon.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+#attack-icon:hover {
+  background-image: url("../img/attack-icon-hover.png");
+}
+
+#item-menu {
+  display: none;
+  position: relative;
+  padding: 10px;
+  top: -120px;
+  width: 768px;
+  margin: 0 auto;
+  background-color: #707677;
+}
+
+.btn-battle-item {
+  width: 220px;
+}
+
+.btn-close {
+  width: 60px;
+  float: right;
+}
+
+.btn-close img {
+  display: block;
+  margin: 0 auto;
+  width: 30px;
+}
+
+
+/* Responsive Styles */
 @media screen and (max-width: 550px) {
   #main-menu-header h1 {
     font-size: 1.5em;
@@ -339,4 +581,226 @@
   border: 1px solid grey;
   margin-bottom: 0px;
   margin-top: 0px;
+}
+
+.stat-added {
+  border:2px #333 solid;
+  padding:6px 10px;
+  margin:5px;
+  border-radius: 5px;
+  width:100px;
+}
+
+#level-up-header {
+  margin-bottom:20px;
+}
+
+#level-up-table {
+
+  border-radius:5px;
+  background-color: #333;
+  color: white;
+  padding:20px 10px 15px 10px;
+  font-family: 'Press Start 2P', cursive;
+  box-shadow:1px 2px 20px black;
+  margin:auto;
+  margin-bottom:30px;
+  width:50%;
+}
+
+#level-up-table .row {
+  padding:2px;
+}
+
+#level-up-table .col-sm-7 {
+  text-align:right;
+}
+
+#available-points-div{
+  margin-top:30px;
+  font-size:12px;
+  background-color:#d9534f;;
+  padding: 7px;
+  border-radius: 5px;
+  border: yellow 3px solid;
+}
+
+#add-stats-div {
+  text-align:center;
+  padding-top:20px;
+}
+
+/*************/
+/* IN GAME ADD STATS WINDOW */
+/*************/
+
+  #level-up-header2 {
+    margin-top:20px;
+    margin-bottom:20px;
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+  }
+
+  #level-up-table2 {
+    border-radius:5px;
+    background-color: #333;
+    color: white;
+    padding:20px 10px 15px 10px;
+    font-family: 'Press Start 2P', cursive;
+    box-shadow:1px 2px 20px black;
+    margin:auto;
+    margin-bottom:30px;
+    width:50%;
+  }
+
+  #level-up-table2 .row {
+    padding:2px;
+  }
+
+  #level-up-table2 .col-sm-7 {
+    text-align:right;
+  }
+
+  #available-points-div2 {
+    margin-top:30px;
+    font-size:12px;
+    background-color:#d9534f;;
+    padding: 7px;
+    border-radius: 5px;
+    border: yellow 3px solid;
+  }
+
+  #add-stats-div2 {
+    text-align:center;
+    padding-top:20px;
+  }
+
+/*********/
+/* Rooms */
+/*********/
+
+#room-1 {
+  background-image: url("../img/maps/room_1.png");
+  display: none;
+  width: 768px;
+  height: 576px;
+  margin: 0 auto;
+}
+
+#room1-enemy1 {
+  width: 40px;
+  height: 65px;
+  position: relative;
+  outline: 1px solid lightgreen;
+  top: 145px;
+  left: 155px;
+}
+
+#room1-enemy1:hover {
+  cursor: pointer;
+}
+
+#room1-enemy2 {
+  width: 40px;
+  height: 65px;
+  position: relative;
+  outline: 1px solid lightgreen;
+  top: 298px;
+  left: 359px;
+}
+
+#room1-enemy2:hover {
+  cursor: pointer;
+}
+
+#room1-item1 {
+  width: 60px;
+  height: 40px;
+  position: relative;
+  outline: 1px solid lightgreen;
+  top: 310px;
+  left: 350px;
+}
+
+#room1-item1:hover {
+  cursor: pointer;
+}
+
+#room1-item2 {
+  width: 70px;
+  height: 40px;
+  position: relative;
+  outline: 1px solid lightgreen;
+  top: -80px;
+  left: 500px;
+}
+
+#room1-item2:hover {
+  cursor: pointer;
+}
+
+#room1-door1 {
+  width: 20px;
+  height: 60px;
+  position: relative;
+  outline: 1px solid lightgreen;
+  top: -38px;
+  left: 678px;
+}
+
+#room1-door1:hover {
+  cursor: pointer;
+}
+
+#room-2 {
+  background-image: url("../img/maps/room_2.png");
+  width: 768px;
+  height: 576px;
+  margin: 0 auto;
+}
+
+#room2-enemy1 {
+  width: 40px;
+  height: 65px;
+  position: relative;
+  outline: 1px solid lightgreen;
+  top: 308px;
+  left: 205px;
+}
+
+#room2-enemy2 {
+  width: 40px;
+  height: 65px;
+  position: relative;
+  outline: 1px solid lightgreen;
+  top: 100px;
+  left: 310px;
+}
+
+#room2-enemy3 {
+  width: 40px;
+  height: 65px;
+  position: relative;
+  outline: 1px solid lightgreen;
+  top: 74px;
+  left: 373px;
+}
+
+#room2-enemy4 {
+  width: 50px;
+  height: 70px;
+  position: relative;
+  outline: 1px solid lightgreen;
+  top: 238px;
+  left: 478px;
+}
+
+
+#room2-item3 {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  outline: 1px solid red;
+  top: -150px;
+  left: 386px;
 }

@@ -1,8 +1,9 @@
 // Spell
 console.log("spell.js loaded!");
 
-function Spell(id, name, element) {
-  this.id = id;
+function Spell(name){
   this.name = name;
-  this.element = element;
+  this.damage = 0;
+  this.affect = 0;
+  this.manaCost = 0;
 }

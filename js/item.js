@@ -1,4 +1,7 @@
+
 var items = {};
+
+var itemMap = {};
 
 // Item Dictionary
 function ItemDictionary() {
@@ -33,6 +36,7 @@ ItemDictionary.prototype.fetchItemById = function(itemId) {
   return item;
 }
 
+
 ItemDictionary.prototype.fetchLevelSpecificItems = function(level) {
   var itemArray = [];
 
@@ -47,12 +51,6 @@ ItemDictionary.prototype.fetchLevelSpecificItems = function(level) {
 
 // Populate dictionary with a predefined list of items
 ItemDictionary.prototype.populateItems = function() {
-  var weapon = new Image;
-  var armor = new Image;
-
-  weapon.src="img/pointy-sword.png";
-  armor.src="img/breastplate.png";
-
   var sword1 = new Item(1, "Sword of Woe", "Weapon", 1, 1, 3, 0, 0, "<img src='img/pointy-sword.png'>");
   var staff1 = new Item(2, "Staff of Wizardry", "Weapon", 1, 0, 0, 3, 1, "<img src='img/pointy-sword.png'>");
   var midSword1 = new Item(3, "Warrior's Blade", "Weapon", 2, 2, 5, 0, 0, "<img src='img/pointy-sword.png'>");
@@ -78,8 +76,6 @@ ItemDictionary.prototype.populateItems = function() {
   this.midArmor2 = midArmor2;
   this.epicArmor1 = epicArmor1;
   this.epicArmor2 = epicArmor2;
-
-
 }
 
 // Item Constructor
@@ -93,5 +89,4 @@ function Item(id, name, type, level, hp, ap, sp, mp, icon) {
   this.spellBonus = sp;
   this.manaBonus = mp;
   this.icon = icon;
-
 }
