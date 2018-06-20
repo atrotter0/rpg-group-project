@@ -138,6 +138,7 @@ $(document).ready(function() {
     loadPlayer();
   });
 
+/* START GAME ADD STATS */
   $("#hp-add-button").click(function(){
     var currentHpNumber = parseInt($("#hp-added").text());
     addPoint(currentHpNumber, "hp");
@@ -182,6 +183,7 @@ $(document).ready(function() {
     upgradeStats();
   })
 
+/* IN GAME UPGRADE STATS */
   $("#hp-add-button2").click(function(){
     var currentHpNumber = parseInt($("#hp-added2").text());
     addPointInGame(currentHpNumber, "hp");

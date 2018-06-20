@@ -84,20 +84,6 @@ Player.prototype.upgradeStats = function(item) {
   this.sp += item.spellBonus;
 }
 
-function displayCharacterScreen(player) {
-  $("#stats-area").append("Name: " + player.name);
-  $("#stats-area").append("Level: " + player.level);
-  $("#stats-area").append("Hit Points: " + player.hp);
-  $("#stats-area").append("Mana Points: " + player.mp);
-  $("#stats-area").append("Attack Power: " + player.ap);
-  $("#stats-area").append("Spell Power: " + player.sp);
-  $("#stats-area").append("Experience Points: " + player.xp);
-
-  player.items.forEach(function(item){
-    $("ul#inventory-list").append("<li>" + item + "</li>");
-  })
-
-}
 function createNewPlayer(name) {
   player = new Player(name, roomMap.room1);
   saveGame(player);
