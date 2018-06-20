@@ -1,7 +1,9 @@
 // Enemy
 console.log("enemy.js loaded!");
 
+
 var enemyMap = {};
+
 
 function Enemy(id, name, hp, dmg, xp, loot) {
   this.id = id;

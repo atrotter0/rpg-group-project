@@ -3,7 +3,7 @@ console.log("item.js loaded!");
 
 var itemMap = {};
 
-function Item(id, name, type, hp, ap, sp, mp) {
+function Item(id, name, type, hp, mp, ap, sp) {
   this.id = id;
   this.name = name;
   this.type = type;
