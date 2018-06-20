@@ -26,7 +26,6 @@ function runNewGame(playerName) {
   alertSuccess("Game data for [ " + player.name + " ] created!");
   //fadeOut();
   //startStory();
-
 }
 
 function validate(value) {
@@ -83,6 +82,10 @@ function shakeElement(id) {
 
 function bounceElement(id) {
   $(id).effect("pulsate").effect("bounce");
+}
+
+function pulsateElement(id) {
+  $(id).effect("pulsate");
 }
 
 function adjustHp(target) {
@@ -272,7 +275,6 @@ $(document).ready(function() {
   console.log("ui.js loaded!");
   //hideCharacterScreen();
 
-
   $("#new-game").click(function() {
     hideMenuOptions();
     initiateNewStats();
@@ -294,97 +296,98 @@ $(document).ready(function() {
     loadPlayer();
   });
 
-/* START GAME ADD STATS */
+  /* START GAME ADD STATS */
   $("#hp-add-button").click(function(){
     var currentHpNumber = parseInt($("#hp-added").text());
     addPoint(currentHpNumber, "hp");
-  })
+  });
 
   $("#hp-subtract-button").click(function(){
     var currentHpNumber = parseInt($("#hp-added").text());
     subtractPoint(currentHpNumber, "hp");
-  })
+  });
 
   $("#mp-add-button").click(function(){
     var currentMpNumber = parseInt($("#mp-added").text());
     addPoint(currentMpNumber, "mp");
-  })
+  });
 
   $("#mp-subtract-button").click(function(){
     var currentMpNumber = parseInt($("#mp-added").text());
     subtractPoint(currentMpNumber, "mp");
-  })
+  });
 
   $("#ap-add-button").click(function(){
     var currentApNumber = parseInt($("#ap-added").text());
     addPoint(currentApNumber, "ap");
-  })
+  });
 
   $("#ap-subtract-button").click(function(){
     var currentApNumber = parseInt($("#ap-added").text());
     subtractPoint(currentApNumber, "ap");
-  })
+  });
 
   $("#sp-add-button").click(function(){
     var currentSpNumber = parseInt($("#sp-added").text());
     addPoint(currentSpNumber, "sp");
-  })
+  });
 
   $("#sp-subtract-button").click(function(){
     var currentSpNumber = parseInt($("#sp-added").text());
     subtractPoint(currentSpNumber, "sp");
-  })
+  });
 
   $("#add-stats-button").click(function(){
     upgradeStats();
-  })
+  });
 
-/* IN GAME UPGRADE STATS */
+  /* IN GAME UPGRADE STATS */
   $("#hp-add-button2").click(function(){
     var currentHpNumber = parseInt($("#hp-added2").text());
     addPointInGame(currentHpNumber, "hp");
-  })
+  });
 
   $("#hp-subtract-button2").click(function(){
     var currentHpNumber = parseInt($("#hp-added2").text());
     subtractPointInGame(currentHpNumber, "hp");
-  })
+  });
 
   $("#mp-add-button2").click(function(){
     var currentMpNumber = parseInt($("#mp-added2").text());
     addPointInGame(currentMpNumber, "mp");
-  })
+  });
 
   $("#mp-subtract-button2").click(function(){
     var currentMpNumber = parseInt($("#mp-added2").text());
     subtractPointInGame(currentMpNumber, "mp");
-  })
+  });
 
   $("#ap-add-button2").click(function(){
     var currentApNumber = parseInt($("#ap-added2").text());
     addPointInGame(currentApNumber, "ap");
-  })
+  });
 
   $("#ap-subtract-button2").click(function(){
     var currentApNumber = parseInt($("#ap-added2").text());
     subtractPointInGame(currentApNumber, "ap");
-  })
+  });
 
   $("#sp-add-button2").click(function(){
     var currentSpNumber = parseInt($("#sp-added2").text());
     addPointInGame(currentSpNumber, "sp");
-  })
+  });
 
   $("#sp-subtract-button2").click(function(){
     var currentSpNumber = parseInt($("#sp-added2").text());
     subtractPointInGame(currentSpNumber, "sp");
-  })
+  });
 
   $("#add-stats-button2").click(function(){
     upgradeStats();
     $("#level-up-div2").hide();
-  })
+  });
 
+  /* Battle System */
   $(".enemy").click(function() {
     //var enemyId = $(this).attr(id);
     var enemyId = "enemy1";

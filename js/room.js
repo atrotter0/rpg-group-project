@@ -17,7 +17,6 @@ function buildRooms() {
 
   roomMap.room1 = room1;
   roomMap.room2 = room2;
-
 }
 
 

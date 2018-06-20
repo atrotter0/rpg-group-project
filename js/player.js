@@ -9,7 +9,7 @@ function Player(name, room) {
   this.hpMax = 10;
   this.hp = this.hpMax;
   this.mpMax = 20;
-  this.mp = 20;
+  this.mp = this.mpMax;
   this.ap = 1;
   this.sp = 3;
   this.spells = ["Firebolt"];
@@ -18,6 +18,10 @@ function Player(name, room) {
   this.room = room;
   this.equippedWeapon = {};
   this.equippedArmor = {};
+  this.currentEnemy = {};
+  this.lastRoom = "";
+  this.hasHealingConsumable = false;
+  this.hasManaConsumable = false;
 }
 
 Player.prototype.equipBestItem = function() {
@@ -32,12 +36,7 @@ Player.prototype.equipBestItem = function() {
       this.equippedArmor = this.items[i];
     }
   }
-
   displayEquippedItems(this);
-  this.currentEnemy = {};
-  this.lastRoom = "";
-  this.hasHealingConsumable = false;
-  this.hasManaConsumable = false;
 }
 
 Player.prototype.playerAttack = function(enemy) {
@@ -52,6 +51,8 @@ Player.prototype.noMp = function() {
 Player.prototype.playerCastSpell = function(enemy) {
   enemy.hp -= this.sp;
   this.mp -= 5;
+
+  if (this.mp < 0) this.mp = 0;
   battleAlert(this.name + " casts " + this.spells[0] + " on " + enemy.name + " for " + this.sp + " damage!");
 }
 
@@ -84,9 +85,7 @@ Player.prototype.useHealthPotion = function() {
   this.removeItem("Health Potion");
   this.hp += itemMap.healthPotion.addHp;
 
-  if (this.hp > this.hpMax) {
-    this.hp = this.hpMax;
-  }
+  if (this.hp > this.hpMax) this.hp = this.hpMax;
   battleAlert(this.name + " uses a " + itemMap.healthPotion.name + " and recovers " + itemMap.healthPotion.addHp + " health!");
 }
 
@@ -94,10 +93,8 @@ Player.prototype.useManaPotion = function() {
   this.removeItem("Mana Potion");
   this.mp += itemMap.manaPotion.addMp;
 
-  if (this.mp > this.mpMax) {
-    this.mp = this.mpMax;
-    battleAlert(this.name + " uses a " + itemMap.manaPotion.name + " and recovers " + itemMap.manaPotion.addMp + " mana!");
-  }
+  if (this.mp > this.mpMax) this.mp = this.mpMax;
+  battleAlert(this.name + " uses a " + itemMap.manaPotion.name + " and recovers " + itemMap.manaPotion.addMp + " mana!");
 }
 
 Player.prototype.removeItem = function(itemName) {
@@ -127,23 +124,9 @@ Player.prototype.checkLoot = function(enemy) {
   }
 }
 
-function rollDice(maxNumber) {
-  var roll = Math.floor(Math.random() * maxNumber);
-
-  return roll;
-}
-
 Player.prototype.levelUp = function(level) {
   this.level += 1;
   this.xp = 0;
-}
-
-Player.prototype.checkDead = function() {
-  if(this.hp === 0) {
-    return true;
-  } else {
-    return false;
-  }
 }
 
 Player.prototype.checkXP = function() {
@@ -151,17 +134,6 @@ Player.prototype.checkXP = function() {
     this.levelUp();
     alertSuccess("Level Up! You are now level " + this.level);
   }
-}
-
-Player.prototype.hitSomething = function(mob) {
-  const minAttack = (this.ap * .5);
-  const maxAttack = this.ap;
-  var rolld10 = (Math.floor((Math.random() * (maxAttack - minAttack) + minAttack)));
-  var damage = this.ap * rolld10;
-  if(miss()){
-    damage = 0;
-  }
-  mob.hp -= damage;
 }
 
 Player.prototype.upgradeStats = function(item) {
@@ -179,4 +151,9 @@ function createNewPlayer(name) {
 
 function loadPlayer() {
   player = playerFromStorage();
+}
+
+function rollDice(maxNumber) {
+  var roll = Math.floor(Math.random() * maxNumber);
+  return roll;
 }

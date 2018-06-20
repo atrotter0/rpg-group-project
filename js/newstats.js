@@ -1,3 +1,6 @@
+// New Stats - player progression tracker
+console.log("newstats.js loaded!");
+
 var newStats = {};
 
 function NewStats() {

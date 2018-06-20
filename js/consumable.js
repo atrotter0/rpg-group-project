@@ -1,4 +1,5 @@
 // Consumable
+console.log("consumable.js loaded!");
 
 function Consumable(id, name, hp, mp, xp) {
   this.id = id;
@@ -7,7 +8,3 @@ function Consumable(id, name, hp, mp, xp) {
   this.restoreMp = mp;
   this.giveXp = xp;
 }
-
-$(document).ready(function() {
-  console.log("consumable.js loaded!");
-});

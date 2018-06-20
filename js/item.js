@@ -1,51 +1,35 @@
+// Items
+console.log("item.js loaded!");
 
+var itemMap = {}; // get rid of this?
 var items = {};
 
-var itemMap = {};
+// Item Constructor
+function Item(id, name, type, level, hp, ap, sp, mp, icon) {
+  this.id = id; // Unique single digit number (e.g, 3)
+  this.name = name; // String (e.g, "Sword of Woe")
+  this.type = type; // "Weapon" or "Armor"
+  this.level = level;
+  this.healthBonus = hp;
+  this.attackBonus = ap;
+  this.spellBonus = sp;
+  this.manaBonus = mp;
+  this.icon = icon;
+}
 
 // Item Dictionary
 function ItemDictionary() {
   this.populateItems();
 }
 
-ItemDictionary.prototype.addItem = function(item) {
-  this.items.push(item);
-}
-
-ItemDictionary.prototype.fetchItemByName = function(itemName) {
-  var item = {};
-
-  for(i = 0; i < this.items.length; i++) {
-    if(this.items[i].name === itemName) {
-      item = this.items[i];
-    }
-  }
-
-  return item;
-}
-
-ItemDictionary.prototype.fetchItemById = function(itemId) {
-  var item = {};
-
-  for(i = 0; i < this.items.length; i++) {
-    if(this.items[i].id === parseInt(itemId)) {
-      item = this.items[i];
-    }
-  }
-
-  return item;
-}
-
 
 ItemDictionary.prototype.fetchLevelSpecificItems = function(level) {
   var itemArray = [];
-
-  for(var item in this) {
+  for (var item in this) {
     if(this[item].level === level) {
       itemArray.push(this[item]);
     }
   }
-
   return itemArray;
 }
 
@@ -78,19 +62,6 @@ ItemDictionary.prototype.populateItems = function() {
   this.epicArmor2 = epicArmor2;
 }
 
-// Item Constructor
-function Item(id, name, type, level, hp, ap, sp, mp, icon) {
-  this.id = id; // Unique single digit number (e.g, 3)
-  this.name = name; // String (e.g, "Sword of Woe")
-  this.type = type; // "Weapon" or "Armor"
-  this.level = level;
-  this.healthBonus = hp;
-  this.attackBonus = ap;
-  this.spellBonus = sp;
-  this.manaBonus = mp;
-  this.icon = icon;
-}
-
-function buildItems() {
+function buildItems() { // get rid of this?
   
 }
