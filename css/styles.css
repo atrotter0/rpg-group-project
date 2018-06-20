@@ -329,6 +329,7 @@
 }
 
 #battle-loot-screen {
+  display: none;
   font-family: 'Press Start 2P', cursive;
   color: #fff;
   width: 768px;
@@ -367,21 +368,6 @@
 #loot-screen-confirm {
   display: block;
   margin: 50px auto;
-}
-
-
-/* Responsive Styles */
-@media screen and (max-width: 550px) {
-  #main-menu-header h1 {
-    font-size: 1.5em;
-  }
-
-  .btn-main-menu {
-    margin: 10px auto;
-    display: block;
-    width: 90%;
-  }
-
 }
 
 /******************/
@@ -734,13 +720,13 @@
   padding-top:20px;
 }
 
-/*********/
-/* Rooms */
-/*********/
+/**********/
+/* Room 1 */
+/**********/
 
 #room-1 {
-  background-image: url("../img/maps/room_1.png");
   display: none;
+  background-image: url("../img/maps/room_1.png");
   width: 768px;
   height: 576px;
   margin: 0 auto;
@@ -811,6 +797,10 @@
   cursor: pointer;
 }
 
+/**********/
+/* Room 2 */
+/**********/
+
 #room-2 {
   display: none;
   background-image: url("../img/maps/room_2.png");
@@ -819,7 +809,7 @@
   margin: 0 auto;
 }
 
-#room2-enemy1 {
+#room2-enemy3 {
   width: 40px;
   height: 65px;
   position: relative;
@@ -828,7 +818,7 @@
   left: 205px;
 }
 
-#room2-enemy2 {
+#room2-enemy4 {
   width: 40px;
   height: 65px;
   position: relative;
@@ -837,7 +827,7 @@
   left: 310px;
 }
 
-#room2-enemy3 {
+#room2-enemy5 {
   width: 40px;
   height: 65px;
   position: relative;
@@ -846,7 +836,7 @@
   left: 373px;
 }
 
-#room2-enemy4 {
+#room2-enemy6 {
   width: 50px;
   height: 70px;
   position: relative;
@@ -863,4 +853,13 @@
   outline: 1px solid red;
   top: -150px;
   left: 386px;
+}
+
+#room2-door2 {
+  /* width: 40px;
+  height: 40px;
+  position: relative;
+  outline: 1px solid red;
+  top: -150px;
+  left: 386px; */
 }

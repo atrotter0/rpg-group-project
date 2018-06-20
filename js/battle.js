@@ -92,7 +92,7 @@ function checkEnemyDead(enemy) {
   if (enemy.isDead()) {
     animationEnemyDefeated();
     setTimeout(function() { showLootScreen(); }, 2000);
-    player.checkLoot(enemy);
+    player.giveAwardsToPlayer(enemy);
     console.log("You won!");
   } else {
     console.log("Still fightin!");

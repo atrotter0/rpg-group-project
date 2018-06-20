@@ -125,6 +125,25 @@ Player.prototype.checkLoot = function(enemy) {
   console.log(this.items);
 }
 
+Player.prototype.checkClickItem = function() {
+    var outcome = rollDice(4);
+    console.log(outcome);
+    if (this.room.id === 1) {
+      if (outcome === 0) {
+        this.items.push(itemMap.sword1);
+      }
+      if (outcome === 1) {
+        this.items.push(itemMap.staff1);
+      }
+      if (outcome === 2) {
+        this.items.push(itemMap.armor1);
+      }
+      if (outcome === 3) {
+        this.items.push(itemMap.armor2);
+      }
+  }
+}
+
 Player.prototype.levelUp = function(level) {
   this.level += 1;
   this.xp = 0;
@@ -142,6 +161,16 @@ Player.prototype.upgradeStats = function(item) {
   this.mp += item.manaBonus;
   this.ap += item.attackBonus;
   this.sp += item.spellBonus;
+}
+
+Player.prototype.giveAwardsToPlayer = function(enemy) {
+  this.xp = enemy.xp;
+  this.gold = enemy.gold;
+  this.checkLoot();
+}
+
+Player.prototype.getLastItem = function() {
+  return this.items[this.items.length - 1];
 }
 
 function createNewPlayer(name) {
