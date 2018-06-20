@@ -257,6 +257,11 @@ function hideBattleItemMenu() {
   $("#item-menu").hide();
 }
 
+function showLootScreen() {
+  hideCurrentScreen();
+  $("#battle-loot-screen").addClass("current-screen").show();
+}
+
 function setDisabledConsumables() {
   if (player.hasHealingConsumable) {
     enableButton("#battle-health-potion");

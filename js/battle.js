@@ -91,6 +91,7 @@ function checkPlayerDead() {
 function checkEnemyDead(enemy) {
   if (enemy.isDead()) {
     animationEnemyDefeated();
+    setTimeout(function() { showLootScreen(); }, 2000);
     console.log("You won!");
   } else {
     console.log("Still fightin!");
