@@ -24,8 +24,9 @@ function runNewGame(playerName) {
 
   createNewPlayer(playerName, roomMap.room1);
   alertSuccess("Game data for [ " + player.name + " ] created!");
-  //fadeOut();
-  //startStory();
+  hideCurrentScreen();
+  $("#room-" + player.room.id).show().addClass("current-screen");
+
 }
 
 function validate(value) {

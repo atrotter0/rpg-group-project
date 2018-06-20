@@ -696,6 +696,7 @@
 /**********/
 
 #room-1 {
+  display: none;
   background-image: url("../img/maps/room_1.png");
   width: 768px;
   height: 576px;
