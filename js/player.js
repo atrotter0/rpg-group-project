@@ -23,7 +23,6 @@ Player.prototype.equipBestItem = function() {
     if((this.items[i].level > this.equippedWeapon.level && this.items[i].type === "Weapon") || Object.keys(this.equippedWeapon).length === 0 && this.items[i].type === "Weapon") {
       this.equippedWeapon = this.items[i];
     }
-    console.log(this.items[i].type);
   }
 
   for(i = 0; i < this.items.length; i++) {

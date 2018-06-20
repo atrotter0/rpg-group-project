@@ -53,18 +53,18 @@ ItemDictionary.prototype.populateItems = function() {
   weapon.src="img/pointy-sword.png";
   armor.src="img/breastplate.png";
 
-  var sword1 = new Item(1, "Sword of Woe", "Weapon", 1, 1, 3, 0, 0, weapon);
-  var staff1 = new Item(2, "Staff of Wizardry", "Weapon", 1, 0, 0, 3, 1, weapon);
-  var midSword1 = new Item(3, "Warrior's Blade", "Weapon", 2, 2, 5, 0, 0, weapon);
-  var midStaff1 = new Item(4, "Staff of Conjured Dreams", "Weapon", 2, 0, 0, 5, 2, weapon);
-  var epicSword1 = new Item(5, "Sword of A Thousand Truths", "Weapon", 3, 3, 5, 0, 0, weapon);
-  var epicStaff1 = new Item(6, "Grand Magus Staff", "Weapon", 3, 0, 0, 5, 3, weapon);
-  var armor1 = new Item(7, "Sturdy Hauberk", "Armor", 1, 1, 0, 0, 0, armor);
-  var armor2 = new Item(8, "Apprentice Garb", "Armor", 1, 0, 0, 0, 1, armor);
-  var midArmor1 = new Item(9, "Veteran's Breastplate", "Armor", 2, 3, 2, 0, 0, armor);
-  var midArmor2 = new Item(10, "Wizard's Robe", "Armor", 2, 0, 0, 2, 3, armor);
-  var epicArmor1 = new Item(11, "Cuirass of The Colossus", "Armor", 3, 8, 4, 0, 0, armor);
-  var epicArmor2 = new Item(12, "Robe of Seething Power", "Armor", 3, 0, 0, 4, 8, armor);
+  var sword1 = new Item(1, "Sword of Woe", "Weapon", 1, 1, 3, 0, 0, "<img src='img/pointy-sword.png'>");
+  var staff1 = new Item(2, "Staff of Wizardry", "Weapon", 1, 0, 0, 3, 1, "<img src='img/pointy-sword.png'>");
+  var midSword1 = new Item(3, "Warrior's Blade", "Weapon", 2, 2, 5, 0, 0, "<img src='img/pointy-sword.png'>");
+  var midStaff1 = new Item(4, "Staff of Conjured Dreams", "Weapon", 2, 0, 0, 5, 2, "<img src='img/pointy-sword.png'>");
+  var epicSword1 = new Item(5, "Sword of A Thousand Truths", "Weapon", 3, 3, 5, 0, 0, "<img src='img/pointy-sword.png'>");
+  var epicStaff1 = new Item(6, "Grand Magus Staff", "Weapon", 3, 0, 0, 5, 3, "<img src='img/pointy-sword.png'>");
+  var armor1 = new Item(7, "Sturdy Hauberk", "Armor", 1, 1, 0, 0, 0, "<img src='img/breastplate.png'>");
+  var armor2 = new Item(8, "Apprentice Garb", "Armor", 1, 0, 0, 0, 1, "<img src='img/breastplate.png'>");
+  var midArmor1 = new Item(9, "Veteran's Breastplate", "Armor", 2, 3, 2, 0, 0, "<img src='img/breastplate.png'>");
+  var midArmor2 = new Item(10, "Wizard's Robe", "Armor", 2, 0, 0, 2, 3, "<img src='img/breastplate.png'>");
+  var epicArmor1 = new Item(11, "Cuirass of The Colossus", "Armor", 3, 8, 4, 0, 0, "<img src='img/breastplate.png'>");
+  var epicArmor2 = new Item(12, "Robe of Seething Power", "Armor", 3, 0, 0, 4, 8, "<img src='img/breastplate.png'>");
 
   this.sword1 = sword1;
   this.staff1 = staff1;

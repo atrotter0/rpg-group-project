@@ -44,9 +44,10 @@ function displayEquippedItems(player) {
   $("#equipped-weapon-text").text(player.equippedWeapon.name);
   $("#equipped-armor-text").text(player.equippedArmor.name);
 
-  player.items.forEach(function(item, index) {
-    $("#slot" + index).append(item.icon);
-  });
+  for(i = 0; i < player.items.length; i++) {
+    console.log(i + " " + player.items[i]);
+    $("#slot" + (i)).append(player.items[i].icon);
+  }
 }
 
 function fillCharacterValues(player) {
