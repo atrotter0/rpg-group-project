@@ -33,7 +33,7 @@
 /*************/
 
 #main-menu {
-  display: none;
+  display: block;
   font-family: 'Press Start 2P', cursive;
 }
 
@@ -136,7 +136,7 @@
 /***************/
 
 #battle-screen {
-  display: block;
+  display: none;
   margin-top: 20px;
   font-family: 'Press Start 2P', cursive;
 }
@@ -339,6 +339,18 @@
     width: 90%;
   }
 
+}
+
+/******************/
+/* INVENTORY MENU */
+/******************/
+
+.character-screen {
+  display: none;
+}
+
+.inventory-menu {
+  display: none;
 }
 
 .grid-container {
@@ -630,50 +642,54 @@
   padding-top:20px;
 }
 
-/*************/
+/****************************/
 /* IN GAME ADD STATS WINDOW */
-/*************/
+/****************************/
 
-  #level-up-header2 {
-    margin-top:20px;
-    margin-bottom:20px;
-    text-align: center;
-    font-family: 'Press Start 2P', cursive;
-  }
+#level-up-div2 {
+  display: none;
+}
 
-  #level-up-table2 {
-    border-radius:5px;
-    background-color: #333;
-    color: white;
-    padding:20px 10px 15px 10px;
-    font-family: 'Press Start 2P', cursive;
-    box-shadow:1px 2px 20px black;
-    margin:auto;
-    margin-bottom:30px;
-    width:50%;
-  }
+#level-up-header2 {
+  margin-top:20px;
+  margin-bottom:20px;
+  text-align: center;
+  font-family: 'Press Start 2P', cursive;
+}
 
-  #level-up-table2 .row {
-    padding:2px;
-  }
+#level-up-table2 {
+  border-radius:5px;
+  background-color: #333;
+  color: white;
+  padding:20px 10px 15px 10px;
+  font-family: 'Press Start 2P', cursive;
+  box-shadow:1px 2px 20px black;
+  margin:auto;
+  margin-bottom:30px;
+  width:50%;
+}
 
-  #level-up-table2 .col-sm-7 {
-    text-align:right;
-  }
+#level-up-table2 .row {
+  padding:2px;
+}
 
-  #available-points-div2 {
-    margin-top:30px;
-    font-size:12px;
-    background-color:#d9534f;;
-    padding: 7px;
-    border-radius: 5px;
-    border: yellow 3px solid;
-  }
+#level-up-table2 .col-sm-7 {
+  text-align:right;
+}
 
-  #add-stats-div2 {
-    text-align:center;
-    padding-top:20px;
-  }
+#available-points-div2 {
+  margin-top:30px;
+  font-size:12px;
+  background-color:#d9534f;;
+  padding: 7px;
+  border-radius: 5px;
+  border: yellow 3px solid;
+}
+
+#add-stats-div2 {
+  text-align:center;
+  padding-top:20px;
+}
 
 /*********/
 /* Rooms */
@@ -753,6 +769,7 @@
 }
 
 #room-2 {
+  display: none;
   background-image: url("../img/maps/room_2.png");
   width: 768px;
   height: 576px;
