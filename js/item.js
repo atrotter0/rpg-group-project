@@ -1,7 +1,7 @@
 
 var items = {};
 
-// Item
+var itemMap = {};
 
 // Item Dictionary
 function ItemDictionary() {
