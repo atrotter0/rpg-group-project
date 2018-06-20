@@ -90,3 +90,7 @@ function Item(id, name, type, level, hp, ap, sp, mp, icon) {
   this.manaBonus = mp;
   this.icon = icon;
 }
+
+function buildItems() {
+  
+}

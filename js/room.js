@@ -30,12 +30,13 @@ function createRoomEnemyClicks(room) {
   });
 }
 
+//fix this to work with new inventory
 function createRoomItemClicks(room) {
-  room.items.forEach(function(item) {
-    $("#" + room.id + "-" + item.id).click(function() {
-      alertError("You found a " + item.name + ".");
-    });
-  });
+  // room.items.forEach(function(item) {
+  //   $("#" + room.id + "-" + item.id).click(function() {
+  //     alertError("You found a " + item.name + ".");
+  //   });
+  // });
 }
 
 function createRoomDoorClicks(room) {
