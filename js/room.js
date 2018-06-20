@@ -13,7 +13,7 @@ function Room(id, name, enemies, items, doors) {
 
 function buildRooms() {
   var room1 = new Room("room1", "Dungeon", [enemyMap.enemy1, enemyMap.enemy2], [itemMap.item1, itemMap.item2], []);
-  var room2 = new Room("room2", "A Dark Tunnel");
+  var room2 = new Room("room2", "Dungeon", [enemyMap.enemy1, enemyMap.enemy2, enemyMap.enemy3, enemyMap.enemy4], [itemMap.item3], []);
 
   roomMap.room1 = room1;
   roomMap.room2 = room2;
@@ -34,7 +34,6 @@ function createRoomItemClicks(room) {
   room.items.forEach(function(item) {
     $("#" + room.id + "-" + item.id).click(function() {
       alertError("You found a " + item.name + ".");
-      equipBestItem();
     });
   });
 }

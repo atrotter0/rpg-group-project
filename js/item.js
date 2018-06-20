@@ -16,7 +16,9 @@ function Item(id, name, type, hp, ap, sp, mp) {
 function buildItems() {
   var item1 = new Item("item1", "Basic Sword", "Weapon", 0, 2, 0, 0);
   var item2 = new Item("item2", "Health Potion", "Consumable", 10, 0, 0, 0);
-
+  var item3 = new Item("item3", "Halberk of Strength", "Armor", 10, 5, 0, 0);
+  
   itemMap.item1 = item1;
   itemMap.item2 = item2;
+  itemMap.item3 = item3;
 }
