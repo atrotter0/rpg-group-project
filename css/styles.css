@@ -136,12 +136,19 @@
 }
 
 .battle-screen-character-box {
-  vertical-align: top;
-  display: inline-block;
-  width: 49.2%;
-  height: 230px;
-  outline: 1px solid green;
-  margin: 0 auto;
+  position: relative;
+  width: 180px;
+  height: 180px;
+}
+
+#player-box {
+  top: 167px;
+  left: 18px;
+}
+
+#enemy-box {
+  top: -63px;
+  left: 191px;
 }
 
 .battle-stats {
@@ -208,23 +215,32 @@
 }
 
 #battlefield {
-  outline: 1px solid blue;
-  height: 300px;
+  outline: 1px solid pink;
+  width: 768px;
+  height: 576px;
+  background-image: url("../img/battle_screen.png");
+  background-repeat: no-repeat;
+  margin: 0 auto;
 }
 
 #battle-alert {
+  position: relative;
   padding: 5px;
-  width: 80%;
-  height: 50px;
-  outline: 1px solid purple;
+  width: 768px;
+  height: 80px;
   margin: 0 auto;
   text-align: center;
+  top: -576px;
+  background-color: #909798;
 }
 
 #battle-menu {
-  outline: 1px solid red;
-  height: 200px;
+  position: relative;
   padding: 10px;
+  top: -120px;
+  width: 768px;
+  margin: 0 auto;
+  background-color: #909798;
 }
 
 #death-screen {
@@ -278,10 +294,12 @@
 }
 
 #item-menu {
-  display: none;
-  outline: 1px solid red;
-  height: 200px;
+  position: relative;
   padding: 10px;
+  top: -120px;
+  width: 768px;
+  margin: 0 auto;
+  background-color: #909798;
 }
 
 .btn-battle-item {
