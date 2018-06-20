@@ -41,11 +41,16 @@ function createItemClickEvents() {
   $("#room1-item1").click(function(){
     player.checkClickItem();
     alertRoom("You found a " + player.items[player.items.length - 1].name + ".");
+    $("#room1-item1").off("click");
+    $("#room1-item1").css({'cursor' : 'default'});
+
   });
 
   $("#room1-item2").click(function(){
     player.checkClickConsumable();
     alertRoom("You found a " + player.items[player.items.length - 1].name + ".");
+    $("#room1-item2").off("click");
+    $("#room1-item2").css({'cursor' : 'default'});
   });
 
   //Second Room

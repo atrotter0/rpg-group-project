@@ -726,6 +726,7 @@
   position: relative;
   top: 86px;
   left: 155px;
+  background-image: url("../img/enemy1.png");
 }
 
 #room1-enemy1:hover {
@@ -738,6 +739,7 @@
   position: relative;
   top: 239px;
   left: 359px;
+  background-image: url("../img/enemy2.png");
 }
 
 #room1-enemy2:hover {
@@ -798,6 +800,7 @@
   position: relative;
   top: 249px;
   left: 205px;
+  background-image: url("../img/enemy3.png");
 }
 
 #room2-enemy3:hover {
@@ -810,6 +813,7 @@
   position: relative;
   top: 41px;
   left: 310px;
+  background-image: url("../img/enemy4.png");
 }
 
 #room2-enemy4:hover {
@@ -822,6 +826,7 @@
   position: relative;
   top: 15px;
   left: 373px;
+  background-image: url("../img/enemy5.png");
 }
 
 #room2-enemy5:hover {
@@ -834,6 +839,7 @@
   position: relative;
   top: 179px;
   left: 478px;
+  background-image: url("../img/enemy6.png");
 }
 
 #room2-enemy6:hover {

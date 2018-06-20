@@ -397,6 +397,9 @@ $(document).ready(function() {
     alertRoom(enemyMap[enemyId].name + " is attacking you!");
     player.currentEnemy = enemyMap[enemyId];
     startBattle(player.currentEnemy)
+    $("#room" + player.room.id + "-enemy" + player.currentEnemy.id).off();
+    $("#room" + player.room.id + "-enemy" + player.currentEnemy.id).css({'background-image' : 'url("")'});
+    $("#room" + player.room.id + "-enemy" + player.currentEnemy.id).css({'cursor' : 'default'});
   });
 
   $("#attack").click(function() {
