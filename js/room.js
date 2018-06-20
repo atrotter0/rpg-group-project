@@ -40,18 +40,18 @@ function createItemClickEvents() {
   //First Room
   $("#room1-item1").click(function(){
     player.checkClickItem();
-    alertSuccess("You found a " + player.items[player.items.length - 1].name + ".");
+    alertRoom("You found a " + player.items[player.items.length - 1].name + ".");
   });
 
   $("#room1-item2").click(function(){
     player.checkClickConsumable();
-    alertSuccess("You found a " + player.items[player.items.length - 1].name + ".");
+    alertRoom("You found a " + player.items[player.items.length - 1].name + ".");
   });
 
   //Second Room
   $("#room2-item3").click(function(){
     player.checkClickItem();
-    alertSuccess("You found a " + player.items[player.items.length - 1].name + ".");
+    alertRoom("You found a " + player.items[player.items.length - 1].name + ".");
   });
 }
 

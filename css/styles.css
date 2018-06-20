@@ -28,6 +28,23 @@
   text-align: center;
 }
 
+.alert-room {
+  font-family: 'Press Start 2P', cursive;
+  position: relative;
+  padding: 5px;
+  padding-top: 18px;
+  width: 768px;
+  height: 59px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #707677;
+  color: #fff;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
 /*************/
 /* MAIN MENU */
 /*************/
@@ -707,8 +724,7 @@
   width: 40px;
   height: 65px;
   position: relative;
-  outline: 1px solid lightgreen;
-  top: 145px;
+  top: 86px;
   left: 155px;
 }
 
@@ -720,8 +736,7 @@
   width: 40px;
   height: 65px;
   position: relative;
-  outline: 1px solid lightgreen;
-  top: 298px;
+  top: 239px;
   left: 359px;
 }
 
@@ -733,8 +748,7 @@
   width: 60px;
   height: 40px;
   position: relative;
-  outline: 1px solid lightgreen;
-  top: 310px;
+  top: 251px;
   left: 350px;
 }
 
@@ -746,8 +760,7 @@
   width: 70px;
   height: 40px;
   position: relative;
-  outline: 1px solid lightgreen;
-  top: -80px;
+  top: -139px;
   left: 500px;
 }
 
@@ -759,8 +772,7 @@
   width: 20px;
   height: 60px;
   position: relative;
-  outline: 1px solid lightgreen;
-  top: -38px;
+  top: -97px;
   left: 678px;
 }
 
@@ -784,8 +796,7 @@
   width: 40px;
   height: 65px;
   position: relative;
-  outline: 1px solid lightgreen;
-  top: 308px;
+  top: 249px;
   left: 205px;
 }
 
@@ -797,8 +808,7 @@
   width: 40px;
   height: 65px;
   position: relative;
-  outline: 1px solid lightgreen;
-  top: 100px;
+  top: 41px;
   left: 310px;
 }
 
@@ -810,8 +820,7 @@
   width: 40px;
   height: 65px;
   position: relative;
-  outline: 1px solid lightgreen;
-  top: 74px;
+  top: 15px;
   left: 373px;
 }
 
@@ -823,8 +832,7 @@
   width: 50px;
   height: 70px;
   position: relative;
-  outline: 1px solid lightgreen;
-  top: 238px;
+  top: 179px;
   left: 478px;
 }
 
@@ -836,8 +844,7 @@
   width: 40px;
   height: 40px;
   position: relative;
-  outline: 1px solid lightgreen;
-  top: -150px;
+  top: -209px;
   left: 386px;
 }
 
@@ -849,8 +856,7 @@
   width: 20px;
   height: 60px;
   position: relative;
-  outline: 1px solid lightgreen;
-  top: -2px;
+  top: -61px;
   left: 70px;
 }
 
@@ -862,8 +868,7 @@
   width: 60px;
   height: 40px;
   position: relative;
-  outline: 1px solid lightgreen;
-  top: 140px;
+  top: 81px;
   left: 620px;
 }
 

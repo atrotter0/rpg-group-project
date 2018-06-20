@@ -42,6 +42,10 @@ function alertSuccess(msg) {
     .addClass("alert-success").fadeIn(800).delay(1000).fadeOut(1000);
 }
 
+function alertRoom(msg) {
+  $(".alert-room").text(msg);
+}
+
 function disableButton(id) {
   $(id).attr("disabled", true);
 }
@@ -390,7 +394,7 @@ $(document).ready(function() {
   /* Battle System */
   $(".enemy").click(function() {
     var enemyId = grabEnemyId(this);
-    alertError(enemyMap[enemyId].name + " is attacking you!");
+    alertRoom(enemyMap[enemyId].name + " is attacking you!");
     player.currentEnemy = enemyMap[enemyId];
     startBattle(player.currentEnemy)
   });

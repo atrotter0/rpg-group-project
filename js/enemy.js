@@ -26,14 +26,14 @@ function EnemyMap() {
 EnemyMap.prototype.populateEnemies = function() {
 
   //Room 1 Enemies
-  var enemy1 = new Enemy(1, 1, "Skeletal Warrior", 15, 1, 5, itemMap.fetchLevelSpecificItems(this.tier));
-  var enemy2 = new Enemy(2, 1, "Skeletal Warrior", 15, 1, 5, itemMap.fetchLevelSpecificItems(this.tier));
+  var enemy1 = new Enemy(1, 1, "Skeletal Warrior", 8, 1, 5, itemMap.fetchLevelSpecificItems(this.tier));
+  var enemy2 = new Enemy(2, 1, "Skeletal Warrior", 8, 1, 5, itemMap.fetchLevelSpecificItems(this.tier));
 
   //Room 2 Enemies
-  var enemy3 = new Enemy(3, 1, "Skeletal Warrior", 20, 10, 10, itemMap.fetchLevelSpecificItems(this.tier));
-  var enemy4 = new Enemy(4, 1, "Skeletal Warrior", 20, 8, 10, itemMap.fetchLevelSpecificItems(this.tier));
-  var enemy5 = new Enemy(5, 2, "Skeletal Warrior", 22, 8, 10, itemMap.fetchLevelSpecificItems(this.tier));
-  var enemy6 = new Enemy(6, 2, "Cave Troll", 40, 8, 15, itemMap.fetchLevelSpecificItems(this.tier));
+  var enemy3 = new Enemy(3, 1, "Skeletal Warrior", 12, 3, 10, itemMap.fetchLevelSpecificItems(this.tier));
+  var enemy4 = new Enemy(4, 1, "Skeletal Warrior", 12, 3, 10, itemMap.fetchLevelSpecificItems(this.tier));
+  var enemy5 = new Enemy(5, 2, "Skeletal Warrior", 15, 4, 10, itemMap.fetchLevelSpecificItems(this.tier));
+  var enemy6 = new Enemy(6, 2, "Cave Troll", 22, 5, 15, itemMap.fetchLevelSpecificItems(this.tier));
 
   this.enemy1 = enemy1;
   this.enemy2 = enemy2;
