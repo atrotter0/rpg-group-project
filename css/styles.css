@@ -142,12 +142,13 @@
 
 #room-box {
   background-image: url("../img/maps/room_1.png");
+  /* hey figure this out */
   width: 768px;
   height: 576px;
   margin: 0 auto;
 }
 
-#enemy1 {
+#room1-enemy1 {
   width: 40px;
   height: 65px;
   position: relative;
@@ -156,11 +157,11 @@
   left: 155px;
 }
 
-#enemy1:hover {
+#room1-enemy1:hover {
   cursor: pointer;
 }
 
-#enemy2 {
+#room1-enemy2 {
   width: 40px;
   height: 65px;
   position: relative;
@@ -169,11 +170,11 @@
   left: 359px;
 }
 
-#enemy2:hover {
+#room1-enemy2:hover {
   cursor: pointer;
 }
 
-#item1 {
+#room1-item1 {
   width: 60px;
   height: 40px;
   position: relative;
@@ -182,11 +183,11 @@
   left: 350px;
 }
 
-#item1:hover {
+#room1-item1:hover {
   cursor: pointer;
 }
 
-#item2 {
+#room1-item2 {
   width: 70px;
   height: 40px;
   position: relative;
@@ -195,11 +196,11 @@
   left: 500px;
 }
 
-#item2:hover {
+#room1-item2:hover {
   cursor: pointer;
 }
 
-#door {
+#room1-door1 {
   width: 20px;
   height: 60px;
   position: relative;
@@ -208,6 +209,6 @@
   left: 678px;
 }
 
-#door:hover {
+#room1-door1:hover {
   cursor: pointer;
 }

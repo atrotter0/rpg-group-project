@@ -12,7 +12,7 @@ function Room(id, name, enemies, items, doors) {
 }
 
 function buildRooms() {
-  var room1 = new Room("room1", "Dungeon", [enemyMap.enemy1, enemyMap.enemy2], [itemMap.item1, itemMap.item2], [roomMap.room2]);
+  var room1 = new Room("room1", "Dungeon", [enemyMap.enemy1, enemyMap.enemy2], [itemMap.item1, itemMap.item2], []);
   var room2 = new Room("room2", "A Dark Tunnel");
 
   roomMap.room1 = room1;
@@ -23,7 +23,7 @@ function buildRooms() {
 
 function createRoomEnemyClicks(room) {
   room.enemies.forEach(function(enemy) {
-    $("#" + enemy.id).click(function() {
+    $("#" + room.id + "-" + enemy.id).click(function() {
       alertError(enemy.name + " begins attacking you!!!");
       //runbattle function
     });
@@ -32,7 +32,7 @@ function createRoomEnemyClicks(room) {
 
 function createRoomItemClicks(room) {
   room.items.forEach(function(item) {
-    $("#" + item.id).click(function() {
+    $("#" + room.id + "-" + item.id).click(function() {
       alertError("You found a " + item.name + ".");
       equipBestItem();
     });
@@ -40,8 +40,8 @@ function createRoomItemClicks(room) {
 }
 
 function createRoomDoorClicks(room) {
-  room.doors.forEach(function(door, index) {
-    $("#door" + index).click(function(){
+  room.doors.forEach(function(door) {
+    $("#" + room.id + "-" + doors).click(function(){
       //load next room (door.id)
     });
   });
