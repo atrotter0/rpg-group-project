@@ -43,7 +43,6 @@ function createItemClickEvents() {
     alertRoom("You found a " + player.items[player.items.length - 1].name + ".");
     $("#room1-item1").off("click");
     $("#room1-item1").css({'cursor' : 'default'});
-
   });
 
   $("#room1-item2").click(function(){
@@ -57,6 +56,8 @@ function createItemClickEvents() {
   $("#room2-item3").click(function(){
     player.checkClickItem();
     alertRoom("You found a " + player.items[player.items.length - 1].name + ".");
+    $("#room2-item3").off("click");
+    $("#room2-item3").css({'cursor' : 'default'});
   });
 }
 
@@ -81,4 +82,17 @@ function createDoorClickEvents() {
     hideCurrentScreen();
     $("#room-3").show().addClass("current-screen");
   });
+}
+
+function createTrapClickEvents() {
+  $("#room2-trap1").click(function(){
+    var spikeDamage = player.hpMax * 0.25;
+    player.hp = player.hp - spikeDamage;
+    alertRoom("You stepped on a spike trap and lost " + spikeDamage + " health!");
+    setTimeout(function() { checkPlayerDead(); }, 2000);
+  });
+}
+
+function checkPlayerDeadRoom() {
+  if (player.isDead()) showDeathScreen();
 }

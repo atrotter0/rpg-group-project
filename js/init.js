@@ -40,5 +40,6 @@ $(document).ready(function() {
   newStats = new NewStats();
   createItemClickEvents();
   createDoorClickEvents();
+  createTrapClickEvents();
   buildPlayer();
 });
