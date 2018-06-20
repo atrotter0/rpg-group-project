@@ -14,6 +14,25 @@ function Player(name, room) {
   this.items = [];
   this.xp = 0;
   this.room = room;
+  this.equippedWeapon = {};
+  this.equippedArmor = {};
+}
+
+Player.prototype.equipBestItem = function() {
+  for(i = 0; i < this.items.length; i++) {
+    if((this.items[i].level > this.equippedWeapon.level && this.items[i].type === "Weapon") || Object.keys(this.equippedWeapon).length === 0 && this.items[i].type === "Weapon") {
+      this.equippedWeapon = this.items[i];
+    }
+    console.log(this.items[i].type);
+  }
+
+  for(i = 0; i < this.items.length; i++) {
+    if((this.items[i].level > this.equippedArmor.level && this.items[i].type === "Armor") || Object.keys(this.equippedArmor).length === 0 && this.items[i].type === "Armor") {
+      this.equippedArmor = this.items[i];
+    }
+  }
+
+  displayEquippedItems(this);
 }
 
 Player.prototype.checkLoot = function(enemy) {
@@ -44,6 +63,7 @@ function rollDice(maxNumber) {
 function createNewPlayer(name) {
   player = new Player(name, roomMap.room1);
   saveGame(player);
+  fillCharacterValues(player);
 }
 
 function loadPlayer() {

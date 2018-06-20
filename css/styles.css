@@ -106,7 +106,7 @@
   margin-top: 0px;
   text-align: center;
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: repeat(4, 25%);
   background-color: #eee;
   font-family: Aclonica;
 }
@@ -125,6 +125,7 @@
   color: white;
   font-size: 24px;
   padding: 20px;
+  box-shadow: 0px 2px 20px black;
 }
 
 #character-details {
@@ -149,6 +150,7 @@
   text-align: center;
   background-color: #434951;
   color: white;
+  box-shadow: 0px 2px 20px black;
 }
 
 .character-screen {
@@ -196,6 +198,22 @@
   grid-template-columns: auto auto;
   background-color: #434951;
   color: white;
+}
+
+#experience h4 {
+  border: 1px solid black;
+  color: yellow;
+  font-size: 20px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+#experience-indicator {
+  border: 1px solid black;
+  color: lightgreen;
+  font-size: 20px;
+  margin-bottom: 0px;
+  margin-top: 0px;
 }
 
 #health-points h4 {
@@ -262,20 +280,6 @@
   margin-top: 0px;
 }
 
-.experience-indicator-div {
-  display: grid;
-  grid-template-columns: auto;
-  border: 1px solid black;
-}
-
-#experience-indicator {
-  background-color: #0e5fcc;
-  text-align: center;
-  margin-bottom: 0px;
-  margin-top: 0px;
-  color: white;
-}
-
 .equipped-items-div {
   display: grid;
   grid-template-columns: auto auto;
@@ -288,6 +292,13 @@
 
 #equipped-armor {
   border: 1px solid grey;
+}
+
+.grid-item img {
+  max-height: 100px;
+  max-width: 100px;
+  object-fit: contain;
+  border: 2px solid green;
 }
 
 #weapon-icon {
