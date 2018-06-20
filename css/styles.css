@@ -33,7 +33,7 @@
 /*************/
 
 #main-menu {
-  display: block;
+  display: none;
   font-family: 'Press Start 2P', cursive;
 }
 
@@ -136,7 +136,7 @@
 /***************/
 
 #battle-screen {
-  display: none;
+  display: block;
   margin-top: 20px;
   font-family: 'Press Start 2P', cursive;
 }
@@ -226,6 +226,8 @@
   background-image: url("../img/battle-screen.png");
   background-repeat: no-repeat;
   margin: 0 auto;
+  border-radius: 3px;
+  box-shadow: 0px 2px 20px rgba(78,78,78,0.63);
 }
 
 #battle-alert {
@@ -324,6 +326,48 @@
   display: block;
   margin: 0 auto;
   width: 30px;
+}
+
+#battle-loot-screen {
+  font-family: 'Press Start 2P', cursive;
+  color: #fff;
+  width: 768px;
+  height: 576px;
+  background-image: url("../img/battle-screen.png");
+  background-repeat: no-repeat;
+  margin: 0 auto;
+  border-radius: 3px;
+  box-shadow: 0px 2px 20px rgba(78,78,78,0.63);
+  outline: 1px solid red;
+}
+
+#loot-screen {
+  margin: 0 auto;
+  width: 400px;
+  height: 300px;
+  position: relative;
+  top: 124px;
+  border-radius: 10px;
+  border: 1px solid #4e4e4e;
+  box-shadow: 0px 2px 20px rgba(78,78,78,0.63);
+  padding: 50px 75px;
+  background-color: #707677;
+}
+
+#loot-screen-enemy-name {
+  text-align: center;
+  font-size: 1.2em;
+  color: maroon;
+  text-shadow: 0px 0px 3px yellow;
+}
+
+#loot-screen p {
+  margin: 20px auto;
+}
+
+#loot-screen-confirm {
+  display: block;
+  margin: 50px auto;
 }
 
 
