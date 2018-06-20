@@ -33,10 +33,10 @@ $(document).ready(function() {
   console.log("init.js loaded!");
 
   // run object builds here
+  buildItems();
+  buildEnemies();
   buildRooms();
-  createNewPlayer("Kelli");
   newStats = new NewStats();
-  // items = new ItemDictionary();
-  // enemy = new EnemyDictionary();
-
+  createRoomEnemyClicks(roomMap.room2);
+  createRoomItemClicks(roomMap.room2);
 });

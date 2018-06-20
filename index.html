@@ -3,12 +3,12 @@
 <head>
   <title>RPG Game</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- remove styles link for Bootstrap 3.3.7 and uncomment below if you want to use Bootstrap 4.0.0 -->
-  <!--   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link href="css/styles.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link href="css/jquery-ui.min.css" rel="stylesheet">
+  <script src="js/jquery-ui.js"></script>
   <script src="js/spell.js"></script>
   <script src="js/item.js"></script>
   <script src="js/consumable.js"></script>
@@ -17,6 +17,7 @@
   <script src="js/enemy.js"></script>
   <script src="js/player.js"></script>
   <script src="js/room.js"></script>
+  <script src="js/battle.js"></script>
   <script src="js/ui.js"></script>
   <script src="js/init.js"></script>
   <script src="js/newstats.js"></script>
@@ -24,10 +25,11 @@
 <body>
   <div class="alert" id="alert-field"></div>
   <div class="container">
-    <div id="main-menu">
+    <div class="current-screen" id="main-menu">
       <div id="main-menu-header">
         <h1 class="fancy-shadow">Game Title Here</h1>
-        <img src="img/title-image.jpg" alt="{Game Title} Main Menu">
+        <div id="main-menu-image-box">
+        </div>
       </div>
       <div id="main-menu-options">
         <button type="button" class="btn btn-default btn-main-menu" id="new-game">
@@ -99,6 +101,10 @@
             <img src="img/load-game.png" alt="New Game icon" class="btn-icon">
             Load Game
           </button>
+          <button type="button" class="btn btn-default btn-main-menu" id="main-menu-back">
+            <img src="img/back-button.png" alt="Back icon" class="btn-icon">
+            Back
+          </button>
         </div>
       </div>
 
@@ -156,7 +162,108 @@
         </div>
       </div>
     </div>
-
+    <div id="room-box">
+      <div class="room-elements" id="room-1">
+        <div id="room1-enemy1">
+        </div>
+        <div id="room1-enemy2">
+        </div>
+        <div id="room1-item1">
+        </div>
+        <div id="room1-item2">
+        </div>
+        <div id="room1-door1">
+        </div>
+      </div>
+      <div class="room-elements" id="room-2">
+        <div id="room2-enemy1">
+        </div>
+        <div id="room2-enemy2">
+        </div>
+        <div id="room2-enemy3">
+        </div>
+        <div id="room2-enemy4">
+        </div>
+        <div id="room2-item3">
+        </div>
+        <div id="room2-damage1">
+        </div>
+        <div id="room2-door1">
+        </div>
+      </div>
+    </div>
+    <div id="battle-screen">
+      <div id="battlefield">
+        <div class="battle-screen-character-box" id="player-box">
+          <div class="battle-stats" id="player-stats">
+            <div class="battle-stats-hp-box">
+              <div id="battle-stats-hp-player"></div>
+            </div>
+            <div class="battle-stats-mp-box">
+              <div id="battle-stats-mp-player"></div>
+            </div>
+          </div>
+          <div class="battle-screen-sprite" id="player-sprite">
+            <img src="img/hero-sprite1.png" alt="Hero sprite">
+          </div>
+        </div>
+        <div class="battle-screen-character-box" id="enemy-box">
+          <div class="battle-stats" id="enemy-stats">
+            <div class="battle-stats-hp-box">
+              <div id="battle-stats-hp-enemy"></div>
+            </div>
+          </div>
+          <div class="battle-screen-sprite" id="enemy-sprite">
+            <img src="img/skeleton-enemy.png" alt="Enemy sprite" id="enemy-sprite-img">
+          </div>
+        </div>
+      </div>
+      <div id="battle-alert">
+      </div>
+      <div id="battle-menu">
+        <div class="battle-menu-row">
+          <button type="button" class="btn btn-default btn-battle" id="attack">
+            <img src="img/attack-icon.png" alt="Attack icon" class="btn-icon">
+            Attack
+          </button>
+          <button type="button" class="btn btn-default btn-battle" id="spell">
+            <img src="img/spell-icon.png" alt="Spell icon" class="btn-icon">
+            Spell
+          </button>
+          <button type="button" class="btn btn-default btn-battle" id="item">
+            <img src="img/item-icon.png" alt="Item icon" class="btn-icon">
+            Item
+          </button>
+        </div>
+      </div>
+      <div id="item-menu">
+        <div class="battle-menu-row">
+          <div class="cancel-box">
+            <button type="button" class="btn btn-default btn-battle btn-close" id="battle-item-close">
+              <img src="img/cancel-icon.png" alt="Close button icon" class="btn-icon">
+            </button>
+          </div>
+          <button type="button" class="btn btn-default btn-battle btn-battle-item" id="battle-health-potion">
+            <img src="img/health-potion-icon.png" alt="Health potion icon" class="btn-icon">
+            Health
+          </button>
+          <button type="button" class="btn btn-default btn-battle btn-battle-item" id="battle-mana-potion">
+            <img src="img/mana-potion-icon.png" alt="Mana potion icon" class="btn-icon">
+            Mana
+          </button>
+        </div>
+      </div>
+      <div>
+        <button class="enemy">Run test battle</button>
+      </div>
+    </div>
+  </div>
+  <div id="death-screen">
+    <div id="death-message">
+      <p>You died.</p>
+      <button type="button" id="respawn">Respawn</button>
+      <button type="button" id="start-over">Start Over</button>
+    </div>
   </div>
 </body>
 </html>
