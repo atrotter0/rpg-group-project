@@ -2,6 +2,12 @@
   outline: none;
 }
 
+.btn-default[disabled]:hover {
+  background-color: #333;
+  color: #fff;
+  opacity: 0.65;
+}
+
 .fancy-shadow {
   text-shadow: 1px 1px #ada4a4;
 }
@@ -81,180 +87,6 @@
   width: 50px;
 }
 
-/***************/
-/* BATTLE MENU */
-/***************/
-
-#battle-screen {
-  display: block;
-  margin-top: 20px;
-  font-family: 'Press Start 2P', cursive;
-}
-
-.battle-screen-character-box {
-  vertical-align: top;
-  display: inline-block;
-  width: 49.2%;
-  height: 230px;
-  outline: 1px solid green;
-  margin: 0 auto;
-}
-
-.battle-stats {
-  height: 40px;
-  width: 100px;
-  margin-left: 225px;
-  margin-top: 50px;
-}
-
-.battle-stats-hp-box {
-  background-color: #dcfbdc;
-  border-radius: 3px;
-  box-shadow: 1px 1px 5px rgba(57,70,61,0.72);
-  border: 1px solid #dcfbdc;
-  height: 20px;
-}
-
-.battle-stats-mp-box {
-  background-color: #ceecfdfa;
-  margin-top: 10px;
-  box-shadow: 1px 1px 5px rgba(88,87,177,0.72);
-  border-radius: 3px;
-  border: 1px solid #ceecfdfa;
-  height: 20px;
-}
-
-#battle-stats-hp-player {
-  height: 18px;
-  background: #79d852;
-  width: 90%;
-  transition: width 2s;
-}
-
-#battle-stats-mp-player {
-  height: 18px;
-  background: #5452d8;
-  width: 90%;
-  transition: width 1s;
-}
-
-#player-sprite {
-  margin-top: 20px;
-  margin-left: 250px;
-}
-
-#battle-stats-hp-enemy {
-  height: 18px;
-  background: #79d852;
-  width: 90%;
-  transition: width 2s;
-}
-
-#enemy-sprite {
-  margin-top: 20px;
-  margin-left: 250px;
-}
-
-#enemy-sprite img {
-  width: 45px;
-}
-
-.battle-screen-character-box img {
-  display: block;
-}
-
-#battlefield {
-  outline: 1px solid blue;
-  height: 300px;
-}
-
-#battle-alert {
-  padding: 5px;
-  width: 80%;
-  height: 50px;
-  outline: 1px solid purple;
-  margin: 0 auto;
-  text-align: center;
-}
-
-#battle-menu {
-  outline: 1px solid red;
-  height: 200px;
-  padding: 10px;
-}
-
-#death-screen {
-  display: none;
-  position: absolute; top: 0; right: 0; bottom: 0; left: 0;
-  background-color: black;
-  height: 100%;
-  width: 100%;
-}
-
-#death-message {
-  margin: 300px auto;
-  text-align: center;
-  color: white;
-}
-
-.battle-menu-row {
-  text-align: center;
-}
-
-.btn-battle {
-  background-color: #333;
-  color: #fff;
-  transition: 0.5s;
-  width: 200px;
-}
-
-.btn-battle:hover {
-  border-color: #5ba3ce;
-  box-shadow: 2px 2px 10px #4e4e4e;
-  background-color: #5ba3ce;
-  color: #fff;
-  transition: 0.5s;
-}
-
-.btn-battle:focus {
-  border: 1px solid transparent;
-  background-color: #333;
-  color: #fff;
-  transition: 0.5s;
-}
-
-#attack-icon {
-  background-image: url("../img/attack-icon.png");
-  background-size: 100%;
-  background-repeat: no-repeat;
-}
-
-#attack-icon:hover {
-  background-image: url("../img/attack-icon-hover.png");
-}
-
-#item-menu {
-  display: none;
-  outline: 1px solid red;
-  height: 200px;
-  padding: 10px;
-}
-
-.btn-battle-item {
-  width: 220px;
-}
-
-.btn-close {
-  width: 60px;
-  float: right;
-}
-
-.btn-close img {
-  display: block;
-  margin: 0 auto;
-  width: 30px;
-}
-
 #main-menu-image-box {
   border-radius: 3px;
   box-shadow: 0px 2px 20px rgba(78,78,78,0.63);
@@ -297,6 +129,201 @@
   80%  {background-position: 60% -170%; background-image: url('../img/title-image3.jpg');}
   90%  {background-position: 60% -160%; background-image: url('../img/title-image3.jpg');}
   100% {background-position: 60% -150%; background-image: url('../img/title-image3.jpg');}
+}
+
+/***************/
+/* BATTLE MENU */
+/***************/
+
+#battle-screen {
+  display: block;
+  margin-top: 20px;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.battle-screen-character-box {
+  position: relative;
+  width: 180px;
+  height: 180px;
+}
+
+#player-box {
+  top: 167px;
+  left: 18px;
+}
+
+#enemy-box {
+  top: -63px;
+  left: 191px;
+}
+
+.battle-stats {
+  height: 40px;
+  width: 100px;
+  margin-left: 225px;
+  margin-top: 50px;
+}
+
+.battle-stats-hp-box {
+  background-color: #dcfbdc;
+  border-radius: 3px;
+  box-shadow: 1px 1px 5px rgba(57,70,61,0.72);
+  border: 1px solid #dcfbdc;
+  height: 20px;
+}
+
+.battle-stats-mp-box {
+  background-color: #ceecfdfa;
+  margin-top: 10px;
+  box-shadow: 1px 1px 5px rgba(88,87,177,0.72);
+  border-radius: 3px;
+  border: 1px solid #ceecfdfa;
+  height: 20px;
+}
+
+#battle-stats-hp-player {
+  height: 18px;
+  background: #5ad358;
+  width: 90%;
+  transition: width 2s;
+}
+
+#battle-stats-mp-player {
+  height: 18px;
+  background: #5452d8;
+  width: 90%;
+  transition: width 1s;
+}
+
+#player-sprite {
+  margin-top: 20px;
+  margin-left: 250px;
+}
+
+#battle-stats-hp-enemy {
+  height: 18px;
+  background: #5ad358;
+  width: 90%;
+  transition: width 2s;
+}
+
+#enemy-sprite {
+  margin-top: 20px;
+  margin-left: 250px;
+}
+
+#enemy-sprite img {
+  width: 45px;
+}
+
+.battle-screen-character-box img {
+  display: block;
+}
+
+#battlefield {
+  width: 768px;
+  height: 576px;
+  background-image: url("../img/battle_screen.png");
+  background-repeat: no-repeat;
+  margin: 0 auto;
+}
+
+#battle-alert {
+  position: relative;
+  padding: 5px;
+  padding-top: 18px;
+  width: 768px;
+  height: 59px;
+  margin: 0 auto;
+  text-align: center;
+  top: -576px;
+  background-color: #707677;
+  color: #fff;
+}
+
+#battle-menu {
+  position: relative;
+  padding: 10px;
+  top: -120px;
+  width: 768px;
+  margin: 0 auto;
+  background-color: #707677;
+}
+
+#death-screen {
+  display: none;
+  position: absolute; top: 0; right: 0; bottom: 0; left: 0;
+  background-color: black;
+  height: 100%;
+  width: 100%;
+}
+
+#death-message {
+  margin: 300px auto;
+  text-align: center;
+  color: white;
+}
+
+.battle-menu-row {
+  text-align: center;
+}
+
+.btn-battle {
+  background-color: #333;
+  color: #fff;
+  transition: 0.5s;
+  width: 200px;
+  border-color: #eee;
+}
+
+.btn-battle:hover {
+  border-color: #eee;
+  box-shadow: 2px 2px 10px #4e4e4e;
+  background-color: #5452d8;
+  color: #fff;
+  transition: 0.5s;
+}
+
+.btn-battle:focus {
+  border: 1px solid transparent;
+  background-color: #333;
+  color: #fff;
+  transition: 0.5s;
+}
+
+#attack-icon {
+  background-image: url("../img/attack-icon.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+#attack-icon:hover {
+  background-image: url("../img/attack-icon-hover.png");
+}
+
+#item-menu {
+  display: none;
+  position: relative;
+  padding: 10px;
+  top: -120px;
+  width: 768px;
+  margin: 0 auto;
+  background-color: #707677;
+}
+
+.btn-battle-item {
+  width: 220px;
+}
+
+.btn-close {
+  width: 60px;
+  float: right;
+}
+
+.btn-close img {
+  display: block;
+  margin: 0 auto;
+  width: 30px;
 }
 
 
