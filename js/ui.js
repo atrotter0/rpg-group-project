@@ -21,7 +21,6 @@ function displayMenuOptions() {
 
 function runNewGame(playerName) {
   if (!validate(playerName)) return alertError("You need to enter a valid name.");
-
   createNewPlayer(playerName, roomMap.room1);
   alertSuccess("Game data for [ " + player.name + " ] created!");
   hideCurrentScreen();
