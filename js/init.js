@@ -37,6 +37,8 @@ $(document).ready(function() {
   buildEnemies();
   buildRooms();
   newStats = new NewStats();
+  createRoomEnemyClicks(roomMap.room1);
   createRoomEnemyClicks(roomMap.room2);
+  createRoomItemClicks(roomMap.room1);
   createRoomItemClicks(roomMap.room2);
 });
