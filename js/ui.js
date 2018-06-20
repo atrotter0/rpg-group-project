@@ -420,7 +420,7 @@ player = new Player("Kelli");
 $(document).ready(function() {
   console.log("ui.js loaded!");
   //hideCharacterScreen();
-
+  $("#main-menu").show();
   /* FOR THE CLICK EVENT OR HOWEVER WE TRANSITION INTO THE LEVEL UP/ADD STATS SCREEN */
   initiateNewStatsInGame();
   $("#level-reached").text(player.level);
@@ -434,6 +434,10 @@ $(document).ready(function() {
     hideMenuOptions();
     initiateNewStats();
     displayNewGameBox();
+    $("#current-hp-init").text(player.hp);
+    $("#current-mp-init").text(player.mp);
+    $("#current-ap-init").text(player.ap);
+    $("#current-sp-init").text(player.sp);
   });
 
   $("#confirm-name").click(function() {
@@ -493,6 +497,10 @@ $(document).ready(function() {
 
   $("#add-stats-button").click(function(){
     upgradeStats();
+    $("#current-hp-init").text(player.hp);
+    $("#current-mp-init").text(player.mp);
+    $("#current-ap-init").text(player.ap);
+    $("#current-sp-init").text(player.sp);
   });
 
   /* IN GAME UPGRADE STATS */

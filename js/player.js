@@ -24,20 +24,14 @@ function Player(name, room) {
   this.hasManaConsumable = false;
 }
 
-Player.prototype.equipBestItem = function() {
-  for(i = 0; i < this.items.length; i++) {
-    if((this.items[i].level > this.equippedWeapon.level && this.items[i].type === "Weapon") || Object.keys(this.equippedWeapon).length === 0 && this.items[i].type === "Weapon") {
-      this.equippedWeapon = this.items[i];
-    }
-  }
 
   for(i = 0; i < this.items.length; i++) {
     if((this.items[i].level > this.equippedArmor.level && this.items[i].type === "Armor") || Object.keys(this.equippedArmor).length === 0 && this.items[i].type === "Armor") {
       this.equippedArmor = this.items[i];
     }
   }
-  displayEquippedItems(this);
-}
+  // displayEquippedItems(this);
+
 
 Player.prototype.playerAttack = function(enemy) {
   enemy.hp -= this.ap;
@@ -136,8 +130,15 @@ Player.prototype.checkXP = function() {
   }
 }
 
-Player.prototype.upgradeStats = function(item) {
-  this.hp += item.healthBonus;
+Player.prototype.unEquipItem = function(item) {
+  this.hp -= item.healthBonus;
+  this.mp -= item.manaBonus;
+  this.ap -= item.attackBonus;
+  this.sp -= item.spellBonus;
+}
+
+Player.prototype.equipItem = function(item) {
+  this.hp += newItem.healthBonus;
   this.mp += item.manaBonus;
   this.ap += item.attackBonus;
   this.sp += item.spellBonus;

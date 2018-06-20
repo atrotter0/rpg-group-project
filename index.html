@@ -37,57 +37,106 @@
           New Game
         </button>
         <div id="new-game-box">
-          <div id="level-up-div">
-            <div id="level-up-header">
-              Assign your stats:
-            </div>
-            <div id="level-up-table">
-              <div class="row">
-                <div class="col-sm-7">
-                  Hit Points
-                </div>
-                <div class="col-sm-5">
-                  <button id="hp-add-button" type="button" class="btn btn-success">+</button><span id="hp-added" class="stat-added"></span><button id="hp-subtract-button" type="button" class="btn btn-danger">-</button>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-sm-7">
-                  Mana Points
-                </div>
-                <div class="col-sm-5">
-                  <button id="mp-add-button" type="button" class="btn btn-success">+</button><span id="mp-added" class="stat-added"></span><button id="mp-subtract-button" type="button" class="btn btn-danger">-</button>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-sm-7">
-                  Attack Power
-                </div>
-                <div class="col-sm-5">
-                  <button id="ap-add-button" type="button" class="btn btn-success">+</button><span id="ap-added" class="stat-added"></span><button id="ap-subtract-button" type="button" class="btn btn-danger">-</button>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-sm-7">
-                  Spell Power
-                </div>
-                <div class="col-sm-5">
-                  <button id="sp-add-button" type="button" class="btn btn-success">+</button><span id="sp-added" class="stat-added"></span><button id="sp-subtract-button" type="button" class="btn btn-danger">-</button>
-                </div>
-              </div>
-              <div  id="available-points-div" class="row">
-                <div class="col-sm-8">
-                  Available Points
-                </div>
-                <div class="col-sm-4">
-                  <span id="available-points"></span>
-                </div>
-              </div>
-              <div class="row">
-                <div id="add-stats-div" class="col-sm-12">
-                  <button id="add-stats-button" type="button" class="btn btn-danger btn-sm">Add Stats</button>
-                </div>
+          <div id="initialize-character-points">
+            <div class="row">
+              <div id="initialize-character-points-header" class="col-sm-12">
+                <h1>Allocate Your Stats!</h1>
+                <p>You have 3 points to spend how you like.</p>
               </div>
             </div>
+            <div class="row">
+              <div id="current-stats-init" class="col-sm-4">
+                <div class="row">
+                  <div class="col-sm-12 center">
+                    <img id="portrait-init" class="portrait-level-up" src="img/character-portrait.png">
+                  </div>
+                </div>
+                <h1>CURRENT STATS</h1>
+                <div class="row">
+                  <div class="col-sm-8">
+                    Hit Points:
+                  </div>
+                  <div class="col-sm-4">
+                    <span id="current-hp-init"></span>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-8">
+                    Mana Points:
+                  </div>
+                  <div class="col-sm-4">
+                    <span id="current-mp-init"></span>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-8">
+                    Attack Power:
+                  </div>
+                  <div class="col-sm-4">
+                    <span id="current-ap-init"></span>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-8">
+                    Spell Power:
+                  </div>
+                  <div class="col-sm-4">
+                    <span id="current-sp-init"></span>
+                  </div>
+                </div>
+              </div>
+              <div id="level-up-table-col" class="col-sm-8">
+                <div id="level-up-table">
+                  <div class="row">
+                    <div class="col-sm-7">
+                      Hit Points
+                    </div>
+                    <div class="col-sm-5">
+                      <button id="hp-add-button" type="button" class="stats-add-button">+</button><span id="hp-added" class="stat-added"></span><button id="hp-subtract-button" type="button" class="stats-subtract-button">-</button>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-7">
+                      Mana Points
+                    </div>
+                    <div class="col-sm-5">
+                      <button id="mp-add-button" type="button" class="stats-add-button">+</button><span id="mp-added" class="stat-added"></span><button id="mp-subtract-button" type="button" class="stats-subtract-button">-</button>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-7">
+                      Attack Power
+                    </div>
+                    <div class="col-sm-5">
+                      <button id="ap-add-button" type="button" class="stats-add-button">+</button><span id="ap-added" class="stat-added"></span><button id="ap-subtract-button" type="button" class="stats-subtract-button">-</button>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-7">
+                      Spell Power
+                    </div>
+                    <div class="col-sm-5">
+                      <button id="sp-add-button" type="button" class="stats-add-button">+</button><span id="sp-added" class="stat-added"></span><button id="sp-subtract-button" type="button" class="stats-subtract-button">-</button>
+                    </div>
+                  </div>
+                  <div  id="available-points-div" class="row">
+                    <div class="col-sm-8">
+                      Available Points
+                    </div>
+                    <div class="col-sm-4">
+                      <span id="available-points"></span>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div id="add-stats-div" class="col-sm-12">
+                      <button id="add-stats-button" type="button" class="btn btn-danger btn-sm">Commit Stats</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
           </div>
           <label for="player-name">Enter your character's name:</label>
           <input type="text" class="form-control" id="main-menu-player-name" maxLength="20">
@@ -114,6 +163,11 @@
       </div>
       <div class="row">
         <div id="current-stats" class="col-sm-4">
+          <div class="row">
+            <div class="col-sm-12 center">
+              <img class="portrait-level-up" src="img/character-portrait.png">
+            </div>
+          </div>
           <h1>CURRENT STATS</h1>
           <div class="row">
             <div class="col-sm-8">
@@ -192,7 +246,7 @@
               </div>
               <div class="row">
                 <div id="add-stats-div2" class="col-sm-12">
-                  <button id="add-stats-button2" type="button" class="btn btn-danger btn-sm">Add Stats</button>
+                  <button id="add-stats-button2" type="button" class="btn btn-danger btn-sm">Commit Stats</button>
                 </div>
               </div>
             </div>
@@ -304,7 +358,7 @@
         <div>
           <p id="battle-xp">XP: </p>
           <p id="battle-items">Items: </p>
-          <p id=battle-gold">Gold: </p>
+          <p id="battle-gold">Gold: </p>
           <button type="button" class="btn btn-default btn-battle" id="loot-screen-confirm">Collect Loot</button>
         </div>
       </div>
