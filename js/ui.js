@@ -401,6 +401,14 @@ function hideBattleItemMenu() {
   $("#item-menu").hide();
 }
 
+function showLootScreen() {
+  //var itemName = player.getLastItem.name
+  hideCurrentScreen();
+  $("#battle-loot-screen").addClass("current-screen").show();
+  $("#battle-xp").text("XP: " + player.currentEnemy.xp);
+  $("#battle-items").text("Items: " + player.getLastItem().name);
+}
+
 function setDisabledConsumables() {
   if (player.hasHealingConsumable) {
     enableButton("#battle-health-potion");
@@ -555,9 +563,9 @@ $(document).ready(function() {
   /* Battle System */
   $(".enemy").click(function() {
     //var enemyId = $(this).attr(id);
-    var enemyId = "enemy1";
-    player.currentEnemy = enemyMap[enemyId];
-    startBattle(enemyMap[enemyId]);
+    //var enemyId = "enemy";
+    player.currentEnemy = enemyMap["enemy1"];
+    startBattle(player.currentEnemy);
   });
 
   $("#attack").click(function() {
