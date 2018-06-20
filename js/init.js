@@ -29,7 +29,6 @@ function deleteGame() {
   localStorage.removeItem("rpg-game");
 }
 
-var newStats = {};
 $(document).ready(function() {
   console.log("init.js loaded!");
 

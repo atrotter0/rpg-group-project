@@ -1,3 +1,5 @@
+var newStats = {};
+
 function NewStats() {
   this.newHp = 0;
   this.newMp = 0;
