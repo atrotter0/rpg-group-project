@@ -45,10 +45,6 @@ function rollDice(maxNumber) {
 Player.prototype.levelUp = function(level) {
   this.level += 1;
   this.xp = 0;
-  this.hp = 15 * level;
-  this.mp = 3 * level;
-  this.ap = 1 * level;
-  this.sp = 1 * level;
 }
 
 Player.prototype.checkDead = function() {
