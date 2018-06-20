@@ -153,6 +153,7 @@ Player.prototype.checkXP = function() {
   if(this.xp === 100) {
     this.levelUp();
     alertSuccess("Level Up! You are now level " + this.level);
+    runLevelUp();
   }
 }
 

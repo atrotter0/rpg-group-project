@@ -423,7 +423,10 @@ function setDisabledConsumables() {
   }
 }
 
-player = new Player("Kelli");
+function runLevelUp() {
+  hideCurrentScreen();
+  $("#level-up-window").show().addClass("current-screen");
+}
 
 $(document).ready(function() {
   console.log("ui.js loaded!");
@@ -602,5 +605,9 @@ $(document).ready(function() {
     player.checkForConsumables();
     setDisabledConsumables();
     hideBattleItemMenu();
+  });
+
+  $("#loot-screen-confirm").click(function() {
+    player.checkXP();
   });
 });
