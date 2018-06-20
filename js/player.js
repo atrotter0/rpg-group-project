@@ -126,7 +126,6 @@ Player.prototype.checkLoot = function(enemy) {
 
 Player.prototype.checkClickItem = function() {
     var outcome = rollDice(4);
-    console.log(outcome);
     if (this.room.id === 1) {
       if (outcome === 0) {
         this.items.push(itemMap.sword1);
@@ -140,6 +139,31 @@ Player.prototype.checkClickItem = function() {
       if (outcome === 3) {
         this.items.push(itemMap.armor2);
       }
+  } else if (this.room.id === 2) {
+    if (outcome === 0) {
+      this.items.push(itemMap.sword2);
+    }
+    if (outcome === 1) {
+      this.items.push(itemMap.staff2);
+    }
+    if (outcome === 2) {
+      this.items.push(itemMap.midArmor1);
+    }
+    if (outcome === 3) {
+      this.items.push(itemMap.midArmor2);
+    }
+  }
+}
+
+Player.prototype.checkClickConsumable = function() {
+  var outcome = rollDice(2);
+  if (this.room.id === 1) {
+    if (outcome === 0) {
+      this.items.push(itemMap.healthPotion1);
+    }
+    if (outcome === 1) {
+      this.items.push(itemMap.manaPotion1);
+    }
   }
 }
 
