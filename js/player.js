@@ -124,6 +124,25 @@ Player.prototype.checkLoot = function(enemy) {
   }
 }
 
+Player.prototype.checkClickItem = function() {
+    var outcome = rollDice(4);
+    console.log(outcome);
+    if (this.room.id === 1) {
+      if (outcome === 0) {
+        this.items.push(itemMap.sword1);
+      }
+      if (outcome === 1) {
+        this.items.push(itemMap.staff1);
+      }
+      if (outcome === 2) {
+        this.items.push(itemMap.armor1);
+      }
+      if (outcome === 3) {
+        this.items.push(itemMap.armor2);
+      }
+  }
+}
+
 Player.prototype.levelUp = function(level) {
   this.level += 1;
   this.xp = 0;
