@@ -24,6 +24,18 @@ function Player(name, room) {
   this.hasManaConsumable = false;
 }
 
+Player.prototype.equipItem = function(item) {
+  if(item.type === "Weapon") {
+    this.equippedWeapon = item;
+    this.upgradeStats(this.equippedWeapon);
+  } else if(item.type === "Armor") {
+    this.equippedArmor = item;
+    this.upgradeStats(this.equippedArmor);
+  } else {
+    alertError("You can only equip weapons or armor items.");
+  }
+}
+
 Player.prototype.equipBestItem = function() {
   for(i = 0; i < this.items.length; i++) {
     if((this.items[i].level > this.equippedWeapon.level && this.items[i].type === "Weapon") || Object.keys(this.equippedWeapon).length === 0 && this.items[i].type === "Weapon") {
@@ -137,6 +149,9 @@ Player.prototype.checkXP = function() {
 }
 
 Player.prototype.upgradeStats = function(item) {
+  this.hp -= this.equippdWeapon;
+  
+
   this.hp += item.healthBonus;
   this.mp += item.manaBonus;
   this.ap += item.attackBonus;

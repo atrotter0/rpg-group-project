@@ -1,7 +1,6 @@
 // Items
 console.log("item.js loaded!");
 
-var itemMap = {}; // get rid of this?
 var items = {};
 
 // Item Constructor
@@ -63,5 +62,5 @@ ItemDictionary.prototype.populateItems = function() {
 }
 
 function buildItems() { // get rid of this?
-  
+  items = new ItemDictionary();
 }

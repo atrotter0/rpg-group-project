@@ -115,12 +115,50 @@ function showRoom(player) {
 INVENTORY SCREEN FUNCTIONS -
 --------------------------*/
 
+function equipItemOnClick(player) {
+  $(".grid-item").click(function() {
+    var itemName = $(this).children("p").text();
+    for(i = 0; i < player.items.length; i++) {
+      if(player.items[i].name === itemName) {
+        if(player.items[i].type === "Weapon") {
+          player.unEquipItem(player.equippedWeapon);
+        }
+        if(player.items[i].type === "Armor") {
+          player.unEquipItem(player.equippedArmor);
+        }
+        player.equipItem(player.items[i]);
+        displayEquippedItems(player);
+      }
+    }
+  });
+}
+
+function clearInventory() {
+  $("#equipped-weapon-text").text("");
+  $("#equipped-armor-text").text("");
+
+  for(i = 0; i < player.items.length; i++) {
+    $("#slot" + (i)).empty();
+  }
+}
+
 function displayEquippedItems(player) {
+  clearInventory();
   $("#equipped-weapon-text").text(player.equippedWeapon.name);
   $("#equipped-armor-text").text(player.equippedArmor.name);
 
   for(i = 0; i < player.items.length; i++) {
+    var itemName = player.items[i].name;
+    var itemLevel = player.items[i].level;
+    var hp = player.items[i].healthBonus;
+    var ap = player.items[i].attackBonus;
+    var sp = player.items[i].spellBonus;
+    var mp = player.items[i].manaBonus;
+    var title = itemName + " \nLevel: " + itemLevel + " \nHP: " + hp + " \nAP: " + ap + " \nSP: " + sp + " \nMP: " + mp;
+    console.log(title);
+
     $("#slot" + (i)).append(player.items[i].icon);
+    $("#slot" + (i)).append("<a href='#' class='itemNameVal' data-toggle='tooltip' data-placement='top' title=" + title + ">" + itemName + "</a>");
   }
 }
 

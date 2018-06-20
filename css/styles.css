@@ -400,11 +400,23 @@
 .grid-item {
   border: 1px solid black;
   padding: 20px;
-  font-size: 30px;
+  font-size: 12px;
   text-align: center;
   background-color: #434951;
-  color: white;
+  color: lightgreen;
   box-shadow: 0px 2px 20px black;
+  transition: 1s;
+}
+
+.grid-item:hover {
+  transition: 1s;
+  box-shadow: 0px 2px 20px white;
+  background-color: #8c8c8c;
+}
+
+.itemNameVal {
+  color: lightgreen;
+  font-size: 12px;
 }
 
 .character-screen {
