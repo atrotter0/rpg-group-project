@@ -485,7 +485,7 @@ function removeEnemyFromRoom() {
   if (player.currentEnemy.hp <= 0) {
     $("#room" + player.room.id + "-enemy" + player.currentEnemy.id).off();
     $("#room" + player.room.id + "-enemy" + player.currentEnemy.id).css({'background-image' : 'url("")'});
-    $("#room" + player.room.id + "-enemy" + player.currentEnemy.id).css({'cursor' : 'default'});
+    $("#room" + player.room.id + "-enemy" + player.currentEnemy.id).css({'cursor' : "url('img/gauntlet_mouse.png') 10 10, pointer"});
   }
 }
 
