@@ -51,6 +51,8 @@ function runPlayerAttack(enemy) {
 function runMpCheck() {
   if (player.noMp()) {
     disableButton("#spell");
+  } else {
+    enableButton("#spell");
   }
 }
 
