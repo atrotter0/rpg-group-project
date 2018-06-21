@@ -82,6 +82,10 @@ function animationEnemyDefeated() {
   $("#enemy-sprite-img").effect("pulsate", { times: 4 }).toggle("explode", { pieces: 48 });
 }
 
+function resetEnemySprite() {
+  $("#enemy-sprite-img").toggle("explode", { pieces: 48 });
+}
+
 function shakeElement(id) {
   $(id).effect("shake", { direction: "right", times: 2, distance: 4 }, 300);
 }

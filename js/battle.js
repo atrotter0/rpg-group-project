@@ -1,3 +1,5 @@
+//Battle
+console.log("battle.js loaded!");
 
 function startBattle(enemy) {
   hideCurrentScreen();
@@ -94,7 +96,10 @@ function checkPlayerDead() {
 function checkEnemyDead(enemy) {
   if (enemy.isDead()) {
     animationEnemyDefeated();
-    setTimeout(function() { showLootScreen(); }, 2000);
+    setTimeout(function() {
+      showLootScreen(); 
+      resetEnemySprite();
+    }, 2000);
     player.giveAwardsToPlayer(enemy);
     console.log("You won!");
   } else {
