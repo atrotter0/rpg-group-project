@@ -24,7 +24,6 @@ function runNewGame(playerName) {
   if (newStats.availablePoints <= 3 && newStats.availablePoints > 0) return alertError("You still have stat points left to spend!");
 
   saveGame(player);
-  alertSuccess("Game data for [ " + player.name + " ] created!");
   //fadeOut();
   //startStory();
 }
@@ -34,12 +33,12 @@ function validate(value) {
 }
 
 function alertError(msg) {
-  $("#alert-field").hide().text(msg).removeClass("alert-success")
+  $(".alert").hide().text(msg).removeClass("alert-success")
     .addClass("alert-danger").fadeIn(800).delay(3000).fadeOut(1000);
 }
 
 function alertSuccess(msg) {
-  $("#alert-field").hide().text(msg).removeClass("alert-danger")
+  $(".alert").hide().text(msg).removeClass("alert-danger")
     .addClass("alert-success").fadeIn(800).delay(1000).fadeOut(1000);
 }
 
