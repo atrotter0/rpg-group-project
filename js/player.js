@@ -214,7 +214,7 @@ function buildPlayer() {
 
 function createNewPlayer(name) {
   player.name = name;
-  saveGame(player);
+  saveGame(player); 
   fillCharacterValues(player);
 }
 
