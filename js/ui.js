@@ -30,6 +30,12 @@ function runNewGame(playerName) {
   $("#room-" + player.room.id).show().addClass("current-screen");
 }
 
+function runLoadGame() {
+  hideCurrentScreen();
+  alertSuccess("Game data for [ " + player.name + " ] loaded!");
+  $("#room-" + player.room.id).show().addClass("current-screen");
+}
+
 function validate(value) {
   if (value !== "") return true;
 }
@@ -494,6 +500,7 @@ $(document).ready(function() {
 
   $("#load-game").click(function() {
     loadPlayer();
+    runLoadGame();
   });
 
   /* START GAME ADD STATS */

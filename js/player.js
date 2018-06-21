@@ -209,7 +209,7 @@ Player.prototype.getLastItem = function() {
 }
 
 function buildPlayer() {
-  player = new Player(roomMap.room1)
+  player = new Player(roomMap.room1);
 }
 
 function createNewPlayer(name) {
@@ -219,7 +219,29 @@ function createNewPlayer(name) {
 }
 
 function loadPlayer() {
-  player = playerFromStorage();
+  var storedPlayer = playerFromStorage();
+  updatePlayerFromStorage(storedPlayer);
+}
+
+function updatePlayerFromStorage(storedPlayer) {
+  player.name = storedPlayer.name;
+  player.level = storedPlayer.level;
+  player.hpMax = storedPlayer.hpMax;
+  player.hp = storedPlayer.hp;
+  player.mpMax = storedPlayer.mpMax;
+  player.mp = storedPlayer.mp;
+  player.ap = storedPlayer.ap;
+  player.sp = storedPlayer.sp;
+  player.spells = storedPlayer.spells;
+  player.items = storedPlayer.items;
+  player.xp = storedPlayer.xp;
+  player.room = storedPlayer.room;
+  player.equippedWeapon = storedPlayer.equippedWeapon;
+  player.equippedArmor = storedPlayer.equippedArmor;
+  player.currentEnemy = storedPlayer.currentEnemy;
+  player.lastRoom = storedPlayer.lastRoom;
+  player.hasHealingConsumable = storedPlayer.hasHealingConsumable;
+  player.hasManaConsumable = storedPlayer.hasManaConsumable;
 }
 
 function rollDice(maxNumber) {
