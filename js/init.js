@@ -40,6 +40,7 @@ $(document).ready(function() {
   createItemClickEvents();
   createDoorClickEvents();
   createTrapClickEvents();
+  createHeroClickEvents();
   buildStats();
   buildPlayer();
 });

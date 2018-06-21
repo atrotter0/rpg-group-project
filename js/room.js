@@ -38,7 +38,7 @@ function grabEnemyId(element) {
 }
 
 
-// Creates the click events for enemies in a room
+// Creates the click events for items doors hero and traps in a room
 function createItemClickEvents() {
   //First Room
   $("#room1-item1").click(function(){
@@ -46,8 +46,7 @@ function createItemClickEvents() {
       player.checkClickItem();
       alertRoom("You found a " + player.items[player.items.length - 1].name + ".");
       $("#room1-item1").off("click");
-      $("#room1-item1").css({'cursor' : 'default'});
-      // saveGame(player);
+      $("#room1-item1").css({'cursor' : "url('img/gauntlet_mouse.png') 10 10, pointer"});
     }
     else {
       alertRoom("Can't access, an enemy is in your path!")
@@ -58,16 +57,15 @@ function createItemClickEvents() {
       player.checkClickConsumable();
       alertRoom("You found a " + player.items[player.items.length - 1].name + ".");
       $("#room1-item2").off("click");
-      $("#room1-item2").css({'cursor' : 'default'});
+      $("#room1-item2").css({'cursor' : "url('img/gauntlet_mouse.png') 10 10, pointer"});
   });
 
-  //Second Room
   $("#room2-item3").click(function(){
     if (enemyMap.enemy4.isDead() && enemyMap.enemy5.isDead()) {
       player.checkClickItem();
       alertRoom("You found a " + player.items[player.items.length - 1].name + ".");
       $("#room2-item3").off("click");
-      $("#room2-item3").css({'cursor' : 'default'});
+      $("#room2-item3").css({'cursor' : "url('img/gauntlet_mouse.png') 10 10, pointer"});
     }
     else {
       alertRoom("Can't access, enemies guard the area!")
@@ -117,6 +115,14 @@ function createTrapClickEvents() {
   });
 }
 
-function checkPlayerDeadRoom() {
-  if (player.isDead()) showDeathScreen();
+function createHeroClickEvents() {
+  $("#room1-hero").click(function(){
+    alertRoom("You opened your invetory.");
+    //show inventory
+  });
+
+  $("#room2-hero").click(function(){
+    alertRoom("You opened your invetory.");
+    //show inventory
+  });
 }
