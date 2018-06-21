@@ -15,8 +15,8 @@ function checkStorage() {
 }
 
 function getPlayer() {
-  var player = JSON.parse(localStorage.getItem("rpg-game"));
-  return player;
+  var playerData = JSON.parse(localStorage.getItem("rpg-game"));
+  return playerData;
 }
 
 function saveGame(playerObject) {
