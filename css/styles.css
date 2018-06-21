@@ -802,7 +802,7 @@ body {
 }
 
 #room1-hero:hover {
-  cursor: url('../img/battle_mouse.png') 10 10, pointer;
+  cursor: url('../img/inventory_mouse.png') 10 10, pointer;
 }
 
 #room1-enemy1 {
@@ -888,7 +888,7 @@ body {
 }
 
 #room2-hero:hover {
-  cursor: url('../img/battle_mouse.png') 10 10, pointer;
+  cursor: url('../img/inventory_mouse.png') 10 10, pointer;
 }
 
 #room2-enemy3 {
