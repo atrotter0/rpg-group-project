@@ -489,9 +489,19 @@ function removeEnemyFromRoom() {
   }
 }
 
-function playSong() {
-  var dungeonSong = new Audio('audio/dungeon_song.mp3');
+var dungeonSong = new Audio('audio/dungeon_song.mp3');
+var battleSong = new Audio('audio/battle_song.mp3')
+
+function playDungeonSong() {
+  battleSong.pause();
+  battleSong.currentTime = 0;
   dungeonSong.play();
+}
+
+function playBattleSong() {
+  dungeonSong.pause();
+  dungeonSong.currentTime = 0;
+  battleSong.play();
 }
 
 $(document).ready(function() {
@@ -505,7 +515,7 @@ $(document).ready(function() {
     $("#current-mp-init").text(player.mp);
     $("#current-ap-init").text(player.ap);
     $("#current-sp-init").text(player.sp);
-    playSong();
+    playDungeonSong();
   });
 
   $("#confirm-name").click(function() {
@@ -522,7 +532,7 @@ $(document).ready(function() {
   $("#load-game").click(function() {
     loadPlayer();
     runLoadGame();
-    playSong();
+    playDungeonSong();
   });
 
   /* START GAME ADD STATS */
@@ -641,6 +651,7 @@ $(document).ready(function() {
 
   /* Battle System */
   $(".enemy").click(function() {
+    playBattleSong();
     var enemyId = grabEnemyId(this);
     alertRoom(enemyMap[enemyId].name + " is attacking you!");
     player.currentEnemy = enemyMap[enemyId];
@@ -690,6 +701,7 @@ $(document).ready(function() {
       loadRoomPostBattle();
       postBattleMsg();
     }
+    playDungeonSong();
   });
 
   $("#start-over").click(function() {
