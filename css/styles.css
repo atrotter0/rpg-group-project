@@ -308,6 +308,8 @@ body {
 
 #win-message {
   display: none;
+  color: #fff;
+  width: 800px;
 }
 
 .battle-menu-row {

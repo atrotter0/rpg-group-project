@@ -691,7 +691,7 @@ $(document).ready(function() {
     }
   });
 
-  $("#start-over").click(function() {
+  $(".start-over").click(function() {
     location.reload();
   });
 
