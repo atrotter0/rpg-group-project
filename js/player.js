@@ -22,6 +22,7 @@ function Player(room) {
   this.lastRoom = "";
   this.hasHealingConsumable = false;
   this.hasManaConsumable = false;
+  this.storyChapter = storyMap.chapter1;
 }
 
 Player.prototype.equipBestItem = function() {
@@ -214,7 +215,7 @@ function buildPlayer() {
 
 function createNewPlayer(name) {
   player.name = name;
-  saveGame(player);
+  saveGame(player); 
   fillCharacterValues(player);
 }
 
@@ -242,6 +243,7 @@ function updatePlayerFromStorage(storedPlayer) {
   player.lastRoom = storedPlayer.lastRoom;
   player.hasHealingConsumable = storedPlayer.hasHealingConsumable;
   player.hasManaConsumable = storedPlayer.hasManaConsumable;
+  player.storyChapter = storedPlayer.storyChapter;
 }
 
 function rollDice(maxNumber) {

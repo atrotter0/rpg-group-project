@@ -4,6 +4,7 @@ function playerFromStorage() {
   if (checkStorage()) {
     var playerData = getPlayer();
     alertRoom("Game data for [ " + playerData.name + " ] loaded!");
+    setTimeout(function() { alertRoom(player.storyChapter.text); }, 2000);
     return playerData;
   } else {
     return alertError("No player data found.");
