@@ -1,6 +1,7 @@
 body {
   background-image: url("../img/background.png");
   background-repeat: repeat;
+  cursor: url('../img/gauntlet_mouse.png') 10 10, auto;
 }
 
 .btn:focus {
@@ -780,9 +781,6 @@ body {
 /**********/
 /* Room 1 */
 /**********/
-#room-box {
-  cursor: url('../img/gauntlet_mouse.png') 10 10, auto;
-}
 
 
 #room-1 {
@@ -799,9 +797,6 @@ body {
   position: relative;
   top: 123px;
   left: 358px;
-}
-
-#room1-hero:hover {
   cursor: url('../img/inventory_mouse.png') 10 10, pointer;
 }
 
@@ -812,11 +807,9 @@ body {
   top: 18px;
   left: 155px;
   background-image: url("../img/enemy1.png");
-}
-
-#room1-enemy1:hover {
   cursor: url('../img/battle_mouse.png') 10 10, pointer;
 }
+
 
 #room1-enemy2 {
   width: 40px;
@@ -825,11 +818,9 @@ body {
   top: 170px;
   left: 359px;
   background-image: url("../img/enemy2.png");
-}
-
-#room1-enemy2:hover {
   cursor: url('../img/battle_mouse.png') 10 10, pointer;
 }
+
 
 #room1-item1 {
   width: 60px;
@@ -837,11 +828,9 @@ body {
   position: relative;
   top: 183px;
   left: 350px;
+  cursor: url('../img/item_mouse.png') 10 10, pointer;
 }
 
-#room1-item1:hover {
- cursor: url('../img/item_mouse.png') 10 10, pointer;
-}
 
 #room1-item2 {
   width: 70px;
@@ -849,11 +838,9 @@ body {
   position: relative;
   top: -207px;
   left: 500px;
-}
-
-#room1-item2:hover {
   cursor: url('../img/item_mouse.png') 10 10, pointer;
 }
+
 
 #room1-door1 {
   width: 20px;
@@ -861,11 +848,9 @@ body {
   position: relative;
   top: -165px;
   left: 678px;
-}
-
-#room1-door1:hover {
   cursor: url('../img/item_mouse.png') 10 10, pointer;
 }
+
 
 /**********/
 /* Room 2 */
@@ -885,11 +870,9 @@ body {
   position: relative;
   top: 234px;
   left: 102px;
-}
-
-#room2-hero:hover {
   cursor: url('../img/inventory_mouse.png') 10 10, pointer;
 }
+
 
 #room2-enemy3 {
   width: 40px;
@@ -898,9 +881,6 @@ body {
   top: 179px;
   left: 205px;
   background-image: url("../img/enemy3.png");
-}
-
-#room2-enemy3:hover {
   cursor: url('../img/battle_mouse.png') 10 10, pointer;
 }
 
@@ -911,9 +891,6 @@ body {
   top: -29px;
   left: 310px;
   background-image: url("../img/enemy4.png");
-}
-
-#room2-enemy4:hover {
   cursor: url('../img/battle_mouse.png') 10 10, pointer;
 }
 
@@ -924,11 +901,9 @@ body {
   top: -55px;
   left: 373px;
   background-image: url("../img/enemy5.png");
-}
-
-#room2-enemy5:hover {
   cursor: url('../img/battle_mouse.png') 10 10, pointer;
 }
+
 
 #room2-enemy6 {
   width: 50px;
@@ -937,11 +912,9 @@ body {
   top: 109px;
   left: 478px;
   background-image: url("../img/enemy6.png");
-}
-
-#room2-enemy6:hover {
   cursor: url('../img/battle_mouse.png') 10 10, pointer;
 }
+
 
 #room2-item3 {
   width: 40px;
@@ -949,11 +922,9 @@ body {
   position: relative;
   top: -279px;
   left: 386px;
-}
-
-#room2-item3:hover {
   cursor: url('../img/item_mouse.png') 10 10, pointer;
 }
+
 
 #room2-trap1 {
   width: 80px;
@@ -961,11 +932,8 @@ body {
   position: relative;
   top: -70px;
   left: 305px;
-  }
-
-#room2-trap1:hover {
   cursor: url('../img/item_mouse.png') 10 10, pointer;
-}
+  }
 
 
 #room2-door2 {
@@ -974,11 +942,9 @@ body {
   position: relative;
   top: -213px;
   left: 70px;
+    cursor: url('../img/item_mouse.png') 10 10, pointer;
 }
 
-#room2-door2:hover {
-  cursor: url('../img/item_mouse.png') 10 10, pointer;
-}
 
 #room2-door3 {
   width: 60px;
@@ -986,9 +952,6 @@ body {
   position: relative;
   top: -77px;
   left: 620px;
-}
-
-#room2-door3:hover {
   cursor: url('../img/item_mouse.png') 10 10, pointer;
 }
 
