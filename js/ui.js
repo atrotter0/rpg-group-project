@@ -470,6 +470,12 @@ function showDeathScreen() {
   $("#death-screen").addClass("current-screen").show();
 }
 
+function showWinScreen() {
+  hideCurrentScreen();
+  $("#win-screen").addClass("current-screen").fadeIn(1200);
+  $("#win-message").fadeIn(2300);
+}
+
 function hideBattleMenu() {
   $("#battle-menu").hide();
 }
@@ -552,6 +558,33 @@ function removeEnemyFromRoom() {
   }
 }
 
+var dungeonSong = new Audio('audio/dungeon_song.mp3');
+var battleSong = new Audio('audio/battle_song.mp3');
+var attackSound = new Audio('audio/attack.ogg');
+var spellSound = new Audio('audio/firebolt.ogg');
+
+function playDungeonSong() {
+  battleSong.pause();
+  battleSong.currentTime = 0;
+  dungeonSong.currentTime = 0;
+  dungeonSong.play();
+}
+
+function playBattleSong() {
+  dungeonSong.pause();
+  dungeonSong.currentTime = 0;
+  battleSong.play();
+}
+
+function playAttackSound() {
+  attackSound.play();
+}
+
+function playSpellSound() {
+  spellSound.play();
+}
+
+
 $(document).ready(function() {
   console.log("ui.js loaded!");
 
@@ -563,6 +596,7 @@ $(document).ready(function() {
     $("#current-mp-init").text(player.mpMax);
     $("#current-ap-init").text(player.ap);
     $("#current-sp-init").text(player.sp);
+    playDungeonSong();
   });
 
   $("#confirm-name").click(function() {
@@ -579,6 +613,7 @@ $(document).ready(function() {
   $("#load-game").click(function() {
     loadPlayer();
     runLoadGame();
+    playDungeonSong();
   });
 
   /* START GAME ADD STATS */
@@ -697,6 +732,7 @@ $(document).ready(function() {
 
   /* Battle System */
   $(".enemy").click(function() {
+    playBattleSong();
     var enemyId = grabEnemyId(this);
     alertRoom(enemyMap[enemyId].name + " is attacking you!");
     player.currentEnemy = enemyMap[enemyId];
@@ -705,11 +741,13 @@ $(document).ready(function() {
 
   $("#attack").click(function() {
     runPlayerAttack(player.currentEnemy);
+    playAttackSound();
     hideBattleMenu();
   });
 
   $("#spell").click(function() {
     runPlayerSpell(player.currentEnemy);
+    playSpellSound();
     hideBattleMenu();
   });
 
@@ -746,22 +784,27 @@ $(document).ready(function() {
       loadRoomPostBattle();
       postBattleMsg();
     }
+    playDungeonSong();
   });
 
   $(".room-load-buttons").click(function(){
-
+    loadPlayer();
+    runLoadGame();
+    playDungeonSong();
   });
 
   $(".room-save-buttons").click(function(){
-
+    saveGame(player);
+    alertRoom("Game data for [ " + player.name + " ] saved!");
   });
 
-  $("#start-over").click(function() {
+  $(".start-over").click(function() {
     location.reload();
   });
 
   $("#respawn").click(function() {
     loadPlayer();
     runLoadGame();
+    playDungeonSong();
   });
 });
