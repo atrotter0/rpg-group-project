@@ -407,7 +407,6 @@ function hideBattleItemMenu() {
 }
 
 function showLootScreen() {
-  //var itemName = player.getLastItem.name
   hideCurrentScreen();
   $("#battle-loot-screen").addClass("current-screen").show();
   $("#loot-screen-enemy-name").text(player.currentEnemy.name + " slain!");
@@ -450,6 +449,19 @@ function resetCharacterPointScreen() {
   player.ap = 1;
   player.sp = 3;
   $("#level-up-table").show();
+}
+
+function loadRoomPostBattle() {
+  hideCurrentScreen();
+  $("#room-" + player.room.id).show().addClass("current-screen");
+}
+
+function resetRoomAlert() {
+  alertRoom("");
+}
+
+function postBattleMsg() {
+  alertRoom("Phew, that was close...");
 }
 
 $(document).ready(function() {
@@ -591,8 +603,7 @@ $(document).ready(function() {
   });
 
   $("#finish-allocating-points").click(function() {
-    hideCurrentScreen();
-    $("#room-" + player.room.id).show().addClass("current-screen");
+    loadRoomPostBattle();
   });
 
   /* Battle System */
@@ -643,6 +654,11 @@ $(document).ready(function() {
   });
 
   $("#loot-screen-confirm").click(function() {
-    player.checkXP();
+    if (player.checkForLevel()) {
+      player.startLevelUp();
+    } else {
+      loadRoomPostBattle();
+      postBattleMsg();
+    }
   });
 });

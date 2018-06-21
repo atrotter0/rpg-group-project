@@ -174,13 +174,15 @@ Player.prototype.levelUp = function(level) {
   this.xp = 0;
 }
 
-Player.prototype.checkXP = function() {
-  if(this.xp === 100) {
-    newStats.availablePoints = 3;
-    this.levelUp();
-    alertSuccess("Level Up! You are now level " + this.level);
-    runLevelUp();
-  }
+Player.prototype.checkForLevel = function() {
+  if (this.xp >= 100) return true;
+}
+
+Player.prototype.startLevelUp = function() {
+  newStats.availablePoints = 3;
+  this.levelUp();
+  alertSuccess("Level Up! You are now level " + this.level);
+  runLevelUp();
 }
 
 Player.prototype.unEquipItem = function(item) {
