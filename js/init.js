@@ -40,4 +40,5 @@ $(document).ready(function() {
   newStats = new NewStats();
   createRoomEnemyClicks(roomMap.room2);
   createRoomItemClicks(roomMap.room2);
+  showCharacterScreen()
 });

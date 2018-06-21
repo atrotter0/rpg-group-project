@@ -27,13 +27,38 @@ function Player(name, room) {
 Player.prototype.equipItem = function(item) {
   if(item.type === "Weapon") {
     this.equippedWeapon = item;
-    this.upgradeStats(this.equippedWeapon);
+    this.updateStats(this.equippedWeapon);
   } else if(item.type === "Armor") {
     this.equippedArmor = item;
-    this.upgradeStats(this.equippedArmor);
+    this.updateStats(this.equippedArmor);
   } else {
     alertError("You can only equip weapons or armor items.");
   }
+}
+
+Player.prototype.unEquipItem = function(item) {
+  this.hpMax -= item.addHp;
+  this.hp -= item.addHp;
+  this.mpMax -= item.addMp;
+  this.mp -= item.addMp;
+  this.ap -= item.attackBonus;
+  this.sp -= item.spellBonus;
+  if(item.type === "Weapon") {
+    this.equippedWeapon = "";
+  } else {
+    this.equippedArmor = "";
+  }
+  fillCharacterValues(this);
+}
+
+Player.prototype.updateStats = function(item) {
+  this.hpMax += item.addHp;
+  this.hp += item.addHp;
+  this.mpMax += item.addMp;
+  this.mp += item.addMp;
+  this.ap += item.attackBonus;
+  this.sp += item.spellBonus;
+  fillCharacterValues(this);
 }
 
 Player.prototype.equipBestItem = function() {
@@ -97,7 +122,7 @@ Player.prototype.useHealthPotion = function() {
   this.removeItem("Health Potion");
   this.hp += itemMap.healthPotion.addHp;
 
-  if (this.hp > this.hpMax) this.hp = this.hpMax;
+  if (this.hp > this.maxHp) this.hp = this.maxHp;
   battleAlert(this.name + " uses a " + itemMap.healthPotion.name + " and recovers " + itemMap.healthPotion.addHp + " health!");
 }
 
@@ -105,7 +130,7 @@ Player.prototype.useManaPotion = function() {
   this.removeItem("Mana Potion");
   this.mp += itemMap.manaPotion.addMp;
 
-  if (this.mp > this.mpMax) this.mp = this.mpMax;
+  if (this.mp > this.maxMp) this.mp = this.maxMp;
   battleAlert(this.name + " uses a " + itemMap.manaPotion.name + " and recovers " + itemMap.manaPotion.addMp + " mana!");
 }
 
@@ -134,6 +159,8 @@ Player.prototype.checkLoot = function(enemy) {
       uniqueItem = true;
     }
   }
+
+  displayEquippedItems(this)
 }
 
 Player.prototype.levelUp = function(level) {
@@ -146,16 +173,6 @@ Player.prototype.checkXP = function() {
     this.levelUp();
     alertSuccess("Level Up! You are now level " + this.level);
   }
-}
-
-Player.prototype.upgradeStats = function(item) {
-  this.hp -= this.equippdWeapon;
-  
-
-  this.hp += item.healthBonus;
-  this.mp += item.manaBonus;
-  this.ap += item.attackBonus;
-  this.sp += item.spellBonus;
 }
 
 function createNewPlayer(name) {
