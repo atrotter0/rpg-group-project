@@ -407,7 +407,6 @@
   grid-template-columns: repeat(4, 25%);
   background-color: #eee;
   font-family: 'Press Start 2P', cursive;
-  font-size: 10px;
 }
 
 #inventory-screen {
@@ -422,7 +421,7 @@
   background: url("../img/inventory-bg.jpg");
   background: contain;
   color: white;
-  font-size: 10px;
+  font-size: 20px;
   padding: 20px;
   box-shadow: 0px 2px 20px black;
 }
@@ -505,78 +504,88 @@
   font-size: 15px;
   margin-bottom: 0px;
   margin-top: 0px;
+  padding:3px;
 }
 
 #experience-indicator {
   border: 1px solid black;
   color: lightgreen;
-  font-size: 20px;
+  font-size: 15px;
   margin-bottom: 0px;
   margin-top: 0px;
+  padding:3px;
 }
 
 #health-points h4 {
   border: 1px solid black;
   color: yellow;
-  font-size: 20px;
+  font-size: 15px;
   margin-bottom: 0px;
   margin-top: 0px;
+  padding:3px;
 }
 
 #health-points-indicator {
   border: 1px solid black;
   color: lightgreen;
-  font-size: 20px;
+  font-size: 15px;
   margin-bottom: 0px;
   margin-top: 0px;
+  padding:3px;
 }
 
 #mana-points h4 {
   border: 1px solid black;
   color: yellow;
-  font-size: 20px;
+  font-size: 14px;
   margin-bottom: 0px;
   margin-top: 0px;
+  padding:3px;
 }
 
 #mana-points-indicator {
   border: 1px solid black;
   color: lightgreen;
-  font-size: 20px;
+  font-size: 15px;
   margin-bottom: 0px;
   margin-top: 0px;
+  padding:3px;
 }
 
 #attack-power h4 {
   border: 1px solid black;
   color: yellow;
-  font-size: 20px;
+  font-size: 15px;
   margin-bottom: 0px;
   margin-top: 0px;
+  padding:3px;
 }
 
 #spell-power h4 {
   border: 1px solid black;
   color: yellow;
-  font-size: 20px;
+  font-size: 15px;
   margin-bottom: 0px;
   margin-top: 0px;
+  padding:3px;
 }
 
 #attack-power-indicator {
   border: 1px solid black;
   color: lightgreen;
-  font-size: 20px;
+  font-size: 15px;
   margin-bottom: 0px;
   margin-top: 0px;
+  padding:3px;
 }
 
 #spell-power-indicator {
   border: 1px solid black;
   color: lightgreen;
-  font-size: 20px;
+  font-size: 15px;
   margin-bottom: 0px;
   margin-top: 0px;
+  padding:3px;
 }
 
 .equipped-items-div {
@@ -625,7 +634,7 @@
 #equipped-weapon-text {
   color: rebeccapurple;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 10px;
   border: 1px solid grey;
   margin-bottom: 0px;
   margin-top: 0px;
@@ -634,11 +643,12 @@
 #equipped-armor-text {
   color: rebeccapurple;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 10px;
   border: 1px solid grey;
   margin-bottom: 0px;
   margin-top: 0px;
 }
+
 
 .stat-added {
   border:1px #333 solid;
