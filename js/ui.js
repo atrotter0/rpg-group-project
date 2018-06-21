@@ -729,6 +729,11 @@ $(document).ready(function() {
     var enemyId = grabEnemyId(this);
     alertRoom(enemyMap[enemyId].name + " is attacking you!");
     player.currentEnemy = enemyMap[enemyId];
+    if (player.currentEnemy.id === 6) {
+      $("#enemy-sprite").html('<img src="img/enemy6.png" alt="Enemy sprite" id="enemy-sprite-img">')
+    } else {
+      $("#enemy-sprite").html('<img src="img/skeleton-enemy.png" alt="Enemy sprite" id="enemy-sprite-img">')
+    }
     startBattle(player.currentEnemy)
   });
 
@@ -771,6 +776,7 @@ $(document).ready(function() {
   });
 
   $("#loot-screen-confirm").click(function() {
+    $("#enemy-sprite").html('<img src="" alt="Enemy sprite" id="enemy-sprite-img">')
     if (player.checkForLevel()) {
       player.startLevelUp();
     } else {
