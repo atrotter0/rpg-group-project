@@ -84,6 +84,7 @@ function runPlayerManaPotion() {
 }
 
 function checkPlayerDead() {
+  removeEnemyFromRoom();
   if (player.isDead()) {
     showDeathScreen();
     console.log("You lost!");
@@ -94,6 +95,7 @@ function checkPlayerDead() {
 }
 
 function checkEnemyDead(enemy) {
+  removeEnemyFromRoom();
   if (enemy.isDead()) {
     animationEnemyDefeated();
     setTimeout(function() {
