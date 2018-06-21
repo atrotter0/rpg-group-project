@@ -665,4 +665,13 @@ $(document).ready(function() {
       postBattleMsg();
     }
   });
+
+  $(".room-load-buttons").click(function(){
+
+  });
+
+  $(".room-save-buttons").click(function(){
+
+  });
+
 });
