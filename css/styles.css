@@ -1,9 +1,3 @@
-body {
-  background-image: url("../img/background.png");
-  background-repeat: repeat;
-  cursor: url('../img/gauntlet_mouse.png') 10 10, auto;
-}
-
 .btn:focus {
   outline: none;
 }
@@ -15,7 +9,7 @@ body {
 }
 
 .fancy-shadow {
-  text-shadow: 3px 3px rgba(123,121,121,0.75);
+  text-shadow: 1px 1px #ada4a4;
 }
 
 .invisible {
@@ -111,8 +105,7 @@ body {
 
 #main-menu-image-box {
   border-radius: 3px;
-  bbox-shadow: 0px 2px 20px rgba(78,78,78,0.63);
-  box-shadow: 2px 2px 20px rgba(35, 34, 34, 0.98);
+  box-shadow: 0px 2px 20px rgba(78,78,78,0.63);
   margin: 20px auto;
   height: 400px;
   width: 800px;
@@ -250,7 +243,7 @@ body {
   background-repeat: no-repeat;
   margin: 0 auto;
   border-radius: 3px;
-  box-shadow: 2px 2px 20px rgba(35, 34, 34, 0.98);
+  box-shadow: 0px 2px 20px rgba(78,78,78,0.63);
 }
 
 #battle-alert {
@@ -273,7 +266,6 @@ body {
   width: 768px;
   margin: 0 auto;
   background-color: #707677;
-  box-shadow: 2px 5px 20px rgba(35, 34, 34, 0.98)
 }
 
 #death-screen {
@@ -288,13 +280,6 @@ body {
   margin: 300px auto;
   text-align: center;
   color: white;
-  font-family: 'Press Start 2P', cursive;
-  font-size: 1.2em;
-  color: #b53d41;
-}
-
-#bloody-text {
-  text-shadow: 2px 2px 5px maroon;
 }
 
 .battle-menu-row {
@@ -404,32 +389,6 @@ body {
 /* INVENTORY MENU */
 /******************/
 
-[data-title]:hover:after {
-    opacity: 1;
-    transition: all 0.1s ease 0.5s;
-    visibility: visible;
-}
-[data-title]:after {
-    content: attr(data-title);
-    width: 150px;
-    background-color: black;
-    color: #d4d6d8;
-    font-size: 150%;
-    position: absolute;
-    padding: 1px 5px 2px 5px;
-    bottom: -1.6em;
-    left: auto;
-    white-space: pre-wrap;
-    box-shadow: 1px 1px 3px #222222;
-    opacity: 0;
-    border: 1px solid green;
-    z-index: 99999;
-    visibility: hidden;
-}
-[data-title] {
-    position: relative;
-}
-
 .character-screen {
   display: none;
 }
@@ -447,7 +406,8 @@ body {
   display: grid;
   grid-template-columns: repeat(4, 25%);
   background-color: #eee;
-  font-family: Aclonica;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 10px;
 }
 
 #inventory-screen {
@@ -458,11 +418,11 @@ body {
   text-align: center;
   display: grid;
   grid-template-columns: auto;
-  font-family: Aclonica;
+  font-family: 'Press Start 2P', cursive;
   background: url("../img/inventory-bg.jpg");
   background: contain;
   color: white;
-  font-size: 24px;
+  font-size: 10px;
   padding: 20px;
   box-shadow: 0px 2px 20px black;
 }
@@ -485,23 +445,11 @@ body {
 .grid-item {
   border: 1px solid black;
   padding: 20px;
-  font-size: 12px;
+  font-size: 30px;
   text-align: center;
   background-color: #434951;
-  color: lightgreen;
+  color: white;
   box-shadow: 0px 2px 20px black;
-  transition: 1s;
-}
-
-.grid-item:hover {
-  transition: 1s;
-  box-shadow: 0px 2px 20px white;
-  background-color: #8c8c8c;
-}
-
-.itemNameVal {
-  color: lightgreen;
-  font-size: 12px;
 }
 
 .character-screen {
@@ -512,7 +460,7 @@ body {
   text-align: center;
   background-color: darkgrey;
   border: 1px solid black;
-  font-family: Aclonica;
+  font-family: 'Press Start 2P', cursive;
   box-shadow: 0px 2px 20px black;
 }
 
@@ -554,7 +502,7 @@ body {
 #experience h4 {
   border: 1px solid black;
   color: yellow;
-  font-size: 20px;
+  font-size: 15px;
   margin-bottom: 0px;
   margin-top: 0px;
 }
@@ -829,76 +777,75 @@ body {
 /* Room 1 */
 /**********/
 
-
 #room-1 {
   display: none;
   background-image: url("../img/maps/room_1.png");
   width: 768px;
   height: 576px;
   margin: 0 auto;
-  box-shadow: 2px 2px 20px rgba(35, 34, 34, 0.98);
-}
-
-#room1-hero {
-  width: 50px;
-  height: 70px;
-  position: relative;
-  top: 123px;
-  left: 358px;
-  cursor: url('../img/inventory_mouse.png') 10 10, pointer;
 }
 
 #room1-enemy1 {
   width: 40px;
   height: 65px;
   position: relative;
-  top: 18px;
+  top: 86px;
   left: 155px;
   background-image: url("../img/enemy1.png");
-  cursor: url('../img/battle_mouse.png') 10 10, pointer;
 }
 
+#room1-enemy1:hover {
+  cursor: pointer;
+}
 
 #room1-enemy2 {
   width: 40px;
   height: 65px;
   position: relative;
-  top: 170px;
+  top: 239px;
   left: 359px;
   background-image: url("../img/enemy2.png");
-  cursor: url('../img/battle_mouse.png') 10 10, pointer;
 }
 
+#room1-enemy2:hover {
+  cursor: pointer;
+}
 
 #room1-item1 {
   width: 60px;
   height: 40px;
   position: relative;
-  top: 183px;
+  top: 251px;
   left: 350px;
-  cursor: url('../img/item_mouse.png') 10 10, pointer;
 }
 
+#room1-item1:hover {
+  cursor: pointer;
+}
 
 #room1-item2 {
   width: 70px;
   height: 40px;
   position: relative;
-  top: -207px;
+  top: -139px;
   left: 500px;
-  cursor: url('../img/item_mouse.png') 10 10, pointer;
 }
 
+#room1-item2:hover {
+  cursor: pointer;
+}
 
 #room1-door1 {
   width: 20px;
   height: 60px;
   position: relative;
-  top: -165px;
+  top: -97px;
   left: 678px;
-  cursor: url('../img/item_mouse.png') 10 10, pointer;
 }
 
+#room1-door1:hover {
+  cursor: pointer;
+}
 
 /**********/
 /* Room 2 */
@@ -910,98 +857,108 @@ body {
   width: 768px;
   height: 576px;
   margin: 0 auto;
-  box-shadow: 2px 2px 20px rgba(35, 34, 34, 0.98);
 }
-
-#room2-hero {
-  width: 50px;
-  height: 70px;
-  position: relative;
-  top: 234px;
-  left: 102px;
-  cursor: url('../img/inventory_mouse.png') 10 10, pointer;
-}
-
 
 #room2-enemy3 {
   width: 40px;
   height: 65px;
   position: relative;
-  top: 179px;
+  top: 249px;
   left: 205px;
   background-image: url("../img/enemy3.png");
-  cursor: url('../img/battle_mouse.png') 10 10, pointer;
+}
+
+#room2-enemy3:hover {
+  cursor: pointer;
 }
 
 #room2-enemy4 {
   width: 40px;
   height: 65px;
   position: relative;
-  top: -29px;
+  top: 41px;
   left: 310px;
   background-image: url("../img/enemy4.png");
-  cursor: url('../img/battle_mouse.png') 10 10, pointer;
+}
+
+#room2-enemy4:hover {
+  cursor: pointer;
 }
 
 #room2-enemy5 {
   width: 40px;
   height: 65px;
   position: relative;
-  top: -55px;
+  top: 15px;
   left: 373px;
   background-image: url("../img/enemy5.png");
-  cursor: url('../img/battle_mouse.png') 10 10, pointer;
 }
 
+#room2-enemy5:hover {
+  cursor: pointer;
+}
 
 #room2-enemy6 {
   width: 50px;
   height: 70px;
   position: relative;
-  top: 109px;
+  top: 179px;
   left: 478px;
   background-image: url("../img/enemy6.png");
-  cursor: url('../img/battle_mouse.png') 10 10, pointer;
 }
 
+#room2-enemy6:hover {
+  cursor: pointer;
+}
 
 #room2-item3 {
   width: 40px;
   height: 40px;
   position: relative;
-  top: -279px;
+  top: -209px;
   left: 386px;
-  cursor: url('../img/item_mouse.png') 10 10, pointer;
 }
 
+#room2-item3:hover {
+  cursor: pointer;
+}
 
 #room2-trap1 {
   width: 80px;
   height: 80px;
   position: relative;
-  top: -70px;
+  top: 0px;
   left: 305px;
-  cursor: url('../img/item_mouse.png') 10 10, pointer;
   }
+
+#room2-trap1:hover {
+  cursor: pointer;
+}
 
 
 #room2-door2 {
   width: 20px;
   height: 60px;
   position: relative;
-  top: -213px;
+  top: -143px;
   left: 70px;
-    cursor: url('../img/item_mouse.png') 10 10, pointer;
 }
 
+#room2-door2:hover {
+  cursor: pointer;
+}
 
 #room2-door3 {
   width: 60px;
   height: 50px;
   position: relative;
-  top: -77px;
+  outline: 1px solid lightgreen;
+  top: -7px;
   left: 620px;
-  cursor: url('../img/item_mouse.png') 10 10, pointer;
+}
+
+#room2-door3:hover {
+  cursor: pointer;
 }
 
 /* KELLI'S STYLES */
@@ -1125,21 +1082,4 @@ body {
 
 #finish-allocating-points {
   display:none;
-}
-
-.room-buttons-div {
-  float:right;
-}
-
-.room-buttons {
-  width: 60px;
-  margin-right:2px;
-  border-radius:5px;
-  font-family: 'Press Start 2P', cursive;
-  padding: 1px;
-  background-color: #333;
-  color: white;
-  border: #333 1px solid;
-  text-shadow: 0 0 20px white;
-  font-size:10px;
 }
