@@ -21,7 +21,8 @@ function displayMenuOptions() {
 function runNewGame(playerName) {
   if (!validate(playerName)) return alertError("You need to enter a valid name.");
 
-  createNewPlayer(playerName, roomMap.room1);
+  if (newStats.availablePoints <= 3 && newStats.availablePoints > 0) return alertError("You still have stat points left to spend!");
+
   alertSuccess("Game data for [ " + player.name + " ] created!");
   //fadeOut();
   //startStory();
