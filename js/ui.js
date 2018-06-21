@@ -490,7 +490,9 @@ function removeEnemyFromRoom() {
 }
 
 var dungeonSong = new Audio('audio/dungeon_song.mp3');
-var battleSong = new Audio('audio/battle_song.mp3')
+var battleSong = new Audio('audio/battle_song.mp3');
+var attackSound = new Audio('audio/attack.ogg');
+var spellSound = new Audio('audio/firebolt.ogg');
 
 function playDungeonSong() {
   battleSong.pause();
@@ -503,6 +505,15 @@ function playBattleSong() {
   dungeonSong.currentTime = 0;
   battleSong.play();
 }
+
+function playAttackSound() {
+  attackSound.play();
+}
+
+function playSpellSound() {
+  spellSound.play();
+}
+
 
 $(document).ready(function() {
   console.log("ui.js loaded!");
@@ -660,11 +671,13 @@ $(document).ready(function() {
 
   $("#attack").click(function() {
     runPlayerAttack(player.currentEnemy);
+    playAttackSound();
     hideBattleMenu();
   });
 
   $("#spell").click(function() {
     runPlayerSpell(player.currentEnemy);
+    playSpellSound();
     hideBattleMenu();
   });
 

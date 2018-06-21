@@ -33,6 +33,7 @@ function runEnemyTurn(enemy) {
   setTimeout(function() {
     enemy.enemyAttack();
     battleAnimationPlayer();
+    playAttackSound();
   }, 2000);
   setTimeout(function() { checkPlayerDead(); }, 4000);
 }
@@ -99,7 +100,7 @@ function checkEnemyDead(enemy) {
   if (enemy.isDead()) {
     animationEnemyDefeated();
     setTimeout(function() {
-      showLootScreen(); 
+      showLootScreen();
       resetEnemySprite();
     }, 2000);
     player.giveAwardsToPlayer(enemy);
