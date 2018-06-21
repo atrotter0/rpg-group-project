@@ -26,8 +26,8 @@ function runNewGame(playerName) {
   player.name = playerName;
   alertSuccess("Game data for [ " + playerName + " ] created!");
   saveGame(player);
-  //fadeOut();
-  //startStory();
+  hideCurrentScreen();
+  $("#room-" + player.room.id).show().addClass("current-screen");
 }
 
 function validate(value) {
@@ -42,6 +42,10 @@ function alertError(msg) {
 function alertSuccess(msg) {
   $(".alert").hide().text(msg).removeClass("alert-danger")
     .addClass("alert-success").fadeIn(800).delay(1000).fadeOut(1000);
+}
+
+function alertRoom(msg) {
+  $(".alert-room").text(msg);
 }
 
 function disableButton(id) {
@@ -593,10 +597,13 @@ $(document).ready(function() {
 
   /* Battle System */
   $(".enemy").click(function() {
-    //var enemyId = $(this).attr(id);
-    //var enemyId = "enemy";
-    player.currentEnemy = enemyMap["enemy1"];
-    startBattle(player.currentEnemy);
+    var enemyId = grabEnemyId(this);
+    alertRoom(enemyMap[enemyId].name + " is attacking you!");
+    player.currentEnemy = enemyMap[enemyId];
+    startBattle(player.currentEnemy)
+    $("#room" + player.room.id + "-enemy" + player.currentEnemy.id).off();
+    $("#room" + player.room.id + "-enemy" + player.currentEnemy.id).css({'background-image' : 'url("")'});
+    $("#room" + player.room.id + "-enemy" + player.currentEnemy.id).css({'cursor' : 'default'});
   });
 
   $("#attack").click(function() {

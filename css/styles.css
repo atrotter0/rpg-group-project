@@ -27,6 +27,23 @@
   text-align: center;
 }
 
+.alert-room {
+  font-family: 'Press Start 2P', cursive;
+  position: relative;
+  padding: 5px;
+  padding-top: 18px;
+  width: 768px;
+  height: 59px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #707677;
+  color: #fff;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
 /*************/
 /* MAIN MENU */
 /*************/
@@ -741,9 +758,9 @@
   width: 40px;
   height: 65px;
   position: relative;
-  outline: 1px solid lightgreen;
-  top: 145px;
+  top: 86px;
   left: 155px;
+  background-image: url("../img/enemy1.png");
 }
 
 #room1-enemy1:hover {
@@ -754,9 +771,9 @@
   width: 40px;
   height: 65px;
   position: relative;
-  outline: 1px solid lightgreen;
-  top: 298px;
+  top: 239px;
   left: 359px;
+  background-image: url("../img/enemy2.png");
 }
 
 #room1-enemy2:hover {
@@ -767,8 +784,7 @@
   width: 60px;
   height: 40px;
   position: relative;
-  outline: 1px solid lightgreen;
-  top: 310px;
+  top: 251px;
   left: 350px;
 }
 
@@ -780,8 +796,7 @@
   width: 70px;
   height: 40px;
   position: relative;
-  outline: 1px solid lightgreen;
-  top: -80px;
+  top: -139px;
   left: 500px;
 }
 
@@ -793,8 +808,7 @@
   width: 20px;
   height: 60px;
   position: relative;
-  outline: 1px solid lightgreen;
-  top: -38px;
+  top: -97px;
   left: 678px;
 }
 
@@ -818,45 +832,102 @@
   width: 40px;
   height: 65px;
   position: relative;
-  outline: 1px solid lightgreen;
-  top: 308px;
+  top: 249px;
   left: 205px;
+  background-image: url("../img/enemy3.png");
+}
+
+#room2-enemy3:hover {
+  cursor: pointer;
 }
 
 #room2-enemy4 {
   width: 40px;
   height: 65px;
   position: relative;
-  outline: 1px solid lightgreen;
-  top: 100px;
+  top: 41px;
   left: 310px;
+  background-image: url("../img/enemy4.png");
+}
+
+#room2-enemy4:hover {
+  cursor: pointer;
 }
 
 #room2-enemy5 {
   width: 40px;
   height: 65px;
   position: relative;
-  outline: 1px solid lightgreen;
-  top: 74px;
+  top: 15px;
   left: 373px;
+  background-image: url("../img/enemy5.png");
+}
+
+#room2-enemy5:hover {
+  cursor: pointer;
 }
 
 #room2-enemy6 {
   width: 50px;
   height: 70px;
   position: relative;
-  outline: 1px solid lightgreen;
-  top: 238px;
+  top: 179px;
   left: 478px;
+  background-image: url("../img/enemy6.png");
+}
+
+#room2-enemy6:hover {
+  cursor: pointer;
 }
 
 #room2-item3 {
   width: 40px;
   height: 40px;
   position: relative;
-  outline: 1px solid red;
-  top: -150px;
+  top: -209px;
   left: 386px;
+}
+
+#room2-item3:hover {
+  cursor: pointer;
+}
+
+#room2-trap1 {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  top: 0px;
+  left: 305px;
+  }
+
+#room2-trap1:hover {
+  cursor: pointer;
+}
+
+
+#room2-door2 {
+  width: 20px;
+  height: 60px;
+  position: relative;
+  top: -143px;
+  left: 70px;
+}
+
+#room2-door2:hover {
+  cursor: pointer;
+}
+
+#room2-door3 {
+  width: 60px;
+  height: 50px;
+  position: relative;
+  outline: 1px solid lightgreen;
+  top: -7px;
+  left: 620px;
+}
+
+#room2-door3:hover {
+  cursor: pointer;
 }
 
 /* KELLI'S STYLES */

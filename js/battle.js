@@ -1,3 +1,4 @@
+
 function startBattle(enemy) {
   hideCurrentScreen();
   showBattleScreen();
@@ -41,8 +42,8 @@ function runPlayerTurn() {
 }
 
 function runPlayerAttack(enemy) {
-  setTimeout(function() { 
-    player.playerAttack(enemy); 
+  setTimeout(function() {
+    player.playerAttack(enemy);
     battleAnimationEnemy();
   }, 0);
   setTimeout(function() { checkEnemyDead(player.currentEnemy); }, 1000);
