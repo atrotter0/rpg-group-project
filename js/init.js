@@ -44,4 +44,6 @@ $(document).ready(function() {
   createHeroClickEvents();
   buildStats();
   buildPlayer();
+  $("#room-1").show();
+  $("#room-2").show();
 });
