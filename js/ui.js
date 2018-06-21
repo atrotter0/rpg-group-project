@@ -28,6 +28,8 @@ function runNewGame(playerName) {
   saveGame(player);
   hideCurrentScreen();
   $("#room-" + player.room.id).show().addClass("current-screen");
+  alertRoom(player.storyChapter.text);
+  setTimeout(function() { resetRoomAlert(); }, 2000);
 }
 
 function runLoadGame() {
