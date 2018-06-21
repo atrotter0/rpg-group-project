@@ -117,9 +117,9 @@ function showRoom(player) {
   var roomId = player.room;
 }
 
-/*--------------------------
-INVENTORY SCREEN FUNCTIONS -
---------------------------*/
+/******************************/
+/* INVENTORY SCREEN FUNCTIONS */
+/******************************/
 
 function displayEquippedItems(player) {
   $("#equipped-weapon-text").text(player.equippedWeapon.name);
@@ -410,6 +410,7 @@ function showLootScreen() {
   //var itemName = player.getLastItem.name
   hideCurrentScreen();
   $("#battle-loot-screen").addClass("current-screen").show();
+  $("#loot-screen-enemy-name").text(player.currentEnemy.name + " slain!");
   $("#battle-xp").text("XP: " + player.currentEnemy.xp);
   $("#battle-items").text("Items: " + player.getLastItem().name);
 }
@@ -531,7 +532,6 @@ $(document).ready(function() {
       $("#current-sp-init").text(player.sp);
       $("#level-up-table").hide();
     }
-
   });
 
   /* IN GAME UPGRADE STATS */
