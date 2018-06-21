@@ -17,12 +17,12 @@ function Item(id, name, type, level, hp, ap, sp, mp, icon) {
 }
 
 // Item Dictionary
-function ItemDictionary() {
+function ItemMap() {
   this.populateItems();
 }
 
 
-ItemDictionary.prototype.fetchLevelSpecificItems = function(level) {
+ItemMap.prototype.fetchLevelSpecificItems = function(level) {
   var itemArray = [];
   for (var item in this) {
     if(this[item].level === level) {
@@ -33,7 +33,7 @@ ItemDictionary.prototype.fetchLevelSpecificItems = function(level) {
 }
 
 // Populate dictionary with a predefined list of items
-ItemDictionary.prototype.populateItems = function() {
+ItemMap.prototype.populateItems = function() {
   var sword1 = new Item(1, "Sword of Woe", "Weapon", 1, 1, 3, 0, 0, "<img src='img/pointy-sword.png'>");
   var staff1 = new Item(2, "Staff of Wizardry", "Weapon", 1, 0, 0, 3, 1, "<img src='img/pointy-sword.png'>");
   var midSword1 = new Item(3, "Warrior's Blade", "Weapon", 2, 2, 5, 0, 0, "<img src='img/pointy-sword.png'>");
@@ -62,5 +62,5 @@ ItemDictionary.prototype.populateItems = function() {
 }
 
 function buildItems() { // get rid of this?
-  items = new ItemDictionary();
+  items = new ItemMap();
 }
