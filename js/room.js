@@ -44,7 +44,6 @@ function createItemClickEvents() {
       alertRoom("You found a " + player.items[player.items.length - 1].name + ".");
       $("#room1-item1").off("click");
       $("#room1-item1").css({'cursor' : 'default'});
-      // saveGame(player);
     }
     else {
       alertRoom("Can't access, an enemy is in your path!")
@@ -112,6 +111,14 @@ function createTrapClickEvents() {
   });
 }
 
-function checkPlayerDeadRoom() {
-  if (player.isDead()) showDeathScreen();
+function createHeroClickEvents() {
+  $("#room1-hero").click(function(){
+    alertRoom("You opened your invetory.");
+    //show inventory
+  });
+
+  $("#room2-hero").click(function(){
+    alertRoom("You opened your invetory.");
+    //show inventory
+  });
 }

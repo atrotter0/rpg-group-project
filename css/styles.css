@@ -801,6 +801,10 @@ body {
   left: 358px;
 }
 
+#room1-hero:hover {
+  cursor: url('../img/battle_mouse.png') 10 10, pointer;
+}
+
 #room1-enemy1 {
   width: 40px;
   height: 65px;
@@ -881,6 +885,10 @@ body {
   position: relative;
   top: 234px;
   left: 102px;
+}
+
+#room2-hero:hover {
+  cursor: url('../img/battle_mouse.png') 10 10, pointer;
 }
 
 #room2-enemy3 {
