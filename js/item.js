@@ -71,7 +71,6 @@ ItemMap.prototype.populateItems = function() {
   this.manaPotion1 = manaPotion1;
   this.manaPotion2 = manaPotion2;
   this.manaPotion3 = manaPotion3;
-
 }
 
 // Instantiate global item map object on init

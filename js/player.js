@@ -82,7 +82,7 @@ Player.prototype.checkManaPotion = function() {
 }
 
 Player.prototype.useHealthPotion = function() {
-  this.removeItem("Minor Health Potion");
+  this.removeItem(itemMap.healthPotion1.name);
   this.hp += itemMap.healthPotion1.addHp;
 
   if (this.hp > this.hpMax) this.hp = this.hpMax;
@@ -90,7 +90,7 @@ Player.prototype.useHealthPotion = function() {
 }
 
 Player.prototype.useManaPotion = function() {
-  this.removeItem("Minor Mana Potion");
+  this.removeItem(itemMap.manaPotion1.name);
   this.mp += itemMap.manaPotion1.addMp;
 
   if (this.mp > this.mpMax) this.mp = this.mpMax;
@@ -122,6 +122,7 @@ Player.prototype.checkLoot = function(enemy) {
       uniqueItem = true;
     }
   }
+  console.log(this.items);
 }
 
 Player.prototype.checkClickItem = function() {
@@ -175,16 +176,34 @@ Player.prototype.levelUp = function(level) {
 
 Player.prototype.checkXP = function() {
   if(this.xp === 100) {
+    newStats.availablePoints = 3;
     this.levelUp();
     alertSuccess("Level Up! You are now level " + this.level);
+    runLevelUp();
   }
 }
 
-Player.prototype.upgradeStats = function(item) {
-  this.hp += item.healthBonus;
+Player.prototype.unEquipItem = function(item) {
+  this.hp -= item.healthBonus;
+  this.mp -= item.manaBonus;
+  this.ap -= item.attackBonus;
+  this.sp -= item.spellBonus;
+}
+
+Player.prototype.equipItem = function(item) {
+  this.hp += newItem.healthBonus;
   this.mp += item.manaBonus;
   this.ap += item.attackBonus;
   this.sp += item.spellBonus;
+}
+
+Player.prototype.giveAwardsToPlayer = function(enemy) {
+  this.xp += enemy.xp;
+  this.checkLoot(enemy);
+}
+
+Player.prototype.getLastItem = function() {
+  return this.items[this.items.length - 1];
 }
 
 function buildPlayer() {

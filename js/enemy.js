@@ -13,7 +13,6 @@ function Enemy(id, tier, name, hp, dmg, xp, loot) {
   this.dmg = dmg;
   this.xp = xp;
   this.loot = loot;
-  this.gp = 1;
   this.goesFirst = true;
 }
 
@@ -24,7 +23,6 @@ function EnemyMap() {
 
 // Populates map with a predefined list of enemies set by tier (id, tier, name, hp, dmg, xp, loot)
 EnemyMap.prototype.populateEnemies = function() {
-
   //Room 1 Enemies
   var enemy1 = new Enemy(1, 1, "Skeletal Warrior", 8, 1, 5, itemMap.fetchLevelSpecificItems(this.tier));
   var enemy2 = new Enemy(2, 1, "Skeletal Warrior", 8, 1, 5, itemMap.fetchLevelSpecificItems(this.tier));
@@ -41,7 +39,6 @@ EnemyMap.prototype.populateEnemies = function() {
   this.enemy4 = enemy4;
   this.enemy5 = enemy5;
   this.enemy6 = enemy6;
-
 }
 
 function buildEnemies() {

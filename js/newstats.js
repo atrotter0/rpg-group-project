@@ -10,3 +10,7 @@ function NewStats() {
   this.newSp = 0;
   this.availablePoints = 3;
 }
+
+function buildStats() {
+  newStats = new NewStats();
+}

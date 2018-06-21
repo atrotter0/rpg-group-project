@@ -37,9 +37,9 @@ $(document).ready(function() {
   buildItems();
   buildEnemies();
   buildRooms();
-  newStats = new NewStats();
   createItemClickEvents();
   createDoorClickEvents();
   createTrapClickEvents();
+  buildStats();
   buildPlayer();
 });
