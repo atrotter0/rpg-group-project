@@ -530,9 +530,9 @@ function initiateLevelUp() {
 }
 
 function resetCharacterPointScreen() {
-  player.hpMax = 10;
+  player.hpMax = 15;
   player.mpMax = 20;
-  player.ap = 1;
+  player.ap = 2;
   player.sp = 3;
   $("#level-up-table").show();
 }
