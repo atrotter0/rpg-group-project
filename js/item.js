@@ -9,10 +9,10 @@ function Item(id, name, type, level, hp, ap, sp, mp, icon) {
   this.name = name; // String (e.g, "Sword of Woe")
   this.type = type; // "Weapon" or "Armor" or "Consumable"
   this.level = level;
-  this.healthBonus = hp;
+  this.addHp = hp;
   this.attackBonus = ap;
   this.spellBonus = sp;
-  this.manaBonus = mp;
+  this.addMp = mp;
   this.icon = icon;
 }
 
@@ -71,7 +71,6 @@ ItemMap.prototype.populateItems = function() {
   this.manaPotion1 = manaPotion1;
   this.manaPotion2 = manaPotion2;
   this.manaPotion3 = manaPotion3;
-
 }
 
 // Instantiate global item map object on init
