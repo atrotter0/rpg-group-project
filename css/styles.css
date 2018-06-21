@@ -287,6 +287,13 @@ body {
   margin: 300px auto;
   text-align: center;
   color: white;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.2em;
+  color: #b53d41;
+}
+
+#bloody-text {
+  text-shadow: 2px 2px 5px maroon;
 }
 
 .battle-menu-row {

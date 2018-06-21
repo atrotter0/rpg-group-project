@@ -394,6 +394,7 @@ function hideCurrentScreen() {
 }
 
 function showBattleScreen() {
+  $("#enemy-stats").removeClass("invisible");
   adjustHp("player");
   adjustMp("player");
   adjustHp("enemy");
@@ -478,6 +479,14 @@ function resetRoomAlert() {
 
 function postBattleMsg() {
   alertRoom("Phew, that was close...");
+}
+
+function removeEnemyFromRoom() {
+  if (player.currentEnemy.hp <= 0) {
+    $("#room" + player.room.id + "-enemy" + player.currentEnemy.id).off();
+    $("#room" + player.room.id + "-enemy" + player.currentEnemy.id).css({'background-image' : 'url("")'});
+    $("#room" + player.room.id + "-enemy" + player.currentEnemy.id).css({'cursor' : 'default'});
+  }
 }
 
 $(document).ready(function() {
@@ -629,9 +638,6 @@ $(document).ready(function() {
     alertRoom(enemyMap[enemyId].name + " is attacking you!");
     player.currentEnemy = enemyMap[enemyId];
     startBattle(player.currentEnemy)
-    $("#room" + player.room.id + "-enemy" + player.currentEnemy.id).off();
-    $("#room" + player.room.id + "-enemy" + player.currentEnemy.id).css({'background-image' : 'url("")'});
-    $("#room" + player.room.id + "-enemy" + player.currentEnemy.id).css({'cursor' : 'default'});
   });
 
   $("#attack").click(function() {
@@ -677,5 +683,14 @@ $(document).ready(function() {
       loadRoomPostBattle();
       postBattleMsg();
     }
+  });
+
+  $("#start-over").click(function() {
+    location.reload();
+  });
+
+  $("#respawn").click(function() {
+    loadPlayer();
+    runLoadGame();
   });
 });
