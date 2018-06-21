@@ -24,6 +24,43 @@ function Player(room) {
   this.hasManaConsumable = false;
 }
 
+Player.prototype.equipItem = function(item) {
+  if(item.type === "Weapon") {
+    this.equippedWeapon = item;
+    this.updateStats(this.equippedWeapon);
+  } else if(item.type === "Armor") {
+    this.equippedArmor = item;
+    this.updateStats(this.equippedArmor);
+  } else {
+    alertError("You can only equip weapons or armor items.");
+  }
+}
+
+Player.prototype.unEquipItem = function(item) {
+  this.hpMax -= item.addHp;
+  this.hp -= item.addHp;
+  this.mpMax -= item.addMp;
+  this.mp -= item.addMp;
+  this.ap -= item.attackBonus;
+  this.sp -= item.spellBonus;
+  if(item.type === "Weapon") {
+    this.equippedWeapon = "";
+  } else {
+    this.equippedArmor = "";
+  }
+  fillCharacterValues(this);
+}
+
+Player.prototype.updateStats = function(item) {
+  this.hpMax += item.addHp;
+  this.hp += item.addHp;
+  this.mpMax += item.addMp;
+  this.mp += item.addMp;
+  this.ap += item.attackBonus;
+  this.sp += item.spellBonus;
+  fillCharacterValues(this);
+}
+
 Player.prototype.equipBestItem = function() {
   for(i = 0; i < this.items.length; i++) {
     if((this.items[i].level > this.equippedWeapon.level && this.items[i].type === "Weapon") || Object.keys(this.equippedWeapon).length === 0 && this.items[i].type === "Weapon") {
@@ -209,17 +246,39 @@ Player.prototype.getLastItem = function() {
 }
 
 function buildPlayer() {
-  player = new Player(roomMap.room1)
+  player = new Player(roomMap.room1);
 }
 
 function createNewPlayer(name) {
   player.name = name;
-  saveGame(player);
+  saveGame(player); 
   fillCharacterValues(player);
 }
 
 function loadPlayer() {
-  player = playerFromStorage();
+  var storedPlayer = playerFromStorage();
+  updatePlayerFromStorage(storedPlayer);
+}
+
+function updatePlayerFromStorage(storedPlayer) {
+  player.name = storedPlayer.name;
+  player.level = storedPlayer.level;
+  player.hpMax = storedPlayer.hpMax;
+  player.hp = storedPlayer.hp;
+  player.mpMax = storedPlayer.mpMax;
+  player.mp = storedPlayer.mp;
+  player.ap = storedPlayer.ap;
+  player.sp = storedPlayer.sp;
+  player.spells = storedPlayer.spells;
+  player.items = storedPlayer.items;
+  player.xp = storedPlayer.xp;
+  player.room = storedPlayer.room;
+  player.equippedWeapon = storedPlayer.equippedWeapon;
+  player.equippedArmor = storedPlayer.equippedArmor;
+  player.currentEnemy = storedPlayer.currentEnemy;
+  player.lastRoom = storedPlayer.lastRoom;
+  player.hasHealingConsumable = storedPlayer.hasHealingConsumable;
+  player.hasManaConsumable = storedPlayer.hasManaConsumable;
 }
 
 function rollDice(maxNumber) {

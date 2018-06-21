@@ -3,7 +3,8 @@
 function playerFromStorage() {
   if (checkStorage()) {
     var playerData = getPlayer();
-    alertSuccess("Game data for [ " + playerData.name + " ] loaded!");
+    alertRoom("Game data for [ " + playerData.name + " ] loaded!");
+    setTimeout(function() { showStory(); }, 2000);
     return playerData;
   } else {
     return alertError("No player data found.");
@@ -15,8 +16,8 @@ function checkStorage() {
 }
 
 function getPlayer() {
-  var player = JSON.parse(localStorage.getItem("rpg-game"));
-  return player;
+  var playerData = JSON.parse(localStorage.getItem("rpg-game"));
+  return playerData;
 }
 
 function saveGame(playerObject) {
@@ -33,12 +34,14 @@ $(document).ready(function() {
   console.log("init.js loaded!");
 
   // run object builds here
+
   buildItems();
   buildEnemies();
   buildRooms();
   createItemClickEvents();
   createDoorClickEvents();
   createTrapClickEvents();
+  createHeroClickEvents();
   buildStats();
   buildPlayer();
   $("#room-1").show();

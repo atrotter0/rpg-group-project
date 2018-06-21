@@ -12,8 +12,6 @@
   <script src="js/jquery-ui.js"></script>
   <script src="js/spell.js"></script>
   <script src="js/item.js"></script>
-  <script src="js/consumable.js"></script>
-  <script src="js/story.js"></script>
   <script src="js/enemy.js"></script>
   <script src="js/player.js"></script>
   <script src="js/room.js"></script>
@@ -262,6 +260,8 @@
             <button class="room-buttons room-load-buttons" type="button">LOAD</button>
           </div>
         </div>
+        <div  id="room1-hero">
+        </div>
         <div class="enemy" id="room1-enemy1">
         </div>
         <div class="enemy" id="room1-enemy2">
@@ -280,6 +280,8 @@
             <button class="room-buttons room-save-buttons" type="button">SAVE</button><br>
             <button class="room-buttons room-load-buttons" type="button">LOAD</button>
           </div>
+        </div>
+        <div  id="room2-hero">
         </div>
         <div class="enemy" id="room2-enemy3">
         </div>
@@ -375,9 +377,9 @@
     </div>
     <div id="death-screen">
       <div id="death-message">
-        <p>You died.</p>
-        <button type="button" id="respawn">Respawn</button>
-        <button type="button" id="start-over">Start Over</button>
+        <p id="bloody-text">You died.</p>
+        <button type="button" class="btn btn-default btn-main-menu" id="respawn">Respawn</button>
+        <button type="button" class="btn btn-default btn-main-menu" id="start-over">Start Over</button>
       </div>
     </div>
     <div class="character-screen">
