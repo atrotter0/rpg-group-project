@@ -153,6 +153,7 @@
 
 #battle-screen {
   display: none;
+  margin: -50px;
   font-family: 'Press Start 2P', cursive;
 }
 
