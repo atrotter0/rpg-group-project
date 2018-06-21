@@ -32,7 +32,6 @@ function deleteGame() {
 
 $(document).ready(function() {
   console.log("init.js loaded!");
-
   // run object builds here
 
   buildItems();

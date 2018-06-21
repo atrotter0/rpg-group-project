@@ -1,7 +1,6 @@
 body {
   background-image: url("../img/background.png");
   background-repeat: repeat;
-  cursor: url('../img/gauntlet_mouse.png') 10 10, auto;
 }
 
 .btn:focus {
@@ -828,7 +827,9 @@ body {
 /**********/
 /* Room 1 */
 /**********/
-
+#room-box {
+  cursor: url('../img/gauntlet_mouse.png') 10 10, auto;
+}
 
 #room-1 {
   display: none;
