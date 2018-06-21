@@ -489,6 +489,11 @@ function removeEnemyFromRoom() {
   }
 }
 
+function playSong() {
+  var dungeonSong = new Audio('audio/dungeon_song.mp3');
+  dungeonSong.play();
+}
+
 $(document).ready(function() {
   console.log("ui.js loaded!");
 
@@ -500,6 +505,7 @@ $(document).ready(function() {
     $("#current-mp-init").text(player.mp);
     $("#current-ap-init").text(player.ap);
     $("#current-sp-init").text(player.sp);
+    playSong();
   });
 
   $("#confirm-name").click(function() {
@@ -516,6 +522,7 @@ $(document).ready(function() {
   $("#load-game").click(function() {
     loadPlayer();
     runLoadGame();
+    playSong();
   });
 
   /* START GAME ADD STATS */
