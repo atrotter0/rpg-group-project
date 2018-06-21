@@ -1,5 +1,4 @@
 // UI
-
 function hideMenuOptions() {
   $("#new-game").hide();
   $("#load-game").hide();
@@ -424,8 +423,18 @@ function setDisabledConsumables() {
 }
 
 function runLevelUp() {
+  initiateLevelUp();
   hideCurrentScreen();
   $("#level-up-window").show().addClass("current-screen");
+}
+
+function initiateLevelUp() {
+  initiateNewStatsInGame();
+  $("#level-reached").text(player.level);
+  $("#current-hp").text(player.hp);
+  $("#current-mp").text(player.mp);
+  $("#current-ap").text(player.ap);
+  $("#current-sp").text(player.sp);
 }
 
 function resetCharacterPointScreen() {
@@ -438,16 +447,6 @@ function resetCharacterPointScreen() {
 
 $(document).ready(function() {
   console.log("ui.js loaded!");
-  //hideCharacterScreen();
-  $("#main-menu").show();
-  /* FOR THE CLICK EVENT OR HOWEVER WE TRANSITION INTO THE LEVEL UP/ADD STATS SCREEN */
-  initiateNewStatsInGame();
-  $("#level-reached").text(player.level);
-  $("#current-hp").text(player.hp);
-  $("#current-mp").text(player.mp);
-  $("#current-ap").text(player.ap);
-  $("#current-sp").text(player.sp);
-  /* END OF STUFF FOR CLICK EVENT OR HOWEVER WE TRANSITION INTO THE LEVEL UP/ADD STATS SCREEN */
 
   $("#new-game").click(function() {
     hideMenuOptions();
@@ -588,7 +587,7 @@ $(document).ready(function() {
   $("#finish-allocating-points").click(function() {
     hideCurrentScreen();
     $("#room-" + player.room.id).show().addClass("current-screen");
-  })
+  });
 
   /* Battle System */
   $(".enemy").click(function() {

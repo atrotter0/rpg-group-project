@@ -28,6 +28,7 @@ function saveGame(playerObject) {
 function deleteGame() {
   localStorage.removeItem("rpg-game");
 }
+
 // test player
 player = new Player("Kelli");
 
@@ -38,7 +39,7 @@ $(document).ready(function() {
   buildItems();
   buildEnemies();
   buildRooms();
-  newStats = new NewStats();
+  buildStats();
   createRoomEnemyClicks(roomMap.room1);
   createRoomEnemyClicks(roomMap.room2);
   createRoomItemClicks(roomMap.room1);
