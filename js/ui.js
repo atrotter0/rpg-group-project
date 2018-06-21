@@ -566,6 +566,7 @@ var spellSound = new Audio('audio/firebolt.ogg');
 function playDungeonSong() {
   battleSong.pause();
   battleSong.currentTime = 0;
+  dungeonSong.currentTime = 0;
   dungeonSong.play();
 }
 
@@ -787,11 +788,14 @@ $(document).ready(function() {
   });
 
   $(".room-load-buttons").click(function(){
-
+    loadPlayer();
+    runLoadGame();
+    playDungeonSong();
   });
 
   $(".room-save-buttons").click(function(){
-
+    saveGame(player);
+    alertRoom("Game data for [ " + player.name + " ] saved!");
   });
 
   $(".start-over").click(function() {
@@ -801,5 +805,6 @@ $(document).ready(function() {
   $("#respawn").click(function() {
     loadPlayer();
     runLoadGame();
+    playDungeonSong();
   });
 });
