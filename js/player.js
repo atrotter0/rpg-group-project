@@ -24,6 +24,43 @@ function Player(room) {
   this.hasManaConsumable = false;
 }
 
+Player.prototype.equipItem = function(item) {
+  if(item.type === "Weapon") {
+    this.equippedWeapon = item;
+    this.updateStats(this.equippedWeapon);
+  } else if(item.type === "Armor") {
+    this.equippedArmor = item;
+    this.updateStats(this.equippedArmor);
+  } else {
+    alertError("You can only equip weapons or armor items.");
+  }
+}
+
+Player.prototype.unEquipItem = function(item) {
+  this.hpMax -= item.addHp;
+  this.hp -= item.addHp;
+  this.mpMax -= item.addMp;
+  this.mp -= item.addMp;
+  this.ap -= item.attackBonus;
+  this.sp -= item.spellBonus;
+  if(item.type === "Weapon") {
+    this.equippedWeapon = "";
+  } else {
+    this.equippedArmor = "";
+  }
+  fillCharacterValues(this);
+}
+
+Player.prototype.updateStats = function(item) {
+  this.hpMax += item.addHp;
+  this.hp += item.addHp;
+  this.mpMax += item.addMp;
+  this.mp += item.addMp;
+  this.ap += item.attackBonus;
+  this.sp += item.spellBonus;
+  fillCharacterValues(this);
+}
+
 Player.prototype.equipBestItem = function() {
   for(i = 0; i < this.items.length; i++) {
     if((this.items[i].level > this.equippedWeapon.level && this.items[i].type === "Weapon") || Object.keys(this.equippedWeapon).length === 0 && this.items[i].type === "Weapon") {
@@ -190,13 +227,6 @@ Player.prototype.unEquipItem = function(item) {
   this.mp -= item.manaBonus;
   this.ap -= item.attackBonus;
   this.sp -= item.spellBonus;
-}
-
-Player.prototype.equipItem = function(item) {
-  this.hp += newItem.healthBonus;
-  this.mp += item.manaBonus;
-  this.ap += item.attackBonus;
-  this.sp += item.spellBonus;
 }
 
 Player.prototype.giveAwardsToPlayer = function(enemy) {
