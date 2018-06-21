@@ -136,8 +136,8 @@ function displayEquippedItems(player) {
 
 function fillCharacterValues(player) {
   $("#char-name").text(player.name);
-  $("#health-points-indicator").text(player.hp);
-  $("#mana-points-indicator").text(player.mp);
+  $("#health-points-indicator").text(player.hpMax);
+  $("#mana-points-indicator").text(player.mpMax);
   $("#attack-power-indicator").text(player.ap);
   $("#spell-power-indicator").text(player.sp);
   $("#experience-indicator").text(player.xp);
@@ -366,8 +366,8 @@ function upgradeStats() {
   if (newStats.availablePoints !== 0) {
   alertError("You haven't spent all your points yet!")
 } else {
-  player.hp += newStats.maxHp;
-  player.mp += newStats.maxMp;
+  player.hpMax += newStats.newHp;
+  player.mpMax += newStats.newMp;
   player.ap += newStats.newAp;
   player.sp += newStats.newSp;
   newStats.newHp = 0;
@@ -441,15 +441,15 @@ function runLevelUp() {
 function initiateLevelUp() {
   initiateNewStatsInGame();
   $("#level-reached").text(player.level);
-  $("#current-hp").text(player.maxHp);
-  $("#current-mp").text(player.maxMp);
+  $("#current-hp").text(player.hpMax);
+  $("#current-mp").text(player.mpMax);
   $("#current-ap").text(player.ap);
   $("#current-sp").text(player.sp);
 }
 
 function resetCharacterPointScreen() {
-  player.maxHp = 10;
-  player.maxMp = 20;
+  player.hpMax = 10;
+  player.mpMax = 20;
   player.ap = 1;
   player.sp = 3;
   $("#level-up-table").show();
@@ -475,8 +475,8 @@ $(document).ready(function() {
     hideMenuOptions();
     initiateNewStats();
     displayNewGameBox();
-    $("#current-hp-init").text(player.maxHp);
-    $("#current-mp-init").text(player.maxMp);
+    $("#current-hp-init").text(player.hpMax);
+    $("#current-mp-init").text(player.mpMax);
     $("#current-ap-init").text(player.ap);
     $("#current-sp-init").text(player.sp);
   });
@@ -542,8 +542,8 @@ $(document).ready(function() {
       alertError("You haven't spent all your points!");
     } else {
       upgradeStats();
-      $("#current-hp-init").text(player.maxHp);
-      $("#current-mp-init").text(player.maxMp);
+      $("#current-hp-init").text(player.hpMax);
+      $("#current-mp-init").text(player.mpMax);
       $("#current-ap-init").text(player.ap);
       $("#current-sp-init").text(player.sp);
       $("#level-up-table").hide();
@@ -596,8 +596,8 @@ $(document).ready(function() {
       alertError("You haven't spent all your points!");
     } else {
       upgradeStats();
-      $("#current-hp").text(player.maxHp);
-      $("#current-mp").text(player.maxMp);
+      $("#current-hp").text(player.hpMax);
+      $("#current-mp").text(player.mpMax);
       $("#current-ap").text(player.ap);
       $("#current-sp").text(player.sp);
       $("#add-stats-button2").hide();
