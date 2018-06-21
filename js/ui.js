@@ -483,7 +483,7 @@ $(document).ready(function() {
 
   $("#load-game").click(function() {
     loadPlayer();
-    runLoadGame(player.name);
+    runLoadGame();
   });
 
   /* START GAME ADD STATS */
