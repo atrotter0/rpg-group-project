@@ -76,15 +76,20 @@ function createItemClickEvents() {
 }
 
 function createDoorClickEvents() {
-  $("#room1-door1").click(function(){
-    player.lastRoom = player.room;
-    player.room = roomMap.room2;
-    hideCurrentScreen();
-    $("#room-2").show().addClass("current-screen");
-    alertRoom(player.room.story);
+  $("#room1-door1").click(function() {
+    if (enemyMap.enemy1.isDead() && enemyMap.enemy2.isDead()) {
+      player.lastRoom = player.room;
+      player.room = roomMap.room2;
+      hideCurrentScreen();
+      $("#room-2").show().addClass("current-screen");
+      alertRoom(player.room.story);
+    }
+    else {
+      alertRoom("Can't leave, the enemies won't let you!")
+    }
   });
 
-  $("#room2-door2").click(function(){
+  $("#room2-door2").click(function() {
     player.lastRoom = player.room;
     player.room = roomMap.room1;
     hideCurrentScreen();
@@ -92,11 +97,14 @@ function createDoorClickEvents() {
     alertRoom(player.room.story);
   });
 
-  $("#room2-door3").click(function(){
-    player.lastRoom = player.room;
-    player.room = roomMap.room3;
-    hideCurrentScreen();
-    $("#room-3").show().addClass("current-screen");
+  $("#room2-door3").click(function() {
+    if (enemyMap.enemy3.isDead() && enemyMap.enemy4.isDead() && enemyMap.enemy5.isDead() && enemyMap.enemy6.isDead()) {
+      //show win screen
+    }
+    else {
+      alertRoom("Can't leave, the enemies won't let you!")
+    }
+
   });
 }
 

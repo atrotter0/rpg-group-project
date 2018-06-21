@@ -1,3 +1,8 @@
+body {
+  background-image: url("../img/background.png");
+  background-repeat: repeat;
+}
+
 .btn:focus {
   outline: none;
 }
@@ -775,6 +780,10 @@
 /**********/
 /* Room 1 */
 /**********/
+#room-box {
+  cursor: url('../img/gauntlet_mouse.png') 10 10, auto;
+}
+
 
 #room-1 {
   display: none;
@@ -794,7 +803,7 @@
 }
 
 #room1-enemy1:hover {
-  cursor: pointer;
+  cursor: url('../img/battle_mouse.png') 10 10, pointer;
 }
 
 #room1-enemy2 {
@@ -807,7 +816,7 @@
 }
 
 #room1-enemy2:hover {
-  cursor: pointer;
+  cursor: url('../img/battle_mouse.png') 10 10, pointer;
 }
 
 #room1-item1 {
@@ -819,7 +828,7 @@
 }
 
 #room1-item1:hover {
-  cursor: pointer;
+ cursor: url('../img/item_mouse.png') 10 10, pointer;
 }
 
 #room1-item2 {
@@ -831,7 +840,7 @@
 }
 
 #room1-item2:hover {
-  cursor: pointer;
+  cursor: url('../img/item_mouse.png') 10 10, pointer;
 }
 
 #room1-door1 {
@@ -843,7 +852,7 @@
 }
 
 #room1-door1:hover {
-  cursor: pointer;
+  cursor: url('../img/item_mouse.png') 10 10, pointer;
 }
 
 /**********/
@@ -868,7 +877,7 @@
 }
 
 #room2-enemy3:hover {
-  cursor: pointer;
+  cursor: url('../img/battle_mouse.png') 10 10, pointer;
 }
 
 #room2-enemy4 {
@@ -881,7 +890,7 @@
 }
 
 #room2-enemy4:hover {
-  cursor: pointer;
+  cursor: url('../img/battle_mouse.png') 10 10, pointer;
 }
 
 #room2-enemy5 {
@@ -894,7 +903,7 @@
 }
 
 #room2-enemy5:hover {
-  cursor: pointer;
+  cursor: url('../img/battle_mouse.png') 10 10, pointer;
 }
 
 #room2-enemy6 {
@@ -907,7 +916,7 @@
 }
 
 #room2-enemy6:hover {
-  cursor: pointer;
+  cursor: url('../img/battle_mouse.png') 10 10, pointer;
 }
 
 #room2-item3 {
@@ -919,7 +928,7 @@
 }
 
 #room2-item3:hover {
-  cursor: pointer;
+  cursor: url('../img/item_mouse.png') 10 10, pointer;
 }
 
 #room2-trap1 {
@@ -931,7 +940,7 @@
   }
 
 #room2-trap1:hover {
-  cursor: pointer;
+  cursor: url('../img/item_mouse.png') 10 10, pointer;
 }
 
 
@@ -944,20 +953,19 @@
 }
 
 #room2-door2:hover {
-  cursor: pointer;
+  cursor: url('../img/item_mouse.png') 10 10, pointer;
 }
 
 #room2-door3 {
   width: 60px;
   height: 50px;
   position: relative;
-  outline: 1px solid lightgreen;
   top: -7px;
   left: 620px;
 }
 
 #room2-door3:hover {
-  cursor: pointer;
+  cursor: url('../img/item_mouse.png') 10 10, pointer;
 }
 
 /* KELLI'S STYLES */
