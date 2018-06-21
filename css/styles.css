@@ -21,7 +21,7 @@
 /*************/
 
 .alert {
-  margin: 0 auto;
+  margin: 10px auto 0 auto;
   font-weight: bold;
   width: 720px;
   text-align: center;

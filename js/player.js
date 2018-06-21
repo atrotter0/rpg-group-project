@@ -151,6 +151,7 @@ Player.prototype.levelUp = function(level) {
 
 Player.prototype.checkXP = function() {
   if(this.xp === 100) {
+    newStats.availablePoints = 3;
     this.levelUp();
     alertSuccess("Level Up! You are now level " + this.level);
     runLevelUp();

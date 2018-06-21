@@ -23,6 +23,7 @@ function runNewGame(playerName) {
 
   if (newStats.availablePoints <= 3 && newStats.availablePoints > 0) return alertError("You still have stat points left to spend!");
 
+  alertSuccess("Game data for [ " + playerName + " ] created!");
   saveGame(player);
   //fadeOut();
   //startStory();
@@ -360,7 +361,6 @@ function upgradeStats() {
   player.mp += newStats.newMp;
   player.ap += newStats.newAp;
   player.sp += newStats.newSp;
-  newStats.availablePoints = 3;
   newStats.newHp = 0;
   newStats.newMp = 0;
   newStats.newAp = 0;
