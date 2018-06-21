@@ -806,7 +806,8 @@ body {
   width: 40px;
   height: 65px;
   position: relative;
-  top: 86px;
+  outline: 1px solid red;
+  top: 18px;
   left: 155px;
   background-image: url("../img/enemy1.png");
 }
@@ -819,7 +820,8 @@ body {
   width: 40px;
   height: 65px;
   position: relative;
-  top: 239px;
+  outline: 1px solid red;
+  top: 170px;
   left: 359px;
   background-image: url("../img/enemy2.png");
 }
@@ -832,7 +834,8 @@ body {
   width: 60px;
   height: 40px;
   position: relative;
-  top: 251px;
+  outline: 1px solid red;
+  top: 183px;
   left: 350px;
 }
 
@@ -844,7 +847,8 @@ body {
   width: 70px;
   height: 40px;
   position: relative;
-  top: -139px;
+  outline: 1px solid red;
+  top: -207px;
   left: 500px;
 }
 
@@ -856,7 +860,8 @@ body {
   width: 20px;
   height: 60px;
   position: relative;
-  top: -97px;
+  outline: 1px solid red;
+  top: -165px;
   left: 678px;
 }
 
@@ -874,6 +879,15 @@ body {
   width: 768px;
   height: 576px;
   margin: 0 auto;
+}
+
+#room2-hero {
+  width: 50px;
+  height: 70px;
+  position: relative;
+  outline: 1px solid red;
+  top: 123px;
+  left: 358px;
 }
 
 #room2-enemy3 {
