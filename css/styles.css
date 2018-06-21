@@ -14,7 +14,7 @@ body {
 }
 
 .fancy-shadow {
-  text-shadow: 1px 1px #ada4a4;
+  text-shadow: 3px 3px rgba(123,121,121,0.75);
 }
 
 .invisible {
@@ -110,7 +110,8 @@ body {
 
 #main-menu-image-box {
   border-radius: 3px;
-  box-shadow: 0px 2px 20px rgba(78,78,78,0.63);
+  bbox-shadow: 0px 2px 20px rgba(78,78,78,0.63);
+  box-shadow: 2px 2px 20px rgba(35, 34, 34, 0.98);
   margin: 20px auto;
   height: 400px;
   width: 800px;
@@ -248,7 +249,7 @@ body {
   background-repeat: no-repeat;
   margin: 0 auto;
   border-radius: 3px;
-  box-shadow: 0px 2px 20px rgba(78,78,78,0.63);
+  box-shadow: 2px 2px 20px rgba(35, 34, 34, 0.98);
 }
 
 #battle-alert {
@@ -271,6 +272,7 @@ body {
   width: 768px;
   margin: 0 auto;
   background-color: #707677;
+  box-shadow: 2px 5px 20px rgba(35, 34, 34, 0.98)
 }
 
 #death-screen {
@@ -791,6 +793,7 @@ body {
   width: 768px;
   height: 576px;
   margin: 0 auto;
+  box-shadow: 2px 2px 20px rgba(35, 34, 34, 0.98);
 }
 
 #room1-enemy1 {
@@ -865,6 +868,7 @@ body {
   width: 768px;
   height: 576px;
   margin: 0 auto;
+  box-shadow: 2px 2px 20px rgba(35, 34, 34, 0.98);
 }
 
 #room2-enemy3 {
