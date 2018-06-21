@@ -97,7 +97,7 @@ function createDoorClickEvents() {
 
   $("#room2-door3").click(function() {
     if (enemyMap.enemy3.isDead() && enemyMap.enemy4.isDead() && enemyMap.enemy5.isDead() && enemyMap.enemy6.isDead()) {
-      //show win screen
+      showWinScreen();
     }
     else {
       alertRoom("Can't leave, the enemies won't let you!")

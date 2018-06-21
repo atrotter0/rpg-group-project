@@ -276,7 +276,7 @@ body {
   box-shadow: 2px 5px 20px rgba(35, 34, 34, 0.98)
 }
 
-#death-screen {
+.final-screen {
   display: none;
   position: absolute; top: 0; right: 0; bottom: 0; left: 0;
   background-color: black;
@@ -284,7 +284,7 @@ body {
   width: 100%;
 }
 
-#death-message {
+.final-screen-msg {
   margin: 300px auto;
   text-align: center;
   color: white;
@@ -293,8 +293,21 @@ body {
   color: #b53d41;
 }
 
+#death-screen {
+  display: none;
+  background-color: black;
+}
+
 #bloody-text {
   text-shadow: 2px 2px 5px maroon;
+}
+
+#win-screen {
+  display: none;
+}
+
+#win-message {
+  display: none;
 }
 
 .battle-menu-row {
