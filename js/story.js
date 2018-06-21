@@ -3,9 +3,8 @@ console.log("story.js loaded!");
 
 storyMap = {};
 
-function Chapter(title, textEntries) {
-  this.title = title;
-  this.text = textEntries;
+function Chapter(text) {
+  this.text = text;
 }
 
 // Each text var should be limited to 1 - 2 sentences.
@@ -13,7 +12,6 @@ function Chapter(title, textEntries) {
 // Once at the end of the array, a new button replaces continue and will load the next room of the game.
 function buildStory() {
   var textArray = [];
-  var title = [];
   var text0 = "";
   var text1 = "";
   var text2 = "";
@@ -28,11 +26,9 @@ function buildStory() {
   // Chapter 1
   textArray = [];
   title = "Into the Deeps";
-  text1 = "Some text";
-  text2 = "Some more text";
-  text3 = "Even more text";
-  textArray.push(display1, display2, display3);
-  var chapter1 = new Chapter(title, textArray);
+  text1 = "Find your way out of the dungeon!";
+  textArray.push(text1);
+  var chapter1 = new Chapter(textArray);
 
   // Chapter 2
   textArray = [];

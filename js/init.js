@@ -36,6 +36,7 @@ $(document).ready(function() {
   buildItems();
   buildEnemies();
   buildRooms();
+  buildStory();
   createItemClickEvents();
   createDoorClickEvents();
   createTrapClickEvents();
