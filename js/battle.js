@@ -1,3 +1,5 @@
+//Battle
+console.log("battle.js loaded!");
 
 function startBattle(enemy) {
   hideCurrentScreen();
