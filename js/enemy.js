@@ -24,7 +24,7 @@ function EnemyMap() {
 // Populates map with a predefined list of enemies set by tier (id, tier, name, hp, dmg, xp, loot)
 EnemyMap.prototype.populateEnemies = function() {
   //Room 1 Enemies
-  var enemy1 = new Enemy(1, 1, "Skeletal Warrior", 1, 1, 5, itemMap.fetchLevelSpecificItems(1));
+  var enemy1 = new Enemy(1, 1, "Skeletal Warrior", 10, 1, 5, itemMap.fetchLevelSpecificItems(1));
   var enemy2 = new Enemy(2, 1, "Skeletal Warrior", 15, 4, 5, itemMap.fetchLevelSpecificItems(1));
 
   //Room 2 Enemies
