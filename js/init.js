@@ -32,6 +32,11 @@ function deleteGame() {
 // test player
 player = new Player("Kelli");
 
+function runTestScript() {
+  player.items.push(itemMap.manaPotion1);
+  player.mp = 5;
+}
+
 $(document).ready(function() {
   console.log("init.js loaded!");
 
@@ -44,4 +49,7 @@ $(document).ready(function() {
   createRoomEnemyClicks(roomMap.room2);
   createRoomItemClicks(roomMap.room1);
   createRoomItemClicks(roomMap.room2);
+
+  //run test script
+  runTestScript();
 });
