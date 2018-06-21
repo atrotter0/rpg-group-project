@@ -470,6 +470,12 @@ function showDeathScreen() {
   $("#death-screen").addClass("current-screen").show();
 }
 
+function showWinScreen() {
+  hideCurrentScreen();
+  $("#win-screen").addClass("current-screen").fadeIn(1200);
+  $("#win-message").fadeIn(2300);
+}
+
 function hideBattleMenu() {
   $("#battle-menu").hide();
 }
@@ -788,7 +794,7 @@ $(document).ready(function() {
 
   });
 
-  $("#start-over").click(function() {
+  $(".start-over").click(function() {
     location.reload();
   });
 
