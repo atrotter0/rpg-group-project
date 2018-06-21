@@ -186,15 +186,15 @@ Player.prototype.startLevelUp = function() {
 }
 
 Player.prototype.unEquipItem = function(item) {
-  this.hp -= item.healthBonus;
-  this.mp -= item.manaBonus;
+  this.maxHp -= item.addHp;
+  this.maxMp -= item.addMp;
   this.ap -= item.attackBonus;
   this.sp -= item.spellBonus;
 }
 
-Player.prototype.equipItem = function(item) {
-  this.hp += newItem.healthBonus;
-  this.mp += item.manaBonus;
+Player.prototype.updateStats = function(item) {
+  this.maxHp += item.addHp;
+  this.mp += item.addMp;
   this.ap += item.attackBonus;
   this.sp += item.spellBonus;
 }

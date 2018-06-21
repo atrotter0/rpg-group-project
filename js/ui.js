@@ -366,8 +366,8 @@ function upgradeStats() {
   if (newStats.availablePoints !== 0) {
   alertError("You haven't spent all your points yet!")
 } else {
-  player.hp += newStats.newHp;
-  player.mp += newStats.newMp;
+  player.hp += newStats.maxHp;
+  player.mp += newStats.maxMp;
   player.ap += newStats.newAp;
   player.sp += newStats.newSp;
   newStats.newHp = 0;
@@ -441,15 +441,15 @@ function runLevelUp() {
 function initiateLevelUp() {
   initiateNewStatsInGame();
   $("#level-reached").text(player.level);
-  $("#current-hp").text(player.hp);
-  $("#current-mp").text(player.mp);
+  $("#current-hp").text(player.maxHp);
+  $("#current-mp").text(player.maxMp);
   $("#current-ap").text(player.ap);
   $("#current-sp").text(player.sp);
 }
 
 function resetCharacterPointScreen() {
-  player.hp = 10;
-  player.mp = 20;
+  player.maxHp = 10;
+  player.maxMp = 20;
   player.ap = 1;
   player.sp = 3;
   $("#level-up-table").show();
@@ -475,8 +475,8 @@ $(document).ready(function() {
     hideMenuOptions();
     initiateNewStats();
     displayNewGameBox();
-    $("#current-hp-init").text(player.hp);
-    $("#current-mp-init").text(player.mp);
+    $("#current-hp-init").text(player.maxHp);
+    $("#current-mp-init").text(player.maxMp);
     $("#current-ap-init").text(player.ap);
     $("#current-sp-init").text(player.sp);
   });
@@ -542,8 +542,8 @@ $(document).ready(function() {
       alertError("You haven't spent all your points!");
     } else {
       upgradeStats();
-      $("#current-hp-init").text(player.hp);
-      $("#current-mp-init").text(player.mp);
+      $("#current-hp-init").text(player.maxHp);
+      $("#current-mp-init").text(player.maxMp);
       $("#current-ap-init").text(player.ap);
       $("#current-sp-init").text(player.sp);
       $("#level-up-table").hide();
@@ -596,8 +596,8 @@ $(document).ready(function() {
       alertError("You haven't spent all your points!");
     } else {
       upgradeStats();
-      $("#current-hp").text(player.hp);
-      $("#current-mp").text(player.mp);
+      $("#current-hp").text(player.maxHp);
+      $("#current-mp").text(player.maxMp);
       $("#current-ap").text(player.ap);
       $("#current-sp").text(player.sp);
       $("#add-stats-button2").hide();
