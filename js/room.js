@@ -8,6 +8,7 @@ function Room(id, name, enemies) {
   this.id = id;
   this.name = name;
   this.enemies = enemies;
+  this.story = "";
 }
 
 // Room Map Constructor
@@ -18,7 +19,9 @@ function RoomMap() {
 // Populates Room Map with predefined rooms (id, name, enemies, doors)
 RoomMap.prototype.populateRooms = function() {
   var room1 = new Room(1, "Dungeon", [enemyMap.enemy1, enemyMap.enemy2]);
+  room1.story = "Find your way out of the dungeon!"
   var room2 = new Room(2, "Dungeon", [enemyMap.enemy3, enemyMap.enemy4, enemyMap.enemy5, enemyMap.enemy6]);
+  room2.story = "Oh, no! The troll leader is guarding the exit!"
 
   this.room1 = room1;
   this.room2 = room2;
@@ -78,6 +81,7 @@ function createDoorClickEvents() {
     player.room = roomMap.room2;
     hideCurrentScreen();
     $("#room-2").show().addClass("current-screen");
+    alertRoom(player.room.story);
   });
 
   $("#room2-door2").click(function(){
@@ -85,6 +89,7 @@ function createDoorClickEvents() {
     player.room = roomMap.room1;
     hideCurrentScreen();
     $("#room-1").show().addClass("current-screen");
+    alertRoom(player.room.story);
   });
 
   $("#room2-door3").click(function(){
