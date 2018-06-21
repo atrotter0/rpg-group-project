@@ -39,25 +39,36 @@ function grabEnemyId(element) {
 function createItemClickEvents() {
   //First Room
   $("#room1-item1").click(function(){
-    player.checkClickItem();
-    alertRoom("You found a " + player.items[player.items.length - 1].name + ".");
-    $("#room1-item1").off("click");
-    $("#room1-item1").css({'cursor' : 'default'});
+    if (enemyMap.enemy2.isDead()) {
+      player.checkClickItem();
+      alertRoom("You found a " + player.items[player.items.length - 1].name + ".");
+      $("#room1-item1").off("click");
+      $("#room1-item1").css({'cursor' : 'default'});
+      // saveGame(player);
+    }
+    else {
+      alertRoom("Can't access, an enemy is in your path!")
+    }
   });
 
   $("#room1-item2").click(function(){
-    player.checkClickConsumable();
-    alertRoom("You found a " + player.items[player.items.length - 1].name + ".");
-    $("#room1-item2").off("click");
-    $("#room1-item2").css({'cursor' : 'default'});
+      player.checkClickConsumable();
+      alertRoom("You found a " + player.items[player.items.length - 1].name + ".");
+      $("#room1-item2").off("click");
+      $("#room1-item2").css({'cursor' : 'default'});
   });
 
   //Second Room
   $("#room2-item3").click(function(){
-    player.checkClickItem();
-    alertRoom("You found a " + player.items[player.items.length - 1].name + ".");
-    $("#room2-item3").off("click");
-    $("#room2-item3").css({'cursor' : 'default'});
+    if (enemyMap.enemy4.isDead() && enemyMap.enemy5.isDead()) {
+      player.checkClickItem();
+      alertRoom("You found a " + player.items[player.items.length - 1].name + ".");
+      $("#room2-item3").off("click");
+      $("#room2-item3").css({'cursor' : 'default'});
+    }
+    else {
+      alertRoom("Can't access, enemies guard the area!")
+    }
   });
 }
 

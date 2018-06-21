@@ -3,7 +3,7 @@
 function playerFromStorage() {
   if (checkStorage()) {
     var playerData = getPlayer();
-    alertSuccess("Game data for [ " + playerData.name + " ] loaded!");
+    alertRoom("Game data for [ " + playerData.name + " ] loaded!");
     return playerData;
   } else {
     return alertError("No player data found.");
