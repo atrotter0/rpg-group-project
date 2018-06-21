@@ -36,7 +36,10 @@ $(document).ready(function() {
   buildItems();
   buildEnemies();
   buildRooms();
-  newStats = new NewStats();
+  buildStats();
+  createRoomEnemyClicks(roomMap.room1);
   createRoomEnemyClicks(roomMap.room2);
+  createRoomItemClicks(roomMap.room1);
   createRoomItemClicks(roomMap.room2);
+  buildPlayer();
 });
