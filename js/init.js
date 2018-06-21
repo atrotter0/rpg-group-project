@@ -29,9 +29,6 @@ function deleteGame() {
   localStorage.removeItem("rpg-game");
 }
 
-// test player
-player = new Player("Kelli");
-
 $(document).ready(function() {
   console.log("init.js loaded!");
 
@@ -44,4 +41,5 @@ $(document).ready(function() {
   createRoomEnemyClicks(roomMap.room2);
   createRoomItemClicks(roomMap.room1);
   createRoomItemClicks(roomMap.room2);
+  buildPlayer();
 });

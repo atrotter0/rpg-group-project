@@ -3,8 +3,8 @@ console.log("player.js loaded!");
 
 var player = {};
 
-function Player(name, room) {
-  this.name = name;
+function Player(room) {
+  this.name = "";
   this.level = 1;
   this.hpMax = 10;
   this.hp = this.hpMax;
@@ -180,8 +180,12 @@ Player.prototype.getLastItem = function() {
   return this.items[this.items.length - 1];
 }
 
+function buildPlayer() {
+  player = new Player(roomMap.room1)
+}
+
 function createNewPlayer(name) {
-  player = new Player(name, roomMap.room1);
+  player.name = name;
   saveGame(player);
   fillCharacterValues(player);
 }
