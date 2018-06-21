@@ -1,3 +1,6 @@
+//Battle
+console.log("battle.js loaded!");
+
 function startBattle(enemy) {
   hideCurrentScreen();
   showBattleScreen();
@@ -41,8 +44,8 @@ function runPlayerTurn() {
 }
 
 function runPlayerAttack(enemy) {
-  setTimeout(function() { 
-    player.playerAttack(enemy); 
+  setTimeout(function() {
+    player.playerAttack(enemy);
     battleAnimationEnemy();
   }, 0);
   setTimeout(function() { checkEnemyDead(player.currentEnemy); }, 1000);
@@ -51,6 +54,8 @@ function runPlayerAttack(enemy) {
 function runMpCheck() {
   if (player.noMp()) {
     disableButton("#spell");
+  } else {
+    enableButton("#spell");
   }
 }
 
@@ -79,6 +84,7 @@ function runPlayerManaPotion() {
 }
 
 function checkPlayerDead() {
+  removeEnemyFromRoom();
   if (player.isDead()) {
     showDeathScreen();
     console.log("You lost!");
@@ -89,8 +95,14 @@ function checkPlayerDead() {
 }
 
 function checkEnemyDead(enemy) {
+  removeEnemyFromRoom();
   if (enemy.isDead()) {
     animationEnemyDefeated();
+    setTimeout(function() {
+      showLootScreen(); 
+      resetEnemySprite();
+    }, 2000);
+    player.giveAwardsToPlayer(enemy);
     console.log("You won!");
   } else {
     console.log("Still fightin!");

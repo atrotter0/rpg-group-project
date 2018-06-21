@@ -1,5 +1,4 @@
 // UI
-
 function hideMenuOptions() {
   $("#new-game").hide();
   $("#load-game").hide();
@@ -22,10 +21,25 @@ function displayMenuOptions() {
 function runNewGame(playerName) {
   if (!validate(playerName)) return alertError("You need to enter a valid name.");
 
-  createNewPlayer(playerName, roomMap.room1);
-  alertSuccess("Game data for [ " + player.name + " ] created!");
-  //fadeOut();
-  //startStory();
+  if (newStats.availablePoints <= 3 && newStats.availablePoints > 0) return alertError("You still have stat points left to spend!");
+
+  player.name = playerName;
+  alertSuccess("Game data for [ " + playerName + " ] created!");
+  saveGame(player);
+  hideCurrentScreen();
+  $("#room-" + player.room.id).show().addClass("current-screen");
+  showStory();
+}
+
+function showStory() {
+  alertRoom(player.room.story);
+  setTimeout(function() { resetRoomAlert(); }, 2000);
+}
+
+function runLoadGame() {
+  hideCurrentScreen();
+  alertSuccess("Game data for [ " + player.name + " ] loaded!");
+  $("#room-" + player.room.id).show().addClass("current-screen");
 }
 
 function validate(value) {
@@ -33,13 +47,17 @@ function validate(value) {
 }
 
 function alertError(msg) {
-  $("#alert-field").hide().text(msg).removeClass("alert-success")
+  $(".alert").hide().text(msg).removeClass("alert-success")
     .addClass("alert-danger").fadeIn(800).delay(3000).fadeOut(1000);
 }
 
 function alertSuccess(msg) {
-  $("#alert-field").hide().text(msg).removeClass("alert-danger")
+  $(".alert").hide().text(msg).removeClass("alert-danger")
     .addClass("alert-success").fadeIn(800).delay(1000).fadeOut(1000);
+}
+
+function alertRoom(msg) {
+  $(".alert-room").text(msg);
 }
 
 function disableButton(id) {
@@ -74,6 +92,10 @@ function battleAnimationStatRestore() {
 function animationEnemyDefeated() {
   $("#enemy-stats").addClass("invisible");
   $("#enemy-sprite-img").effect("pulsate", { times: 4 }).toggle("explode", { pieces: 48 });
+}
+
+function resetEnemySprite() {
+  $("#enemy-sprite-img").toggle("explode", { pieces: 48 });
 }
 
 function shakeElement(id) {
@@ -111,9 +133,9 @@ function showRoom(player) {
   var roomId = player.room;
 }
 
-/*--------------------------
-INVENTORY SCREEN FUNCTIONS -
---------------------------*/
+/******************************/
+/* INVENTORY SCREEN FUNCTIONS */
+/******************************/
 
 function equipItemOnClick() {
   $(".grid-item").click(function() {
@@ -223,50 +245,194 @@ function initiateNewStatsInGame() {
   console.log("initiate new stats in game");
 }
 
-function addPoint(number, stat) {
+function addHp(number) {
   if (number >= 3 || newStats.availablePoints <= 0) {
     alertError("You don't have any points left to spend!");
   } else {
   var newNumber = number + 1;
   newStats.availablePoints--;
   newStats.newHp = newNumber;
-  $("#" + stat + "-added").text(newNumber);
+  $("#hp-added").text(newNumber);
   $("#available-points").text(newStats.availablePoints);
   }
 }
 
-function addPointInGame(number, stat) {
+function addMp(number) {
+  if (number >= 3 || newStats.availablePoints <= 0) {
+    alertError("You don't have any points left to spend!");
+  } else {
+  var newNumber = number + 1;
+  newStats.availablePoints--;
+  newStats.newMp = newNumber;
+  $("#mp-added").text(newNumber);
+  $("#available-points").text(newStats.availablePoints);
+  }
+}
+
+function addAp(number) {
+  if (number >= 3 || newStats.availablePoints <= 0) {
+    alertError("You don't have any points left to spend!");
+  } else {
+  var newNumber = number + 1;
+  newStats.availablePoints--;
+  newStats.newAp = newNumber;
+  $("#ap-added").text(newNumber);
+  $("#available-points").text(newStats.availablePoints);
+  }
+}
+
+function addSp(number) {
+  if (number >= 3 || newStats.availablePoints <= 0) {
+    alertError("You don't have any points left to spend!");
+  } else {
+  var newNumber = number + 1;
+  newStats.availablePoints--;
+  newStats.newSp = newNumber;
+  $("#sp-added").text(newNumber);
+  $("#available-points").text(newStats.availablePoints);
+  }
+}
+
+function addHpInGame(number) {
   if (number >= 3 || newStats.availablePoints <= 0) {
     alertError("You don't have any points left to spend!");
   } else {
   var newNumber = number + 1;
   newStats.availablePoints--;
   newStats.newHp = newNumber;
-  $("#" + stat + "-added2").text(newNumber);
+  $("#hp-added2").text(newNumber);
   $("#available-points2").text(newStats.availablePoints);
   }
 }
 
-function subtractPoint(number, stat) {
+function addMpInGame(number) {
+  if (number >= 3 || newStats.availablePoints <= 0) {
+    alertError("You don't have any points left to spend!");
+  } else {
+  var newNumber = number + 1;
+  newStats.availablePoints--;
+  newStats.newMp = newNumber;
+  $("#mp-added2").text(newNumber);
+  $("#available-points2").text(newStats.availablePoints);
+  }
+}
+
+function addApInGame(number) {
+  if (number >= 3 || newStats.availablePoints <= 0) {
+    alertError("You don't have any points left to spend!");
+  } else {
+  var newNumber = number + 1;
+  newStats.availablePoints--;
+  newStats.newAp = newNumber;
+  $("#ap-added2").text(newNumber);
+  $("#available-points2").text(newStats.availablePoints);
+  }
+}
+
+function addSpInGame(number) {
+  if (number >= 3 || newStats.availablePoints <= 0) {
+    alertError("You don't have any points left to spend!");
+  } else {
+  var newNumber = number + 1;
+  newStats.availablePoints--;
+  newStats.newSp = newNumber;
+  $("#sp-added2").text(newNumber);
+  $("#available-points2").text(newStats.availablePoints);
+  }
+}
+
+function subtractHp(number) {
   if (number <= 0) {
     alertError("You cannot add a negative number of points!");
   } else {
     var newNumber = number - 1;
     newStats.availablePoints++;
     newStats.newHp = newNumber;
-    $("#" + stat + "-added").text(newNumber);
+    $("#hp-added").text(newNumber);
     $("#available-points").text(newStats.availablePoints);
   }
 }
 
-function subtractPointInGame(number, stat) {
+function subtractMp(number) {
+  if (number <= 0) {
+    alertError("You cannot add a negative number of points!");
+  } else {
+    var newNumber = number - 1;
+    newStats.availablePoints++;
+    newStats.newMp = newNumber;
+    $("#mp-added").text(newNumber);
+    $("#available-points").text(newStats.availablePoints);
+  }
+}
+
+function subtractAp(number) {
+  if (number <= 0) {
+    alertError("You cannot add a negative number of points!");
+  } else {
+    var newNumber = number - 1;
+    newStats.availablePoints++;
+    newStats.newAp = newNumber;
+    $("#ap-added").text(newNumber);
+    $("#available-points").text(newStats.availablePoints);
+  }
+}
+
+function subtractSp(number) {
+  if (number <= 0) {
+    alertError("You cannot add a negative number of points!");
+  } else {
+    var newNumber = number - 1;
+    newStats.availablePoints++;
+    newStats.newSp = newNumber;
+    $("#sp-added").text(newNumber);
+    $("#available-points").text(newStats.availablePoints);
+  }
+}
+
+function subtractHpInGame(number) {
   if (number <= 0) {
     alertError("You cannot add a negative number of points!");
   } else {
     var newNumber = number - 1;
     newStats.availablePoints++;
     newStats.newHp = newNumber;
-    $("#" + stat + "-added2").text(newNumber);
+    $("#hp-added2").text(newNumber);
+    $("#available-points2").text(newStats.availablePoints);
+  }
+}
+
+function subtractMpInGame(number) {
+  if (number <= 0) {
+    alertError("You cannot add a negative number of points!");
+  } else {
+    var newNumber = number - 1;
+    newStats.availablePoints++;
+    newStats.newMp = newNumber;
+    $("#mp-added2").text(newNumber);
+    $("#available-points2").text(newStats.availablePoints);
+  }
+}
+
+function subtractApInGame(number) {
+  if (number <= 0) {
+    alertError("You cannot add a negative number of points!");
+  } else {
+    var newNumber = number - 1;
+    newStats.availablePoints++;
+    newStats.newAp = newNumber;
+    $("#ap-added2").text(newNumber);
+    $("#available-points2").text(newStats.availablePoints);
+  }
+}
+
+function subtractSpInGame(number) {
+  if (number <= 0) {
+    alertError("You cannot add a negative number of points!");
+  } else {
+    var newNumber = number - 1;
+    newStats.availablePoints++;
+    newStats.newSp = newNumber;
+    $("#sp-added2").text(newNumber);
     $("#available-points2").text(newStats.availablePoints);
   }
 }
@@ -279,7 +445,6 @@ function upgradeStats() {
   player.mp += newStats.newMp;
   player.ap += newStats.newAp;
   player.sp += newStats.newSp;
-  newStats.availablePoints = 3;
   newStats.newHp = 0;
   newStats.newMp = 0;
   newStats.newAp = 0;
@@ -292,6 +457,7 @@ function hideCurrentScreen() {
 }
 
 function showBattleScreen() {
+  $("#enemy-stats").removeClass("invisible");
   adjustHp("player");
   adjustMp("player");
   adjustHp("enemy");
@@ -320,6 +486,14 @@ function hideBattleItemMenu() {
   $("#item-menu").hide();
 }
 
+function showLootScreen() {
+  hideCurrentScreen();
+  $("#battle-loot-screen").addClass("current-screen").show();
+  $("#loot-screen-enemy-name").text(player.currentEnemy.name + " slain!");
+  $("#battle-xp").text("XP: " + player.currentEnemy.xp);
+  $("#battle-items").text("Items: " + player.getLastItem().name);
+}
+
 function setDisabledConsumables() {
   if (player.hasHealingConsumable) {
     enableButton("#battle-health-potion");
@@ -334,15 +508,61 @@ function setDisabledConsumables() {
   }
 }
 
+function runLevelUp() {
+  initiateLevelUp();
+  hideCurrentScreen();
+  $("#level-up-window").show().addClass("current-screen");
+}
+
+function initiateLevelUp() {
+  initiateNewStatsInGame();
+  $("#level-reached").text(player.level);
+  $("#current-hp").text(player.hp);
+  $("#current-mp").text(player.mp);
+  $("#current-ap").text(player.ap);
+  $("#current-sp").text(player.sp);
+}
+
+function resetCharacterPointScreen() {
+  player.hp = 10;
+  player.mp = 20;
+  player.ap = 1;
+  player.sp = 3;
+  $("#level-up-table").show();
+}
+
+function loadRoomPostBattle() {
+  hideCurrentScreen();
+  $("#room-" + player.room.id).show().addClass("current-screen");
+}
+
+function resetRoomAlert() {
+  alertRoom("");
+}
+
+function postBattleMsg() {
+  alertRoom("Phew, that was close...");
+}
+
+function removeEnemyFromRoom() {
+  if (player.currentEnemy.hp <= 0) {
+    $("#room" + player.room.id + "-enemy" + player.currentEnemy.id).off();
+    $("#room" + player.room.id + "-enemy" + player.currentEnemy.id).css({'background-image' : 'url("")'});
+    $("#room" + player.room.id + "-enemy" + player.currentEnemy.id).css({'cursor' : "url('img/gauntlet_mouse.png') 10 10, pointer"});
+  }
+}
+
 $(document).ready(function() {
   console.log("ui.js loaded!");
-  //hideCharacterScreen();
 
   $("#new-game").click(function() {
     hideMenuOptions();
     initiateNewStats();
     displayNewGameBox();
-    initiateNewStatsInGame();
+    $("#current-hp-init").text(player.hp);
+    $("#current-mp-init").text(player.mp);
+    $("#current-ap-init").text(player.ap);
+    $("#current-sp-init").text(player.sp);
   });
 
   $("#confirm-name").click(function() {
@@ -353,109 +573,134 @@ $(document).ready(function() {
   $("#main-menu-back").click(function() {
     hideNewGameBox();
     displayMenuOptions();
+    resetCharacterPointScreen();
   });
 
   $("#load-game").click(function() {
     loadPlayer();
+    runLoadGame();
   });
 
   /* START GAME ADD STATS */
   $("#hp-add-button").click(function(){
     var currentHpNumber = parseInt($("#hp-added").text());
-    addPoint(currentHpNumber, "hp");
+    addHp(currentHpNumber);
   });
 
   $("#hp-subtract-button").click(function(){
     var currentHpNumber = parseInt($("#hp-added").text());
-    subtractPoint(currentHpNumber, "hp");
+    subtractHp(currentHpNumber);
   });
 
   $("#mp-add-button").click(function(){
     var currentMpNumber = parseInt($("#mp-added").text());
-    addPoint(currentMpNumber, "mp");
+    addMp(currentMpNumber);
   });
 
   $("#mp-subtract-button").click(function(){
     var currentMpNumber = parseInt($("#mp-added").text());
-    subtractPoint(currentMpNumber, "mp");
+    subtractMp(currentMpNumber, "mp");
   });
 
   $("#ap-add-button").click(function(){
     var currentApNumber = parseInt($("#ap-added").text());
-    addPoint(currentApNumber, "ap");
+    addAp(currentApNumber, "ap");
   });
 
   $("#ap-subtract-button").click(function(){
     var currentApNumber = parseInt($("#ap-added").text());
-    subtractPoint(currentApNumber, "ap");
+    subtractAp(currentApNumber, "ap");
   });
 
   $("#sp-add-button").click(function(){
     var currentSpNumber = parseInt($("#sp-added").text());
-    addPoint(currentSpNumber, "sp");
+    addSp(currentSpNumber, "sp");
   });
 
   $("#sp-subtract-button").click(function(){
     var currentSpNumber = parseInt($("#sp-added").text());
-    subtractPoint(currentSpNumber, "sp");
+    subtractSp(currentSpNumber, "sp");
   });
 
   $("#add-stats-button").click(function(){
-    upgradeStats();
+    if (newStats.availablePoints !== 0) {
+      alertError("You haven't spent all your points!");
+    } else {
+      upgradeStats();
+      $("#current-hp-init").text(player.hp);
+      $("#current-mp-init").text(player.mp);
+      $("#current-ap-init").text(player.ap);
+      $("#current-sp-init").text(player.sp);
+      $("#level-up-table").hide();
+    }
   });
 
   /* IN GAME UPGRADE STATS */
   $("#hp-add-button2").click(function(){
     var currentHpNumber = parseInt($("#hp-added2").text());
-    addPointInGame(currentHpNumber, "hp");
+    addHpInGame(currentHpNumber, "hp");
   });
 
   $("#hp-subtract-button2").click(function(){
     var currentHpNumber = parseInt($("#hp-added2").text());
-    subtractPointInGame(currentHpNumber, "hp");
+    subtractHpInGame(currentHpNumber, "hp");
   });
 
   $("#mp-add-button2").click(function(){
     var currentMpNumber = parseInt($("#mp-added2").text());
-    addPointInGame(currentMpNumber, "mp");
+    addMpInGame(currentMpNumber, "mp");
   });
 
   $("#mp-subtract-button2").click(function(){
     var currentMpNumber = parseInt($("#mp-added2").text());
-    subtractPointInGame(currentMpNumber, "mp");
+    subtractMpInGame(currentMpNumber, "mp");
   });
 
   $("#ap-add-button2").click(function(){
     var currentApNumber = parseInt($("#ap-added2").text());
-    addPointInGame(currentApNumber, "ap");
+    addApInGame(currentApNumber, "ap");
   });
 
   $("#ap-subtract-button2").click(function(){
     var currentApNumber = parseInt($("#ap-added2").text());
-    subtractPointInGame(currentApNumber, "ap");
+    subtractApInGame(currentApNumber, "ap");
   });
 
   $("#sp-add-button2").click(function(){
     var currentSpNumber = parseInt($("#sp-added2").text());
-    addPointInGame(currentSpNumber, "sp");
+    addSpInGame(currentSpNumber, "sp");
   });
 
   $("#sp-subtract-button2").click(function(){
     var currentSpNumber = parseInt($("#sp-added2").text());
-    subtractPointInGame(currentSpNumber, "sp");
+    subtractSpInGame(currentSpNumber, "sp");
   });
 
   $("#add-stats-button2").click(function(){
-    upgradeStats();
-    $("#level-up-div2").hide();
+    if (newStats.availablePoints !== 0) {
+      alertError("You haven't spent all your points!");
+    } else {
+      upgradeStats();
+      $("#current-hp").text(player.hp);
+      $("#current-mp").text(player.mp);
+      $("#current-ap").text(player.ap);
+      $("#current-sp").text(player.sp);
+      $("#add-stats-button2").hide();
+      $("#level-up-table2").hide();
+      $("#finish-allocating-points").show();
+    }
+  });
+
+  $("#finish-allocating-points").click(function() {
+    loadRoomPostBattle();
   });
 
   /* Battle System */
   $(".enemy").click(function() {
-    //var enemyId = $(this).attr(id);
-    var enemyId = "enemy1";
+    var enemyId = grabEnemyId(this);
+    alertRoom(enemyMap[enemyId].name + " is attacking you!");
     player.currentEnemy = enemyMap[enemyId];
-    startBattle(enemyMap[enemyId]);
+    startBattle(player.currentEnemy)
   });
 
   $("#attack").click(function() {
@@ -492,5 +737,23 @@ $(document).ready(function() {
     player.checkForConsumables();
     setDisabledConsumables();
     hideBattleItemMenu();
+  });
+
+  $("#loot-screen-confirm").click(function() {
+    if (player.checkForLevel()) {
+      player.startLevelUp();
+    } else {
+      loadRoomPostBattle();
+      postBattleMsg();
+    }
+  });
+
+  $("#start-over").click(function() {
+    location.reload();
+  });
+
+  $("#respawn").click(function() {
+    loadPlayer();
+    runLoadGame();
   });
 });
