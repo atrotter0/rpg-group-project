@@ -797,7 +797,6 @@ body {
   width: 50px;
   height: 70px;
   position: relative;
-  outline: 1px solid red;
   top: 123px;
   left: 358px;
 }
@@ -806,7 +805,6 @@ body {
   width: 40px;
   height: 65px;
   position: relative;
-  outline: 1px solid red;
   top: 18px;
   left: 155px;
   background-image: url("../img/enemy1.png");
@@ -820,7 +818,6 @@ body {
   width: 40px;
   height: 65px;
   position: relative;
-  outline: 1px solid red;
   top: 170px;
   left: 359px;
   background-image: url("../img/enemy2.png");
@@ -834,7 +831,6 @@ body {
   width: 60px;
   height: 40px;
   position: relative;
-  outline: 1px solid red;
   top: 183px;
   left: 350px;
 }
@@ -847,7 +843,6 @@ body {
   width: 70px;
   height: 40px;
   position: relative;
-  outline: 1px solid red;
   top: -207px;
   left: 500px;
 }
@@ -860,7 +855,6 @@ body {
   width: 20px;
   height: 60px;
   position: relative;
-  outline: 1px solid red;
   top: -165px;
   left: 678px;
 }
@@ -885,16 +879,15 @@ body {
   width: 50px;
   height: 70px;
   position: relative;
-  outline: 1px solid red;
-  top: 123px;
-  left: 358px;
+  top: 234px;
+  left: 102px;
 }
 
 #room2-enemy3 {
   width: 40px;
   height: 65px;
   position: relative;
-  top: 249px;
+  top: 179px;
   left: 205px;
   background-image: url("../img/enemy3.png");
 }
@@ -907,7 +900,7 @@ body {
   width: 40px;
   height: 65px;
   position: relative;
-  top: 41px;
+  top: -29px;
   left: 310px;
   background-image: url("../img/enemy4.png");
 }
@@ -920,7 +913,7 @@ body {
   width: 40px;
   height: 65px;
   position: relative;
-  top: 15px;
+  top: -55px;
   left: 373px;
   background-image: url("../img/enemy5.png");
 }
@@ -933,7 +926,7 @@ body {
   width: 50px;
   height: 70px;
   position: relative;
-  top: 179px;
+  top: 109px;
   left: 478px;
   background-image: url("../img/enemy6.png");
 }
@@ -946,7 +939,7 @@ body {
   width: 40px;
   height: 40px;
   position: relative;
-  top: -209px;
+  top: -279px;
   left: 386px;
 }
 
@@ -958,7 +951,7 @@ body {
   width: 80px;
   height: 80px;
   position: relative;
-  top: 0px;
+  top: -70px;
   left: 305px;
   }
 
@@ -971,7 +964,7 @@ body {
   width: 20px;
   height: 60px;
   position: relative;
-  top: -143px;
+  top: -213px;
   left: 70px;
 }
 
@@ -983,7 +976,7 @@ body {
   width: 60px;
   height: 50px;
   position: relative;
-  top: -7px;
+  top: -77px;
   left: 620px;
 }
 
