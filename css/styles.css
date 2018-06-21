@@ -345,6 +345,32 @@
 /* INVENTORY MENU */
 /******************/
 
+[data-title]:hover:after {
+    opacity: 1;
+    transition: all 0.1s ease 0.5s;
+    visibility: visible;
+}
+[data-title]:after {
+    content: attr(data-title);
+    width: 150px;
+    background-color: black;
+    color: #d4d6d8;
+    font-size: 150%;
+    position: absolute;
+    padding: 1px 5px 2px 5px;
+    bottom: -1.6em;
+    left: auto;
+    white-space: pre-wrap;
+    box-shadow: 1px 1px 3px #222222;
+    opacity: 0;
+    border: 1px solid green;
+    z-index: 99999;
+    visibility: hidden;
+}
+[data-title] {
+    position: relative;
+}
+
 .character-screen {
   display: none;
 }

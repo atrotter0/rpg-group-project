@@ -154,12 +154,21 @@ function displayEquippedItems(player) {
     var ap = player.items[i].attackBonus;
     var sp = player.items[i].spellBonus;
     var mp = player.items[i].manaBonus;
-    var title = itemName + " \nLevel: " + itemLevel + " \nHP: " + hp + " \nAP: " + ap + " \nSP: " + sp + " \nMP: " + mp;
-    console.log(title);
+    var tooltip = "" + itemName + "\nLevel: " + itemLevel + "\nHP: " + hp + "\nAP: " + ap + "\nSP: " + sp + "\nMP: " + mp;
 
     $("#slot" + (i)).append(player.items[i].icon);
-    $("#slot" + (i)).append("<a href='#' class='itemNameVal' data-toggle='tooltip' data-placement='top' title=" + title + ">" + itemName + "</a>");
+    $("#slot" + (i)).append("<p class='itemNameVal'>" + itemName + "</p>");
+    $("#slot" + (i)).attr("data-title", tooltip);
   }
+  enableToolTips();
+}
+
+function enableToolTips() {
+  $('.itemNameVal').tooltip({
+    content: function() {
+        return $(this).attr('title');
+    }
+  });
 }
 
 function fillCharacterValues(player) {
