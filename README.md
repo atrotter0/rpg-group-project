@@ -26,7 +26,7 @@ An RPG click adventure built with JavaScript, jQuery, & Bootstrap!
 ## Links
 
 * [Github Repo] (https://github.com/atrotter0/rpg-group-project)
-* [Github Pages]
+* [Github Pages] (https://atrotter0.github.io/rpg-group-project)
 
 ## License
 
