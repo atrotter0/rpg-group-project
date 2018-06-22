@@ -97,6 +97,7 @@ function createDoorClickEvents() {
 
   $("#room2-door3").click(function() {
     if (enemyMap.enemy3.isDead() && enemyMap.enemy4.isDead() && enemyMap.enemy5.isDead() && enemyMap.enemy6.isDead()) {
+      saveGame(player);
       showWinScreen();
     }
     else {
