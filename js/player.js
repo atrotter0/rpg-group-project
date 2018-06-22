@@ -245,6 +245,15 @@ Player.prototype.getLastItem = function() {
   return this.items[this.items.length - 1];
 }
 
+Player.prototype.rebuildItems = function() {
+  for (var i = 0; i < this.items.length; i++) {
+    var item = this.items[i];
+    if (item.id === itemMap[item.id].id) {
+      this.items[i] = itemMap[item.id];
+    }
+  }
+}
+
 function buildPlayer() {
   player = new Player(roomMap.room1);
 }
@@ -279,6 +288,8 @@ function updatePlayerFromStorage(storedPlayer) {
   player.lastRoom = storedPlayer.lastRoom;
   player.hasHealingConsumable = storedPlayer.hasHealingConsumable;
   player.hasManaConsumable = storedPlayer.hasManaConsumable;
+
+  player.rebuildItems();
 }
 
 function rollDice(maxNumber) {
