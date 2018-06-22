@@ -21,7 +21,7 @@ RoomMap.prototype.populateRooms = function() {
   var room1 = new Room(1, "Dungeon", [enemyMap.enemy1, enemyMap.enemy2]);
   room1.story = "Find your way out of the dungeon!"
   var room2 = new Room(2, "Dungeon", [enemyMap.enemy3, enemyMap.enemy4, enemyMap.enemy5, enemyMap.enemy6]);
-  room2.story = "Oh, no! The troll leader is guarding the exit!"
+  room2.story = "Oh, no! The troll king is guarding the exit!"
 
   this.room1 = room1;
   this.room2 = room2;
@@ -97,6 +97,7 @@ function createDoorClickEvents() {
 
   $("#room2-door3").click(function() {
     if (enemyMap.enemy3.isDead() && enemyMap.enemy4.isDead() && enemyMap.enemy5.isDead() && enemyMap.enemy6.isDead()) {
+      saveGame(player);
       showWinScreen();
     }
     else {
