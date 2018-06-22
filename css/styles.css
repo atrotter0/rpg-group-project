@@ -1008,8 +1008,7 @@ body {
 }
 
 .item-equipped {
-  background-color: #0b8859;
+  background-color: rgba(45, 42, 193, 0.68);
   border-width: 3px;
-  border-color: rgba(94,167,243,0.79);
-  border-color: #0b8859;
+  border-color: rgba(45, 42, 193, 0.68);
 }
