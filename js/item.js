@@ -16,7 +16,7 @@ function Item(id, name, type, level, hp, ap, sp, mp, icon) {
   this.icon = icon;
 }
 
-// Item Map Constructor
+// Item Map Populator
 function ItemMap() {
   this.populateItems();
 }
