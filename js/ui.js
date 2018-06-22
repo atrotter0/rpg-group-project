@@ -449,7 +449,6 @@ function upgradeStats() {
     newStats.newMp = 0;
     newStats.newAp = 0;
     newStats.newSp = 0;
-    player.hp = player.hpMax;
   }
 }
 
@@ -518,8 +517,10 @@ function setDisabledConsumables() {
 function runLevelUp() {
   initiateLevelUp();
   hideCurrentScreen();
+  $("#finish-allocating-points").hide();
   $("#level-up-window").show().addClass("current-screen");
   $("#level-up-table2").show();
+  $("#add-stats-button2").show();
 }
 
 function initiateLevelUp() {
@@ -591,6 +592,7 @@ $(document).ready(function() {
   console.log("ui.js loaded!");
 
   $("#new-game").click(function() {
+    newStats.availablePoints = 3;
     hideMenuOptions();
     initiateNewStats();
     displayNewGameBox();

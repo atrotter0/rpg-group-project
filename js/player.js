@@ -22,6 +22,7 @@ function Player(room) {
   this.lastRoom = "";
   this.hasHealingConsumable = false;
   this.hasManaConsumable = false;
+  this.nextLevel = 100;
 }
 
 Player.prototype.equipItem = function(item) {
@@ -212,10 +213,11 @@ Player.prototype.levelUp = function(level) {
 }
 
 Player.prototype.checkForLevel = function() {
-  if (this.xp >= 100) return true;
+  if (this.xp >= this.nextLevel) return true;
 }
 
 Player.prototype.startLevelUp = function() {
+  this.nextLevel = this.nextLevel * 2;
   newStats.availablePoints = 3;
   this.levelUp();
   alertSuccess("Level Up! You are now level " + this.level);
@@ -243,6 +245,15 @@ Player.prototype.giveAwardsToPlayer = function(enemy) {
 
 Player.prototype.getLastItem = function() {
   return this.items[this.items.length - 1];
+}
+
+Player.prototype.rebuildItems = function() {
+  for (var i = 0; i < this.items.length; i++) {
+    var item = this.items[i];
+    if (item.id === itemMap[item.id].id) {
+      this.items[i] = itemMap[item.id];
+    }
+  }
 }
 
 function buildPlayer() {
@@ -279,6 +290,9 @@ function updatePlayerFromStorage(storedPlayer) {
   player.lastRoom = storedPlayer.lastRoom;
   player.hasHealingConsumable = storedPlayer.hasHealingConsumable;
   player.hasManaConsumable = storedPlayer.hasManaConsumable;
+  player.nextLevel = storedPlayer.nextLevel;
+
+  player.rebuildItems();
 }
 
 function rollDice(maxNumber) {
