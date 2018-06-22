@@ -449,7 +449,6 @@ function upgradeStats() {
     newStats.newMp = 0;
     newStats.newAp = 0;
     newStats.newSp = 0;
-    player.hp = player.hpMax;
   }
 }
 
