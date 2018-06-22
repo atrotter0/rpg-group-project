@@ -5,7 +5,7 @@ var itemMap = {};
 
 // Item Constructor
 function Item(id, name, type, level, hp, ap, sp, mp, icon) {
-  this.id = id; // Unique single digit number (e.g, 3)
+  this.id = id; // Unique name that mirrors key of stored object in itemMap
   this.name = name; // String (e.g, "Sword of Woe")
   this.type = type; // "Weapon" or "Armor" or "Consumable"
   this.level = level;
@@ -73,7 +73,7 @@ ItemMap.prototype.populateItems = function() {
   this.manaPotion3 = manaPotion3;
 }
 
-// Instantiate global item map object on init
+// Instantiate global itemMap object on init
 function buildItems() {
   itemMap = new ItemMap();
 }
