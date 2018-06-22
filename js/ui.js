@@ -517,8 +517,10 @@ function setDisabledConsumables() {
 function runLevelUp() {
   initiateLevelUp();
   hideCurrentScreen();
+  $("#finish-allocating-points").hide();
   $("#level-up-window").show().addClass("current-screen");
   $("#level-up-table2").show();
+  $("#add-stats-button2").show();
 }
 
 function initiateLevelUp() {
