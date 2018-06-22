@@ -880,6 +880,15 @@ body {
   margin: 0 auto;
   border-radius: 3px;
   box-shadow: 2px 2px 20px rgba(35, 34, 34, 0.98);
+  font-family: 'Press Start 2P', cursive;
+  color: #fff;
+}
+
+#character-screen-title h2 {
+  text-align: center;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: #707677;
 }
 
 #character-screen-stats-grid {
