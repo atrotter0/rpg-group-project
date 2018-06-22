@@ -6,7 +6,16 @@
 
 ## Description
 
-An RPG click adventure built with JavaScript, jQuery, & Bootstrap!
+An RPG click adventure built with JavaScript, jQuery, & Bootstrap! This project was built in 3 days for the Epicodus Intro to Programming Week 5 Group Project.
+
+Features:
+* Character customization
+* Save Game / Load Game
+* Random loot drops
+* Multiple enemies
+* Classic 8-bit RPG music and sound effects
+* Turn-based battle system
+* Blood, sweat, and tears
 
 ## Setup/Contribution Requirements
 
@@ -22,6 +31,7 @@ An RPG click adventure built with JavaScript, jQuery, & Bootstrap!
 * JavaScript
 * Bootstrap 3.3.7
 * jQuery 3.3.1
+* localStorage
 
 ## Links
 
