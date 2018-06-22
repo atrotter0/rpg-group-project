@@ -31,7 +31,7 @@ EnemyMap.prototype.populateEnemies = function() {
   var enemy3 = new Enemy(3, 2, "Skeleton Warrior", 10, 2, 65, itemMap.fetchLevelSpecificItems(2));
   var enemy4 = new Enemy(4, 2, "Skeleton Warrior", 10, 2, 65, itemMap.fetchLevelSpecificItems(2));
   var enemy5 = new Enemy(5, 3, "Skeleton Warlord", 15, 3, 65, itemMap.fetchLevelSpecificItems(3));
-  var enemy6 = new Enemy(6, 3, "Cave Troll", 22, 5, 150, itemMap.fetchLevelSpecificItems(3));
+  var enemy6 = new Enemy(6, 3, "Troll King", 22, 5, 150, itemMap.fetchLevelSpecificItems(3));
 
   this.enemy1 = enemy1;
   this.enemy2 = enemy2;
