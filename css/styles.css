@@ -882,12 +882,11 @@ body {
 #character-screen {
   display: block;
   width: 768px;
-  height: 790px;
-  background-image: url("../img/battle-screen.png");
+  height: 1450px;
   background-size: 150%;
   background-position: 50% 50%;
   background-repeat: no-repeat;
-  margin: 0 auto;
+  margin: 0 auto 50px auto;
   border-radius: 3px;
   box-shadow: 2px 2px 20px rgba(35, 34, 34, 0.98);
   font-family: 'Press Start 2P', cursive;
@@ -950,16 +949,52 @@ body {
 
 #character-screen-inventory-grid {
   display: grid;
-  grid-template-columns: auto auto auto auto auto;
+  grid-template-columns: auto auto auto auto;
   background-color: rgba(51,51,51,0.78);
-  padding: 10px 0px 10px 16px;
-  grid-gap: 50px;
+  padding: 30px 0px 50px 30px;
+  grid-gap: 80px 5px;
   border: 1px solid;
-  padding-left: 50px;
 }
 
 .inventory-item {
-  border: 1px solid red;
-  height: 80px;
-  width: 80px;
+  height: 150px;
+  width: 150px;
+}
+
+.inventory-item-icon {
+  height: 150px;
+  width: 150px;
+  border-left: 1px solid #eee;
+  border-right: 1px solid #eee;
+  border-top: 1px solid #eee;
+}
+
+.inventory-item-text {
+  padding-top: 12px;
+  height: 40px;
+  width: 150px;
+  font-size: 0.7em;
+  text-align: center;
+  border: 1px solid #eee;
+}
+
+.inventory-item-armor {
+  background-image: url("../img/breastplate.png");
+  background-size: 80%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+.inventory-item-weapon {
+  background-image: url("../img/broadsword.png");
+  background-size: 80%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+.inventory-item-consumable {
+  background-image: url("../img/potion.png");
+  background-size: 80%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
 }
