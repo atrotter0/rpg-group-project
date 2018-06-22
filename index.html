@@ -16,9 +16,9 @@
   <script src="js/player.js"></script>
   <script src="js/room.js"></script>
   <script src="js/battle.js"></script>
+  <script src="js/newstats.js"></script>
   <script src="js/ui.js"></script>
   <script src="js/init.js"></script>
-  <script src="js/newstats.js"></script>
 </head>
 <body>
   <div class="container">
@@ -385,8 +385,17 @@
         <p class="final-screen-text" id="win-text">With the troll king dead, you summon your courage and struggle towards the light outside...</p>
         <button type="button" class="btn btn-default btn-main-menu start-over" id="start-over">Play Again</button>
       </div>
-    <div class="inventory-screen">
-      
+    <div id="character-screen">
+      <div id="character-screen--stats-window">
+        Player portrait / player name / stat / stat / stat / stat
+        <div id="character-screen-stats-grid">
+        </div>
+      </div>
+      <div id="character-screen-inventory-window">
+        css grid containing all inventory items. 20 slot max. green name / background represents item is equipped.
+        <div id="character-screen-inventory-grid">
+        </div>
+      </div>
     </div>
     </div>
   </div>
