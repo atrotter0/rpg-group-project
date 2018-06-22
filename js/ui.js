@@ -592,6 +592,7 @@ $(document).ready(function() {
   console.log("ui.js loaded!");
 
   $("#new-game").click(function() {
+    newStats.availablePoints = 3;
     hideMenuOptions();
     initiateNewStats();
     displayNewGameBox();
