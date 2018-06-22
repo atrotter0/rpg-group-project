@@ -957,16 +957,23 @@ body {
 }
 
 .inventory-item {
-  height: 150px;
+  height: 190px;
   width: 150px;
+  transition: 0.5s;
+}
+
+.inventory-item:hover {
+  box-shadow: 0px 10px 40px white;
+  cursor: pointer;
+  transition: 0.5s;
+  border-radius: 20px;
 }
 
 .inventory-item-icon {
   height: 150px;
   width: 150px;
-  border-left: 1px solid #eee;
-  border-right: 1px solid #eee;
-  border-top: 1px solid #eee;
+  border-radius: 10px 10px 0 0;
+  background-color: black;
 }
 
 .inventory-item-text {
@@ -975,7 +982,8 @@ body {
   width: 150px;
   font-size: 0.7em;
   text-align: center;
-  border: 1px solid #eee;
+  border-radius: 0 0 10px 10px;
+  background-color: black;
 }
 
 .inventory-item-armor {
@@ -997,4 +1005,11 @@ body {
   background-size: 80%;
   background-position: 50% 50%;
   background-repeat: no-repeat;
+}
+
+.item-equipped {
+  background-color: #0b8859;
+  border-width: 3px;
+  border-color: rgba(94,167,243,0.79);
+  border-color: #0b8859;
 }
