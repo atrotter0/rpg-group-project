@@ -449,7 +449,7 @@ function upgradeStats() {
     newStats.newMp = 0;
     newStats.newAp = 0;
     newStats.newSp = 0;
-    player.hp = hpMax;
+    player.hp = player.hpMax;
   }
 }
 
@@ -519,6 +519,7 @@ function runLevelUp() {
   initiateLevelUp();
   hideCurrentScreen();
   $("#level-up-window").show().addClass("current-screen");
+  $("#level-up-table2").show();
 }
 
 function initiateLevelUp() {
@@ -728,6 +729,7 @@ $(document).ready(function() {
   });
 
   $("#finish-allocating-points").click(function() {
+    refillHpMp();
     loadRoomPostBattle();
   });
 

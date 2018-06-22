@@ -285,3 +285,8 @@ function rollDice(maxNumber) {
   var roll = Math.floor(Math.random() * maxNumber) + 1;
   return roll;
 }
+
+function refillHpMp() {
+  player.hp = player.hpMax;
+  player.mp = player.mpMax;
+}
