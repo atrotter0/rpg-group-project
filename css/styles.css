@@ -882,8 +882,10 @@ body {
 #character-screen {
   display: block;
   width: 768px;
-  height: 576px;
+  height: 790px;
   background-image: url("../img/battle-screen.png");
+  background-size: 150%;
+  background-position: 50% 50%;
   background-repeat: no-repeat;
   margin: 0 auto;
   border-radius: 3px;
@@ -894,7 +896,7 @@ body {
 
 #character-screen-inner {
   background-color: rgba(191,183,183,0.35);
-  height: 576px;
+  height: 790px;
 }
 
 .character-screen-title h2, .character-screen-title h4 {
@@ -953,4 +955,11 @@ body {
   padding: 10px 0px 10px 16px;
   grid-gap: 50px;
   border: 1px solid;
+  padding-left: 50px;
+}
+
+.inventory-item {
+  border: 1px solid red;
+  height: 80px;
+  width: 80px;
 }
