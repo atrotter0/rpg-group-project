@@ -21,6 +21,10 @@ body {
   text-shadow: 3px 3px rgba(51,50,50,0.75);
 }
 
+.fancy-shadow-three {
+  text-shadow: 3px 2px rgba(43, 32, 128, 0.87)
+}
+
 .invisible {
   visibility: hidden;
 }
@@ -897,7 +901,8 @@ body {
   text-align: center;
   margin: 0 auto;
   background-color: #707677;
-  border-bottom: 3px solid rgba(214,219,220,0.65);
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
 }
 
 #character-screen-name {
@@ -910,9 +915,11 @@ body {
   grid-template-columns: auto auto auto auto auto auto auto;
   background-color: rgba(51,51,51,0.78);
   padding: 30px 0px 30px 16px;
+  border: 1px solid #fff;
 }
 
 .stats-title {
+  border: 1px solid #fff;
   border-radius: 3px 3px 0 0;
   padding: 5px;
   color: #fff;
@@ -945,4 +952,5 @@ body {
   background-color: rgba(51,51,51,0.78);
   padding: 10px 0px 10px 16px;
   grid-gap: 50px;
+  border: 1px solid;
 }
