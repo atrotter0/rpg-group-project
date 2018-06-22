@@ -117,12 +117,12 @@ function createTrapClickEvents() {
 
 function createHeroClickEvents() {
   $("#room1-hero").click(function(){
-    alertRoom("You opened your invetory.");
+    alertRoom("You opened your inventory.");
     //show inventory
   });
 
   $("#room2-hero").click(function(){
-    alertRoom("You opened your invetory.");
+    alertRoom("You opened your inventory.");
     //show inventory
   });
 }

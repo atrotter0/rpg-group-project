@@ -15,6 +15,7 @@ Features:
 * Multiple enemies
 * Classic 8-bit RPG music and sound effects
 * Turn-based battle system
+* Inventory system (currently non-functional)
 * Blood, sweat, and tears
 
 ## Setup/Contribution Requirements
@@ -32,6 +33,11 @@ Features:
 * Bootstrap 3.3.7
 * jQuery 3.3.1
 * localStorage
+
+## Known Issues
+
+* Inventory is not completely wired up yet.
+* Needs another pass at game balance.
 
 ## Links
 

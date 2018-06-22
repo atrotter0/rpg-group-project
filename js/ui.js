@@ -249,11 +249,11 @@ function addHp(number) {
   if (number >= 3 || newStats.availablePoints <= 0) {
     alertError("You don't have any points left to spend!");
   } else {
-  var newNumber = number + 1;
-  newStats.availablePoints--;
-  newStats.newHp = newNumber;
-  $("#hp-added").text(newNumber);
-  $("#available-points").text(newStats.availablePoints);
+    var newNumber = number + 1;
+    newStats.availablePoints--;
+    newStats.newHp = newNumber;
+    $("#hp-added").text(newNumber);
+    $("#available-points").text(newStats.availablePoints);
   }
 }
 
@@ -261,11 +261,11 @@ function addMp(number) {
   if (number >= 3 || newStats.availablePoints <= 0) {
     alertError("You don't have any points left to spend!");
   } else {
-  var newNumber = number + 1;
-  newStats.availablePoints--;
-  newStats.newMp = newNumber;
-  $("#mp-added").text(newNumber);
-  $("#available-points").text(newStats.availablePoints);
+    var newNumber = number + 1;
+    newStats.availablePoints--;
+    newStats.newMp = newNumber;
+    $("#mp-added").text(newNumber);
+    $("#available-points").text(newStats.availablePoints);
   }
 }
 
@@ -273,11 +273,11 @@ function addAp(number) {
   if (number >= 3 || newStats.availablePoints <= 0) {
     alertError("You don't have any points left to spend!");
   } else {
-  var newNumber = number + 1;
-  newStats.availablePoints--;
-  newStats.newAp = newNumber;
-  $("#ap-added").text(newNumber);
-  $("#available-points").text(newStats.availablePoints);
+    var newNumber = number + 1;
+    newStats.availablePoints--;
+    newStats.newAp = newNumber;
+    $("#ap-added").text(newNumber);
+    $("#available-points").text(newStats.availablePoints);
   }
 }
 
@@ -285,11 +285,11 @@ function addSp(number) {
   if (number >= 3 || newStats.availablePoints <= 0) {
     alertError("You don't have any points left to spend!");
   } else {
-  var newNumber = number + 1;
-  newStats.availablePoints--;
-  newStats.newSp = newNumber;
-  $("#sp-added").text(newNumber);
-  $("#available-points").text(newStats.availablePoints);
+    var newNumber = number + 1;
+    newStats.availablePoints--;
+    newStats.newSp = newNumber;
+    $("#sp-added").text(newNumber);
+    $("#available-points").text(newStats.availablePoints);
   }
 }
 
@@ -297,11 +297,11 @@ function addHpInGame(number) {
   if (number >= 3 || newStats.availablePoints <= 0) {
     alertError("You don't have any points left to spend!");
   } else {
-  var newNumber = number + 1;
-  newStats.availablePoints--;
-  newStats.newHp = newNumber;
-  $("#hp-added2").text(newNumber);
-  $("#available-points2").text(newStats.availablePoints);
+    var newNumber = number + 1;
+    newStats.availablePoints--;
+    newStats.newHp = newNumber;
+    $("#hp-added2").text(newNumber);
+    $("#available-points2").text(newStats.availablePoints);
   }
 }
 
@@ -309,11 +309,11 @@ function addMpInGame(number) {
   if (number >= 3 || newStats.availablePoints <= 0) {
     alertError("You don't have any points left to spend!");
   } else {
-  var newNumber = number + 1;
-  newStats.availablePoints--;
-  newStats.newMp = newNumber;
-  $("#mp-added2").text(newNumber);
-  $("#available-points2").text(newStats.availablePoints);
+    var newNumber = number + 1;
+    newStats.availablePoints--;
+    newStats.newMp = newNumber;
+    $("#mp-added2").text(newNumber);
+    $("#available-points2").text(newStats.availablePoints);
   }
 }
 
@@ -321,11 +321,11 @@ function addApInGame(number) {
   if (number >= 3 || newStats.availablePoints <= 0) {
     alertError("You don't have any points left to spend!");
   } else {
-  var newNumber = number + 1;
-  newStats.availablePoints--;
-  newStats.newAp = newNumber;
-  $("#ap-added2").text(newNumber);
-  $("#available-points2").text(newStats.availablePoints);
+    var newNumber = number + 1;
+    newStats.availablePoints--;
+    newStats.newAp = newNumber;
+    $("#ap-added2").text(newNumber);
+    $("#available-points2").text(newStats.availablePoints);
   }
 }
 
@@ -333,11 +333,11 @@ function addSpInGame(number) {
   if (number >= 3 || newStats.availablePoints <= 0) {
     alertError("You don't have any points left to spend!");
   } else {
-  var newNumber = number + 1;
-  newStats.availablePoints--;
-  newStats.newSp = newNumber;
-  $("#sp-added2").text(newNumber);
-  $("#available-points2").text(newStats.availablePoints);
+    var newNumber = number + 1;
+    newStats.availablePoints--;
+    newStats.newSp = newNumber;
+    $("#sp-added2").text(newNumber);
+    $("#available-points2").text(newStats.availablePoints);
   }
 }
 
@@ -439,16 +439,17 @@ function subtractSpInGame(number) {
 
 function upgradeStats() {
   if (newStats.availablePoints !== 0) {
-  alertError("You haven't spent all your points yet!")
-} else {
-  player.hpMax += newStats.newHp;
-  player.mpMax += newStats.newMp;
-  player.ap += newStats.newAp;
-  player.sp += newStats.newSp;
-  newStats.newHp = 0;
-  newStats.newMp = 0;
-  newStats.newAp = 0;
-  newStats.newSp = 0;
+    alertError("You haven't spent all your points yet!")
+  } else {
+    player.hpMax += newStats.newHp;
+    player.mpMax += newStats.newMp;
+    player.ap += newStats.newAp;
+    player.sp += newStats.newSp;
+    newStats.newHp = 0;
+    newStats.newMp = 0;
+    newStats.newAp = 0;
+    newStats.newSp = 0;
+    player.hp = hpMax;
   }
 }
 
