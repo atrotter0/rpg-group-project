@@ -506,7 +506,6 @@ function runLoadInventory() {
 
 function displayInInventory(item, index) {
   var element = $("#inventory-item-" + index);
-  resetEquipped(element);
   resetInventoryIcons(element);
   checkEquippedDisplay(item, element);
   displayItemIcon(item, element);
@@ -522,12 +521,6 @@ function adjustCharacterStats() {
   $("#stats-ap").text(player.ap);
   $("#stats-sp").text(player.sp);
   $("#stats-xp").text(player.xp);
-}
-
-function resetEquipped(element) {
-  $(element).children(".inventory-item-icon").removeClass("item-equipped");
-  $(element).children(".inventory-item-stats").removeClass("item-equipped");
-  $(element).children(".inventory-item-text").removeClass("item-equipped");
 }
 
 function resetInventoryIcons(element) {

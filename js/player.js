@@ -210,8 +210,6 @@ Player.prototype.unEquipItem = function(item) {
 }
 
 Player.prototype.addItemStats = function(item) {
-  console.log("adding stats...");
-  console.log(item.spellBonus);
   this.hpMax += item.addHp;
   this.hp += item.addHp;
   this.mpMax += item.addMp;
@@ -222,7 +220,6 @@ Player.prototype.addItemStats = function(item) {
 }
 
 Player.prototype.removeItemStats = function(item) {
-  console.log("removing stats...");
   this.hpMax -= item.addHp;
   this.hp -= item.addHp;
   this.mpMax -= item.addMp;
