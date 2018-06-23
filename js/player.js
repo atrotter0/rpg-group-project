@@ -192,32 +192,30 @@ Player.prototype.rebuildItems = function() {
 
 Player.prototype.equipItem = function(item) {
   if (item.type === "Weapon") {
-    this.addItemStats(item);
     this.equippedWeapon = item.name;
-  } else if (item.type === "Armor") {
-    this.removeItemStats(item);
+  } else {
     this.equippedArmor = item.name;
   }
-  item.equipped = true;
+  this.addItemStats(item);
 }
 
 Player.prototype.unEquipItem = function(item) {
   if (item.type === "Weapon") {
+    this.removeItemStats(item);
     this.equippedWeapon = "";
   } else {
+    this.removeItemStats(item);
     this.equippedArmor = "";
   }
-  item.equipped = false;
-  adjustCharacterStats();
 }
 
 Player.prototype.addItemStats = function(item) {
   console.log("adding stats...");
   console.log(item.spellBonus);
   this.hpMax += item.addHp;
-  this.hp += this.hpMax;
+  this.hp += item.addHp;
   this.mpMax += item.addMp;
-  this.mp += this.mpMax;
+  this.mp += item.addMp
   this.ap += item.attackBonus;
   this.sp += item.spellBonus;
   adjustCharacterStats();
@@ -226,9 +224,9 @@ Player.prototype.addItemStats = function(item) {
 Player.prototype.removeItemStats = function(item) {
   console.log("removing stats...");
   this.hpMax -= item.addHp;
-  this.hp -= this.hpMax;
+  this.hp -= item.addHp;
   this.mpMax -= item.addMp;
-  this.mp -= this.mpMax;
+  this.mp -= item.addMp
   this.ap -= item.attackBonus;
   this.sp -= item.spellBonus;
   adjustCharacterStats();
@@ -236,10 +234,13 @@ Player.prototype.removeItemStats = function(item) {
 
 Player.prototype.runEquip = function(itemName) {
   var item = getItemFromItemName(itemName);
+  console.log("Equipped: " + item.equipped);
   if (item.type !== "Consumable" && item.equipped) {
+    console.log("equipping");
     this.unEquipItem(item);
     item.equipped = false;
   } else if (item.type !== "Consumable" && !item.equipped) {
+    console.log("unequipping");
     this.equipItem(item);
     item.equipped = true;
   }

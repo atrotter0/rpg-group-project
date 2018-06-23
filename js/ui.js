@@ -493,15 +493,6 @@ function playSpellSound() {
   spellSound.play();
 }
 
-// set stats in character menu here
-function adjustCharacterStats() {
-  $("#health-points-indicator").text(player.hp + " / " + player.hpMax);
-  $("#mana-points-indicator").text(player.mp + " / " + player.mpMax);
-  $("#attack-power-indicator").text(player.ap);
-  $("#spell-power-indicator").text(player.sp);
-  $("#experience-indicator").text(player.xp);
-}
-
 function showCharacterScreen() {
   $("#character-screen").show(1000).addClass("current-screen");
 }
@@ -521,6 +512,16 @@ function displayInInventory(item, index) {
   displayItemIcon(item, element);
   displayItemStats(item, element);
   displayItemText(item, element);
+}
+
+function adjustCharacterStats() {
+  $("#character-screen-name").text(player.name);
+  $("#character-stats-level").text(player.name);
+  $("#stats-hp").text(player.hp + "/" + player.hpMax);
+  $("#stats-mp").text(player.mp + "/" + player.mpMax);
+  $("#stats-ap").text(player.ap);
+  $("#stats-sp").text(player.sp);
+  $("#stats-xp").text(player.xp);
 }
 
 function resetEquipped(element) {
@@ -560,10 +561,10 @@ function displayItemStats(item, element) {
     $(element).children(".inventory-item-stats").children(".item-mp").text("MP: +" + item.addMp);
   }
   if (item.attackBonus > 0) {
-    $(element).children(".inventory-item-stats").children(".item-mp").text("AP: +" + item.attackBonus);
+    $(element).children(".inventory-item-stats").children(".item-ap").text("AP: +" + item.attackBonus);
   }
   if (item.spellBonus > 0) {
-    $(element).children(".inventory-item-stats").children(".item-mp").text("AP: +" + item.spellBonus);
+    $(element).children(".inventory-item-stats").children(".item-sp").text("SP: +" + item.spellBonus);
   }
 }
 
@@ -576,11 +577,9 @@ function runEquipDisplay(item, element) {
     console.log("That's a consumable...");
   } else if ($(element).hasClass("item-equipped")) {
     removeEquippedClass(element);
-    console.log("unequipping..." + item);
     player.unEquipItem(item);
   } else if (!$(element).hasClass("item-equipped")) {
     addEquippedClass(element);
-    console.log("equipping..." + item);
     player.equipItem(item);
   }
 }
@@ -830,6 +829,7 @@ $(document).ready(function() {
 
   /* INVENTORY */
   $("#room1-hero, #room2-hero").click(function() {
+    adjustCharacterStats();
     runLoadInventory();
     hideCurrentScreen();
     showCharacterScreen();
@@ -849,7 +849,6 @@ $(document).ready(function() {
     var itemName = $(this).text();
     var item = getItemFromItemName(itemName);
     runEquipDisplay(item, this);
-    player.runEquip(itemName);
   });
 
   $(".btn-close-character-screen").click(function() {
