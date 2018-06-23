@@ -16,65 +16,15 @@ function Player(room) {
   this.items = [];
   this.xp = 0;
   this.room = room;
-  this.equippedWeapon = {};
-  this.equippedArmor = {};
   this.currentEnemy = {};
   this.lastRoom = "";
   this.hasHealingConsumable = false;
   this.hasManaConsumable = false;
   this.nextLevel = 100;
-}
-
-Player.prototype.equipItem = function(item) {
-  if(item.type === "Weapon") {
-    this.equippedWeapon = item;
-    this.updateStats(this.equippedWeapon);
-  } else if(item.type === "Armor") {
-    this.equippedArmor = item;
-    this.updateStats(this.equippedArmor);
-  } else {
-    alertError("You can only equip weapons or armor items.");
-  }
-}
-
-Player.prototype.unEquipItem = function(item) {
-  this.hpMax -= item.addHp;
-  this.hp -= item.addHp;
-  this.mpMax -= item.addMp;
-  this.mp -= item.addMp;
-  this.ap -= item.attackBonus;
-  this.sp -= item.spellBonus;
-  if(item.type === "Weapon") {
-    this.equippedWeapon = "";
-  } else {
-    this.equippedArmor = "";
-  }
-  fillCharacterValues(this);
-}
-
-Player.prototype.updateStats = function(item) {
-  this.hpMax += item.addHp;
-  this.hp += item.addHp;
-  this.mpMax += item.addMp;
-  this.mp += item.addMp;
-  this.ap += item.attackBonus;
-  this.sp += item.spellBonus;
-  fillCharacterValues(this);
-}
-
-Player.prototype.equipBestItem = function() {
-  for(i = 0; i < this.items.length; i++) {
-    if((this.items[i].level > this.equippedWeapon.level && this.items[i].type === "Weapon") || Object.keys(this.equippedWeapon).length === 0 && this.items[i].type === "Weapon") {
-      this.equippedWeapon = this.items[i];
-    }
-  }
-
-  for(i = 0; i < this.items.length; i++) {
-    if((this.items[i].level > this.equippedArmor.level && this.items[i].type === "Armor") || Object.keys(this.equippedArmor).length === 0 && this.items[i].type === "Armor") {
-      this.equippedArmor = this.items[i];
-    }
-  }
-  displayEquippedItems(this);
+  this.equippedWeapon = "";
+  this.equippedArmor = "";
+  this.gold = 0;
+  this.lastLootAwarded = "";
 }
 
 Player.prototype.playerAttack = function(enemy) {
@@ -146,21 +96,35 @@ Player.prototype.removeItem = function(itemName) {
 Player.prototype.checkLoot = function(enemy) {
   const LOOTABLE_ITEMS = enemy.loot.length - 1;
   var uniqueItem = false;
+  var counter = 1;
 
-  while(!uniqueItem) {
-    var randomNumber = rollDice(LOOTABLE_ITEMS);
+  while(!uniqueItem && counter <= itemMap.maxRollsAllowed()) {
+    var randomNumber = rollForItem(LOOTABLE_ITEMS);
+    counter++;
 
-    if(this.items.includes(enemy.loot[randomNumber])) {
+    if (this.items.includes(enemy.loot[randomNumber])) {
       console.log("skip");
       console.log(enemy.loot[randomNumber]);
       continue;
     } else {
       this.items.push(enemy.loot[randomNumber]);
       console.log(enemy.loot[randomNumber]);
+      this.lastLootAwarded = enemy.loot[randomNumber].name;
       uniqueItem = true;
     }
   }
-  console.log(this.items);
+  this.makeDuplicateRoll(counter, enemy);
+}
+
+Player.prototype.makeDuplicateRoll = function(counter, enemy) {
+  if (counter >= itemMap.maxRollsAllowed()) this.rewardGold(enemy);
+}
+
+Player.prototype.rewardGold = function(enemy) {
+  console.log("Rewarding gold instead of duplicate item...");
+  var randomGold = rollDice(enemy.gold);
+  this.gold += randomGold;
+  this.lastLootAwarded = randomGold + " gold";
 }
 
 Player.prototype.checkClickItem = function() {
@@ -224,23 +188,9 @@ Player.prototype.startLevelUp = function() {
   runLevelUp();
 }
 
-Player.prototype.unEquipItem = function(item) {
-  this.hpMax -= item.addHp;
-  this.mpMax -= item.addMp;
-  this.ap -= item.attackBonus;
-  this.sp -= item.spellBonus;
-}
-
-Player.prototype.updateStats = function(item) {
-  this.hpMax += item.addHp;
-  this.mpMax += item.addMp;
-  this.ap += item.attackBonus;
-  this.sp += item.spellBonus;
-}
-
 Player.prototype.giveAwardsToPlayer = function(enemy) {
   this.xp += enemy.xp;
-  this.checkLoot(enemy);
+  this.lootAwarded = this.checkLoot(enemy);
 }
 
 Player.prototype.getLastItem = function() {
@@ -252,7 +202,104 @@ Player.prototype.rebuildItems = function() {
     var item = this.items[i];
     if (item.id === itemMap[item.id].id) {
       this.items[i] = itemMap[item.id];
+      this.recallEquippedWeapon();
+      this.recallEquippedArmor();
     }
+  }
+}
+
+Player.prototype.runEquip = function(itemName) {
+  var item = getItemFromItemName(itemName);
+  if (item.type !== "Consumable" && item.equipped) {
+    this.unEquipItem(item);
+  } else if (item.type !== "Consumable" && !item.equipped) {
+    this.unEquipItem(item);
+    this.equipItem(item);
+  }
+}
+
+Player.prototype.equipItem = function(item) {
+  if (item.type === "Weapon") {
+    this.equippedWeapon = item.name;
+  } else {
+    this.equippedArmor = item.name;
+  }
+  this.updateEquippedItem(item, true);
+  this.addItemStats(item);
+}
+
+Player.prototype.unEquipItem = function(item) {
+  var oldWeapon = getItemFromItemName(this.equippedWeapon);
+  var oldArmor = getItemFromItemName(this.equippedArmor);
+  if (item.type === "Weapon") {
+    if (oldWeapon !== undefined) this.updateAndRemove(oldWeapon, false);
+    this.equippedWeapon = "";
+  } else {
+    if (oldArmor !== undefined) this.updateAndRemove(oldArmor, false);
+    this.equippedArmor = "";
+  }
+}
+
+Player.prototype.updateAndRemove = function(item, equippedValue) {
+  this.updateEquippedItem(item, equippedValue);
+  this.removeItemStats(item);
+}
+
+Player.prototype.addItemStats = function(item) {
+  this.hpMax += item.addHp;
+  this.hp += item.addHp;
+  this.mpMax += item.addMp;
+  this.mp += item.addMp;
+  this.ap += item.attackBonus;
+  this.sp += item.spellBonus;
+  adjustCharacterStats();
+}
+
+Player.prototype.removeItemStats = function(item) {
+  this.hpMax -= item.addHp;
+  this.hp -= item.addHp;
+  this.mpMax -= item.addMp;
+  this.mp -= item.addMp;
+  this.ap -= item.attackBonus;
+  this.sp -= item.spellBonus;
+  adjustCharacterStats();
+}
+
+Player.prototype.updateEquippedItem = function(item, equippedValue) {
+  for (var i = 0; i < player.items.length; i++) {
+    if (item === player.items[i]) {
+      player.items[i].equipped = equippedValue;
+    }
+  }
+}
+
+Player.prototype.recallEquippedWeapon = function() {
+  for (var i = 0; i < player.items.length; i++) {
+    if (player.items[i].name === player.equippedWeapon) {
+      player.items[i].equipped = true;
+      break;
+    }
+  }
+}
+
+Player.prototype.recallEquippedArmor = function() {
+  for (var i = 0; i < player.items.length; i++) {
+    if (player.items[i].name === player.equippedArmor) {
+      player.items[i].equipped = true;
+      break;
+    }
+  }
+}
+
+function getItemFromItemName(name) {
+  for (var i = 0; i < player.items.length; i++) {
+    if (name === player.items[i].name) return player.items[i];
+  }
+}
+
+function getIdFromItemName(name) {
+  for (var i = 0; i < player.items.length; i++) {
+    if (player.items[i].name === name) return player.items[i].id;
   }
 }
 
@@ -262,7 +309,7 @@ function buildPlayer() {
 
 function createNewPlayer(name) {
   player.name = name;
-  saveGame(player); 
+  saveGame(player);
   fillCharacterValues(player);
 }
 
@@ -284,17 +331,26 @@ function updatePlayerFromStorage(storedPlayer) {
   player.items = storedPlayer.items;
   player.xp = storedPlayer.xp;
   player.room = storedPlayer.room;
-  player.equippedWeapon = storedPlayer.equippedWeapon;
-  player.equippedArmor = storedPlayer.equippedArmor;
   player.currentEnemy = storedPlayer.currentEnemy;
   player.lastRoom = storedPlayer.lastRoom;
   player.hasHealingConsumable = storedPlayer.hasHealingConsumable;
   player.hasManaConsumable = storedPlayer.hasManaConsumable;
   player.nextLevel = storedPlayer.nextLevel;
+  player.equippedWeapon = storedPlayer.equippedWeapon;
+  player.equippedArmor = storedPlayer.equippedArmor;
+  player.gold = storedPlayer.gold;
+  player.lastLootAwarded = storedPlayer.lastLootAwarded;
 
   player.rebuildItems();
 }
 
+// returns a random number between 0 and maxNumber
+function rollForItem(maxNumber) {
+  var roll = Math.floor(Math.random() * maxNumber);
+  return roll;
+}
+
+// returns a random number between 1 and maxNumber
 function rollDice(maxNumber) {
   var roll = Math.floor(Math.random() * maxNumber) + 1;
   return roll;
@@ -304,3 +360,4 @@ function refillHpMp() {
   player.hp = player.hpMax;
   player.mp = player.mpMax;
 }
+
