@@ -25,43 +25,6 @@ function Player(room) {
   this.nextLevel = 100;
 }
 
-Player.prototype.equipItem = function(item) {
-  if(item.type === "Weapon") {
-    this.equippedWeapon = item;
-    this.updateStats(this.equippedWeapon);
-  } else if(item.type === "Armor") {
-    this.equippedArmor = item;
-    this.updateStats(this.equippedArmor);
-  } else {
-    alertError("You can only equip weapons or armor items.");
-  }
-}
-
-Player.prototype.unEquipItem = function(item) {
-  this.hpMax -= item.addHp;
-  this.hp -= item.addHp;
-  this.mpMax -= item.addMp;
-  this.mp -= item.addMp;
-  this.ap -= item.attackBonus;
-  this.sp -= item.spellBonus;
-  if(item.type === "Weapon") {
-    this.equippedWeapon = "";
-  } else {
-    this.equippedArmor = "";
-  }
-  fillCharacterValues(this);
-}
-
-Player.prototype.updateStats = function(item) {
-  this.hpMax += item.addHp;
-  this.hp += item.addHp;
-  this.mpMax += item.addMp;
-  this.mp += item.addMp;
-  this.ap += item.attackBonus;
-  this.sp += item.spellBonus;
-  fillCharacterValues(this);
-}
-
 Player.prototype.playerAttack = function(enemy) {
   enemy.hp -= this.ap;
   battleAlert(this.name + " hits " + enemy.name + " for " + this.ap + " damage!");
@@ -209,20 +172,6 @@ Player.prototype.startLevelUp = function() {
   runLevelUp();
 }
 
-Player.prototype.unEquipItem = function(item) {
-  this.hpMax -= item.addHp;
-  this.mpMax -= item.addMp;
-  this.ap -= item.attackBonus;
-  this.sp -= item.spellBonus;
-}
-
-Player.prototype.updateStats = function(item) {
-  this.hpMax += item.addHp;
-  this.mpMax += item.addMp;
-  this.ap += item.attackBonus;
-  this.sp += item.spellBonus;
-}
-
 Player.prototype.giveAwardsToPlayer = function(enemy) {
   this.xp += enemy.xp;
   this.checkLoot(enemy);
@@ -241,13 +190,50 @@ Player.prototype.rebuildItems = function() {
   }
 }
 
+Player.prototype.equipItem = function(item) {
+  if(item.type === "Weapon") {
+    this.equippedWeapon = item;
+    this.updateStats(this.equippedWeapon);
+  } else if(item.type === "Armor") {
+    this.equippedArmor = item;
+    this.updateStats(this.equippedArmor);
+  } else {
+    alertError("You can only equip weapons or armor items.");
+  }
+}
+
+Player.prototype.unEquipItem = function(item) {
+  this.hpMax -= item.addHp;
+  this.hp -= item.addHp;
+  this.mpMax -= item.addMp;
+  this.mp -= item.addMp;
+  this.ap -= item.attackBonus;
+  this.sp -= item.spellBonus;
+  if(item.type === "Weapon") {
+    this.equippedWeapon = "";
+  } else {
+    this.equippedArmor = "";
+  }
+  fillCharacterValues(this);
+}
+
+Player.prototype.updateStats = function(item) {
+  this.hpMax += item.addHp;
+  this.hp += item.addHp;
+  this.mpMax += item.addMp;
+  this.mp += item.addMp;
+  this.ap += item.attackBonus;
+  this.sp += item.spellBonus;
+  fillCharacterValues(this);
+}
+
 function buildPlayer() {
   player = new Player(roomMap.room1);
 }
 
 function createNewPlayer(name) {
   player.name = name;
-  saveGame(player); 
+  saveGame(player);
   fillCharacterValues(player);
 }
 
