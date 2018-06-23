@@ -21,6 +21,8 @@ function Player(room) {
   this.hasHealingConsumable = false;
   this.hasManaConsumable = false;
   this.nextLevel = 100;
+  this.equippedWeapon = "";
+  this.equippedArmor = "";
 }
 
 Player.prototype.playerAttack = function(enemy) {
@@ -189,40 +191,70 @@ Player.prototype.rebuildItems = function() {
 }
 
 Player.prototype.equipItem = function(item) {
-  if(item.type === "Weapon") {
-    this.equippedWeapon = item;
-    this.updateStats(this.equippedWeapon);
-  } else if(item.type === "Armor") {
-    this.equippedArmor = item;
-    this.updateStats(this.equippedArmor);
-  } else {
-    alertError("You can only equip weapons or armor items.");
+  if (item.type === "Weapon") {
+    this.addItemStats(item);
+    this.equippedWeapon = item.name;
+  } else if (item.type === "Armor") {
+    this.removeItemStats(item);
+    this.equippedArmor = item.name;
   }
+  item.equipped = true;
 }
 
 Player.prototype.unEquipItem = function(item) {
-  this.hpMax -= item.addHp;
-  this.hp -= item.addHp;
-  this.mpMax -= item.addMp;
-  this.mp -= item.addMp;
-  this.ap -= item.attackBonus;
-  this.sp -= item.spellBonus;
-  if(item.type === "Weapon") {
+  if (item.type === "Weapon") {
     this.equippedWeapon = "";
   } else {
     this.equippedArmor = "";
   }
-  fillCharacterValues(this);
+  item.equipped = false;
+  adjustCharacterStats();
 }
 
-Player.prototype.updateStats = function(item) {
+Player.prototype.addItemStats = function(item) {
+  console.log("adding stats...");
+  console.log(item.spellBonus);
   this.hpMax += item.addHp;
-  this.hp += item.addHp;
+  this.hp += this.hpMax;
   this.mpMax += item.addMp;
-  this.mp += item.addMp;
+  this.mp += this.mpMax;
   this.ap += item.attackBonus;
   this.sp += item.spellBonus;
-  fillCharacterValues(this);
+  adjustCharacterStats();
+}
+
+Player.prototype.removeItemStats = function(item) {
+  console.log("removing stats...");
+  this.hpMax -= item.addHp;
+  this.hp -= this.hpMax;
+  this.mpMax -= item.addMp;
+  this.mp -= this.mpMax;
+  this.ap -= item.attackBonus;
+  this.sp -= item.spellBonus;
+  adjustCharacterStats();
+}
+
+Player.prototype.runEquip = function(itemName) {
+  var item = getItemFromItemName(itemName);
+  if (item.type !== "Consumable" && item.equipped) {
+    this.unEquipItem(item);
+    item.equipped = false;
+  } else if (item.type !== "Consumable" && !item.equipped) {
+    this.equipItem(item);
+    item.equipped = true;
+  }
+}
+
+function getItemFromItemName(name) {
+  for (var i = 0; i < player.items.length; i++) {
+    if (name === player.items[i].name) return player.items[i];
+  }
+}
+
+function getIdFromItemName(name) {
+  for (var i = 0; i < player.items.length; i++) {
+    if (player.items[i].name === name) return player.items[i].id;
+  }
 }
 
 function buildPlayer() {

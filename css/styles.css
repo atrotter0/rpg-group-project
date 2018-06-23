@@ -977,12 +977,14 @@ body {
 .inventory-item {
   height: 190px;
   width: 150px;
-  transition: 0.5s;
 }
 
-.inventory-item:hover {
-  cursor: pointer;
-  transition: 0.5s;
+.inventory-item-stats:hover {
+  cursor: help;
+}
+
+.inventory-item-text:hover {
+  cursor: copy;
 }
 
 .inventory-item-icon {
@@ -1038,6 +1040,7 @@ body {
 
 .item-equipped {
   background-color: rgba(45, 42, 193, 0.68);
+  background-color: red;
   border-width: 3px;
   border-color: rgba(45, 42, 193, 0.68);
 }

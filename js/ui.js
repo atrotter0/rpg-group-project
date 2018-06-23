@@ -494,8 +494,7 @@ function playSpellSound() {
 }
 
 // set stats in character menu here
-function fillCharacterValues(player) {
-  $("#char-name").text(player.name);
+function adjustCharacterStats() {
   $("#health-points-indicator").text(player.hp + " / " + player.hpMax);
   $("#mana-points-indicator").text(player.mp + " / " + player.mpMax);
   $("#attack-power-indicator").text(player.ap);
@@ -510,7 +509,6 @@ function showCharacterScreen() {
 function runLoadInventory() {
   console.log("running inv load");
   for (var i = 0; i < player.items.length; i++) {
-    console.log(i);
     displayInInventory(player.items[i], i);
   }
 }
@@ -571,6 +569,32 @@ function displayItemStats(item, element) {
 
 function displayItemText(item, element) {
   $(element).children(".inventory-item-text").text(item.name);
+}
+
+function runEquipDisplay(item, element) {
+  if (item.type === "Consumable") {
+    console.log("That's a consumable...");
+  } else if ($(element).hasClass("item-equipped")) {
+    removeEquippedClass(element);
+    console.log("unequipping..." + item);
+    player.unEquipItem(item);
+  } else if (!$(element).hasClass("item-equipped")) {
+    addEquippedClass(element);
+    console.log("equipping..." + item);
+    player.equipItem(item);
+  }
+}
+
+function addEquippedClass(element) {
+  $(element).siblings(".inventory-item-icon").addClass("item-equipped");
+  $(element).siblings(".inventory-item-stats").addClass("item-equipped");
+  $(element).addClass("item-equipped");
+}
+
+function removeEquippedClass(element) {
+  $(element).siblings(".inventory-item-icon").removeClass("item-equipped");
+  $(element).siblings(".inventory-item-stats").removeClass("item-equipped");
+  $(element).removeClass("item-equipped");
 }
 
 $(document).ready(function() {
@@ -821,8 +845,11 @@ $(document).ready(function() {
     $(this).children(".inventory-item-stats").hide();
   });
 
-  $(".inventory-item").click(function() {
-    //runEquip or unEquip
+  $(".inventory-item-text").click(function() {
+    var itemName = $(this).text();
+    var item = getItemFromItemName(itemName);
+    runEquipDisplay(item, this);
+    player.runEquip(itemName);
   });
 
   $(".btn-close-character-screen").click(function() {

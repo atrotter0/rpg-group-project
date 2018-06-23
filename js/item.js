@@ -78,3 +78,4 @@ ItemMap.prototype.populateItems = function() {
 function buildItems() {
   itemMap = new ItemMap();
 }
+
