@@ -515,7 +515,7 @@ function displayInInventory(item, index) {
 
 function adjustCharacterStats() {
   $("#character-screen-name").text(player.name);
-  $("#character-stats-level").text(player.name);
+  $("#stats-level").text(player.level);
   $("#stats-hp").text(player.hp + "/" + player.hpMax);
   $("#stats-mp").text(player.mp + "/" + player.mpMax);
   $("#stats-ap").text(player.ap);
