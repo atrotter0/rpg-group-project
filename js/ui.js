@@ -530,6 +530,7 @@ function adjustCharacterStats() {
   $("#stats-ap").text(player.ap);
   $("#stats-sp").text(player.sp);
   $("#stats-xp").text(player.xp);
+  $("#stats-gold").text(player.gold);
 }
 
 function resetInventoryIcons(element) {
