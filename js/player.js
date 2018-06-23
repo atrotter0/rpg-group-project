@@ -205,6 +205,16 @@ Player.prototype.rebuildItems = function() {
   }
 }
 
+Player.prototype.runEquip = function(itemName) {
+  var item = getItemFromItemName(itemName);
+  if (item.type !== "Consumable" && item.equipped) {
+    this.unEquipItem(item);
+  } else if (item.type !== "Consumable" && !item.equipped) {
+    this.unEquipItem(item);
+    this.equipItem(item);
+  }
+}
+
 Player.prototype.equipItem = function(item) {
   if (item.type === "Weapon") {
     this.equippedWeapon = item.name;
@@ -216,12 +226,19 @@ Player.prototype.equipItem = function(item) {
 }
 
 Player.prototype.unEquipItem = function(item) {
+  var oldWeapon = getItemFromItemName(this.equippedWeapon);
+  var oldArmor = getItemFromItemName(this.equippedArmor);
   if (item.type === "Weapon") {
+    if (oldWeapon !== undefined) this.updateAndRemove(oldWeapon, false);
     this.equippedWeapon = "";
   } else {
+    if (oldArmor !== undefined) this.updateAndRemove(oldArmor, false);
     this.equippedArmor = "";
   }
-  this.updateEquippedItem(item, false);
+}
+
+Player.prototype.updateAndRemove = function(item, equippedValue) {
+  this.updateEquippedItem(item, equippedValue);
   this.removeItemStats(item);
 }
 
@@ -245,20 +262,9 @@ Player.prototype.removeItemStats = function(item) {
   adjustCharacterStats();
 }
 
-Player.prototype.runEquip = function(itemName) {
-  var item = getItemFromItemName(itemName);
-  console.log("Equipped: " + item.equipped);
-  if (item.type !== "Consumable" && item.equipped) {
-    this.unEquipItem(item);
-  } else if (item.type !== "Consumable" && !item.equipped) {
-    this.equipItem(item);
-  }
-}
-
 Player.prototype.updateEquippedItem = function(item, equippedValue) {
   for (var i = 0; i < player.items.length; i++) {
     if (item === player.items[i]) {
-      console.log("updating equipped value" + player.items[i].equipped);
       player.items[i].equipped = equippedValue;
     }
   }

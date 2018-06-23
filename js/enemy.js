@@ -13,7 +13,7 @@ function Enemy(id, tier, name, hp, dmg, xp) {
   this.dmg = dmg;
   this.xp = xp;
   this.goesFirst = true;
-  this.loot = itemMap.fetchLevelSpecificItems(this.tier)
+  this.loot = itemMap.fetchLevelSpecificItems(this.tier);
 }
 
 // Enemy Map Constructor

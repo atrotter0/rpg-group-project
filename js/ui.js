@@ -498,16 +498,25 @@ function showCharacterScreen() {
 }
 
 function runLoadInventory() {
-  console.log("running inv load");
+  resetEquippedDisplay();
+  buildItemDisplay();
+  displayEquippedItems();
+}
+
+function buildItemDisplay() {
   for (var i = 0; i < player.items.length; i++) {
     displayInInventory(player.items[i], i);
   }
 }
 
+function displayEquippedItems() {
+  if (player.equippedArmor !== "") displayEquippedArmor(player.equippedArmor);
+  if (player.equippedWeapon !== "") displayEquippedWeapon(player.equippedWeapon);
+}
+
 function displayInInventory(item, index) {
   var element = $("#inventory-item-" + index);
   resetInventoryIcons(element);
-  checkEquippedDisplay(item, element);
   displayItemIcon(item, element);
   displayItemStats(item, element);
   displayItemText(item, element);
@@ -528,12 +537,11 @@ function resetInventoryIcons(element) {
     .removeClass("inventory-item-weapon").removeClass("inventory-item-consumable");
 }
 
-function checkEquippedDisplay(item, element) {
-  if (item.equipped == true) {
-    $(element).children(".inventory-item-icon").addClass("item-equipped");
-    $(element).children(".inventory-item-stats").addClass("item-equipped");
-    $(element).children(".inventory-item-text").addClass("item-equipped");
-  }
+function resetEquippedDisplay() {
+  console.log("resetting equipped display");
+  $(".inventory-item").children(".inventory-item-icon").removeClass("item-equipped");
+  $(".inventory-item").children(".inventory-item-stats").removeClass("item-equipped");
+  $(".inventory-item").children(".inventory-item-text").removeClass("item-equipped");
 }
 
 function displayItemIcon(item, element) {
@@ -583,10 +591,30 @@ function addEquippedClass(element) {
   $(element).addClass("item-equipped");
 }
 
-function removeEquippedClass(element) {
-  $(element).siblings(".inventory-item-icon").removeClass("item-equipped");
-  $(element).siblings(".inventory-item-stats").removeClass("item-equipped");
-  $(element).removeClass("item-equipped");
+function displayEquippedArmor(armorName) {
+  var elements = $(".inventory-item");
+  for (var i = 0; i < elements.length; i++) {
+    var nameText = $(elements[i]).children(".inventory-item-text").text();
+    if (armorName === nameText) {
+      $(elements[i]).children(".inventory-item-icon").addClass("item-equipped");
+      $(elements[i]).children(".inventory-item-stats").addClass("item-equipped");
+      $(elements[i]).children(".inventory-item-text").addClass("item-equipped");
+      break;
+    }
+  }
+}
+
+function displayEquippedWeapon(weaponName) {
+  var elements = $(".inventory-item");
+  for (var i = 0; i < elements.length; i++) {
+    var nameText = $(elements[i]).children(".inventory-item-text").text();
+    if (weaponName === nameText) {
+      $(elements[i]).children(".inventory-item-icon").addClass("item-equipped");
+      $(elements[i]).children(".inventory-item-stats").addClass("item-equipped");
+      $(elements[i]).children(".inventory-item-text").addClass("item-equipped");
+      break;
+    }
+  }
 }
 
 $(document).ready(function() {
@@ -839,9 +867,10 @@ $(document).ready(function() {
   });
 
   $(".inventory-item-text").click(function() {
+    resetEquippedDisplay();
     var itemName = $(this).text();
-    var item = getItemFromItemName(itemName);
-    runEquipDisplay(item, this);
+    player.runEquip(itemName);
+    displayEquippedItems();
   });
 
   $(".btn-close-character-screen").click(function() {
