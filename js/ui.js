@@ -129,8 +129,9 @@ function adjustMp(target) {
   }
 }
 
-function showRoom(player) {
-  var roomId = player.room;
+function showRoom() {
+  var roomId = player.room.id;
+  $("#room-" + roomId).show(1000).addClass("current-screen");
 }
 
 function initiateNewStats() {
@@ -822,5 +823,10 @@ $(document).ready(function() {
 
   $(".inventory-item").click(function() {
     //runEquip or unEquip
+  });
+
+  $(".btn-close-character-screen").click(function() {
+    hideCurrentScreen();
+    showRoom();
   });
 });

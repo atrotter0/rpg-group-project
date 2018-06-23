@@ -893,6 +893,17 @@ body {
   color: #fff;
 }
 
+.btn-close-character-screen {
+  border: none;
+  background-color: #36399e;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+
+.btn-close-character-screen:focus {
+  background-color: #36399e;
+}
+
 #character-screen-inner {
   background-color: rgba(191,183,183,0.35);
   height: 790px;
