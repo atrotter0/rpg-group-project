@@ -14,6 +14,7 @@ function Item(id, name, type, level, hp, ap, sp, mp, icon) {
   this.spellBonus = sp;
   this.addMp = mp;
   this.icon = icon;
+  this.equipped = false;
 }
 
 // Item Map Populator

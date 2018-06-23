@@ -492,6 +492,7 @@ function playSpellSound() {
   spellSound.play();
 }
 
+// set stats in character menu here
 function fillCharacterValues(player) {
   $("#char-name").text(player.name);
   $("#health-points-indicator").text(player.hp + " / " + player.hpMax);
@@ -501,12 +502,72 @@ function fillCharacterValues(player) {
   $("#experience-indicator").text(player.xp);
 }
 
-function loadInventory() {
-  //load inventory with items based on player object
-}
-
 function showCharacterScreen() {
   $("#character-screen").show(1000).addClass("current-screen");
+}
+
+function runLoadInventory() {
+  for (var i = 0; i < player.items.length; i++) {
+    displayInInventory(player.items[i], i);
+  }
+}
+
+function displayInInventory(item, index) {
+  var element = $("#inventory-item" + index);
+  resetEquipped(element);
+  resetInventoryIcons(element);
+  checkEquippedDisplay(item, element);
+  displayItemIcon(item, element);
+  displayItemStats(item, element);
+  displayItemText();
+}
+
+function resetEquipped(element) {
+  $(element).children(".inventory-item-icon").removeClass("item-equipped");
+  $(element).children(".inventory-item-stats").removeClass("item-equipped");
+  $(element).children(".inventory-item-text").removeClass("item-equipped");
+}
+
+function resetInventoryIcons(element) {
+  $(element).children(".inventory-item-icon").removeClass("inventory-item-armor")
+    .removeClass("inventory-item-weapon").removeClass("inventory-item-consumable");
+}
+
+function checkEquippedDisplay(item, element) {
+  if (item.equipped) {
+    $(element).children(".inventory-item-icon").addClass("item-equipped");
+    $(element).children(".inventory-item-stats").addClass("item-equipped");
+    $(element).children(".inventory-item-text").addClass("item-equipped");
+  }
+}
+
+function displayItemIcon(item, element) {
+  if (item.type === "Armor") {
+    $(element).children(".inventory-item-icon").addClass("inventory-item-armor");
+  } else if (item.type === "Weapon") {
+    $(element).children(".inventory-item-icon").addClass("inventory-item-weapon");
+  } else if (item.type === "Consumable") {
+    $(element).children(".inventory-item-icon").addClass("inventory-item-consumable");
+  }
+}
+
+function displayItemStats(item, element) {
+  if (item.addHp > 0) {
+    $(element).children(".inventory-item-stats").children(".item-hp").text("HP: +" + item.addHp);
+  }
+  if (item.addMp > 0) {
+    $(element).children(".inventory-item-stats").children(".item-mp").text("MP: +" + item.addMp);
+  }
+  if (item.attackBonus > 0) {
+    $(element).children(".inventory-item-stats").children(".item-mp").text("AP: +" + item.attackBonus);
+  }
+  if (item.spellBonus > 0) {
+    $(element).children(".inventory-item-stats").children(".item-mp").text("AP: +" + item.spellBonus);
+  }
+}
+
+function displayItemText(item, element) {
+
 }
 
 $(document).ready(function() {
@@ -742,7 +803,7 @@ $(document).ready(function() {
 
   /* INVENTORY */
   $("#room1-hero, #room2-hero").click(function() {
-    loadInventory();
+    runLoadInventory();
     hideCurrentScreen();
     showCharacterScreen();
   });

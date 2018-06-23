@@ -16,8 +16,6 @@ function Player(room) {
   this.items = [];
   this.xp = 0;
   this.room = room;
-  this.equippedWeapon = {};
-  this.equippedArmor = {};
   this.currentEnemy = {};
   this.lastRoom = "";
   this.hasHealingConsumable = false;
@@ -255,8 +253,6 @@ function updatePlayerFromStorage(storedPlayer) {
   player.items = storedPlayer.items;
   player.xp = storedPlayer.xp;
   player.room = storedPlayer.room;
-  player.equippedWeapon = storedPlayer.equippedWeapon;
-  player.equippedArmor = storedPlayer.equippedArmor;
   player.currentEnemy = storedPlayer.currentEnemy;
   player.lastRoom = storedPlayer.lastRoom;
   player.hasHealingConsumable = storedPlayer.hasHealingConsumable;
@@ -275,3 +271,4 @@ function refillHpMp() {
   player.hp = player.hpMax;
   player.mp = player.mpMax;
 }
+
