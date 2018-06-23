@@ -62,7 +62,7 @@ body {
 /*************/
 
 #main-menu {
-  display: none;
+  display: block;
   font-family: 'Press Start 2P', cursive;
 }
 
@@ -880,7 +880,7 @@ body {
 /********************/
 
 #character-screen {
-  display: block;
+  display: none;
   width: 768px;
   height: 1475px;
   background-size: 150%;

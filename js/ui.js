@@ -133,29 +133,6 @@ function showRoom(player) {
   var roomId = player.room;
 }
 
-/******************************/
-/* INVENTORY SCREEN FUNCTIONS */
-/******************************/
-
-function fillCharacterValues(player) {
-  $("#char-name").text(player.name);
-  $("#health-points-indicator").text(player.hp + " / " + player.hpMax);
-  $("#mana-points-indicator").text(player.mp + " / " + player.mpMax);
-  $("#attack-power-indicator").text(player.ap);
-  $("#spell-power-indicator").text(player.sp);
-  $("#experience-indicator").text(player.xp);
-}
-
-function showCharacterScreen() {
-  $(".character-screen").hide().fadeIn(1000);
-  $(".inventory-menu").hide().fadeIn(1000);
-}
-
-function hideCharacterScreen() {
-  $(".character-screen").hide();
-  $(".inventory-menu").hide();
-}
-
 function initiateNewStats() {
   $("#hp-added").text(0);
   $("#mp-added").text(0);
@@ -515,6 +492,23 @@ function playSpellSound() {
   spellSound.play();
 }
 
+function fillCharacterValues(player) {
+  $("#char-name").text(player.name);
+  $("#health-points-indicator").text(player.hp + " / " + player.hpMax);
+  $("#mana-points-indicator").text(player.mp + " / " + player.mpMax);
+  $("#attack-power-indicator").text(player.ap);
+  $("#spell-power-indicator").text(player.sp);
+  $("#experience-indicator").text(player.xp);
+}
+
+function loadInventory() {
+  //load inventory with items based on player object
+}
+
+function showCharacterScreen() {
+  $("#character-screen").show(1000).addClass("current-screen");
+}
+
 $(document).ready(function() {
   console.log("ui.js loaded!");
 
@@ -750,7 +744,7 @@ $(document).ready(function() {
   $("#room1-hero, #room2-hero").click(function() {
     loadInventory();
     hideCurrentScreen();
-    showInventory();
+    showCharacterScreen();
   });
 
   $(".inventory-item").mouseover(function() {
