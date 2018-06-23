@@ -587,7 +587,6 @@ function playSpellSound() {
   spellSound.play();
 }
 
-
 $(document).ready(function() {
   console.log("ui.js loaded!");
 
@@ -817,5 +816,16 @@ $(document).ready(function() {
     loadPlayer();
     runLoadGame();
     playDungeonSong();
+  });
+
+  /* INVENTORY */
+  $(".inventory-item").mouseover(function() {
+    $(this).children(".inventory-item-icon").hide();
+    $(this).children(".inventory-item-stats").show();
+  });
+
+  $(".inventory-item").mouseout(function() {
+    $(this).children(".inventory-item-icon").show();
+    $(this).children(".inventory-item-stats").hide();
   });
 });

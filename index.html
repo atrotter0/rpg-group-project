@@ -390,14 +390,14 @@
       <div id="character-screen-inner">
         <div class="character-screen-title"><h2 class="fancy-shadow-two" id="character-screen-name">Name</h2></div>
         <div id="character-screen-stats-grid">
-          <div class="stats-item">Image</div>
+          <div><img id="character-screen-sprite" src="img/hero-sprite1.png" alt="Hero sprite image"></div>
           <div class="stats-title fancy-shadow-three">Level</div> 
           <div class="stats-title fancy-shadow-three">HP</div> 
           <div class="stats-title fancy-shadow-three">MP</div> 
           <div class="stats-title fancy-shadow-three">AP</div> 
           <div class="stats-title fancy-shadow-three">SP</div> 
           <div class="stats-title fancy-shadow-three">XP</div>
-          <div class="stats-item">Image</div>
+          <div></div>
           <div class="stats-item">1</div> 
           <div class="stats-item">15/15</div> 
           <div class="stats-item">20/20</div> 
@@ -410,6 +410,12 @@
           <div id="character-screen-inventory-grid">
             <div class="inventory-item" id="inv-item0">
               <div class="inventory-item-icon inventory-item-armor item-equipped"></div>
+              <div class="inventory-item-stats item-equipped" id="inv-item-0-stats">
+                <p id="item-0-stats-hp">HP: +2</p>
+                <p id="item-0-stats-mp">MP: +2</p>
+                <p id="item-0-stats-ap">AP: +2</p>
+                <p id="item-0-stats-sp">SP: +2</p>
+              </div>
               <div class="inventory-item-text item-equipped">Sturdy Hauberk</div>
             </div>
             <div class="inventory-item" id="inv-item1">

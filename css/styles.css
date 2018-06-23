@@ -882,7 +882,7 @@ body {
 #character-screen {
   display: block;
   width: 768px;
-  height: 1650px;
+  height: 1475px;
   background-size: 150%;
   background-position: 50% 50%;
   background-repeat: no-repeat;
@@ -901,7 +901,7 @@ body {
 .character-screen-title h2, .character-screen-title h4 {
   text-align: center;
   margin: 0 auto;
-  background-color: #707677;
+  background-color: #36399e;
   border-left: 1px solid #fff;
   border-right: 1px solid #fff;
 }
@@ -917,6 +917,11 @@ body {
   background-color: rgba(51,51,51,0.78);
   padding: 30px 0px 30px 16px;
   border: 1px solid #fff;
+}
+
+#character-screen-sprite {
+  display: block;
+  padding-left: 7px;
 }
 
 .stats-title {
@@ -937,8 +942,9 @@ body {
   text-align: center;
   border-color: #eee;
   background-color: #fff;
-  height: 30px;
-  padding-top: 7px;
+  height: 50px;
+  margin-top: -37px;
+  padding-top: 18px;
   width: 80px;
 }
 
@@ -952,7 +958,7 @@ body {
   grid-template-columns: auto auto auto auto;
   background-color: rgba(51,51,51,0.78);
   padding: 30px 0px 50px 30px;
-  grid-gap: 80px 5px;
+  grid-gap: 30px 5px;
   border: 1px solid;
 }
 
@@ -963,10 +969,8 @@ body {
 }
 
 .inventory-item:hover {
-  box-shadow: 0px 10px 40px white;
   cursor: pointer;
   transition: 0.5s;
-  border-radius: 20px;
 }
 
 .inventory-item-icon {
@@ -984,6 +988,19 @@ body {
   text-align: center;
   border-radius: 0 0 10px 10px;
   background-color: black;
+}
+
+.inventory-item-stats {
+  display: none;
+  height: 150px;
+  width: 150px;
+  border-radius: 10px 10px 0 0;
+  background-color: black;
+}
+
+.inventory-item-stats p {
+  text-align: center;
+  padding-top: 10px;
 }
 
 .inventory-item-armor {
