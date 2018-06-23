@@ -209,7 +209,6 @@ Player.prototype.unEquipItem = function(item) {
     this.equippedArmor = "";
   }
   this.updateEquippedItem(item, false);
-  item.equipped = false;
   this.removeItemStats(item);
 }
 
