@@ -6,7 +6,7 @@
 
 ## Description
 
-An RPG click adventure built with JavaScript, jQuery, & Bootstrap! This project was built in 3 days for the Epicodus Intro to Programming Week 5 Group Project.
+An RPG click adventure built with JavaScript, jQuery, & Bootstrap! This project was built for the Epicodus Intro to Programming Week 5 Group Project.
 
 Features:
 * Character customization
@@ -15,7 +15,7 @@ Features:
 * Multiple enemies
 * Classic 8-bit RPG music and sound effects
 * Turn-based battle system
-* Inventory system (currently non-functional)
+* Inventory system
 * Blood, sweat, and tears
 
 ## Setup/Contribution Requirements
@@ -36,7 +36,8 @@ Features:
 
 ## Known Issues
 
-* Inventory is not completely wired up yet.
+* Need a way to use consumable items in inventory.
+* Need a way to destroy items in inventory.
 * Needs another pass at game balance.
 
 ## Links
