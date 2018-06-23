@@ -16,9 +16,9 @@
   <script src="js/player.js"></script>
   <script src="js/room.js"></script>
   <script src="js/battle.js"></script>
+  <script src="js/newstats.js"></script>
   <script src="js/ui.js"></script>
   <script src="js/init.js"></script>
-  <script src="js/newstats.js"></script>
 </head>
 <body>
   <div class="container">
@@ -26,7 +26,6 @@
       <div id="main-menu-header">
         <h1 class="fancy-shadow">Dungeon Escape</h1>
         <div id="main-menu-image-box">
-          <div class="alert" id="alert-field"></div>
         </div>
       </div>
       <div id="main-menu-options">
@@ -387,84 +386,239 @@
         <button type="button" class="btn btn-default btn-main-menu start-over" id="start-over">Play Again</button>
       </div>
     </div>
-    <div class="character-screen">
-      <h1 id="character-details">Character Details</h1>
-      <div class="char-name-div">
-        <h3 id="char-name">Name</h3>
+    <div id="character-screen">
+      <div class="cancel-box">
+        <button type="button" class="btn btn-default btn-battle btn-close btn-close-character-screen" id="inventory-close">
+          <img src="img/cancel-icon.png" alt="Close button icon" class="btn-icon">
+        </button>
       </div>
-      <div id="portrait-view">
-        <img id="character-portrait" src="img/character-portrait.png" alt="character">
-      </div>
-      <div class="equipped-items-div">
-        <div id="equipped-weapon">
-          <img id="weapon-icon" src="img/pointy-sword.png" alt="weapon">
+      <div id="character-screen-inner">
+        <div class="character-screen-title">
+          <h2 class="fancy-shadow-two">
+            <img id="character-screen-sprite" src="img/hero-sprite1.png" alt="Hero sprite image">
+            <span id="character-screen-name">Name</span>
+          </h2>
         </div>
-        <div id="equipped-armor">
-          <img id="armor-icon" src="img/breastplate.png" alt="armor">
+        <div id="character-screen-stats-grid">
+          <div class="stats-title fancy-shadow-three">Level</div> 
+          <div class="stats-title fancy-shadow-three">HP</div>
+          <div class="stats-title fancy-shadow-three">MP</div>
+          <div class="stats-title fancy-shadow-three">AP</div>
+          <div class="stats-title fancy-shadow-three">SP</div>
+          <div class="stats-title fancy-shadow-three">XP</div>
+          <div class="stats-title fancy-shadow-three">Gold</div>
+          <div class="stats-item" id="stats-level">-</div>
+          <div class="stats-item" id="stats-hp">-</div>
+          <div class="stats-item" id="stats-mp">-</div>
+          <div class="stats-item" id="stats-ap">-</div>
+          <div class="stats-item" id="stats-sp">-</div>
+          <div class="stats-item" id="stats-xp">-</div>
+          <div class="stats-item" id="stats-gold">-</div>
         </div>
-        <div id="equipped-weapon-text-div">
-          <p id="equipped-weapon-text"></p>
-        </div>
-        <div id="equipped-armor-text-div">
-          <p id="equipped-armor-text"></p>
-        </div>
-      </div>
-      <div class="attributes-display">
-        <div id="health-points">
-          <h4>Health:</h4>
-        </div>
-        <div id="health-points-indicator-div">
-          <h4 id="health-points-indicator">75</h4>
-        </div>
-        <div id="mana-points">
-          <h4>Mana:</h4>
-        </div>
-        <div id="mana-points-indicator-div">
-          <h4 id="mana-points-indicator">30</h4>
-        </div>
-        <div id="attack-power">
-          <h4>Attack Power:</h4>
-        </div>
-        <div id="attack-power-indicator-div">
-          <h4 id="attack-power-indicator">11</h4>
-        </div>
-        <div id="spell-power">
-          <h4>Spell Power:</h4>
-        </div>
-        <div id="spell-power-indicator-div">
-          <h4 id="spell-power-indicator">5</h4>
-        </div>
-        <div id="experience">
-          <h4>Experience:</h4>
-        </div>
-        <div id="experience-indicator-div">
-          <h4 id="experience-indicator">20</h4>
-        </div>
-      </div>
-    </div>
-    <div class="inventory-menu">
-      <h1 id="inventory-screen" class="fancy-shadow">Inventory</h1>
-        <div class="grid-container">
-          <div class="grid-item" id="slot0"></div>
-          <div class="grid-item" id="slot1"></div>
-          <div class="grid-item" id="slot2"></div>
-          <div class="grid-item" id="slot3"></div>
-          <div class="grid-item" id="slot4"></div>
-          <div class="grid-item" id="slot5"></div>
-          <div class="grid-item" id="slot6"></div>
-          <div class="grid-item" id="slot7"></div>
-          <div class="grid-item" id="slot8"></div>
-          <div class="grid-item" id="slot9"></div>
-          <div class="grid-item" id="slot10"></div>
-          <div class="grid-item" id="slot11"></div>
-          <div class="grid-item" id="slot12"></div>
-          <div class="grid-item" id="slot13"></div>
-          <div class="grid-item" id="slot14"></div>
-          <div class="grid-item" id="slot15"></div>
-          <div class="grid-item" id="slot16"></div>
-          <div class="grid-item" id="slot17"></div>
-          <div class="grid-item" id="slot18"></div>
-          <div class="grid-item" id="slot19"></div>
+        <div id="character-screen-inventory-window">
+          <div class="character-screen-title"><h4 class="fancy-shadow-two" id="character-screen-inv-title">Inventory</h4></div>
+          <div id="character-screen-inventory-grid">
+            <div class="inventory-item" id="inventory-item-0">
+              <div class="inventory-item-icon"></div>
+              <div class="inventory-item-stats">
+                <p class="item-hp"></p>
+                <p class="item-mp"></p>
+                <p class="item-ap"></p>
+                <p class="item-sp"></p>
+              </div>
+              <div class="inventory-item-text"></div>
+            </div>
+            <div class="inventory-item" id="inventory-item-1">
+              <div class="inventory-item-icon"></div>
+              <div class="inventory-item-stats">
+                <p class="item-hp"></p>
+                <p class="item-mp"></p>
+                <p class="item-ap"></p>
+                <p class="item-sp"></p>
+              </div>
+              <div class="inventory-item-text"></div>
+            </div>
+            <div class="inventory-item" id="inventory-item-2">
+              <div class="inventory-item-icon"></div>
+              <div class="inventory-item-stats">
+                <p class="item-hp"></p>
+                <p class="item-mp"></p>
+                <p class="item-ap"></p>
+                <p class="item-sp"></p>
+              </div>
+              <div class="inventory-item-text"></div>
+            </div>
+            <div class="inventory-item" id="inventory-item-3">
+              <div class="inventory-item-icon"></div>
+              <div class="inventory-item-stats">
+                <p class="item-hp"></p>
+                <p class="item-mp"></p>
+                <p class="item-ap"></p>
+                <p class="item-sp"></p>
+              </div>
+              <div class="inventory-item-text"></div>
+            </div>
+            <div class="inventory-item" id="inventory-item-4">
+              <div class="inventory-item-icon"></div>
+              <div class="inventory-item-stats">
+                <p class="item-hp"></p>
+                <p class="item-mp"></p>
+                <p class="item-ap"></p>
+                <p class="item-sp"></p>
+              </div>
+              <div class="inventory-item-text"></div>
+            </div>
+            <div class="inventory-item" id="inventory-item-5">
+              <div class="inventory-item-icon"></div>
+              <div class="inventory-item-stats">
+                <p class="item-hp"></p>
+                <p class="item-mp"></p>
+                <p class="item-ap"></p>
+                <p class="item-sp"></p>
+              </div>
+              <div class="inventory-item-text"></div>
+            </div>
+            <div class="inventory-item" id="inventory-item-6">
+              <div class="inventory-item-icon"></div>
+              <div class="inventory-item-stats">
+                <p class="item-hp"></p>
+                <p class="item-mp"></p>
+                <p class="item-ap"></p>
+                <p class="item-sp"></p>
+              </div>
+              <div class="inventory-item-text"></div>
+            </div>
+            <div class="inventory-item" id="inventory-item-7">
+              <div class="inventory-item-icon"></div>
+              <div class="inventory-item-stats">
+                <p class="item-hp"></p>
+                <p class="item-mp"></p>
+                <p class="item-ap"></p>
+                <p class="item-sp"></p>
+              </div>
+              <div class="inventory-item-text"></div>
+            </div>
+            <div class="inventory-item" id="inventory-item-8">
+              <div class="inventory-item-icon"></div>
+              <div class="inventory-item-stats">
+                <p class="item-hp"></p>
+                <p class="item-mp"></p>
+                <p class="item-ap"></p>
+                <p class="item-sp"></p>
+              </div>
+              <div class="inventory-item-text"></div>
+            </div>
+            <div class="inventory-item" id="inventory-item-9">
+              <div class="inventory-item-icon"></div>
+              <div class="inventory-item-stats">
+                <p class="item-hp"></p>
+                <p class="item-mp"></p>
+                <p class="item-ap"></p>
+                <p class="item-sp"></p>
+              </div>
+              <div class="inventory-item-text"></div>
+            </div>
+            <div class="inventory-item" id="inventory-item-10">
+              <div class="inventory-item-icon"></div>
+              <div class="inventory-item-stats">
+                <p class="item-hp"></p>
+                <p class="item-mp"></p>
+                <p class="item-ap"></p>
+                <p class="item-sp"></p>
+              </div>
+              <div class="inventory-item-text"></div>
+            </div>
+            <div class="inventory-item" id="inventory-item-11">
+              <div class="inventory-item-icon"></div>
+              <div class="inventory-item-stats">
+                <p class="item-hp"></p>
+                <p class="item-mp"></p>
+                <p class="item-ap"></p>
+                <p class="item-sp"></p>
+              </div>
+              <div class="inventory-item-text"></div>
+            </div>
+            <div class="inventory-item" id="inventory-item-12">
+              <div class="inventory-item-icon"></div>
+              <div class="inventory-item-stats">
+                <p class="item-hp"></p>
+                <p class="item-mp"></p>
+                <p class="item-ap"></p>
+                <p class="item-sp"></p>
+              </div>
+              <div class="inventory-item-text"></div>
+            </div>
+             <div class="inventory-item" id="inventory-item-13">
+              <div class="inventory-item-icon"></div>
+              <div class="inventory-item-stats">
+                <p class="item-hp"></p>
+                <p class="item-mp"></p>
+                <p class="item-ap"></p>
+                <p class="item-sp"></p>
+              </div>
+              <div class="inventory-item-text"></div>
+            </div>
+            <div class="inventory-item" id="inventory-item-14">
+              <div class="inventory-item-icon"></div>
+              <div class="inventory-item-stats">
+                <p class="item-hp"></p>
+                <p class="item-mp"></p>
+                <p class="item-ap"></p>
+                <p class="item-sp"></p>
+              </div>
+              <div class="inventory-item-text"></div>
+            </div>
+            <div class="inventory-item" id="inventory-item-15">
+              <div class="inventory-item-icon"></div>
+              <div class="inventory-item-stats">
+                <p class="item-hp"></p>
+                <p class="item-mp"></p>
+                <p class="item-ap"></p>
+                <p class="item-sp"></p>
+              </div>
+              <div class="inventory-item-text"></div>
+            </div>
+            <div class="inventory-item" id="inventory-item-16">
+              <div class="inventory-item-icon"></div>
+              <div class="inventory-item-stats">
+                <p class="item-hp"></p>
+                <p class="item-mp"></p>
+                <p class="item-ap"></p>
+                <p class="item-sp"></p>
+              </div>
+              <div class="inventory-item-text"></div>
+            </div>
+            <div class="inventory-item" id="inventory-item-17">
+              <div class="inventory-item-icon"></div>
+              <div class="inventory-item-stats">
+                <p class="item-hp"></p>
+                <p class="item-mp"></p>
+                <p class="item-ap"></p>
+                <p class="item-sp"></p>
+              </div>
+              <div class="inventory-item-text"></div>
+            </div>
+            <div class="inventory-item" id="inventory-item-18">
+              <div class="inventory-item-icon"></div>
+              <div class="inventory-item-stats">
+                <p class="item-hp"></p>
+                <p class="item-mp"></p>
+                <p class="item-ap"></p>
+                <p class="item-sp"></p>
+              </div>
+              <div class="inventory-item-text"></div>
+            </div>
+            <div class="inventory-item" id="inventory-item-19">
+              <div class="inventory-item-icon"></div>
+              <div class="inventory-item-stats">
+                <p class="item-hp"></p>
+                <p class="item-mp"></p>
+                <p class="item-ap"></p>
+                <p class="item-sp"></p>
+              </div>
+              <div class="inventory-item-text"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

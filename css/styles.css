@@ -17,6 +17,14 @@ body {
   text-shadow: 3px 3px rgba(123,121,121,0.75);
 }
 
+.fancy-shadow-two {
+  text-shadow: 3px 3px rgba(51,50,50,0.75);
+}
+
+.fancy-shadow-three {
+  text-shadow: 3px 2px rgba(43, 32, 128, 0.87)
+}
+
 .invisible {
   visibility: hidden;
 }
@@ -60,10 +68,14 @@ body {
 
 #main-menu-header h1 {
   text-align: center;
+  width: 800px;
+  margin: 10px auto;
 }
 
 #main-menu-options {
   text-align: center;
+  width: 800px;
+  margin: 30px auto;
 }
 
 #main-menu-player-name {
@@ -110,7 +122,6 @@ body {
 
 #main-menu-image-box {
   border-radius: 3px;
-  bbox-shadow: 0px 2px 20px rgba(78,78,78,0.63);
   box-shadow: 2px 2px 20px rgba(35, 34, 34, 0.98);
   margin: 20px auto;
   height: 400px;
@@ -414,297 +425,9 @@ body {
   margin: 50px auto;
 }
 
-/******************/
-/* INVENTORY MENU */
-/******************/
-
-[data-title]:hover:after {
-    opacity: 1;
-    transition: all 0.1s ease 0.5s;
-    visibility: visible;
-}
-[data-title]:after {
-    content: attr(data-title);
-    width: 150px;
-    background-color: black;
-    color: #d4d6d8;
-    font-size: 150%;
-    position: absolute;
-    padding: 1px 5px 2px 5px;
-    bottom: -1.6em;
-    left: auto;
-    white-space: pre-wrap;
-    box-shadow: 1px 1px 3px #222222;
-    opacity: 0;
-    border: 1px solid green;
-    z-index: 99999;
-    visibility: hidden;
-}
-[data-title] {
-    position: relative;
-}
-
-.character-screen {
-  display: none;
-}
-
-.inventory-menu {
-  display: none;
-}
-
-.grid-container {
-  margin-right: 25%;
-  margin-left: 25%;
-  margin-bottom: 0px;
-  margin-top: 0px;
-  text-align: center;
-  display: grid;
-  grid-template-columns: repeat(4, 25%);
-  background-color: #eee;
-  font-family: Aclonica;
-}
-
-#inventory-screen {
-  margin-right: 25%;
-  margin-left: 25%;
-  margin-bottom: 0px;
-  margin-top: 0px;
-  text-align: center;
-  display: grid;
-  grid-template-columns: auto;
-  font-family: Aclonica;
-  background: url("../img/inventory-bg.jpg");
-  background: contain;
-  color: white;
-  font-size: 24px;
-  padding: 20px;
-  box-shadow: 0px 2px 20px black;
-}
-
-#character-details {
-  background: url("../img/inventory-bg.jpg");
-  background: contain;
-  color: white;
-  font-size: 24px;
-  padding: 20px;
-  margin-bottom: 0px;
-  margin-top: 0px;
-}
-
-#char-name {
-  margin-bottom: 0px;
-  margin-top: 0px;
-}
-
-.grid-item {
-  border: 1px solid black;
-  padding: 20px;
-  font-size: 12px;
-  text-align: center;
-  background-color: #434951;
-  color: lightgreen;
-  box-shadow: 0px 2px 20px black;
-  transition: 1s;
-}
-
-.grid-item:hover {
-  transition: 1s;
-  box-shadow: 0px 2px 20px white;
-  background-color: #8c8c8c;
-}
-
-.itemNameVal {
-  color: lightgreen;
-  font-size: 12px;
-}
-
-.character-screen {
-  margin-right: 25%;
-  margin-left: 25%;
-  margin-bottom: 0px;
-  margin-top: 0px;
-  text-align: center;
-  background-color: darkgrey;
-  border: 1px solid black;
-  font-family: Aclonica;
-  box-shadow: 0px 2px 20px black;
-}
-
-#char-name {
-  display: grid;
-  grid-template-columns: auto;
-  background-color: #434951;
-  padding: 10px;
-  border: 1px solid black;
-  margin-bottom: 0px;
-  color: white;
-}
-
-#character-portrait {
-  height: 300px;
-  position: relative;
-  padding-left: 25%;
-}
-
-#portrait-view {
-  display: grid;
-  grid-template-columns: auto;
-  background-color: #eee;
-  padding: 10px;
-  border: 1px solid black;
-  margin-bottom: 0px;
-  margin-top: 0px;
-  background: url("../img/dark-background.jpg");
-  background-size: contain;
-}
-
-.attributes-display {
-  display: grid;
-  grid-template-columns: auto auto;
-  background-color: #434951;
-  color: white;
-}
-
-#experience h4 {
-  border: 1px solid black;
-  color: yellow;
-  font-size: 20px;
-  margin-bottom: 0px;
-  margin-top: 0px;
-}
-
-#experience-indicator {
-  border: 1px solid black;
-  color: lightgreen;
-  font-size: 20px;
-  margin-bottom: 0px;
-  margin-top: 0px;
-}
-
-#health-points h4 {
-  border: 1px solid black;
-  color: yellow;
-  font-size: 20px;
-  margin-bottom: 0px;
-  margin-top: 0px;
-}
-
-#health-points-indicator {
-  border: 1px solid black;
-  color: lightgreen;
-  font-size: 20px;
-  margin-bottom: 0px;
-  margin-top: 0px;
-}
-
-#mana-points h4 {
-  border: 1px solid black;
-  color: yellow;
-  font-size: 20px;
-  margin-bottom: 0px;
-  margin-top: 0px;
-}
-
-#mana-points-indicator {
-  border: 1px solid black;
-  color: lightgreen;
-  font-size: 20px;
-  margin-bottom: 0px;
-  margin-top: 0px;
-}
-
-#attack-power h4 {
-  border: 1px solid black;
-  color: yellow;
-  font-size: 20px;
-  margin-bottom: 0px;
-  margin-top: 0px;
-}
-
-#spell-power h4 {
-  border: 1px solid black;
-  color: yellow;
-  font-size: 20px;
-  margin-bottom: 0px;
-  margin-top: 0px;
-}
-
-#attack-power-indicator {
-  border: 1px solid black;
-  color: lightgreen;
-  font-size: 20px;
-  margin-bottom: 0px;
-  margin-top: 0px;
-}
-
-#spell-power-indicator {
-  border: 1px solid black;
-  color: lightgreen;
-  font-size: 20px;
-  margin-bottom: 0px;
-  margin-top: 0px;
-}
-
-.equipped-items-div {
-  display: grid;
-  grid-template-columns: auto auto;
-  background-color: black;
-}
-
-#equipped-weapon {
-  border: 1px solid grey;
-}
-
-#equipped-armor {
-  border: 1px solid grey;
-}
-
-.grid-item img {
-  max-height: 100px;
-  max-width: 100px;
-  object-fit: contain;
-  border: 2px solid green;
-}
-
-#weapon-icon {
-  height: 50px;
-  position: relative;
-  margin-bottom: 0px;
-  margin-top: 0px;
-}
-
-#armor-icon {
-  height: 50px;
-  position: relative;
-  margin-bottom: 0px;
-  margin-top: 0px;
-}
-
-#equipped-weapon-text-div {
-  background-color: black;
-}
-
-#equipped-armor-text-div {
-  background-color: black;
-}
-
-#equipped-weapon-text {
-  color: rebeccapurple;
-  font-weight: bold;
-  font-size: 16px;
-  border: 1px solid grey;
-  margin-bottom: 0px;
-  margin-top: 0px;
-}
-
-#equipped-armor-text {
-  color: rebeccapurple;
-  font-weight: bold;
-  font-size: 16px;
-  border: 1px solid grey;
-  margin-bottom: 0px;
-  margin-top: 0px;
-}
+/*******************/
+/* STAT ALLOCATION */
+/*******************/
 
 .stat-added {
   border:1px #333 solid;
@@ -744,18 +467,6 @@ body {
   width: 348px;
   padding-left: 4px;
 }
-
-/*#available-points-div{
-  width: 350px;
-  margin-top:30px;
-  font-size:12px;
-  border-color: #eee;
-  box-shadow: 2px 2px 10px #4e4e4e;
-  background-color: #5452d8;
-  padding: 7px;
-  border-radius: 5px;
-  border: #e7f1f3 3px solid;
-}*/
 
 .available-points-div-class {
   width: 350px;
@@ -797,8 +508,9 @@ body {
 }
 
 /****************************/
-/* IN GAME ADD STATS WINDOW */
+/* IN-GAME ADD STATS WINDOW */
 /****************************/
+
 #level-up-div2 {
   background-color: #333;
   margin-top: 2px;
@@ -842,6 +554,7 @@ body {
 /**********/
 /* Room 1 */
 /**********/
+
 #room-box {
   cursor: url('../img/gauntlet_mouse.png') 10 10, auto;
 }
@@ -1020,7 +733,9 @@ body {
   cursor: url('../img/item_mouse.png') 10 10, pointer;
 }
 
-/* KELLI'S STYLES */
+/************/
+/* LEVEL UP */
+/************/
 
 #level-up-window {
   display: none;
@@ -1158,4 +873,175 @@ body {
   border: #333 1px solid;
   text-shadow: 0 0 20px white;
   font-size:10px;
+}
+
+/********************/
+/* CHARACTER SCREEN */
+/********************/
+
+#character-screen {
+  display: none;
+  width: 768px;
+  height: 1475px;
+  background-size: 150%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  margin: 0 auto 50px auto;
+  border-radius: 3px;
+  box-shadow: 2px 2px 20px rgba(35, 34, 34, 0.98);
+  font-family: 'Press Start 2P', cursive;
+  color: #fff;
+}
+
+.btn-close-character-screen {
+  border: none;
+  background-color: #36399e;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+
+.btn-close-character-screen:focus {
+  background-color: #36399e;
+}
+
+#character-screen-inner {
+  background-color: rgba(191,183,183,0.35);
+  height: 790px;
+}
+
+.character-screen-title h2, .character-screen-title h4 {
+  text-align: center;
+  margin: 0 auto;
+  background-color: #36399e;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+}
+
+.character-screen-title h2 {
+  height: 100px;
+  padding-top: 30px;
+}
+
+#character-screen-name {
+  padding-left: 10px;
+}
+
+#character-screen-stats-grid {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto;
+  background-color: rgba(51,51,51,0.78);
+  padding: 30px 0px 30px 25px;
+  border: 1px solid #fff;
+}
+
+#character-screen-sprite {
+  margin-top: -10px;
+}
+
+.stats-title {
+  border: 1px solid #fff;
+  border-radius: 3px 3px 0 0;
+  padding: 5px;
+  color: #fff;
+  text-align: center;
+  border-color: #eee;
+  background-color: #5452d8;
+  height: 75px;
+  width: 80px;
+}
+
+.stats-item {
+  border-radius: 0px 0px 3px 3px;
+  color: #333;
+  text-align: center;
+  border-color: #eee;
+  background-color: #fff;
+  height: 50px;
+  margin-top: -37px;
+  padding-top: 18px;
+  width: 80px;
+}
+
+#character-screen-inv-title {
+  height: 80px;
+  padding-top: 30px;
+}
+
+#character-screen-inventory-grid {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  background-color: rgba(51,51,51,0.78);
+  padding: 30px 0px 50px 30px;
+  grid-gap: 30px 5px;
+  border: 1px solid;
+}
+
+.inventory-item {
+  height: 190px;
+  width: 150px;
+}
+
+.inventory-item-stats:hover {
+  cursor: help;
+}
+
+.inventory-item-text:hover {
+  cursor: copy;
+}
+
+.inventory-item-icon {
+  height: 150px;
+  width: 150px;
+  border-radius: 10px 10px 0 0;
+  background-color: black;
+}
+
+.inventory-item-text {
+  padding-top: 12px;
+  height: 40px;
+  width: 150px;
+  font-size: 0.7em;
+  text-align: center;
+  border-radius: 0 0 10px 10px;
+  background-color: black;
+}
+
+.inventory-item-stats {
+  display: none;
+  height: 150px;
+  width: 150px;
+  border-radius: 10px 10px 0 0;
+  background-color: black;
+}
+
+.inventory-item-stats p {
+  text-align: center;
+  padding-top: 10px;
+}
+
+.inventory-item-armor {
+  background-image: url("../img/breastplate.png");
+  background-size: 80%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+.inventory-item-weapon {
+  background-image: url("../img/broadsword.png");
+  background-size: 80%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+.inventory-item-consumable {
+  background-image: url("../img/potion.png");
+  background-size: 80%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+.item-equipped {
+  background-color: rgba(45, 42, 193, 0.68);
+  border-width: 3px;
+  border-color: rgba(45, 42, 193, 0.68);
 }

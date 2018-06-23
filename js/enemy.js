@@ -4,7 +4,7 @@ console.log("enemy.js loaded!");
 var enemyMap = {};
 
 // Enemy Constructor
-function Enemy(id, tier, name, hp, dmg, xp, loot) {
+function Enemy(id, tier, name, hp, dmg, xp, gold) {
   this.id = id;
   this.tier = tier;
   this.name = name;
@@ -12,8 +12,9 @@ function Enemy(id, tier, name, hp, dmg, xp, loot) {
   this.hp = this.hpMax;
   this.dmg = dmg;
   this.xp = xp;
-  this.loot = loot;
   this.goesFirst = true;
+  this.loot = itemMap.fetchLevelSpecificItems(this.tier);
+  this.gold = gold;
 }
 
 // Enemy Map Constructor
@@ -24,14 +25,14 @@ function EnemyMap() {
 // Populates map with a predefined list of enemies set by tier (id, tier, name, hp, dmg, xp, loot)
 EnemyMap.prototype.populateEnemies = function() {
   //Room 1 Enemies
-  var enemy1 = new Enemy(1, 1, "Skeleton Guard", 5, 1, 50, itemMap.fetchLevelSpecificItems(1));
-  var enemy2 = new Enemy(2, 1, "Skeleton Guard", 5, 1, 50, itemMap.fetchLevelSpecificItems(1));
+  var enemy1 = new Enemy(1, 1, "Skeleton Guard", 5, 1, 50, 10);
+  var enemy2 = new Enemy(2, 1, "Skeleton Guard", 5, 1, 50, 10);
 
   //Room 2 Enemies
-  var enemy3 = new Enemy(3, 2, "Skeleton Warrior", 10, 2, 65, itemMap.fetchLevelSpecificItems(2));
-  var enemy4 = new Enemy(4, 2, "Skeleton Warrior", 10, 2, 65, itemMap.fetchLevelSpecificItems(2));
-  var enemy5 = new Enemy(5, 3, "Skeleton Warlord", 15, 3, 65, itemMap.fetchLevelSpecificItems(3));
-  var enemy6 = new Enemy(6, 3, "Troll King", 22, 5, 150, itemMap.fetchLevelSpecificItems(3));
+  var enemy3 = new Enemy(3, 2, "Skeleton Warrior", 10, 2, 65, 25);
+  var enemy4 = new Enemy(4, 2, "Skeleton Warrior", 10, 2, 65, 25);
+  var enemy5 = new Enemy(5, 2, "Skeleton Warlord", 15, 3, 80, 25);
+  var enemy6 = new Enemy(6, 3, "Troll King", 25, 5, 150, 100);
 
   this.enemy1 = enemy1;
   this.enemy2 = enemy2;

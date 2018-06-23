@@ -5,7 +5,7 @@ var itemMap = {};
 
 // Item Constructor
 function Item(id, name, type, level, hp, ap, sp, mp, icon) {
-  this.id = id; // Unique single digit number (e.g, 3)
+  this.id = id; // Unique name that mirrors key of stored object in itemMap
   this.name = name; // String (e.g, "Sword of Woe")
   this.type = type; // "Weapon" or "Armor" or "Consumable"
   this.level = level;
@@ -14,22 +14,12 @@ function Item(id, name, type, level, hp, ap, sp, mp, icon) {
   this.spellBonus = sp;
   this.addMp = mp;
   this.icon = icon;
+  this.equipped = false;
 }
 
-// Item Map Constructor
+// Item Map Populator
 function ItemMap() {
   this.populateItems();
-}
-
-// Assigns the right level of item depending on enemy tier
-ItemMap.prototype.fetchLevelSpecificItems = function(level) {
-  var itemArray = [];
-  for (var item in this) {
-    if(this[item].level === level) {
-      itemArray.push(this[item]);
-    }
-  }
-  return itemArray;
 }
 
 // Populate map with a predefined list of items
@@ -48,10 +38,6 @@ ItemMap.prototype.populateItems = function() {
   var epicArmor2 = new Item("epicArmor2", "Robe of Seething Power", "Armor", 3, 0, 0, 4, 8, "<img src='img/breastplate.png'>");
   var healthPotion1 = new Item("healthPotion1", "Minor Health Potion", "Consumable", 1, 5, 0, 0, 0, "<img src='img/health-potion-icon.png'>");
   var manaPotion1 = new Item("manaPotion1", "Minor Mana Potion", "Consumable", 1, 0, 0, 0, 5, "<img src='img/mana-potion-icon.png'>");
-  var healthPotion2 = new Item("healthPotion2", "Health Potion", "Consumable", 2, 10, 0, 0, 0, "<img src='img/health-potion-icon.png'>");
-  var manaPotion2 = new Item("manaPotion2", "Mana Potion", "Consumable", 2, 0, 0, 0, 10, "<img src='img/mana-potion-icon.png'>");
-  var healthPotion3 = new Item("healthPotion3", "Major Health Potion", "Consumable", 3, 20, 0, 0, 0, "<img src='img/health-potion-icon.png'>");
-  var manaPotion3 = new Item("manaPotion3", "Major Mana Potion", "Consumable", 3, 0, 0, 0, 20, "<img src='img/mana-potion-icon.png'>");
 
   this.sword1 = sword1;
   this.staff1 = staff1;
@@ -66,14 +52,26 @@ ItemMap.prototype.populateItems = function() {
   this.epicArmor1 = epicArmor1;
   this.epicArmor2 = epicArmor2;
   this.healthPotion1 = healthPotion1;
-  this.healthPotion2 = healthPotion2;
-  this.healthPotion3 = healthPotion3;
   this.manaPotion1 = manaPotion1;
-  this.manaPotion2 = manaPotion2;
-  this.manaPotion3 = manaPotion3;
 }
 
-// Instantiate global item map object on init
+ItemMap.prototype.maxRollsAllowed = function() {
+  return 100;
+}
+
+// Assigns the right level of item depending on enemy tier
+ItemMap.prototype.fetchLevelSpecificItems = function(level) {
+  var itemArray = [];
+  for (var item in this) {
+    if (this[item].level === level) {
+      itemArray.push(this[item]);
+    }
+  }
+  return itemArray;
+}
+
+// Instantiate global itemMap object on init
 function buildItems() {
   itemMap = new ItemMap();
 }
+
