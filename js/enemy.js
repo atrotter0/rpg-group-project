@@ -32,7 +32,7 @@ EnemyMap.prototype.populateEnemies = function() {
   var enemy3 = new Enemy(3, 2, "Skeleton Warrior", 10, 2, 65, 25);
   var enemy4 = new Enemy(4, 2, "Skeleton Warrior", 10, 2, 65, 25);
   var enemy5 = new Enemy(5, 2, "Skeleton Warlord", 15, 3, 80, 25);
-  var enemy6 = new Enemy(6, 3, "Troll King", 22, 5, 150, 100);
+  var enemy6 = new Enemy(6, 3, "Troll King", 25, 5, 150, 100);
 
   this.enemy1 = enemy1;
   this.enemy2 = enemy2;

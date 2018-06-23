@@ -348,7 +348,9 @@ function upgradeStats() {
     alertError("You haven't spent all your points yet!")
   } else {
     player.hpMax += newStats.newHp;
+    player.hp = player.hpMax;
     player.mpMax += newStats.newMp;
+    player.mp = player.mpMax;
     player.ap += newStats.newAp;
     player.sp += newStats.newSp;
     newStats.newHp = 0;
