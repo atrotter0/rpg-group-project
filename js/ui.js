@@ -529,7 +529,7 @@ function resetInventoryIcons(element) {
 }
 
 function checkEquippedDisplay(item, element) {
-  if (item.equipped) {
+  if (item.equipped == true) {
     $(element).children(".inventory-item-icon").addClass("item-equipped");
     $(element).children(".inventory-item-stats").addClass("item-equipped");
     $(element).children(".inventory-item-text").addClass("item-equipped");

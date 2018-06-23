@@ -186,6 +186,8 @@ Player.prototype.rebuildItems = function() {
     var item = this.items[i];
     if (item.id === itemMap[item.id].id) {
       this.items[i] = itemMap[item.id];
+      this.updateEquippedWeapon();
+      this.updateEquippedArmor();
     }
   }
 }
@@ -196,17 +198,19 @@ Player.prototype.equipItem = function(item) {
   } else {
     this.equippedArmor = item.name;
   }
+  this.updateEquippedItem(item, true);
   this.addItemStats(item);
 }
 
 Player.prototype.unEquipItem = function(item) {
   if (item.type === "Weapon") {
-    this.removeItemStats(item);
     this.equippedWeapon = "";
   } else {
-    this.removeItemStats(item);
     this.equippedArmor = "";
   }
+  this.updateEquippedItem(item, false);
+  item.equipped = false;
+  this.removeItemStats(item);
 }
 
 Player.prototype.addItemStats = function(item) {
@@ -233,13 +237,36 @@ Player.prototype.runEquip = function(itemName) {
   var item = getItemFromItemName(itemName);
   console.log("Equipped: " + item.equipped);
   if (item.type !== "Consumable" && item.equipped) {
-    console.log("equipping");
     this.unEquipItem(item);
-    item.equipped = false;
   } else if (item.type !== "Consumable" && !item.equipped) {
-    console.log("unequipping");
     this.equipItem(item);
-    item.equipped = true;
+  }
+}
+
+Player.prototype.updateEquippedItem = function(item, equippedValue) {
+  for (var i = 0; i < player.items.length; i++) {
+    if (item === player.items[i]) {
+      console.log("updating equipped value" + player.items[i].equipped);
+      player.items[i].equipped = equippedValue;
+    }
+  }
+}
+
+Player.prototype.updateEquippedWeapon = function() {
+  for (var i = 0; i < player.items.length; i++) {
+    if (player.items[i].name === player.equippedWeapon) {
+      player.items[i].equipped = true;
+      break;
+    }
+  }
+}
+
+Player.prototype.updateEquippedArmor = function() {
+  for (var i = 0; i < player.items.length; i++) {
+    if (player.items[i].name === player.equippedArmor) {
+      player.items[i].equipped = true;
+      break;
+    }
   }
 }
 
@@ -288,6 +315,8 @@ function updatePlayerFromStorage(storedPlayer) {
   player.hasHealingConsumable = storedPlayer.hasHealingConsumable;
   player.hasManaConsumable = storedPlayer.hasManaConsumable;
   player.nextLevel = storedPlayer.nextLevel;
+  player.equippedWeapon = storedPlayer.equippedWeapon;
+  player.equippedArmor = storedPlayer.equippedArmor;
 
   player.rebuildItems();
 }
