@@ -94,11 +94,13 @@ Player.prototype.removeItem = function(itemName) {
 Player.prototype.checkLoot = function(enemy) {
   const LOOTABLE_ITEMS = enemy.loot.length - 1;
   var uniqueItem = false;
+  var counter = 1;
 
-  while(!uniqueItem) {
-    var randomNumber = rollDice(LOOTABLE_ITEMS);
+  while(!uniqueItem && counter <= itemMap.maxRollsAllowed()) {
+    var randomNumber = rollForItem(LOOTABLE_ITEMS);
+    counter++;
 
-    if(this.items.includes(enemy.loot[randomNumber])) {
+    if (this.items.includes(enemy.loot[randomNumber])) {
       console.log("skip");
       console.log(enemy.loot[randomNumber]);
       continue;
@@ -108,7 +110,18 @@ Player.prototype.checkLoot = function(enemy) {
       uniqueItem = true;
     }
   }
+  this.makeDuplicateRoll(counter, enemy);
   console.log(this.items);
+}
+
+Player.prototype.makeDuplicateRoll = function(counter, enemy) {
+  if (counter >= itemMap.maxRollsAllowed()) this.rewardDuplicateItem(enemy);
+}
+
+Player.prototype.rewardDuplicateItem = function(enemy) {
+  console.log("Rewarding duplicate item...");
+  var randomRoll = rollDice(enemy.loot.length - 1);
+  this.items.push(enemy.loot[randomRoll]);
 }
 
 Player.prototype.checkClickItem = function() {
@@ -320,6 +333,13 @@ function updatePlayerFromStorage(storedPlayer) {
   player.rebuildItems();
 }
 
+// returns a random number between 0 and maxNumber
+function rollForItem(maxNumber) {
+  var roll = Math.floor(Math.random() * maxNumber);
+  return roll;
+}
+
+// returns a random number between 1 and maxNumber
 function rollDice(maxNumber) {
   var roll = Math.floor(Math.random() * maxNumber) + 1;
   return roll;
