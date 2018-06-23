@@ -519,7 +519,7 @@ function displayInInventory(item, index) {
   checkEquippedDisplay(item, element);
   displayItemIcon(item, element);
   displayItemStats(item, element);
-  displayItemText();
+  displayItemText(item);
 }
 
 function resetEquipped(element) {
