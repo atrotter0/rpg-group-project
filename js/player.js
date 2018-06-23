@@ -23,6 +23,8 @@ function Player(room) {
   this.nextLevel = 100;
   this.equippedWeapon = "";
   this.equippedArmor = "";
+  this.gold = 0;
+  this.lastLootAwarded = "";
 }
 
 Player.prototype.playerAttack = function(enemy) {
@@ -107,21 +109,22 @@ Player.prototype.checkLoot = function(enemy) {
     } else {
       this.items.push(enemy.loot[randomNumber]);
       console.log(enemy.loot[randomNumber]);
+      this.lastLootAwarded = enemy.loot[randomNumber].name;
       uniqueItem = true;
     }
   }
   this.makeDuplicateRoll(counter, enemy);
-  console.log(this.items);
 }
 
 Player.prototype.makeDuplicateRoll = function(counter, enemy) {
-  if (counter >= itemMap.maxRollsAllowed()) this.rewardDuplicateItem(enemy);
+  if (counter >= itemMap.maxRollsAllowed()) this.rewardGold(enemy);
 }
 
-Player.prototype.rewardDuplicateItem = function(enemy) {
-  console.log("Rewarding duplicate item...");
-  var randomRoll = rollDice(enemy.loot.length - 1);
-  this.items.push(enemy.loot[randomRoll]);
+Player.prototype.rewardGold = function(enemy) {
+  console.log("Rewarding gold instead of duplicate item...");
+  var randomGold = rollDice(enemy.gold);
+  this.gold += randomGold;
+  this.lastLootAwarded = randomGold + " gold";
 }
 
 Player.prototype.checkClickItem = function() {
@@ -187,7 +190,7 @@ Player.prototype.startLevelUp = function() {
 
 Player.prototype.giveAwardsToPlayer = function(enemy) {
   this.xp += enemy.xp;
-  this.checkLoot(enemy);
+  this.lootAwarded = this.checkLoot(enemy);
 }
 
 Player.prototype.getLastItem = function() {
@@ -246,7 +249,7 @@ Player.prototype.addItemStats = function(item) {
   this.hpMax += item.addHp;
   this.hp += item.addHp;
   this.mpMax += item.addMp;
-  this.mp += item.addMp
+  this.mp += item.addMp;
   this.ap += item.attackBonus;
   this.sp += item.spellBonus;
   adjustCharacterStats();
@@ -256,7 +259,7 @@ Player.prototype.removeItemStats = function(item) {
   this.hpMax -= item.addHp;
   this.hp -= item.addHp;
   this.mpMax -= item.addMp;
-  this.mp -= item.addMp
+  this.mp -= item.addMp;
   this.ap -= item.attackBonus;
   this.sp -= item.spellBonus;
   adjustCharacterStats();
@@ -335,6 +338,8 @@ function updatePlayerFromStorage(storedPlayer) {
   player.nextLevel = storedPlayer.nextLevel;
   player.equippedWeapon = storedPlayer.equippedWeapon;
   player.equippedArmor = storedPlayer.equippedArmor;
+  player.gold = storedPlayer.gold;
+  player.lastLootAwarded = storedPlayer.lastLootAwarded;
 
   player.rebuildItems();
 }

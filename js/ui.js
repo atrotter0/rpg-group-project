@@ -403,7 +403,7 @@ function showLootScreen() {
   $("#battle-loot-screen").addClass("current-screen").show();
   $("#loot-screen-enemy-name").text(player.currentEnemy.name + " slain!");
   $("#battle-xp").text("XP: " + player.currentEnemy.xp);
-  $("#battle-items").text("Items: " + player.getLastItem().name);
+  $("#battle-items").text("Loot: " + player.lastLootAwarded);
 }
 
 function setDisabledConsumables() {
@@ -538,7 +538,6 @@ function resetInventoryIcons(element) {
 }
 
 function resetEquippedDisplay() {
-  console.log("resetting equipped display");
   $(".inventory-item").children(".inventory-item-icon").removeClass("item-equipped");
   $(".inventory-item").children(".inventory-item-stats").removeClass("item-equipped");
   $(".inventory-item").children(".inventory-item-text").removeClass("item-equipped");
