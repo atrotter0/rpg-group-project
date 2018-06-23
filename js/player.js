@@ -186,8 +186,8 @@ Player.prototype.rebuildItems = function() {
     var item = this.items[i];
     if (item.id === itemMap[item.id].id) {
       this.items[i] = itemMap[item.id];
-      this.updateEquippedWeapon();
-      this.updateEquippedArmor();
+      this.recallEquippedWeapon();
+      this.recallEquippedArmor();
     }
   }
 }
@@ -251,7 +251,7 @@ Player.prototype.updateEquippedItem = function(item, equippedValue) {
   }
 }
 
-Player.prototype.updateEquippedWeapon = function() {
+Player.prototype.recallEquippedWeapon = function() {
   for (var i = 0; i < player.items.length; i++) {
     if (player.items[i].name === player.equippedWeapon) {
       player.items[i].equipped = true;
@@ -260,7 +260,7 @@ Player.prototype.updateEquippedWeapon = function() {
   }
 }
 
-Player.prototype.updateEquippedArmor = function() {
+Player.prototype.recallEquippedArmor = function() {
   for (var i = 0; i < player.items.length; i++) {
     if (player.items[i].name === player.equippedArmor) {
       player.items[i].equipped = true;
