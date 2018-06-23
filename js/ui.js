@@ -567,7 +567,8 @@ function displayItemStats(item, element) {
 }
 
 function displayItemText(item, element) {
-
+  console.log(item);
+  $(element).children(".inventory-item-text").text(item.name);
 }
 
 $(document).ready(function() {
