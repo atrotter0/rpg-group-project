@@ -507,19 +507,21 @@ function showCharacterScreen() {
 }
 
 function runLoadInventory() {
+  console.log("running inv load");
   for (var i = 0; i < player.items.length; i++) {
+    console.log(i);
     displayInInventory(player.items[i], i);
   }
 }
 
 function displayInInventory(item, index) {
-  var element = $("#inventory-item" + index);
+  var element = $("#inventory-item-" + index);
   resetEquipped(element);
   resetInventoryIcons(element);
   checkEquippedDisplay(item, element);
   displayItemIcon(item, element);
   displayItemStats(item, element);
-  displayItemText(item);
+  displayItemText(item, element);
 }
 
 function resetEquipped(element) {
@@ -567,7 +569,6 @@ function displayItemStats(item, element) {
 }
 
 function displayItemText(item, element) {
-  console.log(item);
   $(element).children(".inventory-item-text").text(item.name);
 }
 
