@@ -558,10 +558,10 @@ function displayItemIcon(item, element) {
 
 function displayItemStats(item, element) {
   if (item.addHp > 0) {
-    $(element).children(".inventory-item-stats").children(".item-hp").text("HP: +" + item.addHp);
+    $(element).children(".inventory-item-stats").children(".item-hp").text("HP: +" + checkConsumableScore(item, item.addHp));
   }
   if (item.addMp > 0) {
-    $(element).children(".inventory-item-stats").children(".item-mp").text("MP: +" + item.addMp);
+    $(element).children(".inventory-item-stats").children(".item-mp").text("MP: +" + checkConsumableScore(item, item.addMp));
   }
   if (item.attackBonus > 0) {
     $(element).children(".inventory-item-stats").children(".item-ap").text("AP: +" + item.attackBonus);
@@ -569,6 +569,12 @@ function displayItemStats(item, element) {
   if (item.spellBonus > 0) {
     $(element).children(".inventory-item-stats").children(".item-sp").text("SP: +" + item.spellBonus);
   }
+}
+
+function checkConsumableScore(item, bonusValue) {
+  if (item.type === "Consumable") bonusValue = bonusValue + "%";
+
+  return bonusValue;
 }
 
 function displayItemText(item, element) {
