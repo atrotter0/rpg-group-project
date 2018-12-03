@@ -4,6 +4,7 @@ console.log("battle.js loaded!");
 function startBattle(enemy) {
   hideCurrentScreen();
   showBattleScreen();
+  hideBattleMenu();
   rollInitiative(enemy);
   firstTurn(enemy);
 }
