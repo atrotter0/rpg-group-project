@@ -422,6 +422,10 @@ function setDisabledConsumables() {
   }
 }
 
+function updatePotionCount(count, stat) {
+  $("#battle-" + stat + "-potion-count").text(count);
+}
+
 function runLevelUp() {
   initiateLevelUp();
   hideCurrentScreen();
