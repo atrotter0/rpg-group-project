@@ -41,7 +41,7 @@ function grabEnemyId(element) {
 // Creates the click events for items doors hero and traps in a room
 function createItemClickEvents() {
   //First Room
-  $("#room1-item1").click(function(){
+  $("#room1-item1").click(function() {
     if (enemyMap.enemy2.isDead()) {
       player.checkClickItem();
       alertRoom("You found a " + player.items[player.items.length - 1].name + ".");
@@ -53,14 +53,14 @@ function createItemClickEvents() {
     }
   });
 
-  $("#room1-item2").click(function(){
+  $("#room1-item2").click(function() {
       player.checkClickConsumable();
       alertRoom("You found a " + player.items[player.items.length - 1].name + ".");
       $("#room1-item2").off("click");
       $("#room1-item2").css({'cursor' : "url('img/gauntlet_mouse.png') 10 10, pointer"});
   });
 
-  $("#room2-item3").click(function(){
+  $("#room2-item3").click(function() {
     if (enemyMap.enemy4.isDead() && enemyMap.enemy5.isDead()) {
       player.checkClickItem();
       alertRoom("You found a " + player.items[player.items.length - 1].name + ".");
@@ -108,21 +108,21 @@ function createDoorClickEvents() {
 }
 
 function createTrapClickEvents() {
-  $("#room2-trap1").click(function(){
-    var spikeDamage = player.hpMax * 0.25;
-    player.hp = player.hp - spikeDamage;
+  $("#room2-trap1").click(function() {
+    var spikeDamage = Math.round(player.hpMax * 0.25);
+    player.hp -= spikeDamage;
     alertRoom("You stepped on a spike trap and lost " + spikeDamage + " health!");
     setTimeout(function() { checkPlayerDead(); }, 2000);
   });
 }
 
 function createHeroClickEvents() {
-  $("#room1-hero").click(function(){
+  $("#room1-hero").click(function() {
     alertRoom("You opened your inventory.");
     //show inventory
   });
 
-  $("#room2-hero").click(function(){
+  $("#room2-hero").click(function() {
     alertRoom("You opened your inventory.");
     //show inventory
   });
