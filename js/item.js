@@ -9,10 +9,10 @@ function Item(id, name, type, level, hp, ap, sp, mp, icon) {
   this.name = name; // String (e.g, "Sword of Woe")
   this.type = type; // "Weapon" or "Armor" or "Consumable"
   this.level = level;
-  this.addHp = hp;
+  this.addHp = hp; // percentage based for potions
   this.attackBonus = ap;
   this.spellBonus = sp;
-  this.addMp = mp;
+  this.addMp = mp; // percentage based for potions
   this.icon = icon;
   this.equipped = false;
 }
@@ -36,8 +36,8 @@ ItemMap.prototype.populateItems = function() {
   var midArmor2 = new Item("midArmor2", "Wizard's Robe", "Armor", 2, 0, 0, 2, 3, "<img src='img/breastplate.png'>");
   var epicArmor1 = new Item("epicArmor1", "Cuirass of The Colossus", "Armor", 3, 8, 4, 0, 0, "<img src='img/breastplate.png'>");
   var epicArmor2 = new Item("epicArmor2", "Robe of Seething Power", "Armor", 3, 0, 0, 4, 8, "<img src='img/breastplate.png'>");
-  var healthPotion1 = new Item("healthPotion1", "Minor Health Potion", "Consumable", 1, 5, 0, 0, 0, "<img src='img/health-potion-icon.png'>");
-  var manaPotion1 = new Item("manaPotion1", "Minor Mana Potion", "Consumable", 1, 0, 0, 0, 5, "<img src='img/mana-potion-icon.png'>");
+  var healthPotion1 = new Item("healthPotion1", "Minor Health Potion", "Consumable", 1, 30, 0, 0, 0, "<img src='img/health-potion-icon.png'>");
+  var manaPotion1 = new Item("manaPotion1", "Minor Mana Potion", "Consumable", 1, 0, 0, 0, 30, "<img src='img/mana-potion-icon.png'>");
 
   this.sword1 = sword1;
   this.staff1 = staff1;

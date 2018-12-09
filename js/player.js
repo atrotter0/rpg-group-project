@@ -71,18 +71,29 @@ Player.prototype.checkManaPotion = function() {
 
 Player.prototype.useHealthPotion = function() {
   this.removeItem(itemMap.healthPotion1.name);
-  this.hp += itemMap.healthPotion1.addHp;
+  var hpRecovered = this.calculateHpMpRecovered(itemMap.healthPotion1.addHp, "hp");
+  this.hp += hpRecovered;
 
   if (this.hp > this.hpMax) this.hp = this.hpMax;
-  battleAlert(this.name + " uses a " + itemMap.healthPotion1.name + " and recovers " + itemMap.healthPotion1.addHp + " health!");
+  battleAlert(this.name + " uses a " + itemMap.healthPotion1.name + " and recovers " + hpRecovered + " health!");
 }
 
 Player.prototype.useManaPotion = function() {
   this.removeItem(itemMap.manaPotion1.name);
-  this.mp += itemMap.manaPotion1.addMp;
+  var mpRecovered = this.calculateHpMpRecovered(itemMap.manaPotion1.addMp, "mp");
+  this.mp += mpRecovered;
 
   if (this.mp > this.mpMax) this.mp = this.mpMax;
-  battleAlert(this.name + " uses a " + itemMap.manaPotion1.name + " and recovers " + itemMap.manaPotion1.addMp + " mana!");
+  battleAlert(this.name + " uses a " + itemMap.manaPotion1.name + " and recovers " + mpRecovered + " mana!");
+}
+
+Player.prototype.calculateHpMpRecovered = function(baseValue, stat) {
+  var percentageRecovered = baseValue / 100;
+  var recovered = 0;
+  stat === "hp"
+    ? recovered = Math.round(percentageRecovered * this.hpMax)
+    : recovered = Math.round(percentageRecovered * this.mpMax);
+  return recovered;
 }
 
 Player.prototype.removeItem = function(itemName) {
