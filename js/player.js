@@ -59,6 +59,7 @@ Player.prototype.checkHealingPotion = function() {
   } else {
     this.hasHealingConsumable = false;
   }
+  this.countConsumables(itemMap.healthPotion1, "health");
 }
 
 Player.prototype.checkManaPotion = function() {
@@ -67,6 +68,16 @@ Player.prototype.checkManaPotion = function() {
   } else {
     this.hasManaConsumable = false;
   }
+  this.countConsumables(itemMap.manaPotion1, "mana");
+}
+
+Player.prototype.countConsumables = function(item, stat) {
+  var potionCount = 0;
+  this.items.forEach(function(playerItem) {
+    if (item.name === playerItem.name) potionCount++;
+  });
+  // Update potion count in battle UI
+  updatePotionCount(potionCount, stat);
 }
 
 Player.prototype.useHealthPotion = function() {
