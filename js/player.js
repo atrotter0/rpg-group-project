@@ -59,6 +59,7 @@ Player.prototype.checkHealingPotion = function() {
   } else {
     this.hasHealingConsumable = false;
   }
+  this.countConsumables(itemMap.healthPotion1, "health");
 }
 
 Player.prototype.checkManaPotion = function() {
@@ -67,22 +68,43 @@ Player.prototype.checkManaPotion = function() {
   } else {
     this.hasManaConsumable = false;
   }
+  this.countConsumables(itemMap.manaPotion1, "mana");
+}
+
+Player.prototype.countConsumables = function(item, stat) {
+  var potionCount = 0;
+  this.items.forEach(function(playerItem) {
+    if (item.name === playerItem.name) potionCount++;
+  });
+  // Update potion count in battle UI
+  updatePotionCount(potionCount, stat);
 }
 
 Player.prototype.useHealthPotion = function() {
   this.removeItem(itemMap.healthPotion1.name);
-  this.hp += itemMap.healthPotion1.addHp;
+  var hpRecovered = this.calculateHpMpRecovered(itemMap.healthPotion1.addHp, "hp");
+  this.hp += hpRecovered;
 
   if (this.hp > this.hpMax) this.hp = this.hpMax;
-  battleAlert(this.name + " uses a " + itemMap.healthPotion1.name + " and recovers " + itemMap.healthPotion1.addHp + " health!");
+  battleAlert(this.name + " uses a " + itemMap.healthPotion1.name + " and recovers " + hpRecovered + " health!");
 }
 
 Player.prototype.useManaPotion = function() {
   this.removeItem(itemMap.manaPotion1.name);
-  this.mp += itemMap.manaPotion1.addMp;
+  var mpRecovered = this.calculateHpMpRecovered(itemMap.manaPotion1.addMp, "mp");
+  this.mp += mpRecovered;
 
   if (this.mp > this.mpMax) this.mp = this.mpMax;
-  battleAlert(this.name + " uses a " + itemMap.manaPotion1.name + " and recovers " + itemMap.manaPotion1.addMp + " mana!");
+  battleAlert(this.name + " uses a " + itemMap.manaPotion1.name + " and recovers " + mpRecovered + " mana!");
+}
+
+Player.prototype.calculateHpMpRecovered = function(baseValue, stat) {
+  var percentageRecovered = baseValue / 100;
+  var recovered = 0;
+  stat === "hp"
+    ? recovered = Math.round(percentageRecovered * this.hpMax)
+    : recovered = Math.round(percentageRecovered * this.mpMax);
+  return recovered;
 }
 
 Player.prototype.removeItem = function(itemName) {
